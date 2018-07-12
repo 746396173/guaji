@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94B0FF5B-9A14-43AF-A3CE-D00DF449D3EA}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>挂机软件</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Lzma">
+      <HintPath>.\Lzma.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>.\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Data" />
+    <Reference Include="MdiTabControl">
+      <HintPath>.\MdiTabControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System.Web" />
+    <Reference Include="Microsoft.mshtml" />
+    <Reference Include="System.Management" />
+    <Reference Include="Interop.MSScriptControl">
+      <HintPath>.\Interop.MSScriptControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.MSXML2">
+      <HintPath>.\Interop.MSXML2.dll</HintPath>
+    </Reference>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="IntelligentPlanning\WindowWrap.cs" />
+    <Compile Include="IntelligentPlanning\ExForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\FrmManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\ConfigurationStatus.cs" />
+    <Compile Include="IntelligentPlanning\Properties\Resources.cs" />
+    <Compile Include="IntelligentPlanning\PTBase.cs" />
+    <Compile Include="IntelligentPlanning\WZYL.cs" />
+    <Compile Include="IntelligentPlanning\LSWJS.cs" />
+    <Compile Include="IntelligentPlanning\LGZX.cs" />
+    <Compile Include="IntelligentPlanning\CTT.cs" />
+    <Compile Include="IntelligentPlanning\CLYL.cs" />
+    <Compile Include="IntelligentPlanning\BLGJ.cs" />
+    <Compile Include="IntelligentPlanning\ALGJ.cs" />
+    <Compile Include="IntelligentPlanning\FrmInputGDQM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\FrmImageUserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\ExDataGridView\ImageTextColumn.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\ImageTextCell.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\ExpandGirdView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\TrendView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\ShrinkEX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink8.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink14.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink13.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink11.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\Properties\Settings.cs" />
+    <Compile Include="IntelligentPlanning\Program.cs" />
+    <Compile Include="IntelligentPlanning\YHSG.cs" />
+    <Compile Include="IntelligentPlanning\WYYL.cs" />
+    <Compile Include="IntelligentPlanning\WHC.cs" />
+    <Compile Include="IntelligentPlanning\NBYL.cs" />
+    <Compile Include="IntelligentPlanning\MRYL.cs" />
+    <Compile Include="IntelligentPlanning\HNYL.cs" />
+    <Compile Include="IntelligentPlanning\DTCP.cs" />
+    <Compile Include="IntelligentPlanning\FrmKeyboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\FNWJJHLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\CodeLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\FrmFollowBets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\ValueLable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink7.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink12.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\YHYL.cs" />
+    <Compile Include="IntelligentPlanning\WXYL.cs" />
+    <Compile Include="IntelligentPlanning\WCAI.cs" />
+    <Compile Include="IntelligentPlanning\SIJI.cs" />
+    <Compile Include="IntelligentPlanning\RDYL.cs" />
+    <Compile Include="IntelligentPlanning\M5CP.cs" />
+    <Compile Include="IntelligentPlanning\HUBO.cs" />
+    <Compile Include="IntelligentPlanning\HCZX.cs" />
+    <Compile Include="IntelligentPlanning\FEIC.cs" />
+    <Compile Include="IntelligentPlanning\A6YL.cs" />
+    <Compile Include="IntelligentPlanning\FrmRunProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\FrmProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\FrmViewValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\FNYLCHLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\ExDataGridView\ExCheckBoxColumn.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\ExCheckBoxColumnHeaderCell.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\DataGridViewCheckBoxCellEx.cs" />
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink6.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\YSEN.cs" />
+    <Compile Include="IntelligentPlanning\XCAI.cs" />
+    <Compile Include="IntelligentPlanning\HKC.cs" />
+    <Compile Include="IntelligentPlanning\DJYL.cs" />
+    <Compile Include="IntelligentPlanning\DACP.cs" />
+    <Compile Include="IntelligentPlanning\BMYX.cs" />
+    <Compile Include="IntelligentPlanning\B6YL.cs" />
+    <Compile Include="IntelligentPlanning\FrmMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\OpenDataLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\AppImage.cs" />
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink10.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\HJFGCount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\WorkThread\MainThread.cs" />
+    <Compile Include="IntelligentPlanning\ZXYL.cs" />
+    <Compile Include="IntelligentPlanning\XWYL.cs" />
+    <Compile Include="IntelligentPlanning\XHSD.cs" />
+    <Compile Include="IntelligentPlanning\XHDF.cs" />
+    <Compile Include="IntelligentPlanning\WEYL.cs" />
+    <Compile Include="IntelligentPlanning\TCYL.cs" />
+    <Compile Include="IntelligentPlanning\HLC.cs" />
+    <Compile Include="IntelligentPlanning\CYYL.cs" />
+    <Compile Include="IntelligentPlanning\BWT.cs" />
+    <Compile Include="IntelligentPlanning\BHGJ.cs" />
+    <Compile Include="IntelligentPlanning\AMBLR.cs" />
+    <Compile Include="IntelligentPlanning\CustomControls\ScrollingText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\ScrollDirection.cs" />
+    <Compile Include="IntelligentPlanning\CustomControls\VerticleTextPosition.cs" />
+    <Compile Include="IntelligentPlanning\CustomControls\FNLRWCHLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\FNSJCHLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\YL2028.cs" />
+    <Compile Include="IntelligentPlanning\WDYL.cs" />
+    <Compile Include="IntelligentPlanning\WBJ.cs" />
+    <Compile Include="IntelligentPlanning\UCYL.cs" />
+    <Compile Include="IntelligentPlanning\TBYL.cs" />
+    <Compile Include="IntelligentPlanning\QQYL.cs" />
+    <Compile Include="IntelligentPlanning\QFZX.cs" />
+    <Compile Include="IntelligentPlanning\HRCP.cs" />
+    <Compile Include="IntelligentPlanning\GJYL.cs" />
+    <Compile Include="IntelligentPlanning\DYYL.cs" />
+    <Compile Include="IntelligentPlanning\FNYX.cs" />
+    <Compile Include="IntelligentPlanning\CustomControls\ZBJView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\FNKMTMLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink15.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\ZYL.cs" />
+    <Compile Include="IntelligentPlanning\YDYL.cs" />
+    <Compile Include="IntelligentPlanning\WTYL.cs" />
+    <Compile Include="IntelligentPlanning\WCYL.cs" />
+    <Compile Include="IntelligentPlanning\TRYL.cs" />
+    <Compile Include="IntelligentPlanning\TIYU.cs" />
+    <Compile Include="IntelligentPlanning\TAYL.cs" />
+    <Compile Include="IntelligentPlanning\SKYYL.cs" />
+    <Compile Include="IntelligentPlanning\JLGJ.cs" />
+    <Compile Include="IntelligentPlanning\JCX.cs" />
+    <Compile Include="IntelligentPlanning\HZYL.cs" />
+    <Compile Include="IntelligentPlanning\FLC.cs" />
+    <Compile Include="IntelligentPlanning\PTOpenDataMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\TextboxButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\FrmDLUserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\FrmDLDataInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\TBCount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\PTOpenDataLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CommFunc.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\TreeGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\ExDataGridView\TreeGridNode.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\TreeGridNodeEventBase.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\CollapsingEventArgs.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\CollapsedEventArgs.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\ExpandingEventArgs.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\ExpandedEventArgs.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\TreeGridNodeEventHandler.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\ExpandingEventHandler.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\ExpandedEventHandler.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\CollapsingEventHandler.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\CollapsedEventHandler.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\TreeGridNodeCollection.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\TreeGridCell.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\TreeGridColumn.cs" />
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\ZDYL.cs" />
+    <Compile Include="IntelligentPlanning\YCYL.cs" />
+    <Compile Include="IntelligentPlanning\XTYL.cs" />
+    <Compile Include="IntelligentPlanning\XGLL.cs" />
+    <Compile Include="IntelligentPlanning\XCYL.cs" />
+    <Compile Include="IntelligentPlanning\WSYL.cs" />
+    <Compile Include="IntelligentPlanning\UT8.cs" />
+    <Compile Include="IntelligentPlanning\QQT2.cs" />
+    <Compile Include="IntelligentPlanning\HYYL.cs" />
+    <Compile Include="IntelligentPlanning\CBL.cs" />
+    <Compile Include="IntelligentPlanning\FrmInputJK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\MoreAppLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\BTCount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\YYZX.cs" />
+    <Compile Include="IntelligentPlanning\YBYL.cs" />
+    <Compile Include="IntelligentPlanning\XB3.cs" />
+    <Compile Include="IntelligentPlanning\MINC.cs" />
+    <Compile Include="IntelligentPlanning\HUAY.cs" />
+    <Compile Include="IntelligentPlanning\HEND.cs" />
+    <Compile Include="IntelligentPlanning\HANY.cs" />
+    <Compile Include="IntelligentPlanning\BHZY.cs" />
+    <Compile Include="IntelligentPlanning\FrmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\FNLHKMTMLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\FNGJDMLHLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\FNGDQMLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\AutoBetsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\ZBYL.cs" />
+    <Compile Include="IntelligentPlanning\ZBEI.cs" />
+    <Compile Include="IntelligentPlanning\YZCP.cs" />
+    <Compile Include="IntelligentPlanning\YRYL.cs" />
+    <Compile Include="IntelligentPlanning\YXZX.cs" />
+    <Compile Include="IntelligentPlanning\QJC.cs" />
+    <Compile Include="IntelligentPlanning\LF2.cs" />
+    <Compile Include="IntelligentPlanning\KYYL.cs" />
+    <Compile Include="IntelligentPlanning\JYYL.cs" />
+    <Compile Include="IntelligentPlanning\JXIN.cs" />
+    <Compile Include="IntelligentPlanning\JHYL.cs" />
+    <Compile Include="IntelligentPlanning\DAZYL.cs" />
+    <Compile Include="IntelligentPlanning\CP361.cs" />
+    <Compile Include="IntelligentPlanning\CCYL.cs" />
+    <Compile Include="IntelligentPlanning\BKC.cs" />
+    <Compile Include="IntelligentPlanning\CustomControls\BetCodeLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\PK10CodeLineSmall.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\PK10CodeLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\PictureSwitch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\CDCount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\SFHttpHelper.cs" />
+    <Compile Include="IntelligentPlanning\HttpItem.cs" />
+    <Compile Include="IntelligentPlanning\HttpResult.cs" />
+    <Compile Include="IntelligentPlanning\ResultType.cs" />
+    <Compile Include="IntelligentPlanning\PostDataType.cs" />
+    <Compile Include="IntelligentPlanning\ResultCookieType.cs" />
+    <Compile Include="IntelligentPlanning\YIFA.cs" />
+    <Compile Include="IntelligentPlanning\XQYL.cs" />
+    <Compile Include="IntelligentPlanning\SLTH.cs" />
+    <Compile Include="IntelligentPlanning\NBAYL.cs" />
+    <Compile Include="IntelligentPlanning\KXYL.cs" />
+    <Compile Include="IntelligentPlanning\K5YL.cs" />
+    <Compile Include="IntelligentPlanning\JYGJ.cs" />
+    <Compile Include="IntelligentPlanning\JXYL.cs" />
+    <Compile Include="IntelligentPlanning\BAYL.cs" />
+    <Compile Include="IntelligentPlanning\FrmUserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\DebugLog.cs" />
+    <Compile Include="IntelligentPlanning\FrmVerifyCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\FrmSendBets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\FrmNotice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\AppInfo.cs" />
+    <Compile Include="IntelligentPlanning\YINH.cs" />
+    <Compile Include="IntelligentPlanning\XHHC.cs" />
+    <Compile Include="IntelligentPlanning\THEN.cs" />
+    <Compile Include="IntelligentPlanning\LXYL.cs" />
+    <Compile Include="IntelligentPlanning\JHC2.cs" />
+    <Compile Include="IntelligentPlanning\JFYL.cs" />
+    <Compile Include="IntelligentPlanning\HENR.cs" />
+    <Compile Include="IntelligentPlanning\FCYL.cs" />
+    <Compile Include="IntelligentPlanning\FrmTimesInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink16.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\ZLJ.cs" />
+    <Compile Include="IntelligentPlanning\WJSJ.cs" />
+    <Compile Include="IntelligentPlanning\MYGJ.cs" />
+    <Compile Include="IntelligentPlanning\MXYL.cs" />
+    <Compile Include="IntelligentPlanning\LFYL.cs" />
+    <Compile Include="IntelligentPlanning\K3YL.cs" />
+    <Compile Include="IntelligentPlanning\HDYL.cs" />
+    <Compile Include="IntelligentPlanning\HBS.cs" />
+    <Compile Include="IntelligentPlanning\FSYL.cs" />
+    <Compile Include="IntelligentPlanning\DPC.cs" />
+    <Compile Include="IntelligentPlanning\CustomControls\FNGJKMTMLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\FNDMLHLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\BetsTimeLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\ShrinkSX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\WorkThread\DownData.cs" />
+    <Compile Include="IntelligentPlanning\LianZhong.cs" />
+    <Compile Include="IntelligentPlanning\WMYL.cs" />
+    <Compile Include="IntelligentPlanning\WHEN.cs" />
+    <Compile Include="IntelligentPlanning\SSHC.cs" />
+    <Compile Include="IntelligentPlanning\MZC.cs" />
+    <Compile Include="IntelligentPlanning\LUDI.cs" />
+    <Compile Include="IntelligentPlanning\LMH.cs" />
+    <Compile Include="IntelligentPlanning\LFGJ.cs" />
+    <Compile Include="IntelligentPlanning\HSYL.cs" />
+    <Compile Include="IntelligentPlanning\HCYL.cs" />
+    <Compile Include="IntelligentPlanning\DQYL.cs" />
+    <Compile Include="IntelligentPlanning\DEJI.cs" />
+    <Compile Include="IntelligentPlanning\CTX.cs" />
+    <Compile Include="IntelligentPlanning\FrmInputCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\FrmInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\CustomControls\Shrink9.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\SQLData.cs" />
+    <Compile Include="IntelligentPlanning\XDB.cs" />
+    <Compile Include="IntelligentPlanning\THDYL.cs" />
+    <Compile Include="IntelligentPlanning\LYS.cs" />
+    <Compile Include="IntelligentPlanning\LDYL.cs" />
+    <Compile Include="IntelligentPlanning\HSGJ.cs" />
+    <Compile Include="IntelligentPlanning\HOND.cs" />
+    <Compile Include="IntelligentPlanning\HGDB.cs" />
+    <Compile Include="IntelligentPlanning\CustomControls\TextboxLable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntelligentPlanning\YBAO.cs" />
+    <Compile Include="IntelligentPlanning\SYYL.cs" />
+    <Compile Include="IntelligentPlanning\OEYL.cs" />
+    <Compile Include="IntelligentPlanning\KSYL.cs" />
+    <Compile Include="IntelligentPlanning\JHC.cs" />
+    <Compile Include="IntelligentPlanning\HUIZ.cs" />
+    <Compile Include="IntelligentPlanning\BNGJ.cs" />
+    <Compile Include="IntelligentPlanning\BMEI.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\ShapeTextColumn.cs" />
+    <Compile Include="IntelligentPlanning\ExDataGridView\ShapeTextCell.cs" />
+    <Compile Include="IntelligentPlanning\VerifyCodeAPI.cs" />
+    <Compile Include="IntelligentPlanning\SQLServer.cs" />
+    <Compile Include="IntelligentPlanning\HttpHelper.cs" />
+    <Compile Include="IntelligentPlanning\XINC.cs" />
+    <Compile Include="IntelligentPlanning\TYYL.cs" />
+    <Compile Include="IntelligentPlanning\THYL.cs" />
+    <Compile Include="IntelligentPlanning\QFYL.cs" />
+    <Compile Include="IntelligentPlanning\MTYL.cs" />
+    <Compile Include="IntelligentPlanning\MCYL.cs" />
+    <Compile Include="IntelligentPlanning\CAIH.cs" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmTimesInput.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmKeyboard.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmInputCode.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.ExForm.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.TextboxLable.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.CodeLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.ValueLable.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.PTOpenDataMain.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink7.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink4.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink1.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmVerifyCode.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmNotice.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmInputBox.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmImageUserLogin.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmDLUserLogin.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.FNWJJHLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink13.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink10.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmManage.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.FNYLCHLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.FNDMLHLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.BetCodeLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink16.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.HJFGCount.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.MoreAppLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.ExDataGridView.TreeGridView.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmSendBets.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.FNGDQMLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmViewValue.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.TrendView.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.PTOpenDataLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.PictureSwitch.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.AutoBetsWindow.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.ShrinkSX.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink9.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink6.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink3.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmRunProgress.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.PK10CodeLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.FNGJKMTMLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.ShrinkEX.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink15.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink12.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.TextboxButton.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.PK10CodeLineSmall.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmInputGDQM.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.Properties.Resources.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmProgress.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmDLDataInput.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.TBCount.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.CDCount.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmMessageBox.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.BTCount.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink5.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink2.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmUserLogin.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmInput.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmFollowBets.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.FNSJCHLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.FNLRWCHLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.FNKMTMLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.ExDataGridView.ExpandGirdView.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink8.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink11.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.OpenDataLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.FNLHKMTMLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.BetsTimeLine.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.Shrink14.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.FrmInputJK.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.ZBJView.resources" />
+    <EmbeddedResource Include="IntelligentPlanning.CustomControls.FNGJDMLHLine.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="CaptchaOCR.dll" />
+    <Analyzer Include="Interop.MSScriptControl.dll" />
+    <Analyzer Include="Interop.MSXML2.dll" />
+    <Analyzer Include="Lzma.dll" />
+    <Analyzer Include="MdiTabControl.dll" />
+    <Analyzer Include="Microsoft.mshtml.dll" />
+    <Analyzer Include="MySql.Data.dll" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+D:\ssc\guajiSource\source3\obj\x86\Debug\挂机软件.csproj.CoreCompileInputs.cache
+D:\ssc\guajiSource\source3\bin\Debug\挂机软件.exe
+D:\ssc\guajiSource\source3\bin\Debug\挂机软件.pdb
+D:\ssc\guajiSource\source3\bin\Debug\Interop.MSScriptControl.dll
+D:\ssc\guajiSource\source3\bin\Debug\Interop.MSXML2.dll
+D:\ssc\guajiSource\source3\bin\Debug\Lzma.dll
+D:\ssc\guajiSource\source3\bin\Debug\MdiTabControl.dll
+D:\ssc\guajiSource\source3\bin\Debug\MySql.Data.dll
+D:\ssc\guajiSource\source3\obj\x86\Debug\挂机软件.csproj.CopyComplete
+D:\ssc\guajiSource\source3\obj\x86\Debug\挂机软件.exe
+D:\ssc\guajiSource\source3\obj\x86\Debug\挂机软件.pdb
+D:\ssc\guajiSource\source3\obj\x86\Debug\挂机软件.csprojAssemblyReference.cache
