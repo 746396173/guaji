@@ -3963,9 +3963,302 @@
             }
 
             public List<int> LRWRCList =>
-                CommFunc.ConvertIntList(this.LRWRC);
+                CommFunc.ConvertIntList(this.LRWRC);           
         }
 
+        public class FNBCFCH : ConfigurationStatus.FNBase
+        {
+            public int BCFExpect;
+            public const string BCFExpectString = "不重复统计期数";
+            public string BCFRC;
+            public const string BCFRCString = "不重复容错个数";
+            public List<int> BCFTypeList;
+            public const string BCFTypeListString = "不重复出号类型";
+
+            public FNBCFCH()
+            {
+                this.BCFExpect = 0;
+                this.BCFTypeList = new List<int>();
+                this.BCFRC = "";
+            }
+
+            public FNBCFCH(string pValue)
+            {
+                this.BCFExpect = 0;
+                this.BCFTypeList = new List<int>();
+                this.BCFRC = "";
+                if (pValue == "")
+                {
+                    this.BCFExpect = 10;
+                    List<int> list = new List<int> { 0 };
+                    this.BCFTypeList = list;
+                    this.BCFRC = "1-2";
+                }
+                else
+                {
+                    this.StringToInfo(pValue);
+                }
+            }
+
+            public bool CheckBCFCode(string pCode, List<string> pValueList)
+            {
+                bool flag = false;
+                int item = 0;
+                for (int i = 0; i < pCode.Length; i++)
+                {
+                    string str = pCode[i].ToString();
+                    if (pValueList.Contains(str))
+                    {
+                        item++;
+                    }
+                }
+                //容错处理
+                if (this.BCFRCList.Contains(item))
+                {
+                    flag = true;
+                }
+                return flag;
+            }
+
+            public override Dictionary<string, ConfigurationStatus.BetsCode> CountNumber(ConfigurationStatus.BetsScheme pScheme, List<ConfigurationStatus.OpenData> pDataList, int pIndex)
+            {
+                List<string> betsCode;
+                string pZuKey = "0";
+                bool zuKeyIsChange = pScheme.ZuKeyIsChange;
+                Dictionary<string, ConfigurationStatus.BetsCode> dictionary = new Dictionary<string, ConfigurationStatus.BetsCode>();
+                string betsJKExpect = base.BetsJKExpect;
+                string str3 = "";
+                bool flag2 = base.CheckIsNeedJK(pScheme, pZuKey, betsJKExpect);
+                if (flag2)
+                {
+                    int num = 0;
+                    while (true)
+                    {
+                        int num2 = pIndex + num;
+                        List<string> codeList = pDataList[num2].CodeList;
+                        betsCode = this.GetBetsCode(pDataList, num2 + 1);
+                        List<List<int>> indexList = CommFunc.GetCodeListByPlay(base.PlayType, base.PlayName, base.RXWZList, betsCode);
+                        bool flag3 = CommFunc.VerificationCode(base.Play, indexList, codeList, betsCode) > 0;
+                        str3 = str3 + (flag3 ? "1" : "0");
+                        if (str3.Length >= betsJKExpect.Length)
+                        {
+                            break;
+                        }
+                        num++;
+                    }
+                }
+                if ((str3 == betsJKExpect) || !flag2)
+                {
+                    if (zuKeyIsChange || pScheme.IsQQG)
+                    {
+                        betsCode = this.GetBetsCode(pDataList, pIndex);
+                        pScheme.ZuKeySaveList = betsCode;
+                    }
+                    dictionary[pZuKey] = new ConfigurationStatus.BetsCode(pScheme.ZuKeySaveList, null);
+                }
+                return dictionary;
+            }
+
+            public override void CountZuKeyIndexMain(string pZuKey, ConfigurationStatus.BetsScheme pScheme, bool pReset)
+            {
+                pScheme.ZuKeyIsChange = !pReset;
+            }
+
+            private List<string> GetBetsCode(List<ConfigurationStatus.OpenData> pDataList, int pIndex)
+            {
+                List<string> list5;
+                List<string> list6;
+                int num2;
+                string str;
+                List<string> list = new List<string>();
+                List<string> list2 = new List<string>();
+                List<int> BCFTypeList = this.BCFTypeList;
+                if (CommFunc.CheckPlayIsFS(base.Play))
+                {
+                    list2 = CommFunc.GetCombinaList(ConfigurationStatus.CombinaType.ZX, 1, -1, -1);
+                    foreach (int num in this.BCFPlayIndexList)
+                    {
+                        List<int> playIndexList = new List<int> {
+                            num
+                        };
+                        list5 = this.RefreshSort(playIndexList, pDataList, pIndex);
+                        list6 = new List<string>();
+                        num2 = 0;
+                        while (num2 < BCFTypeList.Count)
+                        {
+                            str = list5[BCFTypeList[num2]];
+                            list6.Add(str);
+                            num2++;
+                        }
+                        List<string> pList = new List<string>();
+                        foreach (string str2 in list2)
+                        {
+                            if (this.CheckBCFCode(str2, list6))
+                            {
+                                pList.Add(str2);
+                            }
+                        }
+                        string item = CommFunc.Join(pList);
+                        list.Add(item);
+                    }
+                    return list;
+                }
+                list5 = this.RefreshSort(this.BCFPlayIndexList, pDataList, pIndex);
+                list6 = new List<string>();
+                for (num2 = 0; num2 < BCFTypeList.Count; num2++)
+                {
+                    str = list5[BCFTypeList[num2]];
+                    list6.Add(str);
+                }
+                //base.Play：玩法名称，list2为该玩法所有的号码
+                list2 = CommFunc.GetCombinaList(CommFunc.GetCombinaType(base.Play), base.PlayInfo.CodeCount, -1, -1);
+                foreach (string str2 in list2)
+                {
+                    if (this.CheckBCFCode(str2, list6))
+                    {
+                        list.Add(str2);
+                    }
+                }
+                return list;
+            }
+            //playIndexList:玩法位置-0:万位，1：千位，2：百位，3：十位，4：个位
+            //二星和三星都是每个位置独立热号冷号定位胆转成二星和三星
+            public List<ConfigurationStatus.SortInt> GetBCFSortList(int pExpcet, List<int> playIndexList, List<ConfigurationStatus.OpenData> pDataList, int pIndex)
+            {
+                Dictionary<string, int> dictionary = new Dictionary<string, int>();
+                Dictionary<string, string> dictionary2 = new Dictionary<string, string>();
+                for (int i = 0; i < pExpcet; i++)
+                {
+                    int num = pIndex + i;
+                    if (num < pDataList.Count)
+                    {
+                        List<string> codeList = pDataList[num].CodeList;
+                        for (int j = 0; j < playIndexList.Count; j++)
+                        {
+                            string text = codeList[playIndexList[j]];
+                            if (!dictionary.ContainsKey(text))
+                            {
+                                dictionary[text] = 1;
+                            }
+                            else
+                            {
+                                Dictionary<string, int> dictionary3;
+                                string key;
+                                (dictionary3 = dictionary)[key = text] = dictionary3[key] + 1;
+                            }
+                        }
+                    }
+                }
+                List<ConfigurationStatus.SortInt> list = new List<ConfigurationStatus.SortInt>();
+                for (int i = 0; i < 10; i++)
+                {
+                    string text2 = i.ToString();
+                    int pValue = dictionary.ContainsKey(text2) ? dictionary[text2] : 0;
+                    list.Add(new ConfigurationStatus.SortInt(text2, pValue));
+                }
+                list.Sort(delegate (ConfigurationStatus.SortInt pSort1, ConfigurationStatus.SortInt pSort2)
+                {
+                    int value = pSort1.Value;
+                    int value2 = pSort2.Value;
+                    int result;
+                    if (value == value2)
+                    {
+                        string key2 = pSort1.Key;
+                        string key3 = pSort2.Key;
+                        result = string.Compare(key2, key3);
+                    }
+                    else
+                    {
+                        result = value2 - value;
+                    }
+                    return result;
+                });
+                return list;
+            }
+
+            public override string InfoToString()
+            {
+                string str = base.InfoToString();
+                Dictionary<string, string> pDic = new Dictionary<string, string>
+                {
+                    ["不重复统计期数"] = this.BCFExpect.ToString(),
+                    ["不重复出号类型"] = CommFunc.Join(this.BCFTypeList, ","),
+                    ["不重复容错个数"] = this.BCFRC.ToString()
+                };
+                string str2 = CommFunc.Join(pDic, "\r\n");
+                return (str + "\r\n" + str2);
+            }
+
+            public List<string> RefreshSort(List<int> playIndexList, List<ConfigurationStatus.OpenData> pDataList, int pIndex)
+            {
+                List<string> list = new List<string>();
+                if (pDataList.Count != 0)
+                {
+                    List<ConfigurationStatus.SortInt> list2 = this.GetBCFSortList(this.BCFExpect, playIndexList, pDataList, pIndex);
+                    for (int i = 0; i < list2.Count; i++)
+                    {
+                        string key = list2[i].Key;
+                        list.Add(key);
+                    }
+                }
+                return list;
+            }
+
+            public override void StringToInfo(string pValue)
+            {
+                base.StringToInfo(pValue);
+                Dictionary<string, string> configuration = CommFunc.GetConfiguration(pValue, "\r\n");
+                foreach (string str in configuration.Keys)
+                {
+                    string str2 = str;
+                    if (str2 != null)
+                    {
+                        if (str2 != "不重复统计期数")
+                        {
+                            if (str2 == "不重复出号类型")
+                            {
+                                goto Label_006F;
+                            }
+                            if (str2 == "不重复容错个数")
+                            {
+                                goto Label_0088;
+                            }
+                        }
+                        else
+                        {
+                            this.BCFExpect = Convert.ToInt32(configuration[str]);
+                        }
+                    }
+                    continue;
+                Label_006F:
+                    this.BCFTypeList = CommFunc.SplitInt(configuration[str], ",");
+                    continue;
+                Label_0088:
+                    this.BCFRC = configuration[str];
+                }
+            }
+
+            public List<int> BCFPlayIndexList
+            {
+                get
+                {
+                    List<int> list = new List<int>();
+                    List<int> indexList = base.PlayInfo.IndexList;
+                    if (CommFunc.CheckPlayIsRXDS(base.Play))
+                    {
+                        indexList = base.PlayInfo.ConvertRXWZList(base.RXWZList);
+                    }
+                    foreach (int num in indexList)
+                    {
+                        list.Add(num - 1);
+                    }
+                    return list;
+                }
+            }
+
+            public List<int> BCFRCList =>
+                CommFunc.ConvertIntList(this.BCFRC);
+        }
         public class FNSJCH : ConfigurationStatus.FNBase
         {
             public int SJCHCount;
@@ -6442,6 +6735,8 @@
             public ConfigurationStatus.FNKMTM FNKMTMInfo = null;
             public ConfigurationStatus.FNLHKMTM FNLHKMTMInfo = null;
             public ConfigurationStatus.FNLRWCH FNLRWCHInfo = null;
+            public ConfigurationStatus.FNBCFCH FNBCFCHInfo = null;
+
             public ConfigurationStatus.FNSJCH FNSJCHInfo = null;
             public ConfigurationStatus.FNWJJH FNWJJHInfo = null;
             public ConfigurationStatus.FNYLCH FNYLCHInfo = null;
@@ -6517,6 +6812,12 @@
                     this.FNBaseInfo = this.FNLHKMTMInfo;
                     this.FNCHType = ConfigurationStatus.SchemeCHType.LHKMTM;
                 }
+                else if (pCHType == "不重复出号")
+                {
+                    this.FNBCFCHInfo = new ConfigurationStatus.FNBCFCH(pValue);
+                    this.FNBaseInfo = this.FNBCFCHInfo;
+                    this.FNCHType = ConfigurationStatus.SchemeCHType.BCFCH;
+                }
             }
 
             public string GetFileValue()
@@ -6582,8 +6883,9 @@
             public string GetKey =>
                 (this.CHType + "-" + this.Value);
 
-            public bool IsViewFNEncrypt =>
-                ((this.IsFNEncrypt && !AppInfo.Account.Configuration.IsFNEncryptID) && !this.IsInputPW);
+            public bool IsViewFNEncrypt => true;
+            // ((this.IsFNEncrypt && !AppInfo.Account.Configuration.IsFNEncryptID) && !this.IsInputPW);
+
 
             public string Value
             {
@@ -6614,6 +6916,7 @@
             DMLH,
             GJDMLH,
             LRWCH,
+            BCFCH,
             WJJH,
             SJCH,
             GJKMTM,

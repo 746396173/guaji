@@ -134,6 +134,7 @@
         private FNKMTMLine FN_KMTM;
         private FNLHKMTMLine FN_LHKMTM;
         private FNLRWCHLine FN_LRWCH;
+        private FNBCFCHLine FN_BCFCH;
         private FNSJCHLine FN_SJCH;
         private FNWJJHLine FN_WJJH;
         private FNYLCHLine FN_YLCH;
@@ -776,6 +777,7 @@
                     this.FN_GJKMTM,
                     this.FN_KMTM,
                     this.FN_LRWCH,
+                    this.FN_BCFCH,
                     this.FN_SJCH,
                     this.FN_WJJH,
                     this.FN_YLCH,
@@ -4309,6 +4311,14 @@
                     pInfo.FNBaseInfo = controlValue;
                 }
             }
+            else if (pInfo.FNCHType == ConfigurationStatus.SchemeCHType.BCFCH)
+            {
+                controlValue = this.FN_BCFCH.GetControlValue(ref pError);
+                if (controlValue != null)
+                {
+                    pInfo.FNBaseInfo = controlValue;
+                }
+            }
             else if (pInfo.FNCHType == ConfigurationStatus.SchemeCHType.WJJH)
             {
                 controlValue = this.FN_WJJH.GetControlValue(ref pError);
@@ -4491,375 +4501,375 @@
 
         private void InitializeComponent()
         {
-            this.components = new Container();
-            DataGridViewCellStyle style = new DataGridViewCellStyle();
-            DataGridViewCellStyle style2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style15 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style16 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style18 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style19 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style20 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style21 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style22 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style23 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style24 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style25 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style26 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style27 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style28 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style29 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style30 = new DataGridViewCellStyle();
-            ComponentResourceManager manager = new ComponentResourceManager(typeof(AutoBetsWindow));
-            DataGridViewCellStyle style31 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style32 = new DataGridViewCellStyle();
-            DataGridViewCellStyle style33 = new DataGridViewCellStyle();
-            this.Pnl_Main = new Panel();
-            this.Pnl_Bets = new Panel();
-            this.Lbl_AppHint = new Label();
-            this.Btn_ViewTop = new Button();
-            this.Tab_Main = new TabControl();
-            this.Tap_PT = new TabPage();
-            this.Pnl_Bets2 = new Panel();
-            this.Web_Login = new WebBrowser();
-            this.Tap_ZDBets = new TabPage();
-            this.Pnl_Bets1 = new Panel();
-            this.Pnl_BetsMain = new Panel();
-            this.Pnl_BetsLeft = new Panel();
-            this.Pnl_BetsInfoMain = new Panel();
-            this.Pnl_BetsRight = new Panel();
-            this.Egv_PlanList = new ExpandGirdView(this.components);
-            this.Pnl_PlanListBottom = new Panel();
-            this.Nm_DeleteExpect = new NumericUpDown();
-            this.Ckb_DeleteExpect = new CheckBox();
-            this.Pnl_PlanListTop = new Panel();
-            this.Ckb_ClearBetsList = new CheckBox();
-            this.Lbl_BetsHint = new Label();
-            this.Lbl_ZQLValue = new Label();
-            this.Lbl_ZQLKey = new Label();
-            this.Ckb_PlanShowHide = new CheckBox();
-            this.Lbl_LGMaxValue = new Label();
-            this.Ckb_BetsSort = new CheckBox();
-            this.Lbl_LGMaxKey = new Label();
-            this.Lbl_LZMaxValue = new Label();
-            this.Lbl_LZMaxKey = new Label();
-            this.Lbl_BetsCountValue = new Label();
-            this.Lbl_BetsCountKey = new Label();
-            this.Lbl_MNBetsMoneyPlanValue = new Label();
-            this.Lbl_MNBetsMoneyPlanKey = new Label();
-            this.Lbl_BetsMoneyPlanValue = new Label();
-            this.Lbl_BetsMoneyPlanKey = new Label();
-            this.Lbl_MNBetsGainPlanValue = new Label();
-            this.Lbl_MNBetsGainPlanKey = new Label();
-            this.Lbl_BetsValue = new Label();
-            this.Lbl_BetsKey = new Label();
-            this.Lbl_BetsGainPlanValue = new Label();
-            this.Lbl_BetsGainPlanKey = new Label();
-            this.Pnl_BetsInfoTop = new Panel();
-            this.Pnl_BetsInfoTopMain = new Panel();
-            this.Pnl_BetsInfoTopRight = new Panel();
-            this.Pnl_BetsType = new Panel();
-            this.Lbl_ShareBetsHint = new Label();
-            this.Ckb_ShareBetsManage = new CheckBox();
-            this.Rdb_ShareBets = new RadioButton();
-            this.Rdb_CGBets = new RadioButton();
-            this.Pnl_BetsInfoTopRight1 = new Panel();
-            this.Btn_Bets = new Button();
-            this.Pnl_BetsInfoTopLeft = new Panel();
-            this.Pnl_BetsInfoTop2 = new Panel();
-            this.Pnl_BetsInfoTop2Left = new Panel();
-            this.Ckb_BetsBeginTime = new CheckBox();
-            this.Ckb_BetsEndTime = new CheckBox();
-            this.Cbb_BetsEndType = new ComboBox();
-            this.Dtp_BetsBeginTime = new DateTimePicker();
-            this.Dtp_BetsEndTime = new DateTimePicker();
-            this.Lbl_BetsTime2 = new Label();
-            this.Lbl_BetsTime1 = new Label();
-            this.Nm_BetsTime = new NumericUpDown();
-            this.Pnl_BetsInfoTop1 = new Panel();
-            this.Pnl_BetsInfoExpect = new Panel();
-            this.Ckb_DQStopBets = new CheckBox();
-            this.Ckb_SBStopBets = new CheckBox();
-            this.Pnl_BetsInfoMN = new Panel();
-            this.Pnl_BetsInfoMNRight = new Panel();
-            this.Ckb_MN1 = new CheckBox();
-            this.Lbl_MNBets = new Label();
-            this.Txt_MN3 = new TextBox();
-            this.Ckb_MN4 = new CheckBox();
-            this.Txt_MN1 = new TextBox();
-            this.Ckb_MN3 = new CheckBox();
-            this.Ckb_MN2 = new CheckBox();
-            this.Txt_MN2 = new TextBox();
-            this.Txt_MN4 = new TextBox();
-            this.Ckb_MNBets = new CheckBox();
-            this.Tap_Scheme = new TabPage();
-            this.Pnl_Scheme = new Panel();
-            this.Pnl_SchemeMain = new Panel();
-            this.Pnl_SchemeInfo = new Panel();
-            this.Lbl_FNEncrypt = new Label();
-            this.FN_KMTM = new FNKMTMLine();
-            this.FN_YLCH = new FNYLCHLine();
-            this.FN_GJDMLH = new FNGJDMLHLine();
-            this.FN_SJCH = new FNSJCHLine();
-            this.FN_WJJH = new FNWJJHLine();
-            this.FN_LRWCH = new FNLRWCHLine();
-            this.FN_GJKMTM = new FNGJKMTMLine();
-            this.FN_LHKMTM = new FNLHKMTMLine();
-            this.FN_DMLH = new FNDMLHLine();
-            this.FN_GDQM = new FNGDQMLine();
-            this.Pnl_SchemeTop2 = new Panel();
-            this.Ckb_CancelScheme = new CheckBox();
-            this.Ckb_SaveScheme = new CheckBox();
-            this.Lbl_FNCHType = new Label();
-            this.Cbb_FNCHType = new ComboBox();
-            this.Txt_FNName = new TextBox();
-            this.Lbl_FNName = new Label();
-            this.Pnl_SchemeLeft = new Panel();
-            this.Egv_SchemeList = new ExpandGirdView(this.components);
-            this.Pnl_SchemeBottom = new Panel();
-            this.Pnl_SchemeShare = new Panel();
-            this.Ckb_ShareSchemeManage = new CheckBox();
-            this.Ckb_ShareScheme = new CheckBox();
-            this.Ckb_ClearScheme = new CheckBox();
-            this.Ckb_ExportScheme = new CheckBox();
-            this.Ckb_ImportScheme = new CheckBox();
-            this.Pnl_SchemeTop1 = new Panel();
-            this.Ckb_EditTimesPlan = new CheckBox();
-            this.Ckb_EditScheme = new CheckBox();
-            this.Ckb_DeleteScheme = new CheckBox();
-            this.Ckb_CopyScheme = new CheckBox();
-            this.Ckb_AddScheme = new CheckBox();
-            this.Ckb_FNLT = new CheckBox();
-            this.Tap_LSData = new TabPage();
-            this.Pnl_LSData = new Panel();
-            this.Pnl_LSDataMain = new Panel();
-            this.Egv_LSDataList = new ExpandGirdView(this.components);
-            this.Pnl_LSDataTop = new Panel();
-            this.Pnl_LSDataRight = new Panel();
-            this.Ckb_LSStop = new CheckBox();
-            this.Lbl_LSRefreshHint = new Label();
-            this.Pnl_LSDataLeft = new Panel();
-            this.Btn_LSRefresh = new Button();
-            this.Pnl_LSDataTop1 = new Panel();
-            this.Lbl_LSPlayKey = new Label();
-            this.Lbl_LSPlayValue = new Label();
-            this.Lbl_LSLotteryKey = new Label();
-            this.Lbl_LSLotteryValue = new Label();
-            this.Lbl_LSDataRange = new Label();
-            this.Dtp_LSDataRange = new DateTimePicker();
-            this.Lbl_LSFN = new Label();
-            this.Ckb_LSAutoRefresh = new CheckBox();
-            this.Cbb_LSFN = new ComboBox();
-            this.Rdb_LSBJExpect = new RadioButton();
-            this.Ckb_LSBJ = new CheckBox();
-            this.Rdb_LSBJType = new RadioButton();
-            this.Cbb_LSBJType = new ComboBox();
-            this.Lbl_LSBJExpect2 = new Label();
-            this.Nm_LSBJExpect = new NumericUpDown();
-            this.Tap_TJData = new TabPage();
-            this.Pnl_TJData = new Panel();
-            this.Pnl_TJDataMain = new Panel();
-            this.Egv_TJDataList2 = new ExpandGirdView(this.components);
-            this.Pnl_TJDataTop2 = new Panel();
-            this.Pnl_TJDataHint = new Label();
-            this.Pnl_TJDataFind = new Panel();
-            this.Ckb_AutoSizeTJ = new CheckBox();
-            this.Ckb_TJFindXS = new CheckBox();
-            this.Nm_TJFindXS = new NumericUpDown();
-            this.Btn_TJTop = new Button();
-            this.Lbl_TJFindXS = new Label();
-            this.Egv_TJDataList1 = new ExpandGirdView(this.components);
-            this.Pnl_TJDataTop = new Panel();
-            this.Pnl_TJRight2 = new Panel();
-            this.Ckb_TJStop = new CheckBox();
-            this.Lbl_TJRefreshHint = new Label();
-            this.Pnl_TJRight1 = new Panel();
-            this.Btn_TJRefresh = new Button();
-            this.Pnl_TJDataTop1 = new Panel();
-            this.Lbl_TJPlayKey = new Label();
-            this.Lbl_TJLotteryValue = new Label();
-            this.Lbl_TJPlayValue = new Label();
-            this.Cbb_TJPrize = new ComboBox();
-            this.Lbl_TJLotteryKey = new Label();
-            this.Dtp_TJTimeRange2 = new DateTimePicker();
-            this.Lbl_TJDataRange = new Label();
-            this.Lbl_TJTime = new Label();
-            this.Dtp_TJDataRange1 = new DateTimePicker();
-            this.Dtp_TJTimeRange1 = new DateTimePicker();
-            this.Lbl_TJData = new Label();
-            this.Ckb_TJTimeRange = new CheckBox();
-            this.Txt_TJPrize = new TextBox();
-            this.Ckb_TJReset = new CheckBox();
-            this.Lbl_TJPrize = new Label();
-            this.Dtp_TJDataRange2 = new DateTimePicker();
-            this.Lbl_TJFN = new Label();
-            this.Cbb_TJFN = new ComboBox();
-            this.Tap_ZBJ = new TabPage();
-            this.Zbj_Main = new ZBJView();
-            this.Tap_TrendView = new TabPage();
-            this.TV_Main = new TrendView();
-            this.Tap_BTCount = new TabPage();
-            this.BT_Main = new BTCount();
-            this.Tap_BTFN = new TabPage();
-            this.Pnl_BTFN = new Panel();
-            this.Pnl_BTFNMain = new Panel();
-            this.Egv_BTFNTimesList = new ExpandGirdView(this.components);
-            this.Pnl_TimesBottom = new Panel();
-            this.Ckb_TBCount = new CheckBox();
-            this.Ckb_ClearTimes = new CheckBox();
-            this.Ckb_EditTimes = new CheckBox();
-            this.Ckb_DeleteTimes = new CheckBox();
-            this.Ckb_AddTimes = new CheckBox();
-            this.Ckb_SaveTimes = new CheckBox();
-            this.Ckb_BTFNEdit = new CheckBox();
-            this.Ckb_BTFNEditSkip = new CheckBox();
-            this.Nm_BTFNEdit = new NumericUpDown();
-            this.Cbb_BTFNEdit = new ComboBox();
-            this.Lbl_BTFNEdit = new Label();
-            this.Pnl_BTFNList = new Panel();
-            this.Egv_BTFNMain = new ExpandGirdView(this.components);
-            this.Pnl_FNBottom = new Panel();
-            this.Ckb_DeleteBTFN = new CheckBox();
-            this.Ckb_AddBTFN = new CheckBox();
-            this.Lbl_GJFNEncrypt = new Label();
-            this.Tap_TBCount = new TabPage();
-            this.TB_Main = new TBCount();
-            this.Tap_HJFG = new TabPage();
-            this.HJFG_Main = new HJFGCount();
-            this.Tap_ShrinkEX = new TabPage();
-            this.SK_EX = new ShrinkEX();
-            this.Tap_ShrinkSX = new TabPage();
-            this.SK_SX = new ShrinkSX();
-            this.Tap_Setting = new TabPage();
-            this.Pnl_Setting = new Panel();
-            this.Egv_ShowTapList = new ExpandGirdView(this.components);
-            this.Tap_CDCount = new TabPage();
-            this.Pnl_CDCount = new Panel();
-            this.CD_Main = new CDCount();
-            this.Pnl_OpenData = new Panel();
-            this.Pnl_DataMain = new Panel();
-            this.Pnl_DataBottom = new Panel();
-            this.Egv_DataList = new ExpandGirdView(this.components);
-            this.Pnl_RrfreshPT = new Panel();
-            this.Egv_PTLineList = new ExpandGirdView(this.components);
-            this.Pnl_PTRefresh = new Panel();
-            this.Ckb_DeleteLine = new CheckBox();
-            this.Ckb_RrfreshPTLine = new CheckBox();
-            this.Ckb_AddLine = new CheckBox();
-            this.Pnl_DataTop2 = new Panel();
-            this.Pnl_DataBottom1 = new Panel();
-            this.Ckb_ShowHideUser = new CheckBox();
-            this.Ckb_Login = new CheckBox();
-            this.Ckb_RefreshUser = new CheckBox();
-            this.Pnl_UserLogin2 = new Panel();
-            this.Ckb_PWPaste = new CheckBox();
-            this.Ckb_PWClear = new CheckBox();
-            this.Lbl_IDHint = new Label();
-            this.Cbb_Lottery = new ComboBox();
-            this.Lbl_Lottery = new Label();
-            this.Txt_ID = new TextBox();
-            this.Txt_PW = new TextBox();
-            this.Lbl_LoginPT = new Label();
-            this.Cbb_LoginPT = new ComboBox();
-            this.Lbl_LoginHint = new Label();
-            this.Lbl_PW = new Label();
-            this.Lbl_ID = new Label();
-            this.Pnl_UserLogin1 = new Panel();
-            this.Txt_KSStopBets = new TextBox();
-            this.Txt_YLStopBets = new TextBox();
-            this.Lbl_KSStopBets = new Label();
-            this.Lbl_YLStopBets = new Label();
-            this.Lbl_StopBets = new Label();
-            this.Lbl_BankBalanceValue = new Label();
-            this.Lbl_BetsExpectValue = new Label();
-            this.Lbl_BankBalanceKey = new Label();
-            this.Lbl_BetsExpectKey = new Label();
-            this.Lbl_IDValue = new Label();
-            this.Lbl_IDKey = new Label();
-            this.Ckb_PlaySound = new CheckBox();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.Pnl_Main = new System.Windows.Forms.Panel();
+            this.Pnl_Bets = new System.Windows.Forms.Panel();
+            this.Lbl_AppHint = new System.Windows.Forms.Label();
+            this.Btn_ViewTop = new System.Windows.Forms.Button();
+            this.Tab_Main = new System.Windows.Forms.TabControl();
+            this.Tap_PT = new System.Windows.Forms.TabPage();
+            this.Pnl_Bets2 = new System.Windows.Forms.Panel();
+            this.Web_Login = new System.Windows.Forms.WebBrowser();
+            this.Tap_ZDBets = new System.Windows.Forms.TabPage();
+            this.Pnl_Bets1 = new System.Windows.Forms.Panel();
+            this.Pnl_BetsMain = new System.Windows.Forms.Panel();
+            this.Pnl_BetsLeft = new System.Windows.Forms.Panel();
+            this.Pnl_BetsInfoMain = new System.Windows.Forms.Panel();
+            this.Pnl_BetsRight = new System.Windows.Forms.Panel();
+            this.Egv_PlanList = new IntelligentPlanning.ExDataGridView.ExpandGirdView(this.components);
+            this.Pnl_PlanListBottom = new System.Windows.Forms.Panel();
+            this.Nm_DeleteExpect = new System.Windows.Forms.NumericUpDown();
+            this.Ckb_DeleteExpect = new System.Windows.Forms.CheckBox();
+            this.Pnl_PlanListTop = new System.Windows.Forms.Panel();
+            this.Ckb_ClearBetsList = new System.Windows.Forms.CheckBox();
+            this.Lbl_BetsHint = new System.Windows.Forms.Label();
+            this.Lbl_ZQLValue = new System.Windows.Forms.Label();
+            this.Lbl_ZQLKey = new System.Windows.Forms.Label();
+            this.Ckb_PlanShowHide = new System.Windows.Forms.CheckBox();
+            this.Lbl_LGMaxValue = new System.Windows.Forms.Label();
+            this.Ckb_BetsSort = new System.Windows.Forms.CheckBox();
+            this.Lbl_LGMaxKey = new System.Windows.Forms.Label();
+            this.Lbl_LZMaxValue = new System.Windows.Forms.Label();
+            this.Lbl_LZMaxKey = new System.Windows.Forms.Label();
+            this.Lbl_BetsCountValue = new System.Windows.Forms.Label();
+            this.Lbl_BetsCountKey = new System.Windows.Forms.Label();
+            this.Lbl_MNBetsMoneyPlanValue = new System.Windows.Forms.Label();
+            this.Lbl_MNBetsMoneyPlanKey = new System.Windows.Forms.Label();
+            this.Lbl_BetsMoneyPlanValue = new System.Windows.Forms.Label();
+            this.Lbl_BetsMoneyPlanKey = new System.Windows.Forms.Label();
+            this.Lbl_MNBetsGainPlanValue = new System.Windows.Forms.Label();
+            this.Lbl_MNBetsGainPlanKey = new System.Windows.Forms.Label();
+            this.Lbl_BetsValue = new System.Windows.Forms.Label();
+            this.Lbl_BetsKey = new System.Windows.Forms.Label();
+            this.Lbl_BetsGainPlanValue = new System.Windows.Forms.Label();
+            this.Lbl_BetsGainPlanKey = new System.Windows.Forms.Label();
+            this.Pnl_BetsInfoTop = new System.Windows.Forms.Panel();
+            this.Pnl_BetsInfoTopMain = new System.Windows.Forms.Panel();
+            this.Pnl_BetsInfoTopRight = new System.Windows.Forms.Panel();
+            this.Pnl_BetsType = new System.Windows.Forms.Panel();
+            this.Lbl_ShareBetsHint = new System.Windows.Forms.Label();
+            this.Ckb_ShareBetsManage = new System.Windows.Forms.CheckBox();
+            this.Rdb_ShareBets = new System.Windows.Forms.RadioButton();
+            this.Rdb_CGBets = new System.Windows.Forms.RadioButton();
+            this.Pnl_BetsInfoTopRight1 = new System.Windows.Forms.Panel();
+            this.Btn_Bets = new System.Windows.Forms.Button();
+            this.Pnl_BetsInfoTopLeft = new System.Windows.Forms.Panel();
+            this.Pnl_BetsInfoTop2 = new System.Windows.Forms.Panel();
+            this.Pnl_BetsInfoTop2Left = new System.Windows.Forms.Panel();
+            this.Ckb_BetsBeginTime = new System.Windows.Forms.CheckBox();
+            this.Ckb_BetsEndTime = new System.Windows.Forms.CheckBox();
+            this.Cbb_BetsEndType = new System.Windows.Forms.ComboBox();
+            this.Dtp_BetsBeginTime = new System.Windows.Forms.DateTimePicker();
+            this.Dtp_BetsEndTime = new System.Windows.Forms.DateTimePicker();
+            this.Lbl_BetsTime2 = new System.Windows.Forms.Label();
+            this.Lbl_BetsTime1 = new System.Windows.Forms.Label();
+            this.Nm_BetsTime = new System.Windows.Forms.NumericUpDown();
+            this.Pnl_BetsInfoTop1 = new System.Windows.Forms.Panel();
+            this.Pnl_BetsInfoExpect = new System.Windows.Forms.Panel();
+            this.Ckb_DQStopBets = new System.Windows.Forms.CheckBox();
+            this.Ckb_SBStopBets = new System.Windows.Forms.CheckBox();
+            this.Pnl_BetsInfoMN = new System.Windows.Forms.Panel();
+            this.Pnl_BetsInfoMNRight = new System.Windows.Forms.Panel();
+            this.Ckb_MN1 = new System.Windows.Forms.CheckBox();
+            this.Lbl_MNBets = new System.Windows.Forms.Label();
+            this.Txt_MN3 = new System.Windows.Forms.TextBox();
+            this.Ckb_MN4 = new System.Windows.Forms.CheckBox();
+            this.Txt_MN1 = new System.Windows.Forms.TextBox();
+            this.Ckb_MN3 = new System.Windows.Forms.CheckBox();
+            this.Ckb_MN2 = new System.Windows.Forms.CheckBox();
+            this.Txt_MN2 = new System.Windows.Forms.TextBox();
+            this.Txt_MN4 = new System.Windows.Forms.TextBox();
+            this.Ckb_MNBets = new System.Windows.Forms.CheckBox();
+            this.Tap_Scheme = new System.Windows.Forms.TabPage();
+            this.Pnl_Scheme = new System.Windows.Forms.Panel();
+            this.Pnl_SchemeMain = new System.Windows.Forms.Panel();
+            this.Pnl_SchemeInfo = new System.Windows.Forms.Panel();
+            this.Lbl_FNEncrypt = new System.Windows.Forms.Label();
+            this.FN_KMTM = new IntelligentPlanning.CustomControls.FNKMTMLine();
+            this.FN_YLCH = new IntelligentPlanning.CustomControls.FNYLCHLine();
+            this.FN_GJDMLH = new IntelligentPlanning.CustomControls.FNGJDMLHLine();
+            this.FN_SJCH = new IntelligentPlanning.CustomControls.FNSJCHLine();
+            this.FN_WJJH = new IntelligentPlanning.CustomControls.FNWJJHLine();
+            this.FN_LRWCH = new IntelligentPlanning.CustomControls.FNLRWCHLine();
+            this.FN_BCFCH = new IntelligentPlanning.CustomControls.FNBCFCHLine();
+            this.FN_GJKMTM = new IntelligentPlanning.CustomControls.FNGJKMTMLine();
+            this.FN_LHKMTM = new IntelligentPlanning.CustomControls.FNLHKMTMLine();
+            this.FN_DMLH = new IntelligentPlanning.CustomControls.FNDMLHLine();
+            this.FN_GDQM = new IntelligentPlanning.CustomControls.FNGDQMLine();
+            this.Pnl_SchemeTop2 = new System.Windows.Forms.Panel();
+            this.Ckb_CancelScheme = new System.Windows.Forms.CheckBox();
+            this.Ckb_SaveScheme = new System.Windows.Forms.CheckBox();
+            this.Lbl_FNCHType = new System.Windows.Forms.Label();
+            this.Cbb_FNCHType = new System.Windows.Forms.ComboBox();
+            this.Txt_FNName = new System.Windows.Forms.TextBox();
+            this.Lbl_FNName = new System.Windows.Forms.Label();
+            this.Pnl_SchemeLeft = new System.Windows.Forms.Panel();
+            this.Egv_SchemeList = new IntelligentPlanning.ExDataGridView.ExpandGirdView(this.components);
+            this.Pnl_SchemeBottom = new System.Windows.Forms.Panel();
+            this.Pnl_SchemeShare = new System.Windows.Forms.Panel();
+            this.Ckb_ShareSchemeManage = new System.Windows.Forms.CheckBox();
+            this.Ckb_ShareScheme = new System.Windows.Forms.CheckBox();
+            this.Ckb_ClearScheme = new System.Windows.Forms.CheckBox();
+            this.Ckb_ExportScheme = new System.Windows.Forms.CheckBox();
+            this.Ckb_ImportScheme = new System.Windows.Forms.CheckBox();
+            this.Pnl_SchemeTop1 = new System.Windows.Forms.Panel();
+            this.Ckb_EditTimesPlan = new System.Windows.Forms.CheckBox();
+            this.Ckb_EditScheme = new System.Windows.Forms.CheckBox();
+            this.Ckb_DeleteScheme = new System.Windows.Forms.CheckBox();
+            this.Ckb_CopyScheme = new System.Windows.Forms.CheckBox();
+            this.Ckb_AddScheme = new System.Windows.Forms.CheckBox();
+            this.Ckb_FNLT = new System.Windows.Forms.CheckBox();
+            this.Tap_LSData = new System.Windows.Forms.TabPage();
+            this.Pnl_LSData = new System.Windows.Forms.Panel();
+            this.Pnl_LSDataMain = new System.Windows.Forms.Panel();
+            this.Egv_LSDataList = new IntelligentPlanning.ExDataGridView.ExpandGirdView(this.components);
+            this.Pnl_LSDataTop = new System.Windows.Forms.Panel();
+            this.Pnl_LSDataRight = new System.Windows.Forms.Panel();
+            this.Ckb_LSStop = new System.Windows.Forms.CheckBox();
+            this.Lbl_LSRefreshHint = new System.Windows.Forms.Label();
+            this.Pnl_LSDataLeft = new System.Windows.Forms.Panel();
+            this.Btn_LSRefresh = new System.Windows.Forms.Button();
+            this.Pnl_LSDataTop1 = new System.Windows.Forms.Panel();
+            this.Lbl_LSPlayKey = new System.Windows.Forms.Label();
+            this.Lbl_LSPlayValue = new System.Windows.Forms.Label();
+            this.Lbl_LSLotteryKey = new System.Windows.Forms.Label();
+            this.Lbl_LSLotteryValue = new System.Windows.Forms.Label();
+            this.Lbl_LSDataRange = new System.Windows.Forms.Label();
+            this.Dtp_LSDataRange = new System.Windows.Forms.DateTimePicker();
+            this.Lbl_LSFN = new System.Windows.Forms.Label();
+            this.Ckb_LSAutoRefresh = new System.Windows.Forms.CheckBox();
+            this.Cbb_LSFN = new System.Windows.Forms.ComboBox();
+            this.Rdb_LSBJExpect = new System.Windows.Forms.RadioButton();
+            this.Ckb_LSBJ = new System.Windows.Forms.CheckBox();
+            this.Rdb_LSBJType = new System.Windows.Forms.RadioButton();
+            this.Cbb_LSBJType = new System.Windows.Forms.ComboBox();
+            this.Lbl_LSBJExpect2 = new System.Windows.Forms.Label();
+            this.Nm_LSBJExpect = new System.Windows.Forms.NumericUpDown();
+            this.Tap_TJData = new System.Windows.Forms.TabPage();
+            this.Pnl_TJData = new System.Windows.Forms.Panel();
+            this.Pnl_TJDataMain = new System.Windows.Forms.Panel();
+            this.Egv_TJDataList2 = new IntelligentPlanning.ExDataGridView.ExpandGirdView(this.components);
+            this.Pnl_TJDataTop2 = new System.Windows.Forms.Panel();
+            this.Pnl_TJDataHint = new System.Windows.Forms.Label();
+            this.Pnl_TJDataFind = new System.Windows.Forms.Panel();
+            this.Ckb_AutoSizeTJ = new System.Windows.Forms.CheckBox();
+            this.Ckb_TJFindXS = new System.Windows.Forms.CheckBox();
+            this.Nm_TJFindXS = new System.Windows.Forms.NumericUpDown();
+            this.Btn_TJTop = new System.Windows.Forms.Button();
+            this.Lbl_TJFindXS = new System.Windows.Forms.Label();
+            this.Egv_TJDataList1 = new IntelligentPlanning.ExDataGridView.ExpandGirdView(this.components);
+            this.Pnl_TJDataTop = new System.Windows.Forms.Panel();
+            this.Pnl_TJRight2 = new System.Windows.Forms.Panel();
+            this.Ckb_TJStop = new System.Windows.Forms.CheckBox();
+            this.Lbl_TJRefreshHint = new System.Windows.Forms.Label();
+            this.Pnl_TJRight1 = new System.Windows.Forms.Panel();
+            this.Btn_TJRefresh = new System.Windows.Forms.Button();
+            this.Pnl_TJDataTop1 = new System.Windows.Forms.Panel();
+            this.Lbl_TJPlayKey = new System.Windows.Forms.Label();
+            this.Lbl_TJLotteryValue = new System.Windows.Forms.Label();
+            this.Lbl_TJPlayValue = new System.Windows.Forms.Label();
+            this.Cbb_TJPrize = new System.Windows.Forms.ComboBox();
+            this.Lbl_TJLotteryKey = new System.Windows.Forms.Label();
+            this.Dtp_TJTimeRange2 = new System.Windows.Forms.DateTimePicker();
+            this.Lbl_TJDataRange = new System.Windows.Forms.Label();
+            this.Lbl_TJTime = new System.Windows.Forms.Label();
+            this.Dtp_TJDataRange1 = new System.Windows.Forms.DateTimePicker();
+            this.Dtp_TJTimeRange1 = new System.Windows.Forms.DateTimePicker();
+            this.Lbl_TJData = new System.Windows.Forms.Label();
+            this.Ckb_TJTimeRange = new System.Windows.Forms.CheckBox();
+            this.Txt_TJPrize = new System.Windows.Forms.TextBox();
+            this.Ckb_TJReset = new System.Windows.Forms.CheckBox();
+            this.Lbl_TJPrize = new System.Windows.Forms.Label();
+            this.Dtp_TJDataRange2 = new System.Windows.Forms.DateTimePicker();
+            this.Lbl_TJFN = new System.Windows.Forms.Label();
+            this.Cbb_TJFN = new System.Windows.Forms.ComboBox();
+            this.Tap_ZBJ = new System.Windows.Forms.TabPage();
+            this.Zbj_Main = new IntelligentPlanning.CustomControls.ZBJView();
+            this.Tap_TrendView = new System.Windows.Forms.TabPage();
+            this.TV_Main = new IntelligentPlanning.CustomControls.TrendView();
+            this.Tap_BTCount = new System.Windows.Forms.TabPage();
+            this.BT_Main = new IntelligentPlanning.CustomControls.BTCount();
+            this.Tap_BTFN = new System.Windows.Forms.TabPage();
+            this.Pnl_BTFN = new System.Windows.Forms.Panel();
+            this.Pnl_BTFNMain = new System.Windows.Forms.Panel();
+            this.Egv_BTFNTimesList = new IntelligentPlanning.ExDataGridView.ExpandGirdView(this.components);
+            this.Pnl_TimesBottom = new System.Windows.Forms.Panel();
+            this.Ckb_TBCount = new System.Windows.Forms.CheckBox();
+            this.Ckb_ClearTimes = new System.Windows.Forms.CheckBox();
+            this.Ckb_EditTimes = new System.Windows.Forms.CheckBox();
+            this.Ckb_DeleteTimes = new System.Windows.Forms.CheckBox();
+            this.Ckb_AddTimes = new System.Windows.Forms.CheckBox();
+            this.Ckb_SaveTimes = new System.Windows.Forms.CheckBox();
+            this.Ckb_BTFNEdit = new System.Windows.Forms.CheckBox();
+            this.Ckb_BTFNEditSkip = new System.Windows.Forms.CheckBox();
+            this.Nm_BTFNEdit = new System.Windows.Forms.NumericUpDown();
+            this.Cbb_BTFNEdit = new System.Windows.Forms.ComboBox();
+            this.Lbl_BTFNEdit = new System.Windows.Forms.Label();
+            this.Pnl_BTFNList = new System.Windows.Forms.Panel();
+            this.Egv_BTFNMain = new IntelligentPlanning.ExDataGridView.ExpandGirdView(this.components);
+            this.Pnl_FNBottom = new System.Windows.Forms.Panel();
+            this.Ckb_DeleteBTFN = new System.Windows.Forms.CheckBox();
+            this.Ckb_AddBTFN = new System.Windows.Forms.CheckBox();
+            this.Lbl_GJFNEncrypt = new System.Windows.Forms.Label();
+            this.Tap_TBCount = new System.Windows.Forms.TabPage();
+            this.TB_Main = new IntelligentPlanning.CustomControls.TBCount();
+            this.Tap_HJFG = new System.Windows.Forms.TabPage();
+            this.HJFG_Main = new IntelligentPlanning.CustomControls.HJFGCount();
+            this.Tap_ShrinkEX = new System.Windows.Forms.TabPage();
+            this.SK_EX = new IntelligentPlanning.CustomControls.ShrinkEX();
+            this.Tap_ShrinkSX = new System.Windows.Forms.TabPage();
+            this.SK_SX = new IntelligentPlanning.CustomControls.ShrinkSX();
+            this.Tap_Setting = new System.Windows.Forms.TabPage();
+            this.Pnl_Setting = new System.Windows.Forms.Panel();
+            this.Egv_ShowTapList = new IntelligentPlanning.ExDataGridView.ExpandGirdView(this.components);
+            this.Tap_CDCount = new System.Windows.Forms.TabPage();
+            this.Pnl_CDCount = new System.Windows.Forms.Panel();
+            this.CD_Main = new IntelligentPlanning.CustomControls.CDCount();
+            this.Pnl_OpenData = new System.Windows.Forms.Panel();
+            this.Pnl_DataMain = new System.Windows.Forms.Panel();
+            this.Pnl_DataBottom = new System.Windows.Forms.Panel();
+            this.Egv_DataList = new IntelligentPlanning.ExDataGridView.ExpandGirdView(this.components);
+            this.Pnl_RrfreshPT = new System.Windows.Forms.Panel();
+            this.Egv_PTLineList = new IntelligentPlanning.ExDataGridView.ExpandGirdView(this.components);
+            this.Pnl_PTRefresh = new System.Windows.Forms.Panel();
+            this.Ckb_DeleteLine = new System.Windows.Forms.CheckBox();
+            this.Ckb_RrfreshPTLine = new System.Windows.Forms.CheckBox();
+            this.Ckb_AddLine = new System.Windows.Forms.CheckBox();
+            this.Pnl_DataTop2 = new System.Windows.Forms.Panel();
+            this.Pnl_DataBottom1 = new System.Windows.Forms.Panel();
+            this.Ckb_ShowHideUser = new System.Windows.Forms.CheckBox();
+            this.Ckb_Login = new System.Windows.Forms.CheckBox();
+            this.Ckb_RefreshUser = new System.Windows.Forms.CheckBox();
+            this.Pnl_UserLogin2 = new System.Windows.Forms.Panel();
+            this.Ckb_PWPaste = new System.Windows.Forms.CheckBox();
+            this.Ckb_PWClear = new System.Windows.Forms.CheckBox();
+            this.Lbl_IDHint = new System.Windows.Forms.Label();
+            this.Cbb_Lottery = new System.Windows.Forms.ComboBox();
+            this.Lbl_Lottery = new System.Windows.Forms.Label();
+            this.Txt_ID = new System.Windows.Forms.TextBox();
+            this.Txt_PW = new System.Windows.Forms.TextBox();
+            this.Lbl_LoginPT = new System.Windows.Forms.Label();
+            this.Cbb_LoginPT = new System.Windows.Forms.ComboBox();
+            this.Lbl_LoginHint = new System.Windows.Forms.Label();
+            this.Lbl_PW = new System.Windows.Forms.Label();
+            this.Lbl_ID = new System.Windows.Forms.Label();
+            this.Pnl_UserLogin1 = new System.Windows.Forms.Panel();
+            this.Txt_KSStopBets = new System.Windows.Forms.TextBox();
+            this.Txt_YLStopBets = new System.Windows.Forms.TextBox();
+            this.Lbl_KSStopBets = new System.Windows.Forms.Label();
+            this.Lbl_YLStopBets = new System.Windows.Forms.Label();
+            this.Lbl_StopBets = new System.Windows.Forms.Label();
+            this.Lbl_BankBalanceValue = new System.Windows.Forms.Label();
+            this.Lbl_BetsExpectValue = new System.Windows.Forms.Label();
+            this.Lbl_BankBalanceKey = new System.Windows.Forms.Label();
+            this.Lbl_BetsExpectKey = new System.Windows.Forms.Label();
+            this.Lbl_IDValue = new System.Windows.Forms.Label();
+            this.Lbl_IDKey = new System.Windows.Forms.Label();
+            this.Ckb_PlaySound = new System.Windows.Forms.CheckBox();
             this.Tim_NextExpect = new System.Windows.Forms.Timer(this.components);
-            this.Pnl_Top = new Panel();
-            this.Pnl_GG = new Panel();
-            this.Piw_Main = new PictureSwitch();
-            this.Pnl_CurrentExpect1 = new Panel();
-            this.Pnl_CurrentCode3 = new Panel();
-            this.Lbl_CurrentCode7 = new Label();
-            this.Lbl_CurrentCode6 = new Label();
-            this.Lbl_CurrentCode10 = new Label();
-            this.Lbl_CurrentCode9 = new Label();
-            this.Lbl_CurrentCode8 = new Label();
-            this.Pnl_CurrentCode4 = new Panel();
-            this.PK_CodeSmall = new PK10CodeLineSmall();
-            this.Lbl_NextExpect1 = new Label();
-            this.Lbl_NextTime1 = new Label();
-            this.Lbl_CurrentExpect1 = new Label();
-            this.Pnl_Notice = new Panel();
-            this.Egv_NoticeList = new ExpandGirdView(this.components);
-            this.Pnl_LTUserInfo = new Panel();
-            this.Pnl_AppName = new Panel();
-            this.Ckb_AppName = new CheckBox();
-            this.Txt_AppName = new TextBox();
-            this.Lbl_AppName = new Label();
-            this.Pnl_LTUserInfoTop = new Panel();
-            this.Ckb_CloseMin = new CheckBox();
-            this.Ckb_LeftInfo = new CheckBox();
-            this.Ckb_OpenHint = new CheckBox();
-            this.Ckb_RrfreshPT = new CheckBox();
-            this.Ckb_Data = new CheckBox();
-            this.Pnl_CurrentExpect = new Panel();
-            this.Pnl_CurrentCode1 = new Panel();
-            this.Lbl_CurrentCode1 = new Label();
-            this.Lbl_CurrentCode5 = new Label();
-            this.Lbl_CurrentCode3 = new Label();
-            this.Lbl_CurrentCode2 = new Label();
-            this.Lbl_CurrentCode4 = new Label();
-            this.Pnl_CurrentCode2 = new Panel();
-            this.PK_Code = new PK10CodeLine();
-            this.Pnl_CurrentExpectTop = new Panel();
-            this.Lbl_CurrentExpect = new Label();
-            this.Ckb_AutomationRun = new CheckBox();
-            this.Pnl_NextExpect = new Panel();
-            this.Pnl_NextExpectTop = new Panel();
-            this.Lbl_NextExpect = new Label();
-            this.Lbl_NextTime = new Label();
-            this.Tot_Hint = new ToolTip(this.components);
-            this.Nic_Hint = new NotifyIcon(this.components);
-            this.Cms_Menu = new ContextMenuStrip(this.components);
-            this.Tsm_Vis = new ToolStripMenuItem();
-            this.toolStripSeparator1 = new ToolStripSeparator();
-            this.Tsm_Colse = new ToolStripMenuItem();
-            this.Stp_Hint = new StatusStrip();
-            this.Tsp_PeopleKey = new ToolStripStatusLabel();
-            this.Tsp_PeopleValue = new ToolStripStatusLabel();
-            this.Tsp_LoginKey = new ToolStripStatusLabel();
-            this.Tsp_LoginValue = new ToolStripStatusLabel();
-            this.Tsp_QQKey = new ToolStripStatusLabel();
-            this.Tsp_QQValue = new ToolStripStatusLabel();
-            this.Tsp_QQGroupKey = new ToolStripStatusLabel();
-            this.Tsp_QQGroupValue = new ToolStripStatusLabel();
-            this.Tsp_HintKey = new ToolStripStatusLabel();
-            this.Tsp_HintValue = new ToolStripStatusLabel();
-            this.Lbl_Web = new LinkLabel();
-            this.Err_Hint = new ErrorProvider(this.components);
-            this.Pnl_Info = new Panel();
-            this.Pnl_InfoRight = new Panel();
-            this.Pnl_Scroll = new Panel();
-            this.Sct_Notice = new ScrollingText();
-            this.Pnl_NoticeLeft = new Panel();
-            this.Pic_Notice = new PictureBox();
-            this.Tot_FNHint = new ToolTip(this.components);
+            this.Pnl_Top = new System.Windows.Forms.Panel();
+            this.Pnl_GG = new System.Windows.Forms.Panel();
+            this.Piw_Main = new IntelligentPlanning.CustomControls.PictureSwitch();
+            this.Pnl_CurrentExpect1 = new System.Windows.Forms.Panel();
+            this.Pnl_CurrentCode3 = new System.Windows.Forms.Panel();
+            this.Lbl_CurrentCode7 = new System.Windows.Forms.Label();
+            this.Lbl_CurrentCode6 = new System.Windows.Forms.Label();
+            this.Lbl_CurrentCode10 = new System.Windows.Forms.Label();
+            this.Lbl_CurrentCode9 = new System.Windows.Forms.Label();
+            this.Lbl_CurrentCode8 = new System.Windows.Forms.Label();
+            this.Pnl_CurrentCode4 = new System.Windows.Forms.Panel();
+            this.PK_CodeSmall = new IntelligentPlanning.CustomControls.PK10CodeLineSmall();
+            this.Lbl_NextExpect1 = new System.Windows.Forms.Label();
+            this.Lbl_NextTime1 = new System.Windows.Forms.Label();
+            this.Lbl_CurrentExpect1 = new System.Windows.Forms.Label();
+            this.Pnl_Notice = new System.Windows.Forms.Panel();
+            this.Egv_NoticeList = new IntelligentPlanning.ExDataGridView.ExpandGirdView(this.components);
+            this.Pnl_LTUserInfo = new System.Windows.Forms.Panel();
+            this.Pnl_AppName = new System.Windows.Forms.Panel();
+            this.Ckb_AppName = new System.Windows.Forms.CheckBox();
+            this.Txt_AppName = new System.Windows.Forms.TextBox();
+            this.Lbl_AppName = new System.Windows.Forms.Label();
+            this.Pnl_LTUserInfoTop = new System.Windows.Forms.Panel();
+            this.Ckb_CloseMin = new System.Windows.Forms.CheckBox();
+            this.Ckb_LeftInfo = new System.Windows.Forms.CheckBox();
+            this.Ckb_OpenHint = new System.Windows.Forms.CheckBox();
+            this.Ckb_RrfreshPT = new System.Windows.Forms.CheckBox();
+            this.Ckb_Data = new System.Windows.Forms.CheckBox();
+            this.Pnl_CurrentExpect = new System.Windows.Forms.Panel();
+            this.Pnl_CurrentCode1 = new System.Windows.Forms.Panel();
+            this.Lbl_CurrentCode1 = new System.Windows.Forms.Label();
+            this.Lbl_CurrentCode5 = new System.Windows.Forms.Label();
+            this.Lbl_CurrentCode3 = new System.Windows.Forms.Label();
+            this.Lbl_CurrentCode2 = new System.Windows.Forms.Label();
+            this.Lbl_CurrentCode4 = new System.Windows.Forms.Label();
+            this.Pnl_CurrentCode2 = new System.Windows.Forms.Panel();
+            this.PK_Code = new IntelligentPlanning.CustomControls.PK10CodeLine();
+            this.Pnl_CurrentExpectTop = new System.Windows.Forms.Panel();
+            this.Lbl_CurrentExpect = new System.Windows.Forms.Label();
+            this.Ckb_AutomationRun = new System.Windows.Forms.CheckBox();
+            this.Pnl_NextExpect = new System.Windows.Forms.Panel();
+            this.Pnl_NextExpectTop = new System.Windows.Forms.Panel();
+            this.Lbl_NextExpect = new System.Windows.Forms.Label();
+            this.Lbl_NextTime = new System.Windows.Forms.Label();
+            this.Tot_Hint = new System.Windows.Forms.ToolTip(this.components);
+            this.Nic_Hint = new System.Windows.Forms.NotifyIcon(this.components);
+            this.Cms_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Tsm_Vis = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.Tsm_Colse = new System.Windows.Forms.ToolStripMenuItem();
+            this.Stp_Hint = new System.Windows.Forms.StatusStrip();
+            this.Tsp_PeopleKey = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Tsp_PeopleValue = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Tsp_LoginKey = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Tsp_LoginValue = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Tsp_QQKey = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Tsp_QQValue = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Tsp_QQGroupKey = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Tsp_QQGroupValue = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Tsp_HintKey = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Tsp_HintValue = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Lbl_Web = new System.Windows.Forms.LinkLabel();
+            this.Err_Hint = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Pnl_Info = new System.Windows.Forms.Panel();
+            this.Pnl_InfoRight = new System.Windows.Forms.Panel();
+            this.Pnl_Scroll = new System.Windows.Forms.Panel();
+            this.Sct_Notice = new IntelligentPlanning.CustomControls.ScrollingText();
+            this.Pnl_NoticeLeft = new System.Windows.Forms.Panel();
+            this.Pic_Notice = new System.Windows.Forms.PictureBox();
+            this.Tot_FNHint = new System.Windows.Forms.ToolTip(this.components);
             this.Pnl_Main.SuspendLayout();
             this.Pnl_Bets.SuspendLayout();
             this.Tab_Main.SuspendLayout();
@@ -4871,9 +4881,9 @@
             this.Pnl_BetsLeft.SuspendLayout();
             this.Pnl_BetsInfoMain.SuspendLayout();
             this.Pnl_BetsRight.SuspendLayout();
-            ((ISupportInitialize) this.Egv_PlanList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_PlanList)).BeginInit();
             this.Pnl_PlanListBottom.SuspendLayout();
-            this.Nm_DeleteExpect.BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nm_DeleteExpect)).BeginInit();
             this.Pnl_PlanListTop.SuspendLayout();
             this.Pnl_BetsInfoTop.SuspendLayout();
             this.Pnl_BetsInfoTopMain.SuspendLayout();
@@ -4883,7 +4893,7 @@
             this.Pnl_BetsInfoTopLeft.SuspendLayout();
             this.Pnl_BetsInfoTop2.SuspendLayout();
             this.Pnl_BetsInfoTop2Left.SuspendLayout();
-            this.Nm_BetsTime.BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nm_BetsTime)).BeginInit();
             this.Pnl_BetsInfoTop1.SuspendLayout();
             this.Pnl_BetsInfoExpect.SuspendLayout();
             this.Pnl_BetsInfoMN.SuspendLayout();
@@ -4894,27 +4904,27 @@
             this.Pnl_SchemeInfo.SuspendLayout();
             this.Pnl_SchemeTop2.SuspendLayout();
             this.Pnl_SchemeLeft.SuspendLayout();
-            ((ISupportInitialize) this.Egv_SchemeList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_SchemeList)).BeginInit();
             this.Pnl_SchemeBottom.SuspendLayout();
             this.Pnl_SchemeShare.SuspendLayout();
             this.Pnl_SchemeTop1.SuspendLayout();
             this.Tap_LSData.SuspendLayout();
             this.Pnl_LSData.SuspendLayout();
             this.Pnl_LSDataMain.SuspendLayout();
-            ((ISupportInitialize) this.Egv_LSDataList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_LSDataList)).BeginInit();
             this.Pnl_LSDataTop.SuspendLayout();
             this.Pnl_LSDataRight.SuspendLayout();
             this.Pnl_LSDataLeft.SuspendLayout();
             this.Pnl_LSDataTop1.SuspendLayout();
-            this.Nm_LSBJExpect.BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nm_LSBJExpect)).BeginInit();
             this.Tap_TJData.SuspendLayout();
             this.Pnl_TJData.SuspendLayout();
             this.Pnl_TJDataMain.SuspendLayout();
-            ((ISupportInitialize) this.Egv_TJDataList2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_TJDataList2)).BeginInit();
             this.Pnl_TJDataTop2.SuspendLayout();
             this.Pnl_TJDataFind.SuspendLayout();
-            this.Nm_TJFindXS.BeginInit();
-            ((ISupportInitialize) this.Egv_TJDataList1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nm_TJFindXS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_TJDataList1)).BeginInit();
             this.Pnl_TJDataTop.SuspendLayout();
             this.Pnl_TJRight2.SuspendLayout();
             this.Pnl_TJRight1.SuspendLayout();
@@ -4925,11 +4935,11 @@
             this.Tap_BTFN.SuspendLayout();
             this.Pnl_BTFN.SuspendLayout();
             this.Pnl_BTFNMain.SuspendLayout();
-            ((ISupportInitialize) this.Egv_BTFNTimesList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_BTFNTimesList)).BeginInit();
             this.Pnl_TimesBottom.SuspendLayout();
-            this.Nm_BTFNEdit.BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nm_BTFNEdit)).BeginInit();
             this.Pnl_BTFNList.SuspendLayout();
-            ((ISupportInitialize) this.Egv_BTFNMain).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_BTFNMain)).BeginInit();
             this.Pnl_FNBottom.SuspendLayout();
             this.Tap_TBCount.SuspendLayout();
             this.Tap_HJFG.SuspendLayout();
@@ -4937,15 +4947,15 @@
             this.Tap_ShrinkSX.SuspendLayout();
             this.Tap_Setting.SuspendLayout();
             this.Pnl_Setting.SuspendLayout();
-            ((ISupportInitialize) this.Egv_ShowTapList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_ShowTapList)).BeginInit();
             this.Tap_CDCount.SuspendLayout();
             this.Pnl_CDCount.SuspendLayout();
             this.Pnl_OpenData.SuspendLayout();
             this.Pnl_DataMain.SuspendLayout();
             this.Pnl_DataBottom.SuspendLayout();
-            ((ISupportInitialize) this.Egv_DataList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_DataList)).BeginInit();
             this.Pnl_RrfreshPT.SuspendLayout();
-            ((ISupportInitialize) this.Egv_PTLineList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_PTLineList)).BeginInit();
             this.Pnl_PTRefresh.SuspendLayout();
             this.Pnl_DataTop2.SuspendLayout();
             this.Pnl_DataBottom1.SuspendLayout();
@@ -4957,7 +4967,7 @@
             this.Pnl_CurrentCode3.SuspendLayout();
             this.Pnl_CurrentCode4.SuspendLayout();
             this.Pnl_Notice.SuspendLayout();
-            ((ISupportInitialize) this.Egv_NoticeList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_NoticeList)).BeginInit();
             this.Pnl_LTUserInfo.SuspendLayout();
             this.Pnl_AppName.SuspendLayout();
             this.Pnl_LTUserInfoTop.SuspendLayout();
@@ -4969,49 +4979,63 @@
             this.Pnl_NextExpectTop.SuspendLayout();
             this.Cms_Menu.SuspendLayout();
             this.Stp_Hint.SuspendLayout();
-            ((ISupportInitialize) this.Err_Hint).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Err_Hint)).BeginInit();
             this.Pnl_Info.SuspendLayout();
             this.Pnl_Scroll.SuspendLayout();
             this.Pnl_NoticeLeft.SuspendLayout();
-            ((ISupportInitialize) this.Pic_Notice).BeginInit();
-            base.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_Notice)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // Pnl_Main
+            // 
             this.Pnl_Main.Controls.Add(this.Pnl_Bets);
             this.Pnl_Main.Controls.Add(this.Pnl_OpenData);
-            this.Pnl_Main.Dock = DockStyle.Fill;
-            this.Pnl_Main.Location = new Point(0, 0x91);
+            this.Pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_Main.Location = new System.Drawing.Point(0, 145);
             this.Pnl_Main.Name = "Pnl_Main";
-            this.Pnl_Main.Size = new Size(0x4d2, 0x240);
+            this.Pnl_Main.Size = new System.Drawing.Size(1234, 576);
             this.Pnl_Main.TabIndex = 0;
-            this.Pnl_Bets.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_Bets
+            // 
+            this.Pnl_Bets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_Bets.Controls.Add(this.Lbl_AppHint);
             this.Pnl_Bets.Controls.Add(this.Btn_ViewTop);
             this.Pnl_Bets.Controls.Add(this.Tab_Main);
-            this.Pnl_Bets.Dock = DockStyle.Fill;
-            this.Pnl_Bets.Location = new Point(0xe2, 0);
+            this.Pnl_Bets.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_Bets.Location = new System.Drawing.Point(226, 0);
             this.Pnl_Bets.Name = "Pnl_Bets";
-            this.Pnl_Bets.Size = new Size(0x3f0, 0x240);
-            this.Pnl_Bets.TabIndex = 0x47;
-            this.Lbl_AppHint.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            this.Pnl_Bets.Size = new System.Drawing.Size(1008, 576);
+            this.Pnl_Bets.TabIndex = 71;
+            // 
+            // Lbl_AppHint
+            // 
+            this.Lbl_AppHint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_AppHint.AutoSize = true;
-            this.Lbl_AppHint.Location = new Point(-1000, -1000);
+            this.Lbl_AppHint.Location = new System.Drawing.Point(-1000, -1000);
             this.Lbl_AppHint.Name = "Lbl_AppHint";
-            this.Lbl_AppHint.Size = new Size(140, 0x11);
+            this.Lbl_AppHint.Size = new System.Drawing.Size(140, 17);
             this.Lbl_AppHint.TabIndex = 190;
-            this.Lbl_AppHint.Text = "【彩仙阁】软件公司出品";
+            this.Lbl_AppHint.Text = "【彩无界】软件公司出品";
             this.Lbl_AppHint.Visible = false;
-            this.Btn_ViewTop.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-            this.Btn_ViewTop.BackColor = Color.Transparent;
+            // 
+            // Btn_ViewTop
+            // 
+            this.Btn_ViewTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_ViewTop.BackColor = System.Drawing.Color.Transparent;
             this.Btn_ViewTop.FlatAppearance.BorderSize = 0;
-            this.Btn_ViewTop.FlatStyle = FlatStyle.Flat;
-            this.Btn_ViewTop.Font = new Font("微软雅黑", 14f, FontStyle.Bold);
-            this.Btn_ViewTop.Image = Resources.WindowUp;
-            this.Btn_ViewTop.Location = new Point(0x3c8, 1);
+            this.Btn_ViewTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_ViewTop.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Bold);
+            this.Btn_ViewTop.Location = new System.Drawing.Point(968, 1);
             this.Btn_ViewTop.Name = "Btn_ViewTop";
-            this.Btn_ViewTop.Size = new Size(30, 30);
-            this.Btn_ViewTop.TabIndex = 0x9d;
+            this.Btn_ViewTop.Size = new System.Drawing.Size(30, 30);
+            this.Btn_ViewTop.TabIndex = 157;
             this.Tot_Hint.SetToolTip(this.Btn_ViewTop, "隐藏");
             this.Btn_ViewTop.UseVisualStyleBackColor = false;
-            this.Btn_ViewTop.Click += new EventHandler(this.Btn_ViewTop_Click);
+            this.Btn_ViewTop.Click += new System.EventHandler(this.Btn_ViewTop_Click);
+            // 
+            // Tab_Main
+            // 
             this.Tab_Main.Controls.Add(this.Tap_PT);
             this.Tab_Main.Controls.Add(this.Tap_ZDBets);
             this.Tab_Main.Controls.Add(this.Tap_Scheme);
@@ -5027,155 +5051,203 @@
             this.Tab_Main.Controls.Add(this.Tap_ShrinkSX);
             this.Tab_Main.Controls.Add(this.Tap_Setting);
             this.Tab_Main.Controls.Add(this.Tap_CDCount);
-            this.Tab_Main.Dock = DockStyle.Fill;
-            this.Tab_Main.ItemSize = new Size(0x41, 30);
-            this.Tab_Main.Location = new Point(0, 0);
+            this.Tab_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tab_Main.ItemSize = new System.Drawing.Size(65, 30);
+            this.Tab_Main.Location = new System.Drawing.Point(0, 0);
             this.Tab_Main.Name = "Tab_Main";
             this.Tab_Main.SelectedIndex = 0;
-            this.Tab_Main.Size = new Size(0x3ee, 0x23e);
-            this.Tab_Main.SizeMode = TabSizeMode.Fixed;
+            this.Tab_Main.Size = new System.Drawing.Size(1006, 574);
+            this.Tab_Main.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.Tab_Main.TabIndex = 11;
-            this.Tab_Main.SelectedIndexChanged += new EventHandler(this.Tab_Main_SelectedIndexChanged);
-            this.Tap_PT.BackColor = SystemColors.Control;
+            this.Tab_Main.SelectedIndexChanged += new System.EventHandler(this.Tab_Main_SelectedIndexChanged);
+            // 
+            // Tap_PT
+            // 
+            this.Tap_PT.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_PT.Controls.Add(this.Pnl_Bets2);
-            this.Tap_PT.Location = new Point(4, 0x22);
+            this.Tap_PT.Location = new System.Drawing.Point(4, 34);
             this.Tap_PT.Name = "Tap_PT";
-            this.Tap_PT.Padding = new Padding(3);
-            this.Tap_PT.Size = new Size(0x3e6, 0x218);
+            this.Tap_PT.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_PT.Size = new System.Drawing.Size(998, 536);
             this.Tap_PT.TabIndex = 0;
             this.Tap_PT.Text = "官网网址";
-            this.Pnl_Bets2.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_Bets2
+            // 
+            this.Pnl_Bets2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_Bets2.Controls.Add(this.Web_Login);
-            this.Pnl_Bets2.Dock = DockStyle.Fill;
-            this.Pnl_Bets2.Location = new Point(3, 3);
+            this.Pnl_Bets2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_Bets2.Location = new System.Drawing.Point(3, 3);
             this.Pnl_Bets2.Name = "Pnl_Bets2";
-            this.Pnl_Bets2.Size = new Size(0x3e0, 530);
-            this.Pnl_Bets2.TabIndex = 0x4c;
-            this.Web_Login.Dock = DockStyle.Fill;
-            this.Web_Login.Location = new Point(0, 0);
-            this.Web_Login.MinimumSize = new Size(20, 20);
+            this.Pnl_Bets2.Size = new System.Drawing.Size(992, 530);
+            this.Pnl_Bets2.TabIndex = 76;
+            // 
+            // Web_Login
+            // 
+            this.Web_Login.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Web_Login.Location = new System.Drawing.Point(0, 0);
+            this.Web_Login.MinimumSize = new System.Drawing.Size(20, 20);
             this.Web_Login.Name = "Web_Login";
-            this.Web_Login.Size = new Size(990, 0x210);
+            this.Web_Login.Size = new System.Drawing.Size(990, 528);
             this.Web_Login.TabIndex = 3;
-            this.Web_Login.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(this.Web_Login_DocumentCompleted);
-            this.Web_Login.Navigating += new WebBrowserNavigatingEventHandler(this.Web_Login_Navigating);
-            this.Web_Login.NewWindow += new CancelEventHandler(this.Web_Login_NewWindow);
-            this.Tap_ZDBets.BackColor = SystemColors.Control;
+            this.Web_Login.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.Web_Login_DocumentCompleted);
+            this.Web_Login.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.Web_Login_Navigating);
+            this.Web_Login.NewWindow += new System.ComponentModel.CancelEventHandler(this.Web_Login_NewWindow);
+            // 
+            // Tap_ZDBets
+            // 
+            this.Tap_ZDBets.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_ZDBets.Controls.Add(this.Pnl_Bets1);
-            this.Tap_ZDBets.Location = new Point(4, 0x22);
+            this.Tap_ZDBets.Location = new System.Drawing.Point(4, 34);
             this.Tap_ZDBets.Name = "Tap_ZDBets";
-            this.Tap_ZDBets.Padding = new Padding(3);
-            this.Tap_ZDBets.Size = new Size(0x3e6, 0x218);
+            this.Tap_ZDBets.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_ZDBets.Size = new System.Drawing.Size(998, 536);
             this.Tap_ZDBets.TabIndex = 1;
             this.Tap_ZDBets.Text = "自动投注";
+            // 
+            // Pnl_Bets1
+            // 
             this.Pnl_Bets1.Controls.Add(this.Pnl_BetsMain);
-            this.Pnl_Bets1.Dock = DockStyle.Fill;
-            this.Pnl_Bets1.Location = new Point(3, 3);
+            this.Pnl_Bets1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_Bets1.Location = new System.Drawing.Point(3, 3);
             this.Pnl_Bets1.Name = "Pnl_Bets1";
-            this.Pnl_Bets1.Size = new Size(0x3e0, 530);
-            this.Pnl_Bets1.TabIndex = 0x4d;
+            this.Pnl_Bets1.Size = new System.Drawing.Size(992, 530);
+            this.Pnl_Bets1.TabIndex = 77;
+            // 
+            // Pnl_BetsMain
+            // 
             this.Pnl_BetsMain.Controls.Add(this.Pnl_BetsLeft);
-            this.Pnl_BetsMain.Dock = DockStyle.Fill;
-            this.Pnl_BetsMain.Location = new Point(0, 0);
+            this.Pnl_BetsMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_BetsMain.Location = new System.Drawing.Point(0, 0);
             this.Pnl_BetsMain.Name = "Pnl_BetsMain";
-            this.Pnl_BetsMain.Size = new Size(0x3e0, 530);
+            this.Pnl_BetsMain.Size = new System.Drawing.Size(992, 530);
             this.Pnl_BetsMain.TabIndex = 3;
-            this.Pnl_BetsLeft.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_BetsLeft
+            // 
+            this.Pnl_BetsLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_BetsLeft.Controls.Add(this.Pnl_BetsInfoMain);
             this.Pnl_BetsLeft.Controls.Add(this.Pnl_BetsInfoTop);
-            this.Pnl_BetsLeft.Dock = DockStyle.Fill;
-            this.Pnl_BetsLeft.Location = new Point(0, 0);
+            this.Pnl_BetsLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_BetsLeft.Location = new System.Drawing.Point(0, 0);
             this.Pnl_BetsLeft.Name = "Pnl_BetsLeft";
-            this.Pnl_BetsLeft.Size = new Size(0x3e0, 530);
-            this.Pnl_BetsLeft.TabIndex = 0x48;
+            this.Pnl_BetsLeft.Size = new System.Drawing.Size(992, 530);
+            this.Pnl_BetsLeft.TabIndex = 72;
+            // 
+            // Pnl_BetsInfoMain
+            // 
             this.Pnl_BetsInfoMain.Controls.Add(this.Pnl_BetsRight);
-            this.Pnl_BetsInfoMain.Dock = DockStyle.Fill;
-            this.Pnl_BetsInfoMain.Location = new Point(0, 0x69);
+            this.Pnl_BetsInfoMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_BetsInfoMain.Location = new System.Drawing.Point(0, 105);
             this.Pnl_BetsInfoMain.Name = "Pnl_BetsInfoMain";
-            this.Pnl_BetsInfoMain.Size = new Size(990, 0x1a7);
-            this.Pnl_BetsInfoMain.TabIndex = 0x47;
-            this.Pnl_BetsRight.BorderStyle = BorderStyle.FixedSingle;
+            this.Pnl_BetsInfoMain.Size = new System.Drawing.Size(990, 423);
+            this.Pnl_BetsInfoMain.TabIndex = 71;
+            // 
+            // Pnl_BetsRight
+            // 
+            this.Pnl_BetsRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_BetsRight.Controls.Add(this.Egv_PlanList);
             this.Pnl_BetsRight.Controls.Add(this.Pnl_PlanListBottom);
             this.Pnl_BetsRight.Controls.Add(this.Pnl_PlanListTop);
-            this.Pnl_BetsRight.Dock = DockStyle.Fill;
-            this.Pnl_BetsRight.Location = new Point(0, 0);
+            this.Pnl_BetsRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_BetsRight.Location = new System.Drawing.Point(0, 0);
             this.Pnl_BetsRight.Name = "Pnl_BetsRight";
-            this.Pnl_BetsRight.Size = new Size(990, 0x1a7);
-            this.Pnl_BetsRight.TabIndex = 0x49;
+            this.Pnl_BetsRight.Size = new System.Drawing.Size(990, 423);
+            this.Pnl_BetsRight.TabIndex = 73;
+            // 
+            // Egv_PlanList
+            // 
             this.Egv_PlanList.AllowUserToAddRows = false;
             this.Egv_PlanList.AllowUserToDeleteRows = false;
             this.Egv_PlanList.AllowUserToResizeRows = false;
-            this.Egv_PlanList.BackgroundColor = SystemColors.Window;
-            this.Egv_PlanList.BorderStyle = BorderStyle.Fixed3D;
-            this.Egv_PlanList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style.BackColor = SystemColors.Window;
-            style.Font = new Font("微软雅黑", 9f);
-            style.ForeColor = SystemColors.ControlText;
-            style.SelectionBackColor = SystemColors.Highlight;
-            style.SelectionForeColor = SystemColors.HighlightText;
-            style.WrapMode = DataGridViewTriState.False;
-            this.Egv_PlanList.ColumnHeadersDefaultCellStyle = style;
+            this.Egv_PlanList.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.Egv_PlanList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Egv_PlanList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_PlanList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Egv_PlanList.ColumnHeadersHeight = 30;
-            this.Egv_PlanList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            style2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style2.BackColor = SystemColors.Window;
-            style2.Font = new Font("微软雅黑", 9f);
-            style2.ForeColor = SystemColors.ControlText;
-            style2.SelectionBackColor = Color.SteelBlue;
-            style2.SelectionForeColor = Color.White;
-            style2.WrapMode = DataGridViewTriState.False;
-            this.Egv_PlanList.DefaultCellStyle = style2;
-            this.Egv_PlanList.Dock = DockStyle.Fill;
-            this.Egv_PlanList.DragLineColor = Color.Silver;
+            this.Egv_PlanList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_PlanList.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Egv_PlanList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Egv_PlanList.DragLineColor = System.Drawing.Color.Silver;
             this.Egv_PlanList.ExternalVirtualMode = true;
-            this.Egv_PlanList.GridColor = Color.Silver;
-            this.Egv_PlanList.HeadersCheckDefult = CheckState.Checked;
-            this.Egv_PlanList.Location = new Point(0, 60);
-            this.Egv_PlanList.MergeColumnHeaderBackColor = SystemColors.Control;
-            this.Egv_PlanList.MergeColumnHeaderForeColor = Color.Black;
+            this.Egv_PlanList.GridColor = System.Drawing.Color.Silver;
+            this.Egv_PlanList.HeadersCheckDefult = System.Windows.Forms.CheckState.Checked;
+            this.Egv_PlanList.Location = new System.Drawing.Point(0, 60);
+            this.Egv_PlanList.MergeColumnHeaderBackColor = System.Drawing.SystemColors.Control;
+            this.Egv_PlanList.MergeColumnHeaderForeColor = System.Drawing.Color.Black;
             this.Egv_PlanList.MultiSelect = false;
             this.Egv_PlanList.Name = "Egv_PlanList";
             this.Egv_PlanList.RowHeadersVisible = false;
-            this.Egv_PlanList.RowNum = 0x11;
-            style3.BackColor = SystemColors.Window;
-            style3.SelectionBackColor = Color.FromArgb(0xde, 0xe8, 0xfc);
-            style3.SelectionForeColor = Color.Black;
-            this.Egv_PlanList.RowsDefaultCellStyle = style3;
-            this.Egv_PlanList.RowTemplate.Height = 0x17;
-            this.Egv_PlanList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.Egv_PlanList.Size = new Size(0x3dc, 0x146);
-            this.Egv_PlanList.TabIndex = 0x45;
+            this.Egv_PlanList.RowNum = 17;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(232)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.Egv_PlanList.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.Egv_PlanList.RowTemplate.Height = 23;
+            this.Egv_PlanList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Egv_PlanList.Size = new System.Drawing.Size(988, 326);
+            this.Egv_PlanList.TabIndex = 69;
             this.Egv_PlanList.VirtualMode = true;
+            // 
+            // Pnl_PlanListBottom
+            // 
             this.Pnl_PlanListBottom.Controls.Add(this.Nm_DeleteExpect);
             this.Pnl_PlanListBottom.Controls.Add(this.Ckb_DeleteExpect);
-            this.Pnl_PlanListBottom.Dock = DockStyle.Bottom;
-            this.Pnl_PlanListBottom.Location = new Point(0, 0x182);
+            this.Pnl_PlanListBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Pnl_PlanListBottom.Location = new System.Drawing.Point(0, 386);
             this.Pnl_PlanListBottom.Name = "Pnl_PlanListBottom";
-            this.Pnl_PlanListBottom.Size = new Size(0x3dc, 0x23);
+            this.Pnl_PlanListBottom.Size = new System.Drawing.Size(988, 35);
             this.Pnl_PlanListBottom.TabIndex = 70;
-            this.Nm_DeleteExpect.Location = new Point(0xa5, 7);
-            int[] bits = new int[4];
-            bits[0] = 0x2710;
-            this.Nm_DeleteExpect.Maximum = new decimal(bits);
-            bits = new int[4];
-            bits[0] = 1;
-            this.Nm_DeleteExpect.Minimum = new decimal(bits);
+            // 
+            // Nm_DeleteExpect
+            // 
+            this.Nm_DeleteExpect.Location = new System.Drawing.Point(165, 7);
+            this.Nm_DeleteExpect.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.Nm_DeleteExpect.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.Nm_DeleteExpect.Name = "Nm_DeleteExpect";
-            this.Nm_DeleteExpect.Size = new Size(60, 0x17);
-            this.Nm_DeleteExpect.TabIndex = 0xd3;
-            bits = new int[4];
-            bits[0] = 10;
-            this.Nm_DeleteExpect.Value = new decimal(bits);
+            this.Nm_DeleteExpect.Size = new System.Drawing.Size(60, 23);
+            this.Nm_DeleteExpect.TabIndex = 211;
+            this.Nm_DeleteExpect.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // Ckb_DeleteExpect
+            // 
             this.Ckb_DeleteExpect.AutoSize = true;
-            this.Ckb_DeleteExpect.Location = new Point(5, 8);
+            this.Ckb_DeleteExpect.Location = new System.Drawing.Point(5, 8);
             this.Ckb_DeleteExpect.Name = "Ckb_DeleteExpect";
-            this.Ckb_DeleteExpect.Size = new Size(0x9d, 0x15);
-            this.Ckb_DeleteExpect.TabIndex = 0xd1;
+            this.Ckb_DeleteExpect.Size = new System.Drawing.Size(157, 21);
+            this.Ckb_DeleteExpect.TabIndex = 209;
             this.Ckb_DeleteExpect.Text = "自动删除N期前的计划：\r\n";
             this.Ckb_DeleteExpect.UseVisualStyleBackColor = true;
-            this.Pnl_PlanListTop.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_PlanListTop
+            // 
+            this.Pnl_PlanListTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_PlanListTop.Controls.Add(this.Ckb_ClearBetsList);
             this.Pnl_PlanListTop.Controls.Add(this.Lbl_BetsHint);
             this.Pnl_PlanListTop.Controls.Add(this.Lbl_ZQLValue);
@@ -5198,394 +5270,545 @@
             this.Pnl_PlanListTop.Controls.Add(this.Lbl_BetsKey);
             this.Pnl_PlanListTop.Controls.Add(this.Lbl_BetsGainPlanValue);
             this.Pnl_PlanListTop.Controls.Add(this.Lbl_BetsGainPlanKey);
-            this.Pnl_PlanListTop.Dock = DockStyle.Top;
-            this.Pnl_PlanListTop.Location = new Point(0, 0);
+            this.Pnl_PlanListTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_PlanListTop.Location = new System.Drawing.Point(0, 0);
             this.Pnl_PlanListTop.Name = "Pnl_PlanListTop";
-            this.Pnl_PlanListTop.Size = new Size(0x3dc, 60);
+            this.Pnl_PlanListTop.Size = new System.Drawing.Size(988, 60);
             this.Pnl_PlanListTop.TabIndex = 2;
-            this.Ckb_ClearBetsList.Appearance = Appearance.Button;
+            // 
+            // Ckb_ClearBetsList
+            // 
+            this.Ckb_ClearBetsList.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_ClearBetsList.AutoCheck = false;
             this.Ckb_ClearBetsList.FlatAppearance.BorderSize = 0;
-            this.Ckb_ClearBetsList.FlatStyle = FlatStyle.Flat;
-            this.Ckb_ClearBetsList.Image = Resources.ClearAll;
-            this.Ckb_ClearBetsList.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_ClearBetsList.Location = new Point(0x22d, 0x1d);
+            this.Ckb_ClearBetsList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_ClearBetsList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_ClearBetsList.Location = new System.Drawing.Point(557, 29);
             this.Ckb_ClearBetsList.Name = "Ckb_ClearBetsList";
-            this.Ckb_ClearBetsList.Size = new Size(80, 0x19);
-            this.Ckb_ClearBetsList.TabIndex = 0xd6;
+            this.Ckb_ClearBetsList.Size = new System.Drawing.Size(80, 25);
+            this.Ckb_ClearBetsList.TabIndex = 214;
             this.Ckb_ClearBetsList.Text = "清空记录";
-            this.Ckb_ClearBetsList.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_ClearBetsList.TextImageRelation = TextImageRelation.ImageBeforeText;
+            this.Ckb_ClearBetsList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_ClearBetsList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Tot_Hint.SetToolTip(this.Ckb_ClearBetsList, "清空投注的记录");
             this.Ckb_ClearBetsList.UseVisualStyleBackColor = true;
-            this.Ckb_ClearBetsList.Click += new EventHandler(this.Ckb_ClearBetsList_Click);
+            this.Ckb_ClearBetsList.Click += new System.EventHandler(this.Ckb_ClearBetsList_Click);
+            // 
+            // Lbl_BetsHint
+            // 
             this.Lbl_BetsHint.AutoSize = true;
-            this.Lbl_BetsHint.BackColor = Color.Transparent;
-            this.Lbl_BetsHint.ForeColor = SystemColors.ControlText;
-            this.Lbl_BetsHint.Location = new Point(0x2c9, 0x22);
+            this.Lbl_BetsHint.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_BetsHint.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Lbl_BetsHint.Location = new System.Drawing.Point(713, 34);
             this.Lbl_BetsHint.Name = "Lbl_BetsHint";
-            this.Lbl_BetsHint.Size = new Size(0, 0x11);
-            this.Lbl_BetsHint.TabIndex = 0xd1;
+            this.Lbl_BetsHint.Size = new System.Drawing.Size(0, 17);
+            this.Lbl_BetsHint.TabIndex = 209;
+            // 
+            // Lbl_ZQLValue
+            // 
             this.Lbl_ZQLValue.AutoSize = true;
-            this.Lbl_ZQLValue.BackColor = Color.Transparent;
-            this.Lbl_ZQLValue.ForeColor = SystemColors.ControlText;
-            this.Lbl_ZQLValue.Location = new Point(0x38c, 8);
+            this.Lbl_ZQLValue.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_ZQLValue.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Lbl_ZQLValue.Location = new System.Drawing.Point(908, 8);
             this.Lbl_ZQLValue.Name = "Lbl_ZQLValue";
-            this.Lbl_ZQLValue.Size = new Size(0x16, 0x11);
-            this.Lbl_ZQLValue.TabIndex = 0xce;
+            this.Lbl_ZQLValue.Size = new System.Drawing.Size(22, 17);
+            this.Lbl_ZQLValue.TabIndex = 206;
             this.Lbl_ZQLValue.Text = "00";
+            // 
+            // Lbl_ZQLKey
+            // 
             this.Lbl_ZQLKey.AutoSize = true;
-            this.Lbl_ZQLKey.BackColor = Color.Transparent;
-            this.Lbl_ZQLKey.ForeColor = SystemColors.ControlText;
-            this.Lbl_ZQLKey.Location = new Point(0x357, 8);
+            this.Lbl_ZQLKey.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_ZQLKey.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Lbl_ZQLKey.Location = new System.Drawing.Point(855, 8);
             this.Lbl_ZQLKey.Name = "Lbl_ZQLKey";
-            this.Lbl_ZQLKey.Size = new Size(0x38, 0x11);
-            this.Lbl_ZQLKey.TabIndex = 0xcd;
+            this.Lbl_ZQLKey.Size = new System.Drawing.Size(56, 17);
+            this.Lbl_ZQLKey.TabIndex = 205;
             this.Lbl_ZQLKey.Text = "准确率：";
-            this.Ckb_PlanShowHide.Appearance = Appearance.Button;
+            // 
+            // Ckb_PlanShowHide
+            // 
+            this.Ckb_PlanShowHide.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_PlanShowHide.FlatAppearance.BorderSize = 0;
-            this.Ckb_PlanShowHide.FlatStyle = FlatStyle.Flat;
-            this.Ckb_PlanShowHide.Image = Resources.ShowHide;
-            this.Ckb_PlanShowHide.Location = new Point(0x2a3, 0x1d);
+            this.Ckb_PlanShowHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_PlanShowHide.Location = new System.Drawing.Point(675, 29);
             this.Ckb_PlanShowHide.Name = "Ckb_PlanShowHide";
-            this.Ckb_PlanShowHide.Size = new Size(30, 0x19);
-            this.Ckb_PlanShowHide.TabIndex = 0xd0;
+            this.Ckb_PlanShowHide.Size = new System.Drawing.Size(30, 25);
+            this.Ckb_PlanShowHide.TabIndex = 208;
             this.Tot_Hint.SetToolTip(this.Ckb_PlanShowHide, "隐藏投注记录中不重要的列");
             this.Ckb_PlanShowHide.UseVisualStyleBackColor = true;
-            this.Ckb_PlanShowHide.CheckedChanged += new EventHandler(this.Ckb_PlanShowHide_CheckedChanged);
+            this.Ckb_PlanShowHide.CheckedChanged += new System.EventHandler(this.Ckb_PlanShowHide_CheckedChanged);
+            // 
+            // Lbl_LGMaxValue
+            // 
             this.Lbl_LGMaxValue.AutoSize = true;
-            this.Lbl_LGMaxValue.BackColor = Color.Transparent;
-            this.Lbl_LGMaxValue.ForeColor = SystemColors.ControlText;
-            this.Lbl_LGMaxValue.Location = new Point(0x311, 8);
+            this.Lbl_LGMaxValue.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_LGMaxValue.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Lbl_LGMaxValue.Location = new System.Drawing.Point(785, 8);
             this.Lbl_LGMaxValue.Name = "Lbl_LGMaxValue";
-            this.Lbl_LGMaxValue.Size = new Size(0x16, 0x11);
-            this.Lbl_LGMaxValue.TabIndex = 0xcc;
+            this.Lbl_LGMaxValue.Size = new System.Drawing.Size(22, 17);
+            this.Lbl_LGMaxValue.TabIndex = 204;
             this.Lbl_LGMaxValue.Text = "00";
-            this.Ckb_BetsSort.Appearance = Appearance.Button;
+            // 
+            // Ckb_BetsSort
+            // 
+            this.Ckb_BetsSort.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_BetsSort.FlatAppearance.BorderSize = 0;
-            this.Ckb_BetsSort.FlatStyle = FlatStyle.Flat;
-            this.Ckb_BetsSort.Image = Resources.Sort;
-            this.Ckb_BetsSort.Location = new Point(0x282, 0x1d);
+            this.Ckb_BetsSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_BetsSort.Location = new System.Drawing.Point(642, 29);
             this.Ckb_BetsSort.Name = "Ckb_BetsSort";
-            this.Ckb_BetsSort.Size = new Size(30, 0x19);
-            this.Ckb_BetsSort.TabIndex = 0xcf;
+            this.Ckb_BetsSort.Size = new System.Drawing.Size(30, 25);
+            this.Ckb_BetsSort.TabIndex = 207;
             this.Tot_Hint.SetToolTip(this.Ckb_BetsSort, "将最新投注记录显示在第一行");
             this.Ckb_BetsSort.UseVisualStyleBackColor = true;
-            this.Ckb_BetsSort.CheckedChanged += new EventHandler(this.Ckb_BetsSort_CheckedChanged);
+            this.Ckb_BetsSort.CheckedChanged += new System.EventHandler(this.Ckb_BetsSort_CheckedChanged);
+            // 
+            // Lbl_LGMaxKey
+            // 
             this.Lbl_LGMaxKey.AutoSize = true;
-            this.Lbl_LGMaxKey.BackColor = Color.Transparent;
-            this.Lbl_LGMaxKey.ForeColor = SystemColors.ControlText;
-            this.Lbl_LGMaxKey.Location = new Point(720, 8);
+            this.Lbl_LGMaxKey.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_LGMaxKey.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Lbl_LGMaxKey.Location = new System.Drawing.Point(720, 8);
             this.Lbl_LGMaxKey.Name = "Lbl_LGMaxKey";
-            this.Lbl_LGMaxKey.Size = new Size(0x44, 0x11);
-            this.Lbl_LGMaxKey.TabIndex = 0xcb;
+            this.Lbl_LGMaxKey.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_LGMaxKey.TabIndex = 203;
             this.Lbl_LGMaxKey.Text = "最大连挂：";
+            // 
+            // Lbl_LZMaxValue
+            // 
             this.Lbl_LZMaxValue.AutoSize = true;
-            this.Lbl_LZMaxValue.BackColor = Color.Transparent;
-            this.Lbl_LZMaxValue.ForeColor = SystemColors.ControlText;
-            this.Lbl_LZMaxValue.Location = new Point(650, 8);
+            this.Lbl_LZMaxValue.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_LZMaxValue.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Lbl_LZMaxValue.Location = new System.Drawing.Point(650, 8);
             this.Lbl_LZMaxValue.Name = "Lbl_LZMaxValue";
-            this.Lbl_LZMaxValue.Size = new Size(0x16, 0x11);
-            this.Lbl_LZMaxValue.TabIndex = 0xca;
+            this.Lbl_LZMaxValue.Size = new System.Drawing.Size(22, 17);
+            this.Lbl_LZMaxValue.TabIndex = 202;
             this.Lbl_LZMaxValue.Text = "00";
+            // 
+            // Lbl_LZMaxKey
+            // 
             this.Lbl_LZMaxKey.AutoSize = true;
-            this.Lbl_LZMaxKey.BackColor = Color.Transparent;
-            this.Lbl_LZMaxKey.ForeColor = SystemColors.ControlText;
-            this.Lbl_LZMaxKey.Location = new Point(0x249, 8);
+            this.Lbl_LZMaxKey.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_LZMaxKey.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Lbl_LZMaxKey.Location = new System.Drawing.Point(585, 8);
             this.Lbl_LZMaxKey.Name = "Lbl_LZMaxKey";
-            this.Lbl_LZMaxKey.Size = new Size(0x44, 0x11);
-            this.Lbl_LZMaxKey.TabIndex = 0xc9;
+            this.Lbl_LZMaxKey.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_LZMaxKey.TabIndex = 201;
             this.Lbl_LZMaxKey.Text = "最大连中：";
+            // 
+            // Lbl_BetsCountValue
+            // 
             this.Lbl_BetsCountValue.AutoSize = true;
-            this.Lbl_BetsCountValue.ForeColor = SystemColors.ControlText;
-            this.Lbl_BetsCountValue.Location = new Point(70, 0x21);
+            this.Lbl_BetsCountValue.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Lbl_BetsCountValue.Location = new System.Drawing.Point(70, 33);
             this.Lbl_BetsCountValue.Name = "Lbl_BetsCountValue";
-            this.Lbl_BetsCountValue.Size = new Size(0x16, 0x11);
-            this.Lbl_BetsCountValue.TabIndex = 0xc0;
+            this.Lbl_BetsCountValue.Size = new System.Drawing.Size(22, 17);
+            this.Lbl_BetsCountValue.TabIndex = 192;
             this.Lbl_BetsCountValue.Text = "00";
+            // 
+            // Lbl_BetsCountKey
+            // 
             this.Lbl_BetsCountKey.AutoSize = true;
-            this.Lbl_BetsCountKey.Location = new Point(5, 0x21);
+            this.Lbl_BetsCountKey.Location = new System.Drawing.Point(5, 33);
             this.Lbl_BetsCountKey.Name = "Lbl_BetsCountKey";
-            this.Lbl_BetsCountKey.Size = new Size(0x44, 0x11);
-            this.Lbl_BetsCountKey.TabIndex = 0xbf;
+            this.Lbl_BetsCountKey.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_BetsCountKey.TabIndex = 191;
             this.Lbl_BetsCountKey.Text = "投注记录：";
+            // 
+            // Lbl_MNBetsMoneyPlanValue
+            // 
             this.Lbl_MNBetsMoneyPlanValue.AutoSize = true;
-            this.Lbl_MNBetsMoneyPlanValue.Location = new Point(0x1f9, 8);
+            this.Lbl_MNBetsMoneyPlanValue.Location = new System.Drawing.Point(505, 8);
             this.Lbl_MNBetsMoneyPlanValue.Name = "Lbl_MNBetsMoneyPlanValue";
-            this.Lbl_MNBetsMoneyPlanValue.Size = new Size(0x16, 0x11);
+            this.Lbl_MNBetsMoneyPlanValue.Size = new System.Drawing.Size(22, 17);
             this.Lbl_MNBetsMoneyPlanValue.TabIndex = 190;
             this.Lbl_MNBetsMoneyPlanValue.Text = "00";
+            // 
+            // Lbl_MNBetsMoneyPlanKey
+            // 
             this.Lbl_MNBetsMoneyPlanKey.AutoSize = true;
-            this.Lbl_MNBetsMoneyPlanKey.Location = new Point(440, 8);
+            this.Lbl_MNBetsMoneyPlanKey.Location = new System.Drawing.Point(440, 8);
             this.Lbl_MNBetsMoneyPlanKey.Name = "Lbl_MNBetsMoneyPlanKey";
-            this.Lbl_MNBetsMoneyPlanKey.Size = new Size(0x44, 0x11);
-            this.Lbl_MNBetsMoneyPlanKey.TabIndex = 0xbd;
+            this.Lbl_MNBetsMoneyPlanKey.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_MNBetsMoneyPlanKey.TabIndex = 189;
             this.Lbl_MNBetsMoneyPlanKey.Text = "模拟下注：";
+            // 
+            // Lbl_BetsMoneyPlanValue
+            // 
             this.Lbl_BetsMoneyPlanValue.AutoSize = true;
-            this.Lbl_BetsMoneyPlanValue.Location = new Point(0xd7, 8);
+            this.Lbl_BetsMoneyPlanValue.Location = new System.Drawing.Point(215, 8);
             this.Lbl_BetsMoneyPlanValue.Name = "Lbl_BetsMoneyPlanValue";
-            this.Lbl_BetsMoneyPlanValue.Size = new Size(0x16, 0x11);
-            this.Lbl_BetsMoneyPlanValue.TabIndex = 0xbc;
+            this.Lbl_BetsMoneyPlanValue.Size = new System.Drawing.Size(22, 17);
+            this.Lbl_BetsMoneyPlanValue.TabIndex = 188;
             this.Lbl_BetsMoneyPlanValue.Text = "00";
+            // 
+            // Lbl_BetsMoneyPlanKey
+            // 
             this.Lbl_BetsMoneyPlanKey.AutoSize = true;
-            this.Lbl_BetsMoneyPlanKey.Location = new Point(150, 8);
+            this.Lbl_BetsMoneyPlanKey.Location = new System.Drawing.Point(150, 8);
             this.Lbl_BetsMoneyPlanKey.Name = "Lbl_BetsMoneyPlanKey";
-            this.Lbl_BetsMoneyPlanKey.Size = new Size(0x44, 0x11);
-            this.Lbl_BetsMoneyPlanKey.TabIndex = 0xbb;
+            this.Lbl_BetsMoneyPlanKey.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_BetsMoneyPlanKey.TabIndex = 187;
             this.Lbl_BetsMoneyPlanKey.Text = "真实下注：";
+            // 
+            // Lbl_MNBetsGainPlanValue
+            // 
             this.Lbl_MNBetsGainPlanValue.AutoSize = true;
-            this.Lbl_MNBetsGainPlanValue.Location = new Point(360, 8);
+            this.Lbl_MNBetsGainPlanValue.Location = new System.Drawing.Point(360, 8);
             this.Lbl_MNBetsGainPlanValue.Name = "Lbl_MNBetsGainPlanValue";
-            this.Lbl_MNBetsGainPlanValue.Size = new Size(0x16, 0x11);
-            this.Lbl_MNBetsGainPlanValue.TabIndex = 0xba;
+            this.Lbl_MNBetsGainPlanValue.Size = new System.Drawing.Size(22, 17);
+            this.Lbl_MNBetsGainPlanValue.TabIndex = 186;
             this.Lbl_MNBetsGainPlanValue.Text = "00";
+            // 
+            // Lbl_MNBetsGainPlanKey
+            // 
             this.Lbl_MNBetsGainPlanKey.AutoSize = true;
-            this.Lbl_MNBetsGainPlanKey.Location = new Point(0x127, 8);
+            this.Lbl_MNBetsGainPlanKey.Location = new System.Drawing.Point(295, 8);
             this.Lbl_MNBetsGainPlanKey.Name = "Lbl_MNBetsGainPlanKey";
-            this.Lbl_MNBetsGainPlanKey.Size = new Size(0x44, 0x11);
-            this.Lbl_MNBetsGainPlanKey.TabIndex = 0xb9;
+            this.Lbl_MNBetsGainPlanKey.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_MNBetsGainPlanKey.TabIndex = 185;
             this.Lbl_MNBetsGainPlanKey.Text = "模拟盈亏：";
+            // 
+            // Lbl_BetsValue
+            // 
             this.Lbl_BetsValue.AutoSize = true;
-            this.Lbl_BetsValue.Location = new Point(0xd7, 0x21);
+            this.Lbl_BetsValue.Location = new System.Drawing.Point(215, 33);
             this.Lbl_BetsValue.Name = "Lbl_BetsValue";
-            this.Lbl_BetsValue.Size = new Size(20, 0x11);
-            this.Lbl_BetsValue.TabIndex = 0xb8;
+            this.Lbl_BetsValue.Size = new System.Drawing.Size(20, 17);
+            this.Lbl_BetsValue.TabIndex = 184;
             this.Lbl_BetsValue.Text = "无";
+            // 
+            // Lbl_BetsKey
+            // 
             this.Lbl_BetsKey.AutoSize = true;
-            this.Lbl_BetsKey.Location = new Point(150, 0x21);
+            this.Lbl_BetsKey.Location = new System.Drawing.Point(150, 33);
             this.Lbl_BetsKey.Name = "Lbl_BetsKey";
-            this.Lbl_BetsKey.Size = new Size(0x44, 0x11);
-            this.Lbl_BetsKey.TabIndex = 0xb7;
+            this.Lbl_BetsKey.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_BetsKey.TabIndex = 183;
             this.Lbl_BetsKey.Text = "投注状态：";
+            // 
+            // Lbl_BetsGainPlanValue
+            // 
             this.Lbl_BetsGainPlanValue.AutoSize = true;
-            this.Lbl_BetsGainPlanValue.Location = new Point(70, 8);
+            this.Lbl_BetsGainPlanValue.Location = new System.Drawing.Point(70, 8);
             this.Lbl_BetsGainPlanValue.Name = "Lbl_BetsGainPlanValue";
-            this.Lbl_BetsGainPlanValue.Size = new Size(0x16, 0x11);
-            this.Lbl_BetsGainPlanValue.TabIndex = 0xb6;
+            this.Lbl_BetsGainPlanValue.Size = new System.Drawing.Size(22, 17);
+            this.Lbl_BetsGainPlanValue.TabIndex = 182;
             this.Lbl_BetsGainPlanValue.Text = "00";
+            // 
+            // Lbl_BetsGainPlanKey
+            // 
             this.Lbl_BetsGainPlanKey.AutoSize = true;
-            this.Lbl_BetsGainPlanKey.Location = new Point(5, 8);
+            this.Lbl_BetsGainPlanKey.Location = new System.Drawing.Point(5, 8);
             this.Lbl_BetsGainPlanKey.Name = "Lbl_BetsGainPlanKey";
-            this.Lbl_BetsGainPlanKey.Size = new Size(0x44, 0x11);
-            this.Lbl_BetsGainPlanKey.TabIndex = 0xb5;
+            this.Lbl_BetsGainPlanKey.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_BetsGainPlanKey.TabIndex = 181;
             this.Lbl_BetsGainPlanKey.Text = "真实盈亏：";
+            // 
+            // Pnl_BetsInfoTop
+            // 
             this.Pnl_BetsInfoTop.Controls.Add(this.Pnl_BetsInfoTopMain);
             this.Pnl_BetsInfoTop.Controls.Add(this.Pnl_BetsInfoTopLeft);
-            this.Pnl_BetsInfoTop.Dock = DockStyle.Top;
-            this.Pnl_BetsInfoTop.Location = new Point(0, 0);
+            this.Pnl_BetsInfoTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_BetsInfoTop.Location = new System.Drawing.Point(0, 0);
             this.Pnl_BetsInfoTop.Name = "Pnl_BetsInfoTop";
-            this.Pnl_BetsInfoTop.Size = new Size(990, 0x69);
-            this.Pnl_BetsInfoTop.TabIndex = 0x49;
-            this.Pnl_BetsInfoTopMain.BorderStyle = BorderStyle.FixedSingle;
+            this.Pnl_BetsInfoTop.Size = new System.Drawing.Size(990, 105);
+            this.Pnl_BetsInfoTop.TabIndex = 73;
+            // 
+            // Pnl_BetsInfoTopMain
+            // 
+            this.Pnl_BetsInfoTopMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_BetsInfoTopMain.Controls.Add(this.Pnl_BetsInfoTopRight);
-            this.Pnl_BetsInfoTopMain.Dock = DockStyle.Fill;
-            this.Pnl_BetsInfoTopMain.Location = new Point(0x22b, 0);
+            this.Pnl_BetsInfoTopMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_BetsInfoTopMain.Location = new System.Drawing.Point(555, 0);
             this.Pnl_BetsInfoTopMain.Name = "Pnl_BetsInfoTopMain";
-            this.Pnl_BetsInfoTopMain.Size = new Size(0x1b3, 0x69);
-            this.Pnl_BetsInfoTopMain.TabIndex = 0x4a;
-            this.Pnl_BetsInfoTopRight.BorderStyle = BorderStyle.FixedSingle;
+            this.Pnl_BetsInfoTopMain.Size = new System.Drawing.Size(435, 105);
+            this.Pnl_BetsInfoTopMain.TabIndex = 74;
+            // 
+            // Pnl_BetsInfoTopRight
+            // 
+            this.Pnl_BetsInfoTopRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_BetsInfoTopRight.Controls.Add(this.Pnl_BetsType);
             this.Pnl_BetsInfoTopRight.Controls.Add(this.Pnl_BetsInfoTopRight1);
-            this.Pnl_BetsInfoTopRight.Dock = DockStyle.Fill;
-            this.Pnl_BetsInfoTopRight.Location = new Point(0, 0);
+            this.Pnl_BetsInfoTopRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_BetsInfoTopRight.Location = new System.Drawing.Point(0, 0);
             this.Pnl_BetsInfoTopRight.Name = "Pnl_BetsInfoTopRight";
-            this.Pnl_BetsInfoTopRight.Size = new Size(0x1b1, 0x67);
+            this.Pnl_BetsInfoTopRight.Size = new System.Drawing.Size(433, 103);
             this.Pnl_BetsInfoTopRight.TabIndex = 0;
+            // 
+            // Pnl_BetsType
+            // 
             this.Pnl_BetsType.Controls.Add(this.Lbl_ShareBetsHint);
             this.Pnl_BetsType.Controls.Add(this.Ckb_ShareBetsManage);
             this.Pnl_BetsType.Controls.Add(this.Rdb_ShareBets);
             this.Pnl_BetsType.Controls.Add(this.Rdb_CGBets);
-            this.Pnl_BetsType.Dock = DockStyle.Fill;
-            this.Pnl_BetsType.Location = new Point(0x76, 0);
+            this.Pnl_BetsType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_BetsType.Location = new System.Drawing.Point(118, 0);
             this.Pnl_BetsType.Name = "Pnl_BetsType";
-            this.Pnl_BetsType.Size = new Size(0x139, 0x65);
-            this.Pnl_BetsType.TabIndex = 0xb2;
+            this.Pnl_BetsType.Size = new System.Drawing.Size(313, 101);
+            this.Pnl_BetsType.TabIndex = 178;
             this.Pnl_BetsType.Visible = false;
+            // 
+            // Lbl_ShareBetsHint
+            // 
             this.Lbl_ShareBetsHint.AutoSize = true;
-            this.Lbl_ShareBetsHint.Location = new Point(5, 70);
+            this.Lbl_ShareBetsHint.Location = new System.Drawing.Point(5, 70);
             this.Lbl_ShareBetsHint.Name = "Lbl_ShareBetsHint";
-            this.Lbl_ShareBetsHint.Size = new Size(20, 0x11);
-            this.Lbl_ShareBetsHint.TabIndex = 0x156;
+            this.Lbl_ShareBetsHint.Size = new System.Drawing.Size(20, 17);
+            this.Lbl_ShareBetsHint.TabIndex = 342;
             this.Lbl_ShareBetsHint.Text = "无";
-            this.Ckb_ShareBetsManage.Appearance = Appearance.Button;
+            // 
+            // Ckb_ShareBetsManage
+            // 
+            this.Ckb_ShareBetsManage.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_ShareBetsManage.AutoCheck = false;
             this.Ckb_ShareBetsManage.Enabled = false;
             this.Ckb_ShareBetsManage.FlatAppearance.BorderSize = 0;
-            this.Ckb_ShareBetsManage.FlatStyle = FlatStyle.Flat;
-            this.Ckb_ShareBetsManage.Image = Resources.Setting;
-            this.Ckb_ShareBetsManage.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_ShareBetsManage.Location = new Point(100, 0x25);
+            this.Ckb_ShareBetsManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_ShareBetsManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_ShareBetsManage.Location = new System.Drawing.Point(100, 37);
             this.Ckb_ShareBetsManage.Name = "Ckb_ShareBetsManage";
-            this.Ckb_ShareBetsManage.Size = new Size(80, 0x19);
-            this.Ckb_ShareBetsManage.TabIndex = 0x155;
+            this.Ckb_ShareBetsManage.Size = new System.Drawing.Size(80, 25);
+            this.Ckb_ShareBetsManage.TabIndex = 341;
             this.Ckb_ShareBetsManage.Text = "共享管理";
-            this.Ckb_ShareBetsManage.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_ShareBetsManage.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_ShareBetsManage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_ShareBetsManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Ckb_ShareBetsManage.UseVisualStyleBackColor = true;
-            this.Ckb_ShareBetsManage.Click += new EventHandler(this.Ckb_ShareBetsManage_Click);
+            this.Ckb_ShareBetsManage.Click += new System.EventHandler(this.Ckb_ShareBetsManage_Click);
+            // 
+            // Rdb_ShareBets
+            // 
             this.Rdb_ShareBets.AutoSize = true;
-            this.Rdb_ShareBets.Location = new Point(6, 40);
+            this.Rdb_ShareBets.Location = new System.Drawing.Point(6, 40);
             this.Rdb_ShareBets.Name = "Rdb_ShareBets";
-            this.Rdb_ShareBets.Size = new Size(0x4a, 0x15);
-            this.Rdb_ShareBets.TabIndex = 0x12d;
+            this.Rdb_ShareBets.Size = new System.Drawing.Size(74, 21);
+            this.Rdb_ShareBets.TabIndex = 301;
             this.Rdb_ShareBets.Text = "共享投注";
             this.Rdb_ShareBets.UseVisualStyleBackColor = true;
-            this.Rdb_ShareBets.CheckedChanged += new EventHandler(this.Rdb_ShareBets_CheckedChanged);
+            this.Rdb_ShareBets.CheckedChanged += new System.EventHandler(this.Rdb_ShareBets_CheckedChanged);
+            // 
+            // Rdb_CGBets
+            // 
             this.Rdb_CGBets.AutoSize = true;
             this.Rdb_CGBets.Checked = true;
-            this.Rdb_CGBets.Location = new Point(6, 10);
+            this.Rdb_CGBets.Location = new System.Drawing.Point(6, 10);
             this.Rdb_CGBets.Name = "Rdb_CGBets";
-            this.Rdb_CGBets.Size = new Size(0x4a, 0x15);
+            this.Rdb_CGBets.Size = new System.Drawing.Size(74, 21);
             this.Rdb_CGBets.TabIndex = 300;
             this.Rdb_CGBets.TabStop = true;
             this.Rdb_CGBets.Text = "方案投注";
             this.Rdb_CGBets.UseVisualStyleBackColor = true;
+            // 
+            // Pnl_BetsInfoTopRight1
+            // 
             this.Pnl_BetsInfoTopRight1.Controls.Add(this.Btn_Bets);
-            this.Pnl_BetsInfoTopRight1.Dock = DockStyle.Left;
-            this.Pnl_BetsInfoTopRight1.Location = new Point(0, 0);
+            this.Pnl_BetsInfoTopRight1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_BetsInfoTopRight1.Location = new System.Drawing.Point(0, 0);
             this.Pnl_BetsInfoTopRight1.Name = "Pnl_BetsInfoTopRight1";
-            this.Pnl_BetsInfoTopRight1.Size = new Size(0x76, 0x65);
-            this.Pnl_BetsInfoTopRight1.TabIndex = 0xb1;
-            this.Btn_Bets.Dock = DockStyle.Left;
-            this.Btn_Bets.Font = new Font("微软雅黑", 14f, FontStyle.Bold);
-            this.Btn_Bets.Location = new Point(0, 0);
+            this.Pnl_BetsInfoTopRight1.Size = new System.Drawing.Size(118, 101);
+            this.Pnl_BetsInfoTopRight1.TabIndex = 177;
+            // 
+            // Btn_Bets
+            // 
+            this.Btn_Bets.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Btn_Bets.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Bold);
+            this.Btn_Bets.Location = new System.Drawing.Point(0, 0);
             this.Btn_Bets.Name = "Btn_Bets";
-            this.Btn_Bets.Size = new Size(0x75, 0x65);
-            this.Btn_Bets.TabIndex = 0xaf;
+            this.Btn_Bets.Size = new System.Drawing.Size(117, 101);
+            this.Btn_Bets.TabIndex = 175;
             this.Btn_Bets.Text = "开启\r\n自动投注";
             this.Btn_Bets.UseVisualStyleBackColor = true;
-            this.Btn_Bets.Click += new EventHandler(this.Btn_Bets_Click);
+            this.Btn_Bets.Click += new System.EventHandler(this.Btn_Bets_Click);
+            // 
+            // Pnl_BetsInfoTopLeft
+            // 
             this.Pnl_BetsInfoTopLeft.Controls.Add(this.Pnl_BetsInfoTop2);
             this.Pnl_BetsInfoTopLeft.Controls.Add(this.Pnl_BetsInfoTop1);
-            this.Pnl_BetsInfoTopLeft.Dock = DockStyle.Left;
-            this.Pnl_BetsInfoTopLeft.Location = new Point(0, 0);
+            this.Pnl_BetsInfoTopLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_BetsInfoTopLeft.Location = new System.Drawing.Point(0, 0);
             this.Pnl_BetsInfoTopLeft.Name = "Pnl_BetsInfoTopLeft";
-            this.Pnl_BetsInfoTopLeft.Size = new Size(0x22b, 0x69);
-            this.Pnl_BetsInfoTopLeft.TabIndex = 0x49;
-            this.Pnl_BetsInfoTop2.BorderStyle = BorderStyle.FixedSingle;
+            this.Pnl_BetsInfoTopLeft.Size = new System.Drawing.Size(555, 105);
+            this.Pnl_BetsInfoTopLeft.TabIndex = 73;
+            // 
+            // Pnl_BetsInfoTop2
+            // 
+            this.Pnl_BetsInfoTop2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_BetsInfoTop2.Controls.Add(this.Pnl_BetsInfoTop2Left);
             this.Pnl_BetsInfoTop2.Controls.Add(this.Lbl_BetsTime2);
             this.Pnl_BetsInfoTop2.Controls.Add(this.Lbl_BetsTime1);
             this.Pnl_BetsInfoTop2.Controls.Add(this.Nm_BetsTime);
-            this.Pnl_BetsInfoTop2.Dock = DockStyle.Top;
-            this.Pnl_BetsInfoTop2.Location = new Point(0, 70);
+            this.Pnl_BetsInfoTop2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_BetsInfoTop2.Location = new System.Drawing.Point(0, 70);
             this.Pnl_BetsInfoTop2.Name = "Pnl_BetsInfoTop2";
-            this.Pnl_BetsInfoTop2.Size = new Size(0x22b, 0x23);
+            this.Pnl_BetsInfoTop2.Size = new System.Drawing.Size(555, 35);
             this.Pnl_BetsInfoTop2.TabIndex = 70;
-            this.Pnl_BetsInfoTop2Left.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_BetsInfoTop2Left
+            // 
+            this.Pnl_BetsInfoTop2Left.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_BetsInfoTop2Left.Controls.Add(this.Ckb_BetsBeginTime);
             this.Pnl_BetsInfoTop2Left.Controls.Add(this.Ckb_BetsEndTime);
             this.Pnl_BetsInfoTop2Left.Controls.Add(this.Cbb_BetsEndType);
             this.Pnl_BetsInfoTop2Left.Controls.Add(this.Dtp_BetsBeginTime);
             this.Pnl_BetsInfoTop2Left.Controls.Add(this.Dtp_BetsEndTime);
-            this.Pnl_BetsInfoTop2Left.Dock = DockStyle.Left;
-            this.Pnl_BetsInfoTop2Left.Location = new Point(0, 0);
+            this.Pnl_BetsInfoTop2Left.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_BetsInfoTop2Left.Location = new System.Drawing.Point(0, 0);
             this.Pnl_BetsInfoTop2Left.Name = "Pnl_BetsInfoTop2Left";
-            this.Pnl_BetsInfoTop2Left.Size = new Size(380, 0x21);
-            this.Pnl_BetsInfoTop2Left.TabIndex = 0x1a;
+            this.Pnl_BetsInfoTop2Left.Size = new System.Drawing.Size(380, 33);
+            this.Pnl_BetsInfoTop2Left.TabIndex = 26;
+            // 
+            // Ckb_BetsBeginTime
+            // 
             this.Ckb_BetsBeginTime.AutoSize = true;
-            this.Ckb_BetsBeginTime.Location = new Point(5, 7);
+            this.Ckb_BetsBeginTime.Location = new System.Drawing.Point(5, 7);
             this.Ckb_BetsBeginTime.Name = "Ckb_BetsBeginTime";
-            this.Ckb_BetsBeginTime.Size = new Size(0x4b, 0x15);
-            this.Ckb_BetsBeginTime.TabIndex = 0xaf;
+            this.Ckb_BetsBeginTime.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_BetsBeginTime.TabIndex = 175;
             this.Ckb_BetsBeginTime.Text = "自动开始";
             this.Ckb_BetsBeginTime.UseVisualStyleBackColor = true;
+            // 
+            // Ckb_BetsEndTime
+            // 
             this.Ckb_BetsEndTime.AutoSize = true;
-            this.Ckb_BetsEndTime.Location = new Point(0x98, 7);
+            this.Ckb_BetsEndTime.Location = new System.Drawing.Point(152, 7);
             this.Ckb_BetsEndTime.Name = "Ckb_BetsEndTime";
-            this.Ckb_BetsEndTime.Size = new Size(0x33, 0x15);
-            this.Ckb_BetsEndTime.TabIndex = 0xb1;
+            this.Ckb_BetsEndTime.Size = new System.Drawing.Size(51, 21);
+            this.Ckb_BetsEndTime.TabIndex = 177;
             this.Ckb_BetsEndTime.Text = "自动";
             this.Ckb_BetsEndTime.UseVisualStyleBackColor = true;
-            this.Cbb_BetsEndType.DropDownStyle = ComboBoxStyle.DropDownList;
+            // 
+            // Cbb_BetsEndType
+            // 
+            this.Cbb_BetsEndType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbb_BetsEndType.FormattingEnabled = true;
-            this.Cbb_BetsEndType.Items.AddRange(new object[] { "停止投注", "停止新增投注" });
-            this.Cbb_BetsEndType.Location = new Point(0xce, 4);
+            this.Cbb_BetsEndType.Items.AddRange(new object[] {
+            "停止投注",
+            "停止新增投注"});
+            this.Cbb_BetsEndType.Location = new System.Drawing.Point(206, 4);
             this.Cbb_BetsEndType.Name = "Cbb_BetsEndType";
-            this.Cbb_BetsEndType.Size = new Size(100, 0x19);
-            this.Cbb_BetsEndType.TabIndex = 0xb8;
+            this.Cbb_BetsEndType.Size = new System.Drawing.Size(100, 25);
+            this.Cbb_BetsEndType.TabIndex = 184;
+            // 
+            // Dtp_BetsBeginTime
+            // 
             this.Dtp_BetsBeginTime.CustomFormat = "HH:mm";
-            this.Dtp_BetsBeginTime.Format = DateTimePickerFormat.Custom;
-            this.Dtp_BetsBeginTime.Location = new Point(0x53, 5);
+            this.Dtp_BetsBeginTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Dtp_BetsBeginTime.Location = new System.Drawing.Point(83, 5);
             this.Dtp_BetsBeginTime.Name = "Dtp_BetsBeginTime";
             this.Dtp_BetsBeginTime.ShowUpDown = true;
-            this.Dtp_BetsBeginTime.Size = new Size(60, 0x17);
-            this.Dtp_BetsBeginTime.TabIndex = 0xb0;
-            this.Dtp_BetsBeginTime.Value = new DateTime(0x7df, 7, 20, 9, 1, 0, 0);
+            this.Dtp_BetsBeginTime.Size = new System.Drawing.Size(60, 23);
+            this.Dtp_BetsBeginTime.TabIndex = 176;
+            this.Dtp_BetsBeginTime.Value = new System.DateTime(2015, 7, 20, 9, 1, 0, 0);
+            // 
+            // Dtp_BetsEndTime
+            // 
             this.Dtp_BetsEndTime.CustomFormat = "HH:mm";
-            this.Dtp_BetsEndTime.Format = DateTimePickerFormat.Custom;
-            this.Dtp_BetsEndTime.Location = new Point(0x138, 5);
+            this.Dtp_BetsEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Dtp_BetsEndTime.Location = new System.Drawing.Point(312, 5);
             this.Dtp_BetsEndTime.Name = "Dtp_BetsEndTime";
             this.Dtp_BetsEndTime.ShowUpDown = true;
-            this.Dtp_BetsEndTime.Size = new Size(60, 0x17);
-            this.Dtp_BetsEndTime.TabIndex = 0xb2;
-            this.Dtp_BetsEndTime.Value = new DateTime(0x7df, 7, 20, 0x16, 0x20, 0, 0);
+            this.Dtp_BetsEndTime.Size = new System.Drawing.Size(60, 23);
+            this.Dtp_BetsEndTime.TabIndex = 178;
+            this.Dtp_BetsEndTime.Value = new System.DateTime(2015, 7, 20, 22, 32, 0, 0);
+            // 
+            // Lbl_BetsTime2
+            // 
             this.Lbl_BetsTime2.AutoSize = true;
-            this.Lbl_BetsTime2.Location = new Point(0x203, 8);
+            this.Lbl_BetsTime2.Location = new System.Drawing.Point(515, 8);
             this.Lbl_BetsTime2.Name = "Lbl_BetsTime2";
-            this.Lbl_BetsTime2.Size = new Size(0x20, 0x11);
-            this.Lbl_BetsTime2.TabIndex = 0xc3;
+            this.Lbl_BetsTime2.Size = new System.Drawing.Size(32, 17);
+            this.Lbl_BetsTime2.TabIndex = 195;
             this.Lbl_BetsTime2.Text = "秒后";
+            // 
+            // Lbl_BetsTime1
+            // 
             this.Lbl_BetsTime1.AutoSize = true;
-            this.Lbl_BetsTime1.Location = new Point(0x182, 8);
+            this.Lbl_BetsTime1.Location = new System.Drawing.Point(386, 8);
             this.Lbl_BetsTime1.Name = "Lbl_BetsTime1";
-            this.Lbl_BetsTime1.Size = new Size(0x44, 0x11);
-            this.Lbl_BetsTime1.TabIndex = 0xc5;
+            this.Lbl_BetsTime1.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_BetsTime1.TabIndex = 197;
             this.Lbl_BetsTime1.Text = "延迟投注：";
-            this.Nm_BetsTime.Location = new Point(0x1c8, 5);
-            bits = new int[4];
-            bits[0] = 0x3e7;
-            this.Nm_BetsTime.Maximum = new decimal(bits);
-            bits = new int[4];
-            bits[0] = 1;
-            this.Nm_BetsTime.Minimum = new decimal(bits);
+            // 
+            // Nm_BetsTime
+            // 
+            this.Nm_BetsTime.Location = new System.Drawing.Point(456, 5);
+            this.Nm_BetsTime.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.Nm_BetsTime.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.Nm_BetsTime.Name = "Nm_BetsTime";
-            this.Nm_BetsTime.Size = new Size(0x37, 0x17);
-            this.Nm_BetsTime.TabIndex = 0xc4;
-            bits = new int[4];
-            bits[0] = 8;
-            this.Nm_BetsTime.Value = new decimal(bits);
-            this.Pnl_BetsInfoTop1.BorderStyle = BorderStyle.FixedSingle;
+            this.Nm_BetsTime.Size = new System.Drawing.Size(55, 23);
+            this.Nm_BetsTime.TabIndex = 196;
+            this.Nm_BetsTime.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // Pnl_BetsInfoTop1
+            // 
+            this.Pnl_BetsInfoTop1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_BetsInfoTop1.Controls.Add(this.Pnl_BetsInfoExpect);
             this.Pnl_BetsInfoTop1.Controls.Add(this.Pnl_BetsInfoMN);
-            this.Pnl_BetsInfoTop1.Dock = DockStyle.Top;
-            this.Pnl_BetsInfoTop1.Location = new Point(0, 0);
+            this.Pnl_BetsInfoTop1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_BetsInfoTop1.Location = new System.Drawing.Point(0, 0);
             this.Pnl_BetsInfoTop1.Name = "Pnl_BetsInfoTop1";
-            this.Pnl_BetsInfoTop1.Size = new Size(0x22b, 70);
-            this.Pnl_BetsInfoTop1.TabIndex = 0x48;
+            this.Pnl_BetsInfoTop1.Size = new System.Drawing.Size(555, 70);
+            this.Pnl_BetsInfoTop1.TabIndex = 72;
+            // 
+            // Pnl_BetsInfoExpect
+            // 
             this.Pnl_BetsInfoExpect.Controls.Add(this.Ckb_DQStopBets);
             this.Pnl_BetsInfoExpect.Controls.Add(this.Ckb_SBStopBets);
-            this.Pnl_BetsInfoExpect.Dock = DockStyle.Fill;
-            this.Pnl_BetsInfoExpect.Location = new Point(460, 0);
+            this.Pnl_BetsInfoExpect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_BetsInfoExpect.Location = new System.Drawing.Point(460, 0);
             this.Pnl_BetsInfoExpect.Name = "Pnl_BetsInfoExpect";
-            this.Pnl_BetsInfoExpect.Size = new Size(0x5d, 0x44);
-            this.Pnl_BetsInfoExpect.TabIndex = 0xbc;
+            this.Pnl_BetsInfoExpect.Size = new System.Drawing.Size(93, 68);
+            this.Pnl_BetsInfoExpect.TabIndex = 188;
+            // 
+            // Ckb_DQStopBets
+            // 
             this.Ckb_DQStopBets.AutoSize = true;
             this.Ckb_DQStopBets.Checked = true;
-            this.Ckb_DQStopBets.CheckState = CheckState.Checked;
-            this.Ckb_DQStopBets.Location = new Point(6, 40);
+            this.Ckb_DQStopBets.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Ckb_DQStopBets.Location = new System.Drawing.Point(6, 40);
             this.Ckb_DQStopBets.Name = "Ckb_DQStopBets";
-            this.Ckb_DQStopBets.Size = new Size(0x4b, 0x15);
-            this.Ckb_DQStopBets.TabIndex = 0xb3;
+            this.Ckb_DQStopBets.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_DQStopBets.TabIndex = 179;
             this.Ckb_DQStopBets.Text = "断期停投";
             this.Tot_Hint.SetToolTip(this.Ckb_DQStopBets, "当投注遇到断期时【永久停止投注】，直到重新开启投注或取消该选项\r\n");
             this.Ckb_DQStopBets.UseVisualStyleBackColor = true;
+            // 
+            // Ckb_SBStopBets
+            // 
             this.Ckb_SBStopBets.AutoSize = true;
-            this.Ckb_SBStopBets.Location = new Point(6, 10);
+            this.Ckb_SBStopBets.Location = new System.Drawing.Point(6, 10);
             this.Ckb_SBStopBets.Name = "Ckb_SBStopBets";
-            this.Ckb_SBStopBets.Size = new Size(0x4b, 0x15);
-            this.Ckb_SBStopBets.TabIndex = 0xb2;
+            this.Ckb_SBStopBets.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_SBStopBets.TabIndex = 178;
             this.Ckb_SBStopBets.Text = "失败停投";
             this.Tot_Hint.SetToolTip(this.Ckb_SBStopBets, "方案投注失败时【当期停止投注】，直到下期才继续投注");
             this.Ckb_SBStopBets.UseVisualStyleBackColor = true;
-            this.Pnl_BetsInfoMN.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_BetsInfoMN
+            // 
+            this.Pnl_BetsInfoMN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_BetsInfoMN.Controls.Add(this.Pnl_BetsInfoMNRight);
             this.Pnl_BetsInfoMN.Controls.Add(this.Ckb_MNBets);
-            this.Pnl_BetsInfoMN.Dock = DockStyle.Left;
-            this.Pnl_BetsInfoMN.Location = new Point(0, 0);
+            this.Pnl_BetsInfoMN.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_BetsInfoMN.Location = new System.Drawing.Point(0, 0);
             this.Pnl_BetsInfoMN.Name = "Pnl_BetsInfoMN";
-            this.Pnl_BetsInfoMN.Size = new Size(460, 0x44);
-            this.Pnl_BetsInfoMN.TabIndex = 0xbb;
+            this.Pnl_BetsInfoMN.Size = new System.Drawing.Size(460, 68);
+            this.Pnl_BetsInfoMN.TabIndex = 187;
+            // 
+            // Pnl_BetsInfoMNRight
+            // 
             this.Pnl_BetsInfoMNRight.Controls.Add(this.Ckb_MN1);
             this.Pnl_BetsInfoMNRight.Controls.Add(this.Lbl_MNBets);
             this.Pnl_BetsInfoMNRight.Controls.Add(this.Txt_MN3);
@@ -5595,103 +5818,145 @@
             this.Pnl_BetsInfoMNRight.Controls.Add(this.Ckb_MN2);
             this.Pnl_BetsInfoMNRight.Controls.Add(this.Txt_MN2);
             this.Pnl_BetsInfoMNRight.Controls.Add(this.Txt_MN4);
-            this.Pnl_BetsInfoMNRight.Dock = DockStyle.Right;
-            this.Pnl_BetsInfoMNRight.Location = new Point(0x53, 0);
+            this.Pnl_BetsInfoMNRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Pnl_BetsInfoMNRight.Location = new System.Drawing.Point(83, 0);
             this.Pnl_BetsInfoMNRight.Name = "Pnl_BetsInfoMNRight";
-            this.Pnl_BetsInfoMNRight.Size = new Size(0x177, 0x42);
-            this.Pnl_BetsInfoMNRight.TabIndex = 0xd1;
+            this.Pnl_BetsInfoMNRight.Size = new System.Drawing.Size(375, 66);
+            this.Pnl_BetsInfoMNRight.TabIndex = 209;
+            // 
+            // Ckb_MN1
+            // 
             this.Ckb_MN1.AutoSize = true;
-            this.Ckb_MN1.Location = new Point(5, 9);
+            this.Ckb_MN1.Location = new System.Drawing.Point(5, 9);
             this.Ckb_MN1.Name = "Ckb_MN1";
-            this.Ckb_MN1.Size = new Size(0x57, 0x15);
-            this.Ckb_MN1.TabIndex = 0xb1;
+            this.Ckb_MN1.Size = new System.Drawing.Size(87, 21);
+            this.Ckb_MN1.TabIndex = 177;
             this.Ckb_MN1.Text = "模拟投注输";
             this.Ckb_MN1.UseVisualStyleBackColor = true;
-            this.Ckb_MN1.CheckedChanged += new EventHandler(this.Ckb_MN1_CheckedChanged);
+            this.Ckb_MN1.CheckedChanged += new System.EventHandler(this.Ckb_MN1_CheckedChanged);
+            // 
+            // Lbl_MNBets
+            // 
             this.Lbl_MNBets.AutoSize = true;
-            this.Lbl_MNBets.Location = new Point(160, 0x1c);
+            this.Lbl_MNBets.Location = new System.Drawing.Point(160, 28);
             this.Lbl_MNBets.Name = "Lbl_MNBets";
-            this.Lbl_MNBets.Size = new Size(0x38, 0x11);
-            this.Lbl_MNBets.TabIndex = 0xc2;
+            this.Lbl_MNBets.Size = new System.Drawing.Size(56, 17);
+            this.Lbl_MNBets.TabIndex = 194;
             this.Lbl_MNBets.Text = "循环切换";
+            // 
+            // Txt_MN3
+            // 
             this.Txt_MN3.Enabled = false;
-            this.Txt_MN3.Location = new Point(0x60, 0x25);
+            this.Txt_MN3.Location = new System.Drawing.Point(96, 37);
             this.Txt_MN3.Name = "Txt_MN3";
-            this.Txt_MN3.Size = new Size(60, 0x17);
+            this.Txt_MN3.Size = new System.Drawing.Size(60, 23);
             this.Txt_MN3.TabIndex = 190;
             this.Txt_MN3.Text = "50000";
+            // 
+            // Ckb_MN4
+            // 
             this.Ckb_MN4.AutoSize = true;
-            this.Ckb_MN4.Location = new Point(0xdd, 0x27);
+            this.Ckb_MN4.Location = new System.Drawing.Point(221, 39);
             this.Ckb_MN4.Name = "Ckb_MN4";
-            this.Ckb_MN4.Size = new Size(0x57, 0x15);
-            this.Ckb_MN4.TabIndex = 0xc0;
+            this.Ckb_MN4.Size = new System.Drawing.Size(87, 21);
+            this.Ckb_MN4.TabIndex = 192;
             this.Ckb_MN4.Text = "真实投注输";
             this.Ckb_MN4.UseVisualStyleBackColor = true;
-            this.Ckb_MN4.CheckedChanged += new EventHandler(this.Ckb_MN4_CheckedChanged);
+            this.Ckb_MN4.CheckedChanged += new System.EventHandler(this.Ckb_MN4_CheckedChanged);
+            // 
+            // Txt_MN1
+            // 
             this.Txt_MN1.Enabled = false;
-            this.Txt_MN1.Location = new Point(0x60, 7);
+            this.Txt_MN1.Location = new System.Drawing.Point(96, 7);
             this.Txt_MN1.Name = "Txt_MN1";
-            this.Txt_MN1.Size = new Size(60, 0x17);
-            this.Txt_MN1.TabIndex = 0xb2;
+            this.Txt_MN1.Size = new System.Drawing.Size(60, 23);
+            this.Txt_MN1.TabIndex = 178;
             this.Txt_MN1.Text = "50000";
+            // 
+            // Ckb_MN3
+            // 
             this.Ckb_MN3.AutoSize = true;
-            this.Ckb_MN3.Location = new Point(5, 0x27);
+            this.Ckb_MN3.Location = new System.Drawing.Point(5, 39);
             this.Ckb_MN3.Name = "Ckb_MN3";
-            this.Ckb_MN3.Size = new Size(0x57, 0x15);
-            this.Ckb_MN3.TabIndex = 0xbd;
+            this.Ckb_MN3.Size = new System.Drawing.Size(87, 21);
+            this.Ckb_MN3.TabIndex = 189;
             this.Ckb_MN3.Text = "模拟投注赢";
             this.Ckb_MN3.UseVisualStyleBackColor = true;
-            this.Ckb_MN3.CheckedChanged += new EventHandler(this.Ckb_MN3_CheckedChanged);
+            this.Ckb_MN3.CheckedChanged += new System.EventHandler(this.Ckb_MN3_CheckedChanged);
+            // 
+            // Ckb_MN2
+            // 
             this.Ckb_MN2.AutoSize = true;
-            this.Ckb_MN2.Location = new Point(220, 9);
+            this.Ckb_MN2.Location = new System.Drawing.Point(220, 9);
             this.Ckb_MN2.Name = "Ckb_MN2";
-            this.Ckb_MN2.Size = new Size(0x57, 0x15);
+            this.Ckb_MN2.Size = new System.Drawing.Size(87, 21);
             this.Ckb_MN2.TabIndex = 180;
             this.Ckb_MN2.Text = "真实投注赢";
             this.Ckb_MN2.UseVisualStyleBackColor = true;
-            this.Ckb_MN2.CheckedChanged += new EventHandler(this.Ckb_MN2_CheckedChanged);
+            this.Ckb_MN2.CheckedChanged += new System.EventHandler(this.Ckb_MN2_CheckedChanged);
+            // 
+            // Txt_MN2
+            // 
             this.Txt_MN2.Enabled = false;
-            this.Txt_MN2.Location = new Point(0x137, 7);
+            this.Txt_MN2.Location = new System.Drawing.Point(311, 7);
             this.Txt_MN2.Name = "Txt_MN2";
-            this.Txt_MN2.Size = new Size(60, 0x17);
-            this.Txt_MN2.TabIndex = 0xb5;
+            this.Txt_MN2.Size = new System.Drawing.Size(60, 23);
+            this.Txt_MN2.TabIndex = 181;
             this.Txt_MN2.Text = "50000";
+            // 
+            // Txt_MN4
+            // 
             this.Txt_MN4.Enabled = false;
-            this.Txt_MN4.Location = new Point(0x137, 0x25);
+            this.Txt_MN4.Location = new System.Drawing.Point(311, 37);
             this.Txt_MN4.Name = "Txt_MN4";
-            this.Txt_MN4.Size = new Size(60, 0x17);
-            this.Txt_MN4.TabIndex = 0xc1;
+            this.Txt_MN4.Size = new System.Drawing.Size(60, 23);
+            this.Txt_MN4.TabIndex = 193;
             this.Txt_MN4.Text = "50000";
+            // 
+            // Ckb_MNBets
+            // 
             this.Ckb_MNBets.AutoSize = true;
-            this.Ckb_MNBets.Location = new Point(5, 0x18);
+            this.Ckb_MNBets.Location = new System.Drawing.Point(5, 24);
             this.Ckb_MNBets.Name = "Ckb_MNBets";
-            this.Ckb_MNBets.Size = new Size(0x4b, 0x15);
-            this.Ckb_MNBets.TabIndex = 0xba;
+            this.Ckb_MNBets.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_MNBets.TabIndex = 186;
             this.Ckb_MNBets.Text = "模拟投注";
             this.Ckb_MNBets.UseVisualStyleBackColor = true;
-            this.Ckb_MNBets.CheckedChanged += new EventHandler(this.Ckb_MNBets_CheckedChanged);
-            this.Tap_Scheme.BackColor = SystemColors.Control;
+            this.Ckb_MNBets.CheckedChanged += new System.EventHandler(this.Ckb_MNBets_CheckedChanged);
+            // 
+            // Tap_Scheme
+            // 
+            this.Tap_Scheme.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_Scheme.Controls.Add(this.Pnl_Scheme);
-            this.Tap_Scheme.Location = new Point(4, 0x22);
+            this.Tap_Scheme.Location = new System.Drawing.Point(4, 34);
             this.Tap_Scheme.Name = "Tap_Scheme";
-            this.Tap_Scheme.Padding = new Padding(3);
-            this.Tap_Scheme.Size = new Size(0x3e6, 0x218);
+            this.Tap_Scheme.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_Scheme.Size = new System.Drawing.Size(998, 536);
             this.Tap_Scheme.TabIndex = 2;
             this.Tap_Scheme.Text = "方案设定";
+            // 
+            // Pnl_Scheme
+            // 
             this.Pnl_Scheme.Controls.Add(this.Pnl_SchemeMain);
             this.Pnl_Scheme.Controls.Add(this.Pnl_SchemeLeft);
-            this.Pnl_Scheme.Dock = DockStyle.Fill;
-            this.Pnl_Scheme.Location = new Point(3, 3);
+            this.Pnl_Scheme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_Scheme.Location = new System.Drawing.Point(3, 3);
             this.Pnl_Scheme.Name = "Pnl_Scheme";
-            this.Pnl_Scheme.Size = new Size(0x3e0, 530);
+            this.Pnl_Scheme.Size = new System.Drawing.Size(992, 530);
             this.Pnl_Scheme.TabIndex = 0;
+            // 
+            // Pnl_SchemeMain
+            // 
             this.Pnl_SchemeMain.Controls.Add(this.Pnl_SchemeInfo);
             this.Pnl_SchemeMain.Controls.Add(this.Pnl_SchemeTop2);
-            this.Pnl_SchemeMain.Dock = DockStyle.Fill;
-            this.Pnl_SchemeMain.Location = new Point(450, 0);
+            this.Pnl_SchemeMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_SchemeMain.Location = new System.Drawing.Point(450, 0);
             this.Pnl_SchemeMain.Name = "Pnl_SchemeMain";
-            this.Pnl_SchemeMain.Size = new Size(0x21e, 530);
+            this.Pnl_SchemeMain.Size = new System.Drawing.Size(542, 530);
             this.Pnl_SchemeMain.TabIndex = 1;
+            // 
+            // Pnl_SchemeInfo
+            // 
             this.Pnl_SchemeInfo.AutoScroll = true;
             this.Pnl_SchemeInfo.Controls.Add(this.Lbl_FNEncrypt);
             this.Pnl_SchemeInfo.Controls.Add(this.FN_KMTM);
@@ -5700,560 +5965,696 @@
             this.Pnl_SchemeInfo.Controls.Add(this.FN_SJCH);
             this.Pnl_SchemeInfo.Controls.Add(this.FN_WJJH);
             this.Pnl_SchemeInfo.Controls.Add(this.FN_LRWCH);
+            this.Pnl_SchemeInfo.Controls.Add(this.FN_BCFCH);
             this.Pnl_SchemeInfo.Controls.Add(this.FN_GJKMTM);
             this.Pnl_SchemeInfo.Controls.Add(this.FN_LHKMTM);
             this.Pnl_SchemeInfo.Controls.Add(this.FN_DMLH);
             this.Pnl_SchemeInfo.Controls.Add(this.FN_GDQM);
-            this.Pnl_SchemeInfo.Dock = DockStyle.Fill;
-            this.Pnl_SchemeInfo.Location = new Point(0, 0x23);
+            this.Pnl_SchemeInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_SchemeInfo.Location = new System.Drawing.Point(0, 35);
             this.Pnl_SchemeInfo.Name = "Pnl_SchemeInfo";
-            this.Pnl_SchemeInfo.Size = new Size(0x21e, 0x1ef);
-            this.Pnl_SchemeInfo.TabIndex = 0x4d;
-            this.Lbl_FNEncrypt.Dock = DockStyle.Fill;
-            this.Lbl_FNEncrypt.Font = new Font("微软雅黑", 30f);
-            this.Lbl_FNEncrypt.Location = new Point(0, 0);
+            this.Pnl_SchemeInfo.Size = new System.Drawing.Size(542, 495);
+            this.Pnl_SchemeInfo.TabIndex = 77;
+            // 
+            // Lbl_FNEncrypt
+            // 
+            this.Lbl_FNEncrypt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Lbl_FNEncrypt.Font = new System.Drawing.Font("微软雅黑", 30F);
+            this.Lbl_FNEncrypt.Location = new System.Drawing.Point(0, 0);
             this.Lbl_FNEncrypt.Name = "Lbl_FNEncrypt";
-            this.Lbl_FNEncrypt.Size = new Size(0x21e, 0x1ef);
+            this.Lbl_FNEncrypt.Size = new System.Drawing.Size(542, 495);
             this.Lbl_FNEncrypt.TabIndex = 1;
             this.Lbl_FNEncrypt.Text = "已加密";
-            this.Lbl_FNEncrypt.TextAlign = ContentAlignment.MiddleCenter;
+            this.Lbl_FNEncrypt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FN_KMTM
+            // 
             this.FN_KMTM.AutoScroll = true;
-            this.FN_KMTM.Dock = DockStyle.Fill;
-            this.FN_KMTM.Font = new Font("微软雅黑", 9f);
+            this.FN_KMTM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FN_KMTM.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.FN_KMTM.Hint = "开某投某";
-            this.FN_KMTM.Location = new Point(0, 0);
-            this.FN_KMTM.Margin = new Padding(3, 4, 3, 4);
+            this.FN_KMTM.Location = new System.Drawing.Point(0, 0);
+            this.FN_KMTM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FN_KMTM.Name = "FN_KMTM";
-            this.FN_KMTM.Size = new Size(0x21e, 0x1ef);
+            this.FN_KMTM.Size = new System.Drawing.Size(542, 495);
             this.FN_KMTM.TabIndex = 8;
+            // 
+            // FN_YLCH
+            // 
             this.FN_YLCH.AutoScroll = true;
-            this.FN_YLCH.Dock = DockStyle.Fill;
-            this.FN_YLCH.Font = new Font("微软雅黑", 9f);
+            this.FN_YLCH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FN_YLCH.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.FN_YLCH.Hint = "遗漏出号";
-            this.FN_YLCH.Location = new Point(0, 0);
-            this.FN_YLCH.Margin = new Padding(3, 4, 3, 4);
+            this.FN_YLCH.Location = new System.Drawing.Point(0, 0);
+            this.FN_YLCH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FN_YLCH.Name = "FN_YLCH";
-            this.FN_YLCH.Size = new Size(0x21e, 0x1ef);
+            this.FN_YLCH.Size = new System.Drawing.Size(542, 495);
             this.FN_YLCH.TabIndex = 7;
+            // 
+            // FN_GJDMLH
+            // 
             this.FN_GJDMLH.AutoScroll = true;
-            this.FN_GJDMLH.Dock = DockStyle.Fill;
-            this.FN_GJDMLH.Font = new Font("微软雅黑", 9f);
+            this.FN_GJDMLH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FN_GJDMLH.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.FN_GJDMLH.Hint = "高级定码轮换";
-            this.FN_GJDMLH.Location = new Point(0, 0);
-            this.FN_GJDMLH.Margin = new Padding(3, 4, 3, 4);
+            this.FN_GJDMLH.Location = new System.Drawing.Point(0, 0);
+            this.FN_GJDMLH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FN_GJDMLH.Name = "FN_GJDMLH";
-            this.FN_GJDMLH.Size = new Size(0x21e, 0x1ef);
+            this.FN_GJDMLH.Size = new System.Drawing.Size(542, 495);
             this.FN_GJDMLH.TabIndex = 6;
+            // 
+            // FN_SJCH
+            // 
             this.FN_SJCH.AutoScroll = true;
-            this.FN_SJCH.Dock = DockStyle.Fill;
-            this.FN_SJCH.Font = new Font("微软雅黑", 9f);
+            this.FN_SJCH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FN_SJCH.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.FN_SJCH.Hint = "随机出号";
-            this.FN_SJCH.Location = new Point(0, 0);
-            this.FN_SJCH.Margin = new Padding(3, 4, 3, 4);
+            this.FN_SJCH.Location = new System.Drawing.Point(0, 0);
+            this.FN_SJCH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FN_SJCH.Name = "FN_SJCH";
-            this.FN_SJCH.Size = new Size(0x21e, 0x1ef);
+            this.FN_SJCH.Size = new System.Drawing.Size(542, 495);
             this.FN_SJCH.TabIndex = 4;
+            // 
+            // FN_WJJH
+            // 
             this.FN_WJJH.AutoScroll = true;
-            this.FN_WJJH.Dock = DockStyle.Fill;
-            this.FN_WJJH.Font = new Font("微软雅黑", 9f);
+            this.FN_WJJH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FN_WJJH.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.FN_WJJH.Hint = "外接计划";
-            this.FN_WJJH.Location = new Point(0, 0);
-            this.FN_WJJH.Margin = new Padding(3, 4, 3, 4);
+            this.FN_WJJH.Location = new System.Drawing.Point(0, 0);
+            this.FN_WJJH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FN_WJJH.Name = "FN_WJJH";
-            this.FN_WJJH.Size = new Size(0x21e, 0x1ef);
+            this.FN_WJJH.Size = new System.Drawing.Size(542, 495);
             this.FN_WJJH.TabIndex = 3;
+            // 
+            // FN_LRWCH
+            // 
             this.FN_LRWCH.AutoScroll = true;
-            this.FN_LRWCH.Dock = DockStyle.Fill;
-            this.FN_LRWCH.Font = new Font("微软雅黑", 9f);
+            this.FN_LRWCH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FN_LRWCH.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.FN_LRWCH.Hint = "冷热温出号";
-            this.FN_LRWCH.Location = new Point(0, 0);
-            this.FN_LRWCH.Margin = new Padding(3, 4, 3, 4);
+            this.FN_LRWCH.Location = new System.Drawing.Point(0, 0);
+            this.FN_LRWCH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FN_LRWCH.Name = "FN_LRWCH";
-            this.FN_LRWCH.Size = new Size(0x21e, 0x1ef);
+            this.FN_LRWCH.Size = new System.Drawing.Size(542, 495);
             this.FN_LRWCH.TabIndex = 2;
+            // 
+            // FN_BCFCH
+            // 
+            this.FN_BCFCH.AutoScroll = true;
+            this.FN_BCFCH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FN_BCFCH.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.FN_BCFCH.Hint = "不重复出号";
+            this.FN_BCFCH.Location = new System.Drawing.Point(0, 0);
+            this.FN_BCFCH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FN_BCFCH.Name = "FN_BCFCH";
+            this.FN_BCFCH.Size = new System.Drawing.Size(542, 495);
+            this.FN_BCFCH.TabIndex = 11;
+            // 
+            // FN_GJKMTM
+            // 
             this.FN_GJKMTM.AutoScroll = true;
-            this.FN_GJKMTM.Dock = DockStyle.Fill;
-            this.FN_GJKMTM.Font = new Font("微软雅黑", 9f);
+            this.FN_GJKMTM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FN_GJKMTM.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.FN_GJKMTM.Hint = "高级开某投某";
-            this.FN_GJKMTM.Location = new Point(0, 0);
-            this.FN_GJKMTM.Margin = new Padding(3, 4, 3, 4);
+            this.FN_GJKMTM.Location = new System.Drawing.Point(0, 0);
+            this.FN_GJKMTM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FN_GJKMTM.Name = "FN_GJKMTM";
-            this.FN_GJKMTM.Size = new Size(0x21e, 0x1ef);
+            this.FN_GJKMTM.Size = new System.Drawing.Size(542, 495);
             this.FN_GJKMTM.TabIndex = 1;
+            // 
+            // FN_LHKMTM
+            // 
             this.FN_LHKMTM.AutoScroll = true;
-            this.FN_LHKMTM.Dock = DockStyle.Fill;
-            this.FN_LHKMTM.Font = new Font("微软雅黑", 9f);
+            this.FN_LHKMTM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FN_LHKMTM.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.FN_LHKMTM.Hint = "龙虎开某投某";
-            this.FN_LHKMTM.Location = new Point(0, 0);
-            this.FN_LHKMTM.Margin = new Padding(3, 4, 3, 4);
+            this.FN_LHKMTM.Location = new System.Drawing.Point(0, 0);
+            this.FN_LHKMTM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FN_LHKMTM.Name = "FN_LHKMTM";
-            this.FN_LHKMTM.Size = new Size(0x21e, 0x1ef);
-            this.FN_LHKMTM.TabIndex = 0x4d;
+            this.FN_LHKMTM.Size = new System.Drawing.Size(542, 495);
+            this.FN_LHKMTM.TabIndex = 77;
+            // 
+            // FN_DMLH
+            // 
             this.FN_DMLH.AutoScroll = true;
-            this.FN_DMLH.Dock = DockStyle.Fill;
-            this.FN_DMLH.Font = new Font("微软雅黑", 9f);
+            this.FN_DMLH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FN_DMLH.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.FN_DMLH.Hint = "定码轮换";
-            this.FN_DMLH.Location = new Point(0, 0);
-            this.FN_DMLH.Margin = new Padding(3, 4, 3, 4);
+            this.FN_DMLH.Location = new System.Drawing.Point(0, 0);
+            this.FN_DMLH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FN_DMLH.Name = "FN_DMLH";
-            this.FN_DMLH.Size = new Size(0x21e, 0x1ef);
+            this.FN_DMLH.Size = new System.Drawing.Size(542, 495);
             this.FN_DMLH.TabIndex = 0;
+            // 
+            // FN_GDQM
+            // 
             this.FN_GDQM.AutoScroll = true;
-            this.FN_GDQM.Dock = DockStyle.Fill;
-            this.FN_GDQM.Font = new Font("微软雅黑", 9f);
+            this.FN_GDQM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FN_GDQM.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.FN_GDQM.Hint = "固定取码";
-            this.FN_GDQM.Location = new Point(0, 0);
-            this.FN_GDQM.Margin = new Padding(3, 4, 3, 4);
+            this.FN_GDQM.Location = new System.Drawing.Point(0, 0);
+            this.FN_GDQM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FN_GDQM.Name = "FN_GDQM";
-            this.FN_GDQM.Size = new Size(0x21e, 0x1ef);
+            this.FN_GDQM.Size = new System.Drawing.Size(542, 495);
             this.FN_GDQM.TabIndex = 9;
-            this.Pnl_SchemeTop2.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_SchemeTop2
+            // 
+            this.Pnl_SchemeTop2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_SchemeTop2.Controls.Add(this.Ckb_CancelScheme);
             this.Pnl_SchemeTop2.Controls.Add(this.Ckb_SaveScheme);
             this.Pnl_SchemeTop2.Controls.Add(this.Lbl_FNCHType);
             this.Pnl_SchemeTop2.Controls.Add(this.Cbb_FNCHType);
             this.Pnl_SchemeTop2.Controls.Add(this.Txt_FNName);
             this.Pnl_SchemeTop2.Controls.Add(this.Lbl_FNName);
-            this.Pnl_SchemeTop2.Dock = DockStyle.Top;
-            this.Pnl_SchemeTop2.Location = new Point(0, 0);
+            this.Pnl_SchemeTop2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_SchemeTop2.Location = new System.Drawing.Point(0, 0);
             this.Pnl_SchemeTop2.Name = "Pnl_SchemeTop2";
-            this.Pnl_SchemeTop2.Size = new Size(0x21e, 0x23);
-            this.Pnl_SchemeTop2.TabIndex = 0x4c;
-            this.Ckb_CancelScheme.Appearance = Appearance.Button;
+            this.Pnl_SchemeTop2.Size = new System.Drawing.Size(542, 35);
+            this.Pnl_SchemeTop2.TabIndex = 76;
+            // 
+            // Ckb_CancelScheme
+            // 
+            this.Ckb_CancelScheme.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_CancelScheme.AutoCheck = false;
             this.Ckb_CancelScheme.FlatAppearance.BorderSize = 0;
-            this.Ckb_CancelScheme.FlatStyle = FlatStyle.Flat;
-            this.Ckb_CancelScheme.Image = Resources.CancelRound;
-            this.Ckb_CancelScheme.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_CancelScheme.Location = new Point(0x1bc, 4);
+            this.Ckb_CancelScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_CancelScheme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_CancelScheme.Location = new System.Drawing.Point(444, 4);
             this.Ckb_CancelScheme.Name = "Ckb_CancelScheme";
-            this.Ckb_CancelScheme.Size = new Size(60, 0x19);
-            this.Ckb_CancelScheme.TabIndex = 0xb1;
+            this.Ckb_CancelScheme.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_CancelScheme.TabIndex = 177;
             this.Ckb_CancelScheme.Text = "放弃";
-            this.Ckb_CancelScheme.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_CancelScheme.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_CancelScheme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_CancelScheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_FNHint.SetToolTip(this.Ckb_CancelScheme, "放弃当前方案的设置");
             this.Ckb_CancelScheme.UseVisualStyleBackColor = true;
-            this.Ckb_CancelScheme.Click += new EventHandler(this.Ckb_CancelScheme_Click);
-            this.Ckb_SaveScheme.Appearance = Appearance.Button;
+            this.Ckb_CancelScheme.Click += new System.EventHandler(this.Ckb_CancelScheme_Click);
+            // 
+            // Ckb_SaveScheme
+            // 
+            this.Ckb_SaveScheme.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_SaveScheme.AutoCheck = false;
             this.Ckb_SaveScheme.FlatAppearance.BorderSize = 0;
-            this.Ckb_SaveScheme.FlatStyle = FlatStyle.Flat;
-            this.Ckb_SaveScheme.Image = Resources.Save;
-            this.Ckb_SaveScheme.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_SaveScheme.Location = new Point(0x17a, 4);
+            this.Ckb_SaveScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_SaveScheme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_SaveScheme.Location = new System.Drawing.Point(378, 4);
             this.Ckb_SaveScheme.Name = "Ckb_SaveScheme";
-            this.Ckb_SaveScheme.Size = new Size(60, 0x19);
-            this.Ckb_SaveScheme.TabIndex = 0xb0;
+            this.Ckb_SaveScheme.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_SaveScheme.TabIndex = 176;
             this.Ckb_SaveScheme.Text = "保存";
-            this.Ckb_SaveScheme.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_SaveScheme.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_SaveScheme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_SaveScheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_FNHint.SetToolTip(this.Ckb_SaveScheme, "保存当前方案");
             this.Ckb_SaveScheme.UseVisualStyleBackColor = true;
-            this.Ckb_SaveScheme.Click += new EventHandler(this.Ckb_SaveScheme_Click);
+            this.Ckb_SaveScheme.Click += new System.EventHandler(this.Ckb_SaveScheme_Click);
+            // 
+            // Lbl_FNCHType
+            // 
             this.Lbl_FNCHType.AutoSize = true;
-            this.Lbl_FNCHType.Location = new Point(0xcc, 8);
+            this.Lbl_FNCHType.Location = new System.Drawing.Point(204, 8);
             this.Lbl_FNCHType.Name = "Lbl_FNCHType";
-            this.Lbl_FNCHType.Size = new Size(0x2c, 0x11);
-            this.Lbl_FNCHType.TabIndex = 0xaf;
+            this.Lbl_FNCHType.Size = new System.Drawing.Size(44, 17);
+            this.Lbl_FNCHType.TabIndex = 175;
             this.Lbl_FNCHType.Text = "类别：";
-            this.Cbb_FNCHType.DropDownStyle = ComboBoxStyle.DropDownList;
+            // 
+            // Cbb_FNCHType
+            // 
+            this.Cbb_FNCHType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbb_FNCHType.FormattingEnabled = true;
-            this.Cbb_FNCHType.Items.AddRange(new object[] { "前五后五正反投注" });
-            this.Cbb_FNCHType.Location = new Point(0xfe, 4);
+            this.Cbb_FNCHType.Items.AddRange(new object[] {
+            "前五后五正反投注"});
+            this.Cbb_FNCHType.Location = new System.Drawing.Point(254, 4);
             this.Cbb_FNCHType.Name = "Cbb_FNCHType";
-            this.Cbb_FNCHType.Size = new Size(120, 0x19);
-            this.Cbb_FNCHType.TabIndex = 0xae;
-            this.Cbb_FNCHType.SelectedIndexChanged += new EventHandler(this.Cbb_FNCHType_SelectedIndexChanged);
-            this.Txt_FNName.Location = new Point(0x35, 5);
+            this.Cbb_FNCHType.Size = new System.Drawing.Size(120, 25);
+            this.Cbb_FNCHType.TabIndex = 174;
+            this.Cbb_FNCHType.SelectedIndexChanged += new System.EventHandler(this.Cbb_FNCHType_SelectedIndexChanged);
+            // 
+            // Txt_FNName
+            // 
+            this.Txt_FNName.Location = new System.Drawing.Point(53, 5);
             this.Txt_FNName.Name = "Txt_FNName";
             this.Txt_FNName.ReadOnly = true;
-            this.Txt_FNName.Size = new Size(0x91, 0x17);
-            this.Txt_FNName.TabIndex = 0xad;
+            this.Txt_FNName.Size = new System.Drawing.Size(145, 23);
+            this.Txt_FNName.TabIndex = 173;
+            // 
+            // Lbl_FNName
+            // 
             this.Lbl_FNName.AutoSize = true;
-            this.Lbl_FNName.Location = new Point(3, 8);
+            this.Lbl_FNName.Location = new System.Drawing.Point(3, 8);
             this.Lbl_FNName.Name = "Lbl_FNName";
-            this.Lbl_FNName.Size = new Size(0x2c, 0x11);
-            this.Lbl_FNName.TabIndex = 0x98;
+            this.Lbl_FNName.Size = new System.Drawing.Size(44, 17);
+            this.Lbl_FNName.TabIndex = 152;
             this.Lbl_FNName.Text = "名称：";
+            // 
+            // Pnl_SchemeLeft
+            // 
             this.Pnl_SchemeLeft.Controls.Add(this.Egv_SchemeList);
             this.Pnl_SchemeLeft.Controls.Add(this.Pnl_SchemeBottom);
             this.Pnl_SchemeLeft.Controls.Add(this.Pnl_SchemeTop1);
-            this.Pnl_SchemeLeft.Dock = DockStyle.Left;
-            this.Pnl_SchemeLeft.Location = new Point(0, 0);
+            this.Pnl_SchemeLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_SchemeLeft.Location = new System.Drawing.Point(0, 0);
             this.Pnl_SchemeLeft.Name = "Pnl_SchemeLeft";
-            this.Pnl_SchemeLeft.Size = new Size(450, 530);
+            this.Pnl_SchemeLeft.Size = new System.Drawing.Size(450, 530);
             this.Pnl_SchemeLeft.TabIndex = 0;
+            // 
+            // Egv_SchemeList
+            // 
             this.Egv_SchemeList.AllowUserToAddRows = false;
             this.Egv_SchemeList.AllowUserToDeleteRows = false;
             this.Egv_SchemeList.AllowUserToResizeColumns = false;
             this.Egv_SchemeList.AllowUserToResizeRows = false;
-            this.Egv_SchemeList.BackgroundColor = Color.White;
-            this.Egv_SchemeList.BorderStyle = BorderStyle.Fixed3D;
-            this.Egv_SchemeList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            style4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style4.BackColor = SystemColors.Window;
-            style4.Font = new Font("微软雅黑", 9f);
-            style4.ForeColor = SystemColors.ControlText;
-            style4.SelectionBackColor = SystemColors.Highlight;
-            style4.SelectionForeColor = SystemColors.HighlightText;
-            style4.WrapMode = DataGridViewTriState.False;
-            this.Egv_SchemeList.ColumnHeadersDefaultCellStyle = style4;
+            this.Egv_SchemeList.BackgroundColor = System.Drawing.Color.White;
+            this.Egv_SchemeList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Egv_SchemeList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_SchemeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Egv_SchemeList.ColumnHeadersHeight = 30;
-            this.Egv_SchemeList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            style5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style5.BackColor = SystemColors.Control;
-            style5.Font = new Font("微软雅黑", 9f);
-            style5.ForeColor = SystemColors.ControlText;
-            style5.SelectionBackColor = Color.SteelBlue;
-            style5.SelectionForeColor = Color.White;
-            style5.WrapMode = DataGridViewTriState.False;
-            this.Egv_SchemeList.DefaultCellStyle = style5;
-            this.Egv_SchemeList.Dock = DockStyle.Fill;
-            this.Egv_SchemeList.DragLineColor = Color.Silver;
+            this.Egv_SchemeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_SchemeList.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Egv_SchemeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Egv_SchemeList.DragLineColor = System.Drawing.Color.Silver;
             this.Egv_SchemeList.ExternalVirtualMode = true;
-            this.Egv_SchemeList.GridColor = Color.Silver;
-            this.Egv_SchemeList.HeadersCheckDefult = CheckState.Checked;
-            this.Egv_SchemeList.Location = new Point(0, 0x23);
-            this.Egv_SchemeList.MergeColumnHeaderBackColor = SystemColors.Control;
-            this.Egv_SchemeList.MergeColumnHeaderForeColor = Color.Black;
+            this.Egv_SchemeList.GridColor = System.Drawing.Color.Silver;
+            this.Egv_SchemeList.HeadersCheckDefult = System.Windows.Forms.CheckState.Checked;
+            this.Egv_SchemeList.Location = new System.Drawing.Point(0, 35);
+            this.Egv_SchemeList.MergeColumnHeaderBackColor = System.Drawing.SystemColors.Control;
+            this.Egv_SchemeList.MergeColumnHeaderForeColor = System.Drawing.Color.Black;
             this.Egv_SchemeList.MultiSelect = false;
             this.Egv_SchemeList.Name = "Egv_SchemeList";
             this.Egv_SchemeList.RowHeadersVisible = false;
-            this.Egv_SchemeList.RowNum = 0x11;
-            style6.BackColor = Color.White;
-            style6.SelectionBackColor = Color.FromArgb(0xde, 0xe8, 0xfc);
-            style6.SelectionForeColor = Color.Black;
-            this.Egv_SchemeList.RowsDefaultCellStyle = style6;
-            this.Egv_SchemeList.RowTemplate.Height = 0x17;
-            this.Egv_SchemeList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.Egv_SchemeList.Size = new Size(450, 460);
-            this.Egv_SchemeList.TabIndex = 0x4a;
+            this.Egv_SchemeList.RowNum = 17;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(232)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.Egv_SchemeList.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.Egv_SchemeList.RowTemplate.Height = 23;
+            this.Egv_SchemeList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Egv_SchemeList.Size = new System.Drawing.Size(450, 460);
+            this.Egv_SchemeList.TabIndex = 74;
             this.Egv_SchemeList.VirtualMode = true;
-            this.Egv_SchemeList.CellClick += new DataGridViewCellEventHandler(this.Egv_SchmeeList_CellClick);
-            this.Egv_SchemeList.CellDoubleClick += new DataGridViewCellEventHandler(this.Egv_SchemeList_CellDoubleClick);
-            this.Pnl_SchemeBottom.BorderStyle = BorderStyle.FixedSingle;
+            this.Egv_SchemeList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Egv_SchmeeList_CellClick);
+            this.Egv_SchemeList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Egv_SchemeList_CellDoubleClick);
+            // 
+            // Pnl_SchemeBottom
+            // 
+            this.Pnl_SchemeBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_SchemeBottom.Controls.Add(this.Pnl_SchemeShare);
             this.Pnl_SchemeBottom.Controls.Add(this.Ckb_ClearScheme);
             this.Pnl_SchemeBottom.Controls.Add(this.Ckb_ExportScheme);
             this.Pnl_SchemeBottom.Controls.Add(this.Ckb_ImportScheme);
-            this.Pnl_SchemeBottom.Dock = DockStyle.Bottom;
-            this.Pnl_SchemeBottom.Location = new Point(0, 0x1ef);
+            this.Pnl_SchemeBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Pnl_SchemeBottom.Location = new System.Drawing.Point(0, 495);
             this.Pnl_SchemeBottom.Name = "Pnl_SchemeBottom";
-            this.Pnl_SchemeBottom.Size = new Size(450, 0x23);
-            this.Pnl_SchemeBottom.TabIndex = 0x4c;
+            this.Pnl_SchemeBottom.Size = new System.Drawing.Size(450, 35);
+            this.Pnl_SchemeBottom.TabIndex = 76;
             this.Pnl_SchemeBottom.Visible = false;
+            // 
+            // Pnl_SchemeShare
+            // 
             this.Pnl_SchemeShare.Controls.Add(this.Ckb_ShareSchemeManage);
             this.Pnl_SchemeShare.Controls.Add(this.Ckb_ShareScheme);
-            this.Pnl_SchemeShare.Dock = DockStyle.Right;
-            this.Pnl_SchemeShare.Location = new Point(0x120, 0);
+            this.Pnl_SchemeShare.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Pnl_SchemeShare.Location = new System.Drawing.Point(288, 0);
             this.Pnl_SchemeShare.Name = "Pnl_SchemeShare";
-            this.Pnl_SchemeShare.Size = new Size(160, 0x21);
+            this.Pnl_SchemeShare.Size = new System.Drawing.Size(160, 33);
             this.Pnl_SchemeShare.TabIndex = 310;
             this.Pnl_SchemeShare.Visible = false;
-            this.Ckb_ShareSchemeManage.Appearance = Appearance.Button;
+            // 
+            // Ckb_ShareSchemeManage
+            // 
+            this.Ckb_ShareSchemeManage.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_ShareSchemeManage.AutoCheck = false;
             this.Ckb_ShareSchemeManage.FlatAppearance.BorderSize = 0;
-            this.Ckb_ShareSchemeManage.FlatStyle = FlatStyle.Flat;
-            this.Ckb_ShareSchemeManage.Image = Resources.Setting;
-            this.Ckb_ShareSchemeManage.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_ShareSchemeManage.Location = new Point(8, 4);
+            this.Ckb_ShareSchemeManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_ShareSchemeManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_ShareSchemeManage.Location = new System.Drawing.Point(8, 4);
             this.Ckb_ShareSchemeManage.Name = "Ckb_ShareSchemeManage";
-            this.Ckb_ShareSchemeManage.Size = new Size(80, 0x19);
-            this.Ckb_ShareSchemeManage.TabIndex = 0xd6;
+            this.Ckb_ShareSchemeManage.Size = new System.Drawing.Size(80, 25);
+            this.Ckb_ShareSchemeManage.TabIndex = 214;
             this.Ckb_ShareSchemeManage.Text = "共享管理";
-            this.Ckb_ShareSchemeManage.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_ShareSchemeManage.TextImageRelation = TextImageRelation.ImageBeforeText;
+            this.Ckb_ShareSchemeManage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_ShareSchemeManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Ckb_ShareSchemeManage.UseVisualStyleBackColor = false;
-            this.Ckb_ShareSchemeManage.Click += new EventHandler(this.Ckb_ShareSchemeManage_Click);
-            this.Ckb_ShareScheme.Appearance = Appearance.Button;
+            this.Ckb_ShareSchemeManage.Click += new System.EventHandler(this.Ckb_ShareSchemeManage_Click);
+            // 
+            // Ckb_ShareScheme
+            // 
+            this.Ckb_ShareScheme.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_ShareScheme.AutoCheck = false;
             this.Ckb_ShareScheme.FlatAppearance.BorderSize = 0;
-            this.Ckb_ShareScheme.FlatStyle = FlatStyle.Flat;
-            this.Ckb_ShareScheme.Image = Resources.WindowUp;
-            this.Ckb_ShareScheme.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_ShareScheme.Location = new Point(0x5e, 4);
+            this.Ckb_ShareScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_ShareScheme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_ShareScheme.Location = new System.Drawing.Point(94, 4);
             this.Ckb_ShareScheme.Name = "Ckb_ShareScheme";
-            this.Ckb_ShareScheme.Size = new Size(60, 0x19);
-            this.Ckb_ShareScheme.TabIndex = 0xa6;
+            this.Ckb_ShareScheme.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_ShareScheme.TabIndex = 166;
             this.Ckb_ShareScheme.Text = "上传";
-            this.Ckb_ShareScheme.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_ShareScheme.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_ShareScheme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_ShareScheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Ckb_ShareScheme.UseVisualStyleBackColor = true;
-            this.Ckb_ShareScheme.Click += new EventHandler(this.Ckb_ShareScheme_Click);
-            this.Ckb_ClearScheme.Appearance = Appearance.Button;
+            this.Ckb_ShareScheme.Click += new System.EventHandler(this.Ckb_ShareScheme_Click);
+            // 
+            // Ckb_ClearScheme
+            // 
+            this.Ckb_ClearScheme.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_ClearScheme.AutoCheck = false;
             this.Ckb_ClearScheme.FlatAppearance.BorderSize = 0;
-            this.Ckb_ClearScheme.FlatStyle = FlatStyle.Flat;
-            this.Ckb_ClearScheme.Image = Resources.ClearAll;
-            this.Ckb_ClearScheme.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_ClearScheme.Location = new Point(0x88, 4);
+            this.Ckb_ClearScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_ClearScheme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_ClearScheme.Location = new System.Drawing.Point(136, 4);
             this.Ckb_ClearScheme.Name = "Ckb_ClearScheme";
-            this.Ckb_ClearScheme.Size = new Size(60, 0x19);
-            this.Ckb_ClearScheme.TabIndex = 0x135;
+            this.Ckb_ClearScheme.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_ClearScheme.TabIndex = 309;
             this.Ckb_ClearScheme.Text = "清空";
-            this.Ckb_ClearScheme.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_ClearScheme.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_ClearScheme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_ClearScheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_FNHint.SetToolTip(this.Ckb_ClearScheme, "清空当前全部方案");
             this.Ckb_ClearScheme.UseVisualStyleBackColor = true;
-            this.Ckb_ClearScheme.Click += new EventHandler(this.Ckb_ClearScheme_Click);
-            this.Ckb_ExportScheme.Appearance = Appearance.Button;
+            this.Ckb_ClearScheme.Click += new System.EventHandler(this.Ckb_ClearScheme_Click);
+            // 
+            // Ckb_ExportScheme
+            // 
+            this.Ckb_ExportScheme.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_ExportScheme.AutoCheck = false;
             this.Ckb_ExportScheme.FlatAppearance.BorderSize = 0;
-            this.Ckb_ExportScheme.FlatStyle = FlatStyle.Flat;
-            this.Ckb_ExportScheme.Image = Resources.FolderExport;
-            this.Ckb_ExportScheme.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_ExportScheme.Location = new Point(70, 4);
+            this.Ckb_ExportScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_ExportScheme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_ExportScheme.Location = new System.Drawing.Point(70, 4);
             this.Ckb_ExportScheme.Name = "Ckb_ExportScheme";
-            this.Ckb_ExportScheme.Size = new Size(60, 0x19);
-            this.Ckb_ExportScheme.TabIndex = 0xa4;
+            this.Ckb_ExportScheme.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_ExportScheme.TabIndex = 164;
             this.Ckb_ExportScheme.Text = "导出";
-            this.Ckb_ExportScheme.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_ExportScheme.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_ExportScheme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_ExportScheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_FNHint.SetToolTip(this.Ckb_ExportScheme, "将当前方案导出到文件夹");
             this.Ckb_ExportScheme.UseVisualStyleBackColor = true;
-            this.Ckb_ExportScheme.Click += new EventHandler(this.Ckb_ExportScheme_Click);
-            this.Ckb_ImportScheme.Appearance = Appearance.Button;
+            this.Ckb_ExportScheme.Click += new System.EventHandler(this.Ckb_ExportScheme_Click);
+            // 
+            // Ckb_ImportScheme
+            // 
+            this.Ckb_ImportScheme.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_ImportScheme.AutoCheck = false;
             this.Ckb_ImportScheme.FlatAppearance.BorderSize = 0;
-            this.Ckb_ImportScheme.FlatStyle = FlatStyle.Flat;
-            this.Ckb_ImportScheme.Image = Resources.FolderImport;
-            this.Ckb_ImportScheme.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_ImportScheme.Location = new Point(4, 4);
+            this.Ckb_ImportScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_ImportScheme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_ImportScheme.Location = new System.Drawing.Point(4, 4);
             this.Ckb_ImportScheme.Name = "Ckb_ImportScheme";
-            this.Ckb_ImportScheme.Size = new Size(60, 0x19);
-            this.Ckb_ImportScheme.TabIndex = 0xa3;
+            this.Ckb_ImportScheme.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_ImportScheme.TabIndex = 163;
             this.Ckb_ImportScheme.Text = "导入";
-            this.Ckb_ImportScheme.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_ImportScheme.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_ImportScheme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_ImportScheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_FNHint.SetToolTip(this.Ckb_ImportScheme, "从文件夹中导入方案");
             this.Ckb_ImportScheme.UseVisualStyleBackColor = true;
-            this.Ckb_ImportScheme.Click += new EventHandler(this.Ckb_ImportScheme_Click);
-            this.Pnl_SchemeTop1.BorderStyle = BorderStyle.FixedSingle;
+            this.Ckb_ImportScheme.Click += new System.EventHandler(this.Ckb_ImportScheme_Click);
+            // 
+            // Pnl_SchemeTop1
+            // 
+            this.Pnl_SchemeTop1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_SchemeTop1.Controls.Add(this.Ckb_EditTimesPlan);
             this.Pnl_SchemeTop1.Controls.Add(this.Ckb_EditScheme);
             this.Pnl_SchemeTop1.Controls.Add(this.Ckb_DeleteScheme);
             this.Pnl_SchemeTop1.Controls.Add(this.Ckb_CopyScheme);
             this.Pnl_SchemeTop1.Controls.Add(this.Ckb_AddScheme);
             this.Pnl_SchemeTop1.Controls.Add(this.Ckb_FNLT);
-            this.Pnl_SchemeTop1.Dock = DockStyle.Top;
-            this.Pnl_SchemeTop1.Location = new Point(0, 0);
+            this.Pnl_SchemeTop1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_SchemeTop1.Location = new System.Drawing.Point(0, 0);
             this.Pnl_SchemeTop1.Name = "Pnl_SchemeTop1";
-            this.Pnl_SchemeTop1.Size = new Size(450, 0x23);
-            this.Pnl_SchemeTop1.TabIndex = 0x4b;
-            this.Ckb_EditTimesPlan.Appearance = Appearance.Button;
+            this.Pnl_SchemeTop1.Size = new System.Drawing.Size(450, 35);
+            this.Pnl_SchemeTop1.TabIndex = 75;
+            // 
+            // Ckb_EditTimesPlan
+            // 
+            this.Ckb_EditTimesPlan.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_EditTimesPlan.AutoCheck = false;
             this.Ckb_EditTimesPlan.FlatAppearance.BorderSize = 0;
-            this.Ckb_EditTimesPlan.FlatStyle = FlatStyle.Flat;
-            this.Ckb_EditTimesPlan.Image = Resources.Batch;
-            this.Ckb_EditTimesPlan.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_EditTimesPlan.Location = new Point(0x129, 4);
+            this.Ckb_EditTimesPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_EditTimesPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_EditTimesPlan.Location = new System.Drawing.Point(297, 4);
             this.Ckb_EditTimesPlan.Name = "Ckb_EditTimesPlan";
-            this.Ckb_EditTimesPlan.Size = new Size(80, 0x19);
-            this.Ckb_EditTimesPlan.TabIndex = 0xd6;
+            this.Ckb_EditTimesPlan.Size = new System.Drawing.Size(80, 25);
+            this.Ckb_EditTimesPlan.TabIndex = 214;
             this.Ckb_EditTimesPlan.Text = "修改倍投";
-            this.Ckb_EditTimesPlan.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_EditTimesPlan.TextImageRelation = TextImageRelation.ImageBeforeText;
+            this.Ckb_EditTimesPlan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_EditTimesPlan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Tot_FNHint.SetToolTip(this.Ckb_EditTimesPlan, "将当前方案的直选倍投批量修改到其他方案中");
             this.Ckb_EditTimesPlan.UseVisualStyleBackColor = true;
-            this.Ckb_EditTimesPlan.Click += new EventHandler(this.Ckb_EditTimesPlan_Click);
-            this.Ckb_EditScheme.Appearance = Appearance.Button;
+            this.Ckb_EditTimesPlan.Click += new System.EventHandler(this.Ckb_EditTimesPlan_Click);
+            // 
+            // Ckb_EditScheme
+            // 
+            this.Ckb_EditScheme.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_EditScheme.AutoCheck = false;
             this.Ckb_EditScheme.FlatAppearance.BorderSize = 0;
-            this.Ckb_EditScheme.FlatStyle = FlatStyle.Flat;
-            this.Ckb_EditScheme.Image = Resources.EditHot;
-            this.Ckb_EditScheme.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_EditScheme.Location = new Point(0x17f, 4);
+            this.Ckb_EditScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_EditScheme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_EditScheme.Location = new System.Drawing.Point(383, 4);
             this.Ckb_EditScheme.Name = "Ckb_EditScheme";
-            this.Ckb_EditScheme.Size = new Size(60, 0x19);
-            this.Ckb_EditScheme.TabIndex = 0xa6;
+            this.Ckb_EditScheme.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_EditScheme.TabIndex = 166;
             this.Ckb_EditScheme.Text = "编辑";
-            this.Ckb_EditScheme.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_EditScheme.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_EditScheme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_EditScheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_FNHint.SetToolTip(this.Ckb_EditScheme, "编辑当前选中的一个方案");
             this.Ckb_EditScheme.UseVisualStyleBackColor = true;
-            this.Ckb_EditScheme.Click += new EventHandler(this.Ckb_EditScheme_Click);
-            this.Ckb_DeleteScheme.Appearance = Appearance.Button;
+            this.Ckb_EditScheme.Click += new System.EventHandler(this.Ckb_EditScheme_Click);
+            // 
+            // Ckb_DeleteScheme
+            // 
+            this.Ckb_DeleteScheme.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_DeleteScheme.AutoCheck = false;
             this.Ckb_DeleteScheme.FlatAppearance.BorderSize = 0;
-            this.Ckb_DeleteScheme.FlatStyle = FlatStyle.Flat;
-            this.Ckb_DeleteScheme.Image = Resources.Remove;
-            this.Ckb_DeleteScheme.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_DeleteScheme.Location = new Point(0x88, 4);
+            this.Ckb_DeleteScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_DeleteScheme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_DeleteScheme.Location = new System.Drawing.Point(136, 4);
             this.Ckb_DeleteScheme.Name = "Ckb_DeleteScheme";
-            this.Ckb_DeleteScheme.Size = new Size(60, 0x19);
-            this.Ckb_DeleteScheme.TabIndex = 0xa5;
+            this.Ckb_DeleteScheme.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_DeleteScheme.TabIndex = 165;
             this.Ckb_DeleteScheme.Text = "删除";
-            this.Ckb_DeleteScheme.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_DeleteScheme.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_DeleteScheme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_DeleteScheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_FNHint.SetToolTip(this.Ckb_DeleteScheme, "删除当前选中的一个方案");
             this.Ckb_DeleteScheme.UseVisualStyleBackColor = true;
-            this.Ckb_DeleteScheme.Click += new EventHandler(this.Ckb_DeleteScheme_Click);
-            this.Ckb_CopyScheme.Appearance = Appearance.Button;
+            this.Ckb_DeleteScheme.Click += new System.EventHandler(this.Ckb_DeleteScheme_Click);
+            // 
+            // Ckb_CopyScheme
+            // 
+            this.Ckb_CopyScheme.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_CopyScheme.AutoCheck = false;
             this.Ckb_CopyScheme.FlatAppearance.BorderSize = 0;
-            this.Ckb_CopyScheme.FlatStyle = FlatStyle.Flat;
-            this.Ckb_CopyScheme.Image = Resources.Copy;
-            this.Ckb_CopyScheme.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_CopyScheme.Location = new Point(70, 4);
+            this.Ckb_CopyScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_CopyScheme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_CopyScheme.Location = new System.Drawing.Point(70, 4);
             this.Ckb_CopyScheme.Name = "Ckb_CopyScheme";
-            this.Ckb_CopyScheme.Size = new Size(60, 0x19);
-            this.Ckb_CopyScheme.TabIndex = 0xa4;
+            this.Ckb_CopyScheme.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_CopyScheme.TabIndex = 164;
             this.Ckb_CopyScheme.Text = "复制";
-            this.Ckb_CopyScheme.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_CopyScheme.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_CopyScheme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_CopyScheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_FNHint.SetToolTip(this.Ckb_CopyScheme, "复制当前选中的一个方案");
             this.Ckb_CopyScheme.UseVisualStyleBackColor = true;
-            this.Ckb_CopyScheme.Click += new EventHandler(this.Ckb_CopyScheme_Click);
-            this.Ckb_AddScheme.Appearance = Appearance.Button;
+            this.Ckb_CopyScheme.Click += new System.EventHandler(this.Ckb_CopyScheme_Click);
+            // 
+            // Ckb_AddScheme
+            // 
+            this.Ckb_AddScheme.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_AddScheme.AutoCheck = false;
             this.Ckb_AddScheme.FlatAppearance.BorderSize = 0;
-            this.Ckb_AddScheme.FlatStyle = FlatStyle.Flat;
-            this.Ckb_AddScheme.Image = Resources.Add;
-            this.Ckb_AddScheme.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_AddScheme.Location = new Point(4, 4);
+            this.Ckb_AddScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_AddScheme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_AddScheme.Location = new System.Drawing.Point(4, 4);
             this.Ckb_AddScheme.Name = "Ckb_AddScheme";
-            this.Ckb_AddScheme.Size = new Size(60, 0x19);
-            this.Ckb_AddScheme.TabIndex = 0xa3;
+            this.Ckb_AddScheme.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_AddScheme.TabIndex = 163;
             this.Ckb_AddScheme.Text = "添加";
-            this.Ckb_AddScheme.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_AddScheme.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_AddScheme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_AddScheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_FNHint.SetToolTip(this.Ckb_AddScheme, "添加一个方案");
             this.Ckb_AddScheme.UseVisualStyleBackColor = true;
-            this.Ckb_AddScheme.Click += new EventHandler(this.Ckb_AddScheme_Click);
+            this.Ckb_AddScheme.Click += new System.EventHandler(this.Ckb_AddScheme_Click);
+            // 
+            // Ckb_FNLT
+            // 
             this.Ckb_FNLT.AutoSize = true;
-            this.Ckb_FNLT.Location = new Point(0xca, 7);
+            this.Ckb_FNLT.Location = new System.Drawing.Point(202, 7);
             this.Ckb_FNLT.Name = "Ckb_FNLT";
-            this.Ckb_FNLT.Size = new Size(0x4b, 0x15);
-            this.Ckb_FNLT.TabIndex = 0x9a;
+            this.Ckb_FNLT.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_FNLT.TabIndex = 154;
             this.Ckb_FNLT.Text = "方案轮投";
             this.Tot_FNHint.SetToolTip(this.Ckb_FNLT, "方案轮投的设置请在高级倍投中设定");
             this.Ckb_FNLT.UseVisualStyleBackColor = true;
-            this.Tap_LSData.BackColor = SystemColors.Control;
+            // 
+            // Tap_LSData
+            // 
+            this.Tap_LSData.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_LSData.Controls.Add(this.Pnl_LSData);
-            this.Tap_LSData.Location = new Point(4, 0x22);
+            this.Tap_LSData.Location = new System.Drawing.Point(4, 34);
             this.Tap_LSData.Name = "Tap_LSData";
-            this.Tap_LSData.Padding = new Padding(3);
-            this.Tap_LSData.Size = new Size(0x3e6, 0x218);
+            this.Tap_LSData.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_LSData.Size = new System.Drawing.Size(998, 536);
             this.Tap_LSData.TabIndex = 3;
             this.Tap_LSData.Text = "参考数据";
+            // 
+            // Pnl_LSData
+            // 
             this.Pnl_LSData.Controls.Add(this.Pnl_LSDataMain);
             this.Pnl_LSData.Controls.Add(this.Pnl_LSDataTop);
-            this.Pnl_LSData.Dock = DockStyle.Fill;
-            this.Pnl_LSData.Location = new Point(3, 3);
+            this.Pnl_LSData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_LSData.Location = new System.Drawing.Point(3, 3);
             this.Pnl_LSData.Name = "Pnl_LSData";
-            this.Pnl_LSData.Size = new Size(0x3e0, 530);
+            this.Pnl_LSData.Size = new System.Drawing.Size(992, 530);
             this.Pnl_LSData.TabIndex = 0;
+            // 
+            // Pnl_LSDataMain
+            // 
             this.Pnl_LSDataMain.Controls.Add(this.Egv_LSDataList);
-            this.Pnl_LSDataMain.Dock = DockStyle.Fill;
-            this.Pnl_LSDataMain.Location = new Point(0, 70);
+            this.Pnl_LSDataMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_LSDataMain.Location = new System.Drawing.Point(0, 70);
             this.Pnl_LSDataMain.Name = "Pnl_LSDataMain";
-            this.Pnl_LSDataMain.Size = new Size(0x3e0, 460);
-            this.Pnl_LSDataMain.TabIndex = 0x48;
+            this.Pnl_LSDataMain.Size = new System.Drawing.Size(992, 460);
+            this.Pnl_LSDataMain.TabIndex = 72;
+            // 
+            // Egv_LSDataList
+            // 
             this.Egv_LSDataList.AllowUserToAddRows = false;
             this.Egv_LSDataList.AllowUserToDeleteRows = false;
             this.Egv_LSDataList.AllowUserToResizeColumns = false;
             this.Egv_LSDataList.AllowUserToResizeRows = false;
-            this.Egv_LSDataList.BackgroundColor = SystemColors.Window;
-            this.Egv_LSDataList.BorderStyle = BorderStyle.Fixed3D;
-            this.Egv_LSDataList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            style7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style7.BackColor = SystemColors.Window;
-            style7.Font = new Font("微软雅黑", 9f);
-            style7.ForeColor = SystemColors.ControlText;
-            style7.SelectionBackColor = SystemColors.Highlight;
-            style7.SelectionForeColor = SystemColors.HighlightText;
-            style7.WrapMode = DataGridViewTriState.False;
-            this.Egv_LSDataList.ColumnHeadersDefaultCellStyle = style7;
+            this.Egv_LSDataList.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.Egv_LSDataList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Egv_LSDataList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_LSDataList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.Egv_LSDataList.ColumnHeadersHeight = 30;
-            this.Egv_LSDataList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            style8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style8.BackColor = SystemColors.Window;
-            style8.Font = new Font("微软雅黑", 9f);
-            style8.ForeColor = SystemColors.ControlText;
-            style8.SelectionBackColor = Color.SteelBlue;
-            style8.SelectionForeColor = Color.White;
-            style8.WrapMode = DataGridViewTriState.False;
-            this.Egv_LSDataList.DefaultCellStyle = style8;
-            this.Egv_LSDataList.Dock = DockStyle.Fill;
-            this.Egv_LSDataList.DragLineColor = Color.Silver;
+            this.Egv_LSDataList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_LSDataList.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Egv_LSDataList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Egv_LSDataList.DragLineColor = System.Drawing.Color.Silver;
             this.Egv_LSDataList.ExternalVirtualMode = true;
-            this.Egv_LSDataList.GridColor = Color.Silver;
-            this.Egv_LSDataList.HeadersCheckDefult = CheckState.Checked;
-            this.Egv_LSDataList.Location = new Point(0, 0);
-            this.Egv_LSDataList.MergeColumnHeaderBackColor = SystemColors.Control;
-            this.Egv_LSDataList.MergeColumnHeaderForeColor = Color.Black;
+            this.Egv_LSDataList.GridColor = System.Drawing.Color.Silver;
+            this.Egv_LSDataList.HeadersCheckDefult = System.Windows.Forms.CheckState.Checked;
+            this.Egv_LSDataList.Location = new System.Drawing.Point(0, 0);
+            this.Egv_LSDataList.MergeColumnHeaderBackColor = System.Drawing.SystemColors.Control;
+            this.Egv_LSDataList.MergeColumnHeaderForeColor = System.Drawing.Color.Black;
             this.Egv_LSDataList.MultiSelect = false;
             this.Egv_LSDataList.Name = "Egv_LSDataList";
             this.Egv_LSDataList.RowHeadersVisible = false;
-            this.Egv_LSDataList.RowNum = 0x11;
-            style9.BackColor = SystemColors.Window;
-            style9.SelectionBackColor = Color.FromArgb(0xde, 0xe8, 0xfc);
-            style9.SelectionForeColor = Color.Black;
-            this.Egv_LSDataList.RowsDefaultCellStyle = style9;
-            this.Egv_LSDataList.RowTemplate.Height = 0x17;
-            this.Egv_LSDataList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.Egv_LSDataList.Size = new Size(0x3e0, 460);
+            this.Egv_LSDataList.RowNum = 17;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(232)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            this.Egv_LSDataList.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.Egv_LSDataList.RowTemplate.Height = 23;
+            this.Egv_LSDataList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Egv_LSDataList.Size = new System.Drawing.Size(992, 460);
             this.Egv_LSDataList.TabIndex = 70;
             this.Egv_LSDataList.VirtualMode = true;
-            this.Pnl_LSDataTop.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_LSDataTop
+            // 
+            this.Pnl_LSDataTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_LSDataTop.Controls.Add(this.Pnl_LSDataRight);
             this.Pnl_LSDataTop.Controls.Add(this.Pnl_LSDataLeft);
             this.Pnl_LSDataTop.Controls.Add(this.Pnl_LSDataTop1);
-            this.Pnl_LSDataTop.Dock = DockStyle.Top;
-            this.Pnl_LSDataTop.Location = new Point(0, 0);
+            this.Pnl_LSDataTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_LSDataTop.Location = new System.Drawing.Point(0, 0);
             this.Pnl_LSDataTop.Name = "Pnl_LSDataTop";
-            this.Pnl_LSDataTop.Size = new Size(0x3e0, 70);
-            this.Pnl_LSDataTop.TabIndex = 0x47;
-            this.Pnl_LSDataRight.BackColor = Color.Transparent;
-            this.Pnl_LSDataRight.BorderStyle = BorderStyle.FixedSingle;
+            this.Pnl_LSDataTop.Size = new System.Drawing.Size(992, 70);
+            this.Pnl_LSDataTop.TabIndex = 71;
+            // 
+            // Pnl_LSDataRight
+            // 
+            this.Pnl_LSDataRight.BackColor = System.Drawing.Color.Transparent;
+            this.Pnl_LSDataRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_LSDataRight.Controls.Add(this.Ckb_LSStop);
             this.Pnl_LSDataRight.Controls.Add(this.Lbl_LSRefreshHint);
-            this.Pnl_LSDataRight.Dock = DockStyle.Left;
-            this.Pnl_LSDataRight.Location = new Point(0x2af, 0);
+            this.Pnl_LSDataRight.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_LSDataRight.Location = new System.Drawing.Point(687, 0);
             this.Pnl_LSDataRight.Name = "Pnl_LSDataRight";
-            this.Pnl_LSDataRight.Size = new Size(0x51, 0x44);
-            this.Pnl_LSDataRight.TabIndex = 0xc1;
+            this.Pnl_LSDataRight.Size = new System.Drawing.Size(81, 68);
+            this.Pnl_LSDataRight.TabIndex = 193;
             this.Pnl_LSDataRight.Visible = false;
-            this.Ckb_LSStop.Appearance = Appearance.Button;
+            // 
+            // Ckb_LSStop
+            // 
+            this.Ckb_LSStop.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_LSStop.AutoCheck = false;
             this.Ckb_LSStop.FlatAppearance.BorderSize = 0;
-            this.Ckb_LSStop.FlatStyle = FlatStyle.Flat;
-            this.Ckb_LSStop.Image = Resources.Stop;
-            this.Ckb_LSStop.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_LSStop.Location = new Point(7, 0x23);
+            this.Ckb_LSStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_LSStop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_LSStop.Location = new System.Drawing.Point(7, 35);
             this.Ckb_LSStop.Name = "Ckb_LSStop";
-            this.Ckb_LSStop.Size = new Size(60, 0x19);
-            this.Ckb_LSStop.TabIndex = 0xc3;
+            this.Ckb_LSStop.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_LSStop.TabIndex = 195;
             this.Ckb_LSStop.Text = "停止";
-            this.Ckb_LSStop.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_LSStop.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_LSStop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_LSStop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Ckb_LSStop.UseVisualStyleBackColor = true;
-            this.Ckb_LSStop.Click += new EventHandler(this.Ckb_LSStop_Click);
+            this.Ckb_LSStop.Click += new System.EventHandler(this.Ckb_LSStop_Click);
+            // 
+            // Lbl_LSRefreshHint
+            // 
             this.Lbl_LSRefreshHint.AutoSize = true;
-            this.Lbl_LSRefreshHint.Location = new Point(5, 10);
+            this.Lbl_LSRefreshHint.Location = new System.Drawing.Point(5, 10);
             this.Lbl_LSRefreshHint.Name = "Lbl_LSRefreshHint";
-            this.Lbl_LSRefreshHint.Size = new Size(0x41, 0x11);
-            this.Lbl_LSRefreshHint.TabIndex = 0xa3;
+            this.Lbl_LSRefreshHint.Size = new System.Drawing.Size(65, 17);
+            this.Lbl_LSRefreshHint.TabIndex = 163;
             this.Lbl_LSRefreshHint.Text = "正在计算...";
             this.Lbl_LSRefreshHint.Visible = false;
-            this.Pnl_LSDataLeft.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_LSDataLeft
+            // 
+            this.Pnl_LSDataLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_LSDataLeft.Controls.Add(this.Btn_LSRefresh);
-            this.Pnl_LSDataLeft.Dock = DockStyle.Left;
-            this.Pnl_LSDataLeft.Location = new Point(570, 0);
+            this.Pnl_LSDataLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_LSDataLeft.Location = new System.Drawing.Point(570, 0);
             this.Pnl_LSDataLeft.Name = "Pnl_LSDataLeft";
-            this.Pnl_LSDataLeft.Size = new Size(0x75, 0x44);
-            this.Pnl_LSDataLeft.TabIndex = 0xc0;
-            this.Btn_LSRefresh.Dock = DockStyle.Fill;
-            this.Btn_LSRefresh.Font = new Font("微软雅黑", 14f, FontStyle.Bold);
-            this.Btn_LSRefresh.Location = new Point(0, 0);
+            this.Pnl_LSDataLeft.Size = new System.Drawing.Size(117, 68);
+            this.Pnl_LSDataLeft.TabIndex = 192;
+            // 
+            // Btn_LSRefresh
+            // 
+            this.Btn_LSRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_LSRefresh.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Bold);
+            this.Btn_LSRefresh.Location = new System.Drawing.Point(0, 0);
             this.Btn_LSRefresh.Name = "Btn_LSRefresh";
-            this.Btn_LSRefresh.Size = new Size(0x73, 0x42);
-            this.Btn_LSRefresh.TabIndex = 0x9a;
+            this.Btn_LSRefresh.Size = new System.Drawing.Size(115, 66);
+            this.Btn_LSRefresh.TabIndex = 154;
             this.Btn_LSRefresh.Text = "开始计算";
             this.Btn_LSRefresh.UseVisualStyleBackColor = true;
-            this.Btn_LSRefresh.Click += new EventHandler(this.Btn_LSRefresh_Click);
-            this.Pnl_LSDataTop1.BackColor = Color.Transparent;
+            this.Btn_LSRefresh.Click += new System.EventHandler(this.Btn_LSRefresh_Click);
+            // 
+            // Pnl_LSDataTop1
+            // 
+            this.Pnl_LSDataTop1.BackColor = System.Drawing.Color.Transparent;
             this.Pnl_LSDataTop1.Controls.Add(this.Lbl_LSPlayKey);
             this.Pnl_LSDataTop1.Controls.Add(this.Lbl_LSPlayValue);
             this.Pnl_LSDataTop1.Controls.Add(this.Lbl_LSLotteryKey);
@@ -6269,392 +6670,511 @@
             this.Pnl_LSDataTop1.Controls.Add(this.Cbb_LSBJType);
             this.Pnl_LSDataTop1.Controls.Add(this.Lbl_LSBJExpect2);
             this.Pnl_LSDataTop1.Controls.Add(this.Nm_LSBJExpect);
-            this.Pnl_LSDataTop1.Dock = DockStyle.Left;
-            this.Pnl_LSDataTop1.Location = new Point(0, 0);
+            this.Pnl_LSDataTop1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_LSDataTop1.Location = new System.Drawing.Point(0, 0);
             this.Pnl_LSDataTop1.Name = "Pnl_LSDataTop1";
-            this.Pnl_LSDataTop1.Size = new Size(570, 0x44);
-            this.Pnl_LSDataTop1.TabIndex = 0xa6;
+            this.Pnl_LSDataTop1.Size = new System.Drawing.Size(570, 68);
+            this.Pnl_LSDataTop1.TabIndex = 166;
+            // 
+            // Lbl_LSPlayKey
+            // 
             this.Lbl_LSPlayKey.AutoSize = true;
-            this.Lbl_LSPlayKey.Location = new Point(0x179, 8);
+            this.Lbl_LSPlayKey.Location = new System.Drawing.Point(377, 8);
             this.Lbl_LSPlayKey.Name = "Lbl_LSPlayKey";
-            this.Lbl_LSPlayKey.Size = new Size(0x2c, 0x11);
-            this.Lbl_LSPlayKey.TabIndex = 0xc2;
+            this.Lbl_LSPlayKey.Size = new System.Drawing.Size(44, 17);
+            this.Lbl_LSPlayKey.TabIndex = 194;
             this.Lbl_LSPlayKey.Text = "玩法：";
+            // 
+            // Lbl_LSPlayValue
+            // 
             this.Lbl_LSPlayValue.AutoSize = true;
-            this.Lbl_LSPlayValue.Font = new Font("微软雅黑", 9f, FontStyle.Bold);
-            this.Lbl_LSPlayValue.Location = new Point(0x1a7, 8);
+            this.Lbl_LSPlayValue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
+            this.Lbl_LSPlayValue.Location = new System.Drawing.Point(423, 8);
             this.Lbl_LSPlayValue.Name = "Lbl_LSPlayValue";
-            this.Lbl_LSPlayValue.Size = new Size(0x38, 0x11);
-            this.Lbl_LSPlayValue.TabIndex = 0xc1;
+            this.Lbl_LSPlayValue.Size = new System.Drawing.Size(56, 17);
+            this.Lbl_LSPlayValue.TabIndex = 193;
             this.Lbl_LSPlayValue.Text = "玩法名称";
             this.Lbl_LSPlayValue.Visible = false;
+            // 
+            // Lbl_LSLotteryKey
+            // 
             this.Lbl_LSLotteryKey.AutoSize = true;
-            this.Lbl_LSLotteryKey.Location = new Point(5, 8);
+            this.Lbl_LSLotteryKey.Location = new System.Drawing.Point(5, 8);
             this.Lbl_LSLotteryKey.Name = "Lbl_LSLotteryKey";
-            this.Lbl_LSLotteryKey.Size = new Size(0x2c, 0x11);
-            this.Lbl_LSLotteryKey.TabIndex = 0x4c;
+            this.Lbl_LSLotteryKey.Size = new System.Drawing.Size(44, 17);
+            this.Lbl_LSLotteryKey.TabIndex = 76;
             this.Lbl_LSLotteryKey.Text = "彩种：";
+            // 
+            // Lbl_LSLotteryValue
+            // 
             this.Lbl_LSLotteryValue.AutoSize = true;
-            this.Lbl_LSLotteryValue.Font = new Font("微软雅黑", 9f, FontStyle.Bold);
-            this.Lbl_LSLotteryValue.Location = new Point(0x33, 8);
+            this.Lbl_LSLotteryValue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
+            this.Lbl_LSLotteryValue.Location = new System.Drawing.Point(51, 8);
             this.Lbl_LSLotteryValue.Name = "Lbl_LSLotteryValue";
-            this.Lbl_LSLotteryValue.Size = new Size(0x44, 0x11);
-            this.Lbl_LSLotteryValue.TabIndex = 0xa5;
+            this.Lbl_LSLotteryValue.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_LSLotteryValue.TabIndex = 165;
             this.Lbl_LSLotteryValue.Text = "重庆时时彩";
+            // 
+            // Lbl_LSDataRange
+            // 
             this.Lbl_LSDataRange.AutoSize = true;
-            this.Lbl_LSDataRange.Location = new Point(5, 0x2a);
+            this.Lbl_LSDataRange.Location = new System.Drawing.Point(5, 42);
             this.Lbl_LSDataRange.Name = "Lbl_LSDataRange";
-            this.Lbl_LSDataRange.Size = new Size(0x2c, 0x11);
+            this.Lbl_LSDataRange.Size = new System.Drawing.Size(44, 17);
             this.Lbl_LSDataRange.TabIndex = 0;
             this.Lbl_LSDataRange.Text = "日期：";
+            // 
+            // Dtp_LSDataRange
+            // 
             this.Dtp_LSDataRange.CustomFormat = "yyyy-MM-dd";
-            this.Dtp_LSDataRange.Format = DateTimePickerFormat.Custom;
-            this.Dtp_LSDataRange.Location = new Point(0x34, 0x27);
+            this.Dtp_LSDataRange.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Dtp_LSDataRange.Location = new System.Drawing.Point(52, 39);
             this.Dtp_LSDataRange.Name = "Dtp_LSDataRange";
-            this.Dtp_LSDataRange.Size = new Size(110, 0x17);
-            this.Dtp_LSDataRange.TabIndex = 0x48;
+            this.Dtp_LSDataRange.Size = new System.Drawing.Size(110, 23);
+            this.Dtp_LSDataRange.TabIndex = 72;
+            // 
+            // Lbl_LSFN
+            // 
             this.Lbl_LSFN.AutoSize = true;
-            this.Lbl_LSFN.Location = new Point(0x81, 8);
+            this.Lbl_LSFN.Location = new System.Drawing.Point(129, 8);
             this.Lbl_LSFN.Name = "Lbl_LSFN";
-            this.Lbl_LSFN.Size = new Size(0x2c, 0x11);
-            this.Lbl_LSFN.TabIndex = 0x4e;
+            this.Lbl_LSFN.Size = new System.Drawing.Size(44, 17);
+            this.Lbl_LSFN.TabIndex = 78;
             this.Lbl_LSFN.Text = "方案：";
+            // 
+            // Ckb_LSAutoRefresh
+            // 
             this.Ckb_LSAutoRefresh.AutoSize = true;
             this.Ckb_LSAutoRefresh.Checked = true;
-            this.Ckb_LSAutoRefresh.CheckState = CheckState.Checked;
-            this.Ckb_LSAutoRefresh.Location = new Point(0x128, 7);
+            this.Ckb_LSAutoRefresh.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Ckb_LSAutoRefresh.Location = new System.Drawing.Point(296, 7);
             this.Ckb_LSAutoRefresh.Name = "Ckb_LSAutoRefresh";
-            this.Ckb_LSAutoRefresh.Size = new Size(0x4b, 0x15);
-            this.Ckb_LSAutoRefresh.TabIndex = 0xa2;
+            this.Ckb_LSAutoRefresh.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_LSAutoRefresh.TabIndex = 162;
             this.Ckb_LSAutoRefresh.Text = "自动刷新";
             this.Ckb_LSAutoRefresh.UseVisualStyleBackColor = true;
-            this.Cbb_LSFN.DropDownStyle = ComboBoxStyle.DropDownList;
+            // 
+            // Cbb_LSFN
+            // 
+            this.Cbb_LSFN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbb_LSFN.FormattingEnabled = true;
-            this.Cbb_LSFN.Location = new Point(0xb0, 5);
+            this.Cbb_LSFN.Location = new System.Drawing.Point(176, 5);
             this.Cbb_LSFN.Name = "Cbb_LSFN";
-            this.Cbb_LSFN.Size = new Size(110, 0x19);
-            this.Cbb_LSFN.TabIndex = 0x4d;
-            this.Cbb_LSFN.SelectedIndexChanged += new EventHandler(this.Cbb_LSFN_SelectedIndexChanged);
+            this.Cbb_LSFN.Size = new System.Drawing.Size(110, 25);
+            this.Cbb_LSFN.TabIndex = 77;
+            this.Cbb_LSFN.SelectedIndexChanged += new System.EventHandler(this.Cbb_LSFN_SelectedIndexChanged);
+            // 
+            // Rdb_LSBJExpect
+            // 
             this.Rdb_LSBJExpect.AutoSize = true;
-            this.Rdb_LSBJExpect.Location = new Point(0x19c, 0x29);
+            this.Rdb_LSBJExpect.Location = new System.Drawing.Point(412, 41);
             this.Rdb_LSBJExpect.Name = "Rdb_LSBJExpect";
-            this.Rdb_LSBJExpect.Size = new Size(50, 0x15);
-            this.Rdb_LSBJExpect.TabIndex = 0xa1;
+            this.Rdb_LSBJExpect.Size = new System.Drawing.Size(50, 21);
+            this.Rdb_LSBJExpect.TabIndex = 161;
             this.Rdb_LSBJExpect.TabStop = true;
             this.Rdb_LSBJExpect.Text = "轮次";
             this.Rdb_LSBJExpect.UseVisualStyleBackColor = true;
+            // 
+            // Ckb_LSBJ
+            // 
             this.Ckb_LSBJ.AutoSize = true;
             this.Ckb_LSBJ.Checked = true;
-            this.Ckb_LSBJ.CheckState = CheckState.Checked;
-            this.Ckb_LSBJ.Location = new Point(0xab, 0x29);
+            this.Ckb_LSBJ.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Ckb_LSBJ.Location = new System.Drawing.Point(171, 41);
             this.Ckb_LSBJ.Name = "Ckb_LSBJ";
-            this.Ckb_LSBJ.Size = new Size(0x3f, 0x15);
-            this.Ckb_LSBJ.TabIndex = 0x9b;
+            this.Ckb_LSBJ.Size = new System.Drawing.Size(63, 21);
+            this.Ckb_LSBJ.TabIndex = 155;
             this.Ckb_LSBJ.Text = "当接近";
             this.Ckb_LSBJ.UseVisualStyleBackColor = true;
-            this.Ckb_LSBJ.CheckedChanged += new EventHandler(this.Ckb_LSBJType_CheckedChanged);
+            this.Ckb_LSBJ.CheckedChanged += new System.EventHandler(this.Ckb_LSBJType_CheckedChanged);
+            // 
+            // Rdb_LSBJType
+            // 
             this.Rdb_LSBJType.AutoSize = true;
             this.Rdb_LSBJType.Checked = true;
-            this.Rdb_LSBJType.Location = new Point(240, 0x29);
+            this.Rdb_LSBJType.Location = new System.Drawing.Point(240, 41);
             this.Rdb_LSBJType.Name = "Rdb_LSBJType";
-            this.Rdb_LSBJType.Size = new Size(50, 0x15);
+            this.Rdb_LSBJType.Size = new System.Drawing.Size(50, 21);
             this.Rdb_LSBJType.TabIndex = 160;
             this.Rdb_LSBJType.TabStop = true;
             this.Rdb_LSBJType.Text = "类型";
             this.Rdb_LSBJType.UseVisualStyleBackColor = true;
-            this.Rdb_LSBJType.CheckedChanged += new EventHandler(this.Rdb_LSBJType_CheckedChanged);
-            this.Cbb_LSBJType.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.Rdb_LSBJType.CheckedChanged += new System.EventHandler(this.Rdb_LSBJType_CheckedChanged);
+            // 
+            // Cbb_LSBJType
+            // 
+            this.Cbb_LSBJType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbb_LSBJType.FormattingEnabled = true;
-            this.Cbb_LSBJType.Items.AddRange(new object[] { "今日未出", "昨日未出", "一周未出", "一月未出", "十组连错最多", "十组连中最多" });
-            this.Cbb_LSBJType.Location = new Point(0x128, 0x26);
+            this.Cbb_LSBJType.Items.AddRange(new object[] {
+            "今日未出",
+            "昨日未出",
+            "一周未出",
+            "一月未出",
+            "十组连错最多",
+            "十组连中最多"});
+            this.Cbb_LSBJType.Location = new System.Drawing.Point(296, 38);
             this.Cbb_LSBJType.Name = "Cbb_LSBJType";
-            this.Cbb_LSBJType.Size = new Size(110, 0x19);
-            this.Cbb_LSBJType.TabIndex = 0x9c;
+            this.Cbb_LSBJType.Size = new System.Drawing.Size(110, 25);
+            this.Cbb_LSBJType.TabIndex = 156;
+            // 
+            // Lbl_LSBJExpect2
+            // 
             this.Lbl_LSBJExpect2.AutoSize = true;
-            this.Lbl_LSBJExpect2.Location = new Point(0x207, 0x2a);
+            this.Lbl_LSBJExpect2.Location = new System.Drawing.Point(519, 42);
             this.Lbl_LSBJExpect2.Name = "Lbl_LSBJExpect2";
-            this.Lbl_LSBJExpect2.Size = new Size(0x2c, 0x11);
-            this.Lbl_LSBJExpect2.TabIndex = 0x9f;
+            this.Lbl_LSBJExpect2.Size = new System.Drawing.Size(44, 17);
+            this.Lbl_LSBJExpect2.TabIndex = 159;
             this.Lbl_LSBJExpect2.Text = "时提醒";
+            // 
+            // Nm_LSBJExpect
+            // 
             this.Nm_LSBJExpect.Enabled = false;
-            this.Nm_LSBJExpect.Location = new Point(0x1d2, 0x27);
-            bits = new int[4];
-            bits[0] = 0x3e8;
-            this.Nm_LSBJExpect.Maximum = new decimal(bits);
-            bits = new int[4];
-            bits[0] = 1;
-            this.Nm_LSBJExpect.Minimum = new decimal(bits);
+            this.Nm_LSBJExpect.Location = new System.Drawing.Point(466, 39);
+            this.Nm_LSBJExpect.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.Nm_LSBJExpect.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.Nm_LSBJExpect.Name = "Nm_LSBJExpect";
-            this.Nm_LSBJExpect.Size = new Size(50, 0x17);
-            this.Nm_LSBJExpect.TabIndex = 0x9e;
-            bits = new int[4];
-            bits[0] = 2;
-            this.Nm_LSBJExpect.Value = new decimal(bits);
-            this.Tap_TJData.BackColor = SystemColors.Control;
+            this.Nm_LSBJExpect.Size = new System.Drawing.Size(50, 23);
+            this.Nm_LSBJExpect.TabIndex = 158;
+            this.Nm_LSBJExpect.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // Tap_TJData
+            // 
+            this.Tap_TJData.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_TJData.Controls.Add(this.Pnl_TJData);
-            this.Tap_TJData.Location = new Point(4, 0x22);
+            this.Tap_TJData.Location = new System.Drawing.Point(4, 34);
             this.Tap_TJData.Name = "Tap_TJData";
-            this.Tap_TJData.Padding = new Padding(3);
-            this.Tap_TJData.Size = new Size(0x3e6, 0x218);
+            this.Tap_TJData.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_TJData.Size = new System.Drawing.Size(998, 536);
             this.Tap_TJData.TabIndex = 5;
             this.Tap_TJData.Text = "历史统计";
+            // 
+            // Pnl_TJData
+            // 
             this.Pnl_TJData.Controls.Add(this.Pnl_TJDataMain);
             this.Pnl_TJData.Controls.Add(this.Pnl_TJDataTop);
-            this.Pnl_TJData.Dock = DockStyle.Fill;
-            this.Pnl_TJData.Location = new Point(3, 3);
+            this.Pnl_TJData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_TJData.Location = new System.Drawing.Point(3, 3);
             this.Pnl_TJData.Name = "Pnl_TJData";
-            this.Pnl_TJData.Size = new Size(0x3e0, 530);
+            this.Pnl_TJData.Size = new System.Drawing.Size(992, 530);
             this.Pnl_TJData.TabIndex = 1;
+            // 
+            // Pnl_TJDataMain
+            // 
             this.Pnl_TJDataMain.Controls.Add(this.Egv_TJDataList2);
             this.Pnl_TJDataMain.Controls.Add(this.Pnl_TJDataTop2);
             this.Pnl_TJDataMain.Controls.Add(this.Egv_TJDataList1);
-            this.Pnl_TJDataMain.Dock = DockStyle.Fill;
-            this.Pnl_TJDataMain.Location = new Point(0, 70);
+            this.Pnl_TJDataMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_TJDataMain.Location = new System.Drawing.Point(0, 70);
             this.Pnl_TJDataMain.Name = "Pnl_TJDataMain";
-            this.Pnl_TJDataMain.Size = new Size(0x3e0, 460);
-            this.Pnl_TJDataMain.TabIndex = 0x48;
+            this.Pnl_TJDataMain.Size = new System.Drawing.Size(992, 460);
+            this.Pnl_TJDataMain.TabIndex = 72;
+            // 
+            // Egv_TJDataList2
+            // 
             this.Egv_TJDataList2.AllowUserToAddRows = false;
             this.Egv_TJDataList2.AllowUserToDeleteRows = false;
             this.Egv_TJDataList2.AllowUserToResizeColumns = false;
             this.Egv_TJDataList2.AllowUserToResizeRows = false;
-            this.Egv_TJDataList2.BackgroundColor = SystemColors.Window;
-            this.Egv_TJDataList2.BorderStyle = BorderStyle.Fixed3D;
-            this.Egv_TJDataList2.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            style10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style10.BackColor = SystemColors.Window;
-            style10.Font = new Font("微软雅黑", 9f);
-            style10.ForeColor = SystemColors.ControlText;
-            style10.SelectionBackColor = SystemColors.Highlight;
-            style10.SelectionForeColor = SystemColors.HighlightText;
-            style10.WrapMode = DataGridViewTriState.False;
-            this.Egv_TJDataList2.ColumnHeadersDefaultCellStyle = style10;
+            this.Egv_TJDataList2.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.Egv_TJDataList2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Egv_TJDataList2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_TJDataList2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.Egv_TJDataList2.ColumnHeadersHeight = 30;
-            this.Egv_TJDataList2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            style11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style11.BackColor = SystemColors.Window;
-            style11.Font = new Font("微软雅黑", 9f);
-            style11.ForeColor = SystemColors.ControlText;
-            style11.SelectionBackColor = Color.SteelBlue;
-            style11.SelectionForeColor = Color.White;
-            style11.WrapMode = DataGridViewTriState.False;
-            this.Egv_TJDataList2.DefaultCellStyle = style11;
-            this.Egv_TJDataList2.Dock = DockStyle.Fill;
-            this.Egv_TJDataList2.DragLineColor = Color.Silver;
+            this.Egv_TJDataList2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_TJDataList2.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Egv_TJDataList2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Egv_TJDataList2.DragLineColor = System.Drawing.Color.Silver;
             this.Egv_TJDataList2.ExternalVirtualMode = true;
-            this.Egv_TJDataList2.GridColor = Color.Silver;
-            this.Egv_TJDataList2.HeadersCheckDefult = CheckState.Checked;
-            this.Egv_TJDataList2.Location = new Point(0, 0xf3);
-            this.Egv_TJDataList2.MergeColumnHeaderBackColor = SystemColors.Control;
-            this.Egv_TJDataList2.MergeColumnHeaderForeColor = Color.Black;
+            this.Egv_TJDataList2.GridColor = System.Drawing.Color.Silver;
+            this.Egv_TJDataList2.HeadersCheckDefult = System.Windows.Forms.CheckState.Checked;
+            this.Egv_TJDataList2.Location = new System.Drawing.Point(0, 243);
+            this.Egv_TJDataList2.MergeColumnHeaderBackColor = System.Drawing.SystemColors.Control;
+            this.Egv_TJDataList2.MergeColumnHeaderForeColor = System.Drawing.Color.Black;
             this.Egv_TJDataList2.MultiSelect = false;
             this.Egv_TJDataList2.Name = "Egv_TJDataList2";
             this.Egv_TJDataList2.RowHeadersVisible = false;
-            this.Egv_TJDataList2.RowNum = 0x11;
-            style12.BackColor = SystemColors.Window;
-            style12.SelectionBackColor = Color.FromArgb(0xde, 0xe8, 0xfc);
-            style12.SelectionForeColor = Color.Black;
-            this.Egv_TJDataList2.RowsDefaultCellStyle = style12;
-            this.Egv_TJDataList2.RowTemplate.Height = 0x17;
-            this.Egv_TJDataList2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.Egv_TJDataList2.Size = new Size(0x3e0, 0xd9);
-            this.Egv_TJDataList2.TabIndex = 0x49;
+            this.Egv_TJDataList2.RowNum = 17;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(232)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            this.Egv_TJDataList2.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.Egv_TJDataList2.RowTemplate.Height = 23;
+            this.Egv_TJDataList2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Egv_TJDataList2.Size = new System.Drawing.Size(992, 217);
+            this.Egv_TJDataList2.TabIndex = 73;
             this.Egv_TJDataList2.VirtualMode = true;
+            // 
+            // Pnl_TJDataTop2
+            // 
             this.Pnl_TJDataTop2.Controls.Add(this.Pnl_TJDataHint);
             this.Pnl_TJDataTop2.Controls.Add(this.Pnl_TJDataFind);
-            this.Pnl_TJDataTop2.Dock = DockStyle.Top;
-            this.Pnl_TJDataTop2.Location = new Point(0, 0xd0);
+            this.Pnl_TJDataTop2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_TJDataTop2.Location = new System.Drawing.Point(0, 208);
             this.Pnl_TJDataTop2.Name = "Pnl_TJDataTop2";
-            this.Pnl_TJDataTop2.Size = new Size(0x3e0, 0x23);
-            this.Pnl_TJDataTop2.TabIndex = 0x48;
-            this.Pnl_TJDataHint.BackColor = Color.Transparent;
-            this.Pnl_TJDataHint.BorderStyle = BorderStyle.FixedSingle;
-            this.Pnl_TJDataHint.Dock = DockStyle.Fill;
-            this.Pnl_TJDataHint.Font = new Font("微软雅黑", 14f, FontStyle.Bold);
-            this.Pnl_TJDataHint.Location = new Point(0, 0);
+            this.Pnl_TJDataTop2.Size = new System.Drawing.Size(992, 35);
+            this.Pnl_TJDataTop2.TabIndex = 72;
+            // 
+            // Pnl_TJDataHint
+            // 
+            this.Pnl_TJDataHint.BackColor = System.Drawing.Color.Transparent;
+            this.Pnl_TJDataHint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pnl_TJDataHint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_TJDataHint.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Bold);
+            this.Pnl_TJDataHint.Location = new System.Drawing.Point(0, 0);
             this.Pnl_TJDataHint.Name = "Pnl_TJDataHint";
-            this.Pnl_TJDataHint.Size = new Size(0x264, 0x23);
-            this.Pnl_TJDataHint.TabIndex = 0x47;
+            this.Pnl_TJDataHint.Size = new System.Drawing.Size(612, 35);
+            this.Pnl_TJDataHint.TabIndex = 71;
             this.Pnl_TJDataHint.Text = "投注明细";
-            this.Pnl_TJDataHint.TextAlign = ContentAlignment.MiddleCenter;
-            this.Pnl_TJDataFind.BackColor = Color.Transparent;
-            this.Pnl_TJDataFind.BorderStyle = BorderStyle.FixedSingle;
+            this.Pnl_TJDataHint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Pnl_TJDataFind
+            // 
+            this.Pnl_TJDataFind.BackColor = System.Drawing.Color.Transparent;
+            this.Pnl_TJDataFind.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_TJDataFind.Controls.Add(this.Ckb_AutoSizeTJ);
             this.Pnl_TJDataFind.Controls.Add(this.Ckb_TJFindXS);
             this.Pnl_TJDataFind.Controls.Add(this.Nm_TJFindXS);
             this.Pnl_TJDataFind.Controls.Add(this.Btn_TJTop);
             this.Pnl_TJDataFind.Controls.Add(this.Lbl_TJFindXS);
-            this.Pnl_TJDataFind.Dock = DockStyle.Right;
-            this.Pnl_TJDataFind.Location = new Point(0x264, 0);
+            this.Pnl_TJDataFind.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Pnl_TJDataFind.Location = new System.Drawing.Point(612, 0);
             this.Pnl_TJDataFind.Name = "Pnl_TJDataFind";
-            this.Pnl_TJDataFind.Size = new Size(380, 0x23);
-            this.Pnl_TJDataFind.TabIndex = 0x48;
-            this.Ckb_AutoSizeTJ.Appearance = Appearance.Button;
+            this.Pnl_TJDataFind.Size = new System.Drawing.Size(380, 35);
+            this.Pnl_TJDataFind.TabIndex = 72;
+            // 
+            // Ckb_AutoSizeTJ
+            // 
+            this.Ckb_AutoSizeTJ.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_AutoSizeTJ.AutoCheck = false;
             this.Ckb_AutoSizeTJ.FlatAppearance.BorderSize = 0;
-            this.Ckb_AutoSizeTJ.FlatStyle = FlatStyle.Flat;
-            this.Ckb_AutoSizeTJ.Image = Resources.Adjust;
-            this.Ckb_AutoSizeTJ.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_AutoSizeTJ.Location = new Point(3, 4);
+            this.Ckb_AutoSizeTJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_AutoSizeTJ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_AutoSizeTJ.Location = new System.Drawing.Point(3, 4);
             this.Ckb_AutoSizeTJ.Name = "Ckb_AutoSizeTJ";
-            this.Ckb_AutoSizeTJ.Size = new Size(80, 0x19);
-            this.Ckb_AutoSizeTJ.TabIndex = 0xd7;
+            this.Ckb_AutoSizeTJ.Size = new System.Drawing.Size(80, 25);
+            this.Ckb_AutoSizeTJ.TabIndex = 215;
             this.Ckb_AutoSizeTJ.Text = "表格调整";
-            this.Ckb_AutoSizeTJ.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_AutoSizeTJ.TextImageRelation = TextImageRelation.ImageBeforeText;
+            this.Ckb_AutoSizeTJ.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_AutoSizeTJ.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Tot_Hint.SetToolTip(this.Ckb_AutoSizeTJ, "调整统计的表格到合适的大小");
             this.Ckb_AutoSizeTJ.UseVisualStyleBackColor = true;
-            this.Ckb_AutoSizeTJ.Click += new EventHandler(this.Ckb_AutoSizeTJ_Click);
-            this.Ckb_TJFindXS.Appearance = Appearance.Button;
+            this.Ckb_AutoSizeTJ.Click += new System.EventHandler(this.Ckb_AutoSizeTJ_Click);
+            // 
+            // Ckb_TJFindXS
+            // 
+            this.Ckb_TJFindXS.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_TJFindXS.AutoCheck = false;
             this.Ckb_TJFindXS.FlatAppearance.BorderSize = 0;
-            this.Ckb_TJFindXS.FlatStyle = FlatStyle.Flat;
-            this.Ckb_TJFindXS.Image = Resources.Search;
-            this.Ckb_TJFindXS.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_TJFindXS.Location = new Point(0xf8, 4);
+            this.Ckb_TJFindXS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_TJFindXS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_TJFindXS.Location = new System.Drawing.Point(248, 4);
             this.Ckb_TJFindXS.Name = "Ckb_TJFindXS";
-            this.Ckb_TJFindXS.Size = new Size(60, 0x19);
-            this.Ckb_TJFindXS.TabIndex = 0xc5;
+            this.Ckb_TJFindXS.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_TJFindXS.TabIndex = 197;
             this.Ckb_TJFindXS.Text = "查找";
-            this.Ckb_TJFindXS.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_TJFindXS.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_TJFindXS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_TJFindXS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_Hint.SetToolTip(this.Ckb_TJFindXS, "查找指定的凶手位置");
             this.Ckb_TJFindXS.UseVisualStyleBackColor = true;
-            this.Ckb_TJFindXS.Click += new EventHandler(this.Ckb_TJFindXS_Click);
-            this.Nm_TJFindXS.Location = new Point(0xa2, 5);
-            bits = new int[4];
-            bits[0] = 0x2710;
-            this.Nm_TJFindXS.Maximum = new decimal(bits);
-            bits = new int[4];
-            bits[0] = 1;
-            this.Nm_TJFindXS.Minimum = new decimal(bits);
+            this.Ckb_TJFindXS.Click += new System.EventHandler(this.Ckb_TJFindXS_Click);
+            // 
+            // Nm_TJFindXS
+            // 
+            this.Nm_TJFindXS.Location = new System.Drawing.Point(162, 5);
+            this.Nm_TJFindXS.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.Nm_TJFindXS.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.Nm_TJFindXS.Name = "Nm_TJFindXS";
-            this.Nm_TJFindXS.Size = new Size(80, 0x17);
-            this.Nm_TJFindXS.TabIndex = 0x9f;
-            bits = new int[4];
-            bits[0] = 1;
-            this.Nm_TJFindXS.Value = new decimal(bits);
-            this.Nm_TJFindXS.ValueChanged += new EventHandler(this.Nm_TJFindXS_ValueChanged);
-            this.Btn_TJTop.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            this.Nm_TJFindXS.Size = new System.Drawing.Size(80, 23);
+            this.Nm_TJFindXS.TabIndex = 159;
+            this.Nm_TJFindXS.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.Nm_TJFindXS.ValueChanged += new System.EventHandler(this.Nm_TJFindXS_ValueChanged);
+            // 
+            // Btn_TJTop
+            // 
+            this.Btn_TJTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_TJTop.FlatAppearance.BorderSize = 0;
-            this.Btn_TJTop.FlatStyle = FlatStyle.Flat;
-            this.Btn_TJTop.Font = new Font("微软雅黑", 14f, FontStyle.Bold);
-            this.Btn_TJTop.Image = Resources.WindowUp;
-            this.Btn_TJTop.Location = new Point(0x15a, 1);
+            this.Btn_TJTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_TJTop.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Bold);
+            this.Btn_TJTop.Location = new System.Drawing.Point(346, 1);
             this.Btn_TJTop.Name = "Btn_TJTop";
-            this.Btn_TJTop.Size = new Size(30, 30);
-            this.Btn_TJTop.TabIndex = 0xb2;
+            this.Btn_TJTop.Size = new System.Drawing.Size(30, 30);
+            this.Btn_TJTop.TabIndex = 178;
             this.Tot_Hint.SetToolTip(this.Btn_TJTop, "隐藏");
             this.Btn_TJTop.UseVisualStyleBackColor = true;
-            this.Btn_TJTop.Click += new EventHandler(this.Btn_TJTop_Click);
+            this.Btn_TJTop.Click += new System.EventHandler(this.Btn_TJTop_Click);
+            // 
+            // Lbl_TJFindXS
+            // 
             this.Lbl_TJFindXS.AutoSize = true;
-            this.Lbl_TJFindXS.Location = new Point(0x59, 8);
+            this.Lbl_TJFindXS.Location = new System.Drawing.Point(89, 8);
             this.Lbl_TJFindXS.Name = "Lbl_TJFindXS";
-            this.Lbl_TJFindXS.Size = new Size(0x44, 0x11);
-            this.Lbl_TJFindXS.TabIndex = 0xaf;
+            this.Lbl_TJFindXS.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_TJFindXS.TabIndex = 175;
             this.Lbl_TJFindXS.Text = "查找凶手：";
+            // 
+            // Egv_TJDataList1
+            // 
             this.Egv_TJDataList1.AllowUserToAddRows = false;
             this.Egv_TJDataList1.AllowUserToDeleteRows = false;
             this.Egv_TJDataList1.AllowUserToResizeColumns = false;
             this.Egv_TJDataList1.AllowUserToResizeRows = false;
-            this.Egv_TJDataList1.BackgroundColor = SystemColors.Window;
-            this.Egv_TJDataList1.BorderStyle = BorderStyle.Fixed3D;
-            this.Egv_TJDataList1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            style13.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style13.BackColor = SystemColors.Window;
-            style13.Font = new Font("微软雅黑", 9f);
-            style13.ForeColor = SystemColors.ControlText;
-            style13.SelectionBackColor = SystemColors.Highlight;
-            style13.SelectionForeColor = SystemColors.HighlightText;
-            style13.WrapMode = DataGridViewTriState.False;
-            this.Egv_TJDataList1.ColumnHeadersDefaultCellStyle = style13;
+            this.Egv_TJDataList1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.Egv_TJDataList1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Egv_TJDataList1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_TJDataList1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.Egv_TJDataList1.ColumnHeadersHeight = 30;
-            this.Egv_TJDataList1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            style14.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style14.BackColor = SystemColors.Window;
-            style14.Font = new Font("微软雅黑", 9f);
-            style14.ForeColor = SystemColors.ControlText;
-            style14.SelectionBackColor = Color.SteelBlue;
-            style14.SelectionForeColor = Color.White;
-            style14.WrapMode = DataGridViewTriState.False;
-            this.Egv_TJDataList1.DefaultCellStyle = style14;
-            this.Egv_TJDataList1.Dock = DockStyle.Top;
-            this.Egv_TJDataList1.DragLineColor = Color.Silver;
+            this.Egv_TJDataList1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_TJDataList1.DefaultCellStyle = dataGridViewCellStyle14;
+            this.Egv_TJDataList1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Egv_TJDataList1.DragLineColor = System.Drawing.Color.Silver;
             this.Egv_TJDataList1.ExternalVirtualMode = true;
-            this.Egv_TJDataList1.GridColor = Color.Silver;
-            this.Egv_TJDataList1.HeadersCheckDefult = CheckState.Checked;
-            this.Egv_TJDataList1.Location = new Point(0, 0);
-            this.Egv_TJDataList1.MergeColumnHeaderBackColor = SystemColors.Control;
-            this.Egv_TJDataList1.MergeColumnHeaderForeColor = Color.Black;
+            this.Egv_TJDataList1.GridColor = System.Drawing.Color.Silver;
+            this.Egv_TJDataList1.HeadersCheckDefult = System.Windows.Forms.CheckState.Checked;
+            this.Egv_TJDataList1.Location = new System.Drawing.Point(0, 0);
+            this.Egv_TJDataList1.MergeColumnHeaderBackColor = System.Drawing.SystemColors.Control;
+            this.Egv_TJDataList1.MergeColumnHeaderForeColor = System.Drawing.Color.Black;
             this.Egv_TJDataList1.MultiSelect = false;
             this.Egv_TJDataList1.Name = "Egv_TJDataList1";
             this.Egv_TJDataList1.RowHeadersVisible = false;
-            this.Egv_TJDataList1.RowNum = 0x11;
-            style15.BackColor = SystemColors.Window;
-            style15.SelectionBackColor = Color.FromArgb(0xde, 0xe8, 0xfc);
-            style15.SelectionForeColor = Color.Black;
-            this.Egv_TJDataList1.RowsDefaultCellStyle = style15;
-            this.Egv_TJDataList1.RowTemplate.Height = 0x17;
-            this.Egv_TJDataList1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.Egv_TJDataList1.Size = new Size(0x3e0, 0xd0);
+            this.Egv_TJDataList1.RowNum = 17;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(232)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            this.Egv_TJDataList1.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            this.Egv_TJDataList1.RowTemplate.Height = 23;
+            this.Egv_TJDataList1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Egv_TJDataList1.Size = new System.Drawing.Size(992, 208);
             this.Egv_TJDataList1.TabIndex = 70;
             this.Egv_TJDataList1.VirtualMode = true;
-            this.Pnl_TJDataTop.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_TJDataTop
+            // 
+            this.Pnl_TJDataTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_TJDataTop.Controls.Add(this.Pnl_TJRight2);
             this.Pnl_TJDataTop.Controls.Add(this.Pnl_TJRight1);
             this.Pnl_TJDataTop.Controls.Add(this.Pnl_TJDataTop1);
-            this.Pnl_TJDataTop.Dock = DockStyle.Top;
-            this.Pnl_TJDataTop.Location = new Point(0, 0);
+            this.Pnl_TJDataTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_TJDataTop.Location = new System.Drawing.Point(0, 0);
             this.Pnl_TJDataTop.Name = "Pnl_TJDataTop";
-            this.Pnl_TJDataTop.Size = new Size(0x3e0, 70);
-            this.Pnl_TJDataTop.TabIndex = 0x47;
-            this.Pnl_TJRight2.BackColor = Color.Transparent;
-            this.Pnl_TJRight2.BorderStyle = BorderStyle.FixedSingle;
+            this.Pnl_TJDataTop.Size = new System.Drawing.Size(992, 70);
+            this.Pnl_TJDataTop.TabIndex = 71;
+            // 
+            // Pnl_TJRight2
+            // 
+            this.Pnl_TJRight2.BackColor = System.Drawing.Color.Transparent;
+            this.Pnl_TJRight2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_TJRight2.Controls.Add(this.Ckb_TJStop);
             this.Pnl_TJRight2.Controls.Add(this.Lbl_TJRefreshHint);
-            this.Pnl_TJRight2.Dock = DockStyle.Left;
-            this.Pnl_TJRight2.Location = new Point(0x313, 0);
+            this.Pnl_TJRight2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_TJRight2.Location = new System.Drawing.Point(787, 0);
             this.Pnl_TJRight2.Name = "Pnl_TJRight2";
-            this.Pnl_TJRight2.Size = new Size(0x51, 0x44);
-            this.Pnl_TJRight2.TabIndex = 0xbf;
+            this.Pnl_TJRight2.Size = new System.Drawing.Size(81, 68);
+            this.Pnl_TJRight2.TabIndex = 191;
             this.Pnl_TJRight2.Visible = false;
-            this.Ckb_TJStop.Appearance = Appearance.Button;
+            // 
+            // Ckb_TJStop
+            // 
+            this.Ckb_TJStop.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_TJStop.AutoCheck = false;
             this.Ckb_TJStop.FlatAppearance.BorderSize = 0;
-            this.Ckb_TJStop.FlatStyle = FlatStyle.Flat;
-            this.Ckb_TJStop.Image = Resources.Stop;
-            this.Ckb_TJStop.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_TJStop.Location = new Point(7, 0x23);
+            this.Ckb_TJStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_TJStop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_TJStop.Location = new System.Drawing.Point(7, 35);
             this.Ckb_TJStop.Name = "Ckb_TJStop";
-            this.Ckb_TJStop.Size = new Size(60, 0x19);
-            this.Ckb_TJStop.TabIndex = 0xc4;
+            this.Ckb_TJStop.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_TJStop.TabIndex = 196;
             this.Ckb_TJStop.Text = "停止";
-            this.Ckb_TJStop.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_TJStop.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_TJStop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_TJStop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Ckb_TJStop.UseVisualStyleBackColor = true;
-            this.Ckb_TJStop.Click += new EventHandler(this.Ckb_TJStop_Click);
+            this.Ckb_TJStop.Click += new System.EventHandler(this.Ckb_TJStop_Click);
+            // 
+            // Lbl_TJRefreshHint
+            // 
             this.Lbl_TJRefreshHint.AutoSize = true;
-            this.Lbl_TJRefreshHint.Location = new Point(5, 10);
+            this.Lbl_TJRefreshHint.Location = new System.Drawing.Point(5, 10);
             this.Lbl_TJRefreshHint.Name = "Lbl_TJRefreshHint";
-            this.Lbl_TJRefreshHint.Size = new Size(0x41, 0x11);
-            this.Lbl_TJRefreshHint.TabIndex = 0xa5;
+            this.Lbl_TJRefreshHint.Size = new System.Drawing.Size(65, 17);
+            this.Lbl_TJRefreshHint.TabIndex = 165;
             this.Lbl_TJRefreshHint.Text = "正在统计...";
-            this.Pnl_TJRight1.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_TJRight1
+            // 
+            this.Pnl_TJRight1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_TJRight1.Controls.Add(this.Btn_TJRefresh);
-            this.Pnl_TJRight1.Dock = DockStyle.Left;
-            this.Pnl_TJRight1.Location = new Point(670, 0);
+            this.Pnl_TJRight1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_TJRight1.Location = new System.Drawing.Point(670, 0);
             this.Pnl_TJRight1.Name = "Pnl_TJRight1";
-            this.Pnl_TJRight1.Size = new Size(0x75, 0x44);
+            this.Pnl_TJRight1.Size = new System.Drawing.Size(117, 68);
             this.Pnl_TJRight1.TabIndex = 190;
-            this.Btn_TJRefresh.Dock = DockStyle.Fill;
-            this.Btn_TJRefresh.Font = new Font("微软雅黑", 14f, FontStyle.Bold);
-            this.Btn_TJRefresh.Location = new Point(0, 0);
+            // 
+            // Btn_TJRefresh
+            // 
+            this.Btn_TJRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_TJRefresh.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Bold);
+            this.Btn_TJRefresh.Location = new System.Drawing.Point(0, 0);
             this.Btn_TJRefresh.Name = "Btn_TJRefresh";
-            this.Btn_TJRefresh.Size = new Size(0x73, 0x42);
-            this.Btn_TJRefresh.TabIndex = 0xaf;
+            this.Btn_TJRefresh.Size = new System.Drawing.Size(115, 66);
+            this.Btn_TJRefresh.TabIndex = 175;
             this.Btn_TJRefresh.Text = "开始统计";
             this.Btn_TJRefresh.UseVisualStyleBackColor = true;
-            this.Btn_TJRefresh.Click += new EventHandler(this.Btn_TJRefresh_Click);
-            this.Pnl_TJDataTop1.BackColor = Color.Transparent;
+            this.Btn_TJRefresh.Click += new System.EventHandler(this.Btn_TJRefresh_Click);
+            // 
+            // Pnl_TJDataTop1
+            // 
+            this.Pnl_TJDataTop1.BackColor = System.Drawing.Color.Transparent;
             this.Pnl_TJDataTop1.Controls.Add(this.Lbl_TJPlayKey);
             this.Pnl_TJDataTop1.Controls.Add(this.Lbl_TJLotteryValue);
             this.Pnl_TJDataTop1.Controls.Add(this.Lbl_TJPlayValue);
@@ -6673,250 +7193,339 @@
             this.Pnl_TJDataTop1.Controls.Add(this.Dtp_TJDataRange2);
             this.Pnl_TJDataTop1.Controls.Add(this.Lbl_TJFN);
             this.Pnl_TJDataTop1.Controls.Add(this.Cbb_TJFN);
-            this.Pnl_TJDataTop1.Dock = DockStyle.Left;
-            this.Pnl_TJDataTop1.Location = new Point(0, 0);
+            this.Pnl_TJDataTop1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_TJDataTop1.Location = new System.Drawing.Point(0, 0);
             this.Pnl_TJDataTop1.Name = "Pnl_TJDataTop1";
-            this.Pnl_TJDataTop1.Size = new Size(670, 0x44);
-            this.Pnl_TJDataTop1.TabIndex = 0xbd;
+            this.Pnl_TJDataTop1.Size = new System.Drawing.Size(670, 68);
+            this.Pnl_TJDataTop1.TabIndex = 189;
+            // 
+            // Lbl_TJPlayKey
+            // 
             this.Lbl_TJPlayKey.AutoSize = true;
-            this.Lbl_TJPlayKey.Location = new Point(0x1fd, 8);
+            this.Lbl_TJPlayKey.Location = new System.Drawing.Point(509, 8);
             this.Lbl_TJPlayKey.Name = "Lbl_TJPlayKey";
-            this.Lbl_TJPlayKey.Size = new Size(0x2c, 0x11);
-            this.Lbl_TJPlayKey.TabIndex = 0xc0;
+            this.Lbl_TJPlayKey.Size = new System.Drawing.Size(44, 17);
+            this.Lbl_TJPlayKey.TabIndex = 192;
             this.Lbl_TJPlayKey.Text = "玩法：";
+            // 
+            // Lbl_TJLotteryValue
+            // 
             this.Lbl_TJLotteryValue.AutoSize = true;
-            this.Lbl_TJLotteryValue.Font = new Font("微软雅黑", 9f, FontStyle.Bold);
-            this.Lbl_TJLotteryValue.Location = new Point(0x33, 8);
+            this.Lbl_TJLotteryValue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
+            this.Lbl_TJLotteryValue.Location = new System.Drawing.Point(51, 8);
             this.Lbl_TJLotteryValue.Name = "Lbl_TJLotteryValue";
-            this.Lbl_TJLotteryValue.Size = new Size(0x44, 0x11);
-            this.Lbl_TJLotteryValue.TabIndex = 0xbf;
+            this.Lbl_TJLotteryValue.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_TJLotteryValue.TabIndex = 191;
             this.Lbl_TJLotteryValue.Text = "重庆时时彩";
+            // 
+            // Lbl_TJPlayValue
+            // 
             this.Lbl_TJPlayValue.AutoSize = true;
-            this.Lbl_TJPlayValue.Font = new Font("微软雅黑", 9f, FontStyle.Bold);
-            this.Lbl_TJPlayValue.Location = new Point(0x22b, 8);
+            this.Lbl_TJPlayValue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
+            this.Lbl_TJPlayValue.Location = new System.Drawing.Point(555, 8);
             this.Lbl_TJPlayValue.Name = "Lbl_TJPlayValue";
-            this.Lbl_TJPlayValue.Size = new Size(0x38, 0x11);
+            this.Lbl_TJPlayValue.Size = new System.Drawing.Size(56, 17);
             this.Lbl_TJPlayValue.TabIndex = 190;
             this.Lbl_TJPlayValue.Text = "玩法名称";
             this.Lbl_TJPlayValue.Visible = false;
-            this.Cbb_TJPrize.DropDownStyle = ComboBoxStyle.DropDownList;
+            // 
+            // Cbb_TJPrize
+            // 
+            this.Cbb_TJPrize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbb_TJPrize.FormattingEnabled = true;
-            this.Cbb_TJPrize.Items.AddRange(new object[] { "读取盘口", "手动输入" });
-            this.Cbb_TJPrize.Location = new Point(0x153, 5);
+            this.Cbb_TJPrize.Items.AddRange(new object[] {
+            "读取盘口",
+            "手动输入"});
+            this.Cbb_TJPrize.Location = new System.Drawing.Point(339, 5);
             this.Cbb_TJPrize.Name = "Cbb_TJPrize";
-            this.Cbb_TJPrize.Size = new Size(80, 0x19);
-            this.Cbb_TJPrize.TabIndex = 0xbd;
-            this.Cbb_TJPrize.SelectedIndexChanged += new EventHandler(this.Cbb_TJPrize_SelectedIndexChanged);
+            this.Cbb_TJPrize.Size = new System.Drawing.Size(80, 25);
+            this.Cbb_TJPrize.TabIndex = 189;
+            this.Cbb_TJPrize.SelectedIndexChanged += new System.EventHandler(this.Cbb_TJPrize_SelectedIndexChanged);
+            // 
+            // Lbl_TJLotteryKey
+            // 
             this.Lbl_TJLotteryKey.AutoSize = true;
-            this.Lbl_TJLotteryKey.Location = new Point(5, 8);
+            this.Lbl_TJLotteryKey.Location = new System.Drawing.Point(5, 8);
             this.Lbl_TJLotteryKey.Name = "Lbl_TJLotteryKey";
-            this.Lbl_TJLotteryKey.Size = new Size(0x2c, 0x11);
-            this.Lbl_TJLotteryKey.TabIndex = 0xab;
+            this.Lbl_TJLotteryKey.Size = new System.Drawing.Size(44, 17);
+            this.Lbl_TJLotteryKey.TabIndex = 171;
             this.Lbl_TJLotteryKey.Text = "彩种：";
+            // 
+            // Dtp_TJTimeRange2
+            // 
             this.Dtp_TJTimeRange2.CustomFormat = "HH:mm";
-            this.Dtp_TJTimeRange2.Format = DateTimePickerFormat.Custom;
-            this.Dtp_TJTimeRange2.Location = new Point(0x1e3, 0x27);
+            this.Dtp_TJTimeRange2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Dtp_TJTimeRange2.Location = new System.Drawing.Point(483, 39);
             this.Dtp_TJTimeRange2.Name = "Dtp_TJTimeRange2";
             this.Dtp_TJTimeRange2.ShowUpDown = true;
-            this.Dtp_TJTimeRange2.Size = new Size(60, 0x17);
-            this.Dtp_TJTimeRange2.TabIndex = 0xbc;
-            this.Dtp_TJTimeRange2.Value = new DateTime(0x7df, 7, 20, 0x16, 0x20, 0, 0);
+            this.Dtp_TJTimeRange2.Size = new System.Drawing.Size(60, 23);
+            this.Dtp_TJTimeRange2.TabIndex = 188;
+            this.Dtp_TJTimeRange2.Value = new System.DateTime(2015, 7, 20, 22, 32, 0, 0);
+            // 
+            // Lbl_TJDataRange
+            // 
             this.Lbl_TJDataRange.AutoSize = true;
-            this.Lbl_TJDataRange.Location = new Point(5, 0x2a);
+            this.Lbl_TJDataRange.Location = new System.Drawing.Point(5, 42);
             this.Lbl_TJDataRange.Name = "Lbl_TJDataRange";
-            this.Lbl_TJDataRange.Size = new Size(0x2c, 0x11);
+            this.Lbl_TJDataRange.Size = new System.Drawing.Size(44, 17);
             this.Lbl_TJDataRange.TabIndex = 0;
             this.Lbl_TJDataRange.Text = "日期：";
+            // 
+            // Lbl_TJTime
+            // 
             this.Lbl_TJTime.AutoSize = true;
-            this.Lbl_TJTime.Location = new Point(0x1c9, 0x2a);
+            this.Lbl_TJTime.Location = new System.Drawing.Point(457, 42);
             this.Lbl_TJTime.Name = "Lbl_TJTime";
-            this.Lbl_TJTime.Size = new Size(20, 0x11);
-            this.Lbl_TJTime.TabIndex = 0xbb;
+            this.Lbl_TJTime.Size = new System.Drawing.Size(20, 17);
+            this.Lbl_TJTime.TabIndex = 187;
             this.Lbl_TJTime.Text = "至";
+            // 
+            // Dtp_TJDataRange1
+            // 
             this.Dtp_TJDataRange1.CustomFormat = "yyyy-MM-dd";
-            this.Dtp_TJDataRange1.Format = DateTimePickerFormat.Custom;
-            this.Dtp_TJDataRange1.Location = new Point(0x34, 0x27);
+            this.Dtp_TJDataRange1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Dtp_TJDataRange1.Location = new System.Drawing.Point(52, 39);
             this.Dtp_TJDataRange1.Name = "Dtp_TJDataRange1";
-            this.Dtp_TJDataRange1.Size = new Size(110, 0x17);
-            this.Dtp_TJDataRange1.TabIndex = 0x48;
+            this.Dtp_TJDataRange1.Size = new System.Drawing.Size(110, 23);
+            this.Dtp_TJDataRange1.TabIndex = 72;
+            // 
+            // Dtp_TJTimeRange1
+            // 
             this.Dtp_TJTimeRange1.CustomFormat = "HH:mm";
-            this.Dtp_TJTimeRange1.Format = DateTimePickerFormat.Custom;
-            this.Dtp_TJTimeRange1.Location = new Point(0x188, 0x27);
+            this.Dtp_TJTimeRange1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Dtp_TJTimeRange1.Location = new System.Drawing.Point(392, 39);
             this.Dtp_TJTimeRange1.Name = "Dtp_TJTimeRange1";
             this.Dtp_TJTimeRange1.ShowUpDown = true;
-            this.Dtp_TJTimeRange1.Size = new Size(60, 0x17);
-            this.Dtp_TJTimeRange1.TabIndex = 0xba;
-            this.Dtp_TJTimeRange1.Value = new DateTime(0x7df, 7, 20, 9, 1, 0, 0);
+            this.Dtp_TJTimeRange1.Size = new System.Drawing.Size(60, 23);
+            this.Dtp_TJTimeRange1.TabIndex = 186;
+            this.Dtp_TJTimeRange1.Value = new System.DateTime(2015, 7, 20, 9, 1, 0, 0);
+            // 
+            // Lbl_TJData
+            // 
             this.Lbl_TJData.AutoSize = true;
-            this.Lbl_TJData.Location = new Point(0xa8, 0x2a);
+            this.Lbl_TJData.Location = new System.Drawing.Point(168, 42);
             this.Lbl_TJData.Name = "Lbl_TJData";
-            this.Lbl_TJData.Size = new Size(20, 0x11);
-            this.Lbl_TJData.TabIndex = 0xa9;
+            this.Lbl_TJData.Size = new System.Drawing.Size(20, 17);
+            this.Lbl_TJData.TabIndex = 169;
             this.Lbl_TJData.Text = "至";
+            // 
+            // Ckb_TJTimeRange
+            // 
             this.Ckb_TJTimeRange.AutoSize = true;
-            this.Ckb_TJTimeRange.Location = new Point(0x13c, 0x29);
+            this.Ckb_TJTimeRange.Location = new System.Drawing.Point(316, 41);
             this.Ckb_TJTimeRange.Name = "Ckb_TJTimeRange";
-            this.Ckb_TJTimeRange.Size = new Size(0x4b, 0x15);
-            this.Ckb_TJTimeRange.TabIndex = 0xb9;
+            this.Ckb_TJTimeRange.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_TJTimeRange.TabIndex = 185;
             this.Ckb_TJTimeRange.Text = "选择时间";
             this.Ckb_TJTimeRange.UseVisualStyleBackColor = true;
-            this.Txt_TJPrize.Location = new Point(0x1a8, 6);
+            // 
+            // Txt_TJPrize
+            // 
+            this.Txt_TJPrize.Location = new System.Drawing.Point(424, 6);
             this.Txt_TJPrize.Name = "Txt_TJPrize";
             this.Txt_TJPrize.ReadOnly = true;
-            this.Txt_TJPrize.Size = new Size(80, 0x17);
-            this.Txt_TJPrize.TabIndex = 0xae;
+            this.Txt_TJPrize.Size = new System.Drawing.Size(80, 23);
+            this.Txt_TJPrize.TabIndex = 174;
+            // 
+            // Ckb_TJReset
+            // 
             this.Ckb_TJReset.AutoSize = true;
             this.Ckb_TJReset.Checked = true;
-            this.Ckb_TJReset.CheckState = CheckState.Checked;
-            this.Ckb_TJReset.Location = new Point(0x229, 0x29);
+            this.Ckb_TJReset.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Ckb_TJReset.Location = new System.Drawing.Point(553, 41);
             this.Ckb_TJReset.Name = "Ckb_TJReset";
-            this.Ckb_TJReset.Size = new Size(0x63, 0x15);
-            this.Ckb_TJReset.TabIndex = 0xb8;
+            this.Ckb_TJReset.Size = new System.Drawing.Size(99, 21);
+            this.Ckb_TJReset.TabIndex = 184;
             this.Ckb_TJReset.Text = "每天重置数据";
             this.Ckb_TJReset.UseVisualStyleBackColor = true;
+            // 
+            // Lbl_TJPrize
+            // 
             this.Lbl_TJPrize.AutoSize = true;
-            this.Lbl_TJPrize.Location = new Point(0x123, 8);
+            this.Lbl_TJPrize.Location = new System.Drawing.Point(291, 8);
             this.Lbl_TJPrize.Name = "Lbl_TJPrize";
-            this.Lbl_TJPrize.Size = new Size(0x2c, 0x11);
-            this.Lbl_TJPrize.TabIndex = 0xad;
+            this.Lbl_TJPrize.Size = new System.Drawing.Size(44, 17);
+            this.Lbl_TJPrize.TabIndex = 173;
             this.Lbl_TJPrize.Text = "奖金：";
+            // 
+            // Dtp_TJDataRange2
+            // 
             this.Dtp_TJDataRange2.CustomFormat = "yyyy-MM-dd";
-            this.Dtp_TJDataRange2.Format = DateTimePickerFormat.Custom;
-            this.Dtp_TJDataRange2.Location = new Point(0xc3, 0x27);
+            this.Dtp_TJDataRange2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Dtp_TJDataRange2.Location = new System.Drawing.Point(195, 39);
             this.Dtp_TJDataRange2.Name = "Dtp_TJDataRange2";
-            this.Dtp_TJDataRange2.Size = new Size(110, 0x17);
-            this.Dtp_TJDataRange2.TabIndex = 0xb2;
+            this.Dtp_TJDataRange2.Size = new System.Drawing.Size(110, 23);
+            this.Dtp_TJDataRange2.TabIndex = 178;
+            // 
+            // Lbl_TJFN
+            // 
             this.Lbl_TJFN.AutoSize = true;
-            this.Lbl_TJFN.Location = new Point(0x81, 8);
+            this.Lbl_TJFN.Location = new System.Drawing.Point(129, 8);
             this.Lbl_TJFN.Name = "Lbl_TJFN";
-            this.Lbl_TJFN.Size = new Size(0x2c, 0x11);
-            this.Lbl_TJFN.TabIndex = 0xb0;
+            this.Lbl_TJFN.Size = new System.Drawing.Size(44, 17);
+            this.Lbl_TJFN.TabIndex = 176;
             this.Lbl_TJFN.Text = "方案：";
-            this.Cbb_TJFN.DropDownStyle = ComboBoxStyle.DropDownList;
+            // 
+            // Cbb_TJFN
+            // 
+            this.Cbb_TJFN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbb_TJFN.FormattingEnabled = true;
-            this.Cbb_TJFN.Location = new Point(0xb0, 5);
+            this.Cbb_TJFN.Location = new System.Drawing.Point(176, 5);
             this.Cbb_TJFN.Name = "Cbb_TJFN";
-            this.Cbb_TJFN.Size = new Size(110, 0x19);
-            this.Cbb_TJFN.TabIndex = 0xb1;
-            this.Cbb_TJFN.SelectedIndexChanged += new EventHandler(this.Cbb_TJFN_SelectedIndexChanged);
-            this.Tap_ZBJ.BackColor = SystemColors.Control;
+            this.Cbb_TJFN.Size = new System.Drawing.Size(110, 25);
+            this.Cbb_TJFN.TabIndex = 177;
+            this.Cbb_TJFN.SelectedIndexChanged += new System.EventHandler(this.Cbb_TJFN_SelectedIndexChanged);
+            // 
+            // Tap_ZBJ
+            // 
+            this.Tap_ZBJ.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_ZBJ.Controls.Add(this.Zbj_Main);
-            this.Tap_ZBJ.Location = new Point(4, 0x22);
+            this.Tap_ZBJ.Location = new System.Drawing.Point(4, 34);
             this.Tap_ZBJ.Name = "Tap_ZBJ";
-            this.Tap_ZBJ.Padding = new Padding(3);
-            this.Tap_ZBJ.Size = new Size(0x3e6, 0x218);
+            this.Tap_ZBJ.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_ZBJ.Size = new System.Drawing.Size(998, 536);
             this.Tap_ZBJ.TabIndex = 15;
             this.Tap_ZBJ.Text = "直播间";
-            this.Zbj_Main.Dock = DockStyle.Fill;
-            this.Zbj_Main.Font = new Font("微软雅黑", 9f);
-            this.Zbj_Main.Location = new Point(3, 3);
-            this.Zbj_Main.Margin = new Padding(3, 4, 3, 4);
+            // 
+            // Zbj_Main
+            // 
+            this.Zbj_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Zbj_Main.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Zbj_Main.Location = new System.Drawing.Point(3, 3);
+            this.Zbj_Main.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Zbj_Main.Name = "Zbj_Main";
-            this.Zbj_Main.Size = new Size(0x3e0, 530);
+            this.Zbj_Main.Size = new System.Drawing.Size(992, 530);
             this.Zbj_Main.TabIndex = 0;
-            this.Tap_TrendView.BackColor = SystemColors.Control;
+            // 
+            // Tap_TrendView
+            // 
+            this.Tap_TrendView.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_TrendView.Controls.Add(this.TV_Main);
-            this.Tap_TrendView.Location = new Point(4, 0x22);
+            this.Tap_TrendView.Location = new System.Drawing.Point(4, 34);
             this.Tap_TrendView.Name = "Tap_TrendView";
-            this.Tap_TrendView.Padding = new Padding(3);
-            this.Tap_TrendView.Size = new Size(0x3e6, 0x218);
-            this.Tap_TrendView.TabIndex = 0x12;
+            this.Tap_TrendView.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_TrendView.Size = new System.Drawing.Size(998, 536);
+            this.Tap_TrendView.TabIndex = 18;
             this.Tap_TrendView.Text = "走势分析";
-            this.TV_Main.Dock = DockStyle.Fill;
-            this.TV_Main.Font = new Font("微软雅黑", 9f);
-            this.TV_Main.Location = new Point(3, 3);
-            this.TV_Main.Margin = new Padding(3, 4, 3, 4);
+            // 
+            // TV_Main
+            // 
+            this.TV_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TV_Main.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.TV_Main.Location = new System.Drawing.Point(3, 3);
+            this.TV_Main.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TV_Main.Name = "TV_Main";
-            this.TV_Main.Size = new Size(0x3e0, 530);
+            this.TV_Main.Size = new System.Drawing.Size(992, 530);
             this.TV_Main.TabIndex = 0;
-            this.Tap_BTCount.BackColor = SystemColors.Control;
+            // 
+            // Tap_BTCount
+            // 
+            this.Tap_BTCount.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_BTCount.Controls.Add(this.BT_Main);
-            this.Tap_BTCount.Location = new Point(4, 0x22);
+            this.Tap_BTCount.Location = new System.Drawing.Point(4, 34);
             this.Tap_BTCount.Name = "Tap_BTCount";
-            this.Tap_BTCount.Padding = new Padding(3);
-            this.Tap_BTCount.Size = new Size(0x3e6, 0x218);
+            this.Tap_BTCount.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_BTCount.Size = new System.Drawing.Size(998, 536);
             this.Tap_BTCount.TabIndex = 4;
             this.Tap_BTCount.Text = "倍投计算";
-            this.BT_Main.Dock = DockStyle.Fill;
-            this.BT_Main.Font = new Font("微软雅黑", 9f);
-            this.BT_Main.Location = new Point(3, 3);
-            this.BT_Main.Margin = new Padding(3, 4, 3, 4);
+            // 
+            // BT_Main
+            // 
+            this.BT_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_Main.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.BT_Main.Location = new System.Drawing.Point(3, 3);
+            this.BT_Main.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BT_Main.Name = "BT_Main";
-            this.BT_Main.Size = new Size(0x3e0, 530);
+            this.BT_Main.Size = new System.Drawing.Size(992, 530);
             this.BT_Main.TabIndex = 0;
-            this.Tap_BTFN.BackColor = SystemColors.Control;
+            // 
+            // Tap_BTFN
+            // 
+            this.Tap_BTFN.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_BTFN.Controls.Add(this.Pnl_BTFN);
-            this.Tap_BTFN.Location = new Point(4, 0x22);
+            this.Tap_BTFN.Location = new System.Drawing.Point(4, 34);
             this.Tap_BTFN.Name = "Tap_BTFN";
-            this.Tap_BTFN.Padding = new Padding(3);
-            this.Tap_BTFN.Size = new Size(0x3e6, 0x218);
+            this.Tap_BTFN.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_BTFN.Size = new System.Drawing.Size(998, 536);
             this.Tap_BTFN.TabIndex = 6;
             this.Tap_BTFN.Text = "高级倍投";
-            this.Pnl_BTFN.BackgroundImageLayout = ImageLayout.Stretch;
+            // 
+            // Pnl_BTFN
+            // 
+            this.Pnl_BTFN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pnl_BTFN.Controls.Add(this.Pnl_BTFNMain);
             this.Pnl_BTFN.Controls.Add(this.Pnl_BTFNList);
             this.Pnl_BTFN.Controls.Add(this.Lbl_GJFNEncrypt);
-            this.Pnl_BTFN.Dock = DockStyle.Fill;
-            this.Pnl_BTFN.Location = new Point(3, 3);
+            this.Pnl_BTFN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_BTFN.Location = new System.Drawing.Point(3, 3);
             this.Pnl_BTFN.Name = "Pnl_BTFN";
-            this.Pnl_BTFN.Size = new Size(0x3e0, 530);
+            this.Pnl_BTFN.Size = new System.Drawing.Size(992, 530);
             this.Pnl_BTFN.TabIndex = 15;
-            this.Pnl_BTFNMain.BackColor = Color.Transparent;
+            // 
+            // Pnl_BTFNMain
+            // 
+            this.Pnl_BTFNMain.BackColor = System.Drawing.Color.Transparent;
             this.Pnl_BTFNMain.Controls.Add(this.Egv_BTFNTimesList);
             this.Pnl_BTFNMain.Controls.Add(this.Pnl_TimesBottom);
-            this.Pnl_BTFNMain.Dock = DockStyle.Fill;
-            this.Pnl_BTFNMain.Location = new Point(0xbc, 0);
+            this.Pnl_BTFNMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_BTFNMain.Location = new System.Drawing.Point(188, 0);
             this.Pnl_BTFNMain.Name = "Pnl_BTFNMain";
-            this.Pnl_BTFNMain.Size = new Size(0x324, 530);
+            this.Pnl_BTFNMain.Size = new System.Drawing.Size(804, 530);
             this.Pnl_BTFNMain.TabIndex = 13;
+            // 
+            // Egv_BTFNTimesList
+            // 
             this.Egv_BTFNTimesList.AllowUserToAddRows = false;
             this.Egv_BTFNTimesList.AllowUserToDeleteRows = false;
             this.Egv_BTFNTimesList.AllowUserToResizeColumns = false;
             this.Egv_BTFNTimesList.AllowUserToResizeRows = false;
-            this.Egv_BTFNTimesList.BackgroundColor = SystemColors.Control;
-            this.Egv_BTFNTimesList.BorderStyle = BorderStyle.Fixed3D;
-            this.Egv_BTFNTimesList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            style16.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style16.BackColor = SystemColors.Window;
-            style16.Font = new Font("微软雅黑", 9f);
-            style16.ForeColor = SystemColors.ControlText;
-            style16.SelectionBackColor = SystemColors.Highlight;
-            style16.SelectionForeColor = SystemColors.HighlightText;
-            style16.WrapMode = DataGridViewTriState.False;
-            this.Egv_BTFNTimesList.ColumnHeadersDefaultCellStyle = style16;
+            this.Egv_BTFNTimesList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.Egv_BTFNTimesList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Egv_BTFNTimesList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_BTFNTimesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.Egv_BTFNTimesList.ColumnHeadersHeight = 30;
-            this.Egv_BTFNTimesList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            style17.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style17.BackColor = SystemColors.Window;
-            style17.Font = new Font("微软雅黑", 9f);
-            style17.ForeColor = SystemColors.ControlText;
-            style17.SelectionBackColor = Color.SteelBlue;
-            style17.SelectionForeColor = Color.White;
-            style17.WrapMode = DataGridViewTriState.False;
-            this.Egv_BTFNTimesList.DefaultCellStyle = style17;
-            this.Egv_BTFNTimesList.Dock = DockStyle.Fill;
-            this.Egv_BTFNTimesList.DragLineColor = Color.Silver;
+            this.Egv_BTFNTimesList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_BTFNTimesList.DefaultCellStyle = dataGridViewCellStyle17;
+            this.Egv_BTFNTimesList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Egv_BTFNTimesList.DragLineColor = System.Drawing.Color.Silver;
             this.Egv_BTFNTimesList.ExternalVirtualMode = true;
-            this.Egv_BTFNTimesList.GridColor = Color.Silver;
-            this.Egv_BTFNTimesList.HeadersCheckDefult = CheckState.Checked;
-            this.Egv_BTFNTimesList.Location = new Point(0, 0);
-            this.Egv_BTFNTimesList.MergeColumnHeaderBackColor = SystemColors.Control;
-            this.Egv_BTFNTimesList.MergeColumnHeaderForeColor = Color.Black;
+            this.Egv_BTFNTimesList.GridColor = System.Drawing.Color.Silver;
+            this.Egv_BTFNTimesList.HeadersCheckDefult = System.Windows.Forms.CheckState.Checked;
+            this.Egv_BTFNTimesList.Location = new System.Drawing.Point(0, 0);
+            this.Egv_BTFNTimesList.MergeColumnHeaderBackColor = System.Drawing.SystemColors.Control;
+            this.Egv_BTFNTimesList.MergeColumnHeaderForeColor = System.Drawing.Color.Black;
             this.Egv_BTFNTimesList.MultiSelect = false;
             this.Egv_BTFNTimesList.Name = "Egv_BTFNTimesList";
             this.Egv_BTFNTimesList.RowHeadersVisible = false;
-            this.Egv_BTFNTimesList.RowNum = 0x11;
-            style18.BackColor = SystemColors.Window;
-            style18.SelectionBackColor = Color.FromArgb(0xde, 0xe8, 0xfc);
-            style18.SelectionForeColor = Color.Black;
-            this.Egv_BTFNTimesList.RowsDefaultCellStyle = style18;
-            this.Egv_BTFNTimesList.RowTemplate.Height = 0x17;
-            this.Egv_BTFNTimesList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.Egv_BTFNTimesList.Size = new Size(0x324, 0x1ef);
-            this.Egv_BTFNTimesList.TabIndex = 0x44;
+            this.Egv_BTFNTimesList.RowNum = 17;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(232)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            this.Egv_BTFNTimesList.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            this.Egv_BTFNTimesList.RowTemplate.Height = 23;
+            this.Egv_BTFNTimesList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Egv_BTFNTimesList.Size = new System.Drawing.Size(804, 495);
+            this.Egv_BTFNTimesList.TabIndex = 68;
             this.Egv_BTFNTimesList.VirtualMode = true;
-            this.Egv_BTFNTimesList.CellMouseDoubleClick += new DataGridViewCellMouseEventHandler(this.Egv_BTFNTimesList_CellMouseDoubleClick);
-            this.Pnl_TimesBottom.BorderStyle = BorderStyle.FixedSingle;
+            this.Egv_BTFNTimesList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Egv_BTFNTimesList_CellMouseDoubleClick);
+            // 
+            // Pnl_TimesBottom
+            // 
+            this.Pnl_TimesBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_TimesBottom.Controls.Add(this.Ckb_TBCount);
             this.Pnl_TimesBottom.Controls.Add(this.Ckb_ClearTimes);
             this.Pnl_TimesBottom.Controls.Add(this.Ckb_EditTimes);
@@ -6928,642 +7537,778 @@
             this.Pnl_TimesBottom.Controls.Add(this.Nm_BTFNEdit);
             this.Pnl_TimesBottom.Controls.Add(this.Cbb_BTFNEdit);
             this.Pnl_TimesBottom.Controls.Add(this.Lbl_BTFNEdit);
-            this.Pnl_TimesBottom.Dock = DockStyle.Bottom;
-            this.Pnl_TimesBottom.Location = new Point(0, 0x1ef);
+            this.Pnl_TimesBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Pnl_TimesBottom.Location = new System.Drawing.Point(0, 495);
             this.Pnl_TimesBottom.Name = "Pnl_TimesBottom";
-            this.Pnl_TimesBottom.Size = new Size(0x324, 0x23);
-            this.Pnl_TimesBottom.TabIndex = 0x4b;
-            this.Ckb_TBCount.Appearance = Appearance.Button;
+            this.Pnl_TimesBottom.Size = new System.Drawing.Size(804, 35);
+            this.Pnl_TimesBottom.TabIndex = 75;
+            // 
+            // Ckb_TBCount
+            // 
+            this.Ckb_TBCount.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_TBCount.AutoCheck = false;
             this.Ckb_TBCount.FlatAppearance.BorderSize = 0;
-            this.Ckb_TBCount.FlatStyle = FlatStyle.Flat;
-            this.Ckb_TBCount.Image = Resources.MathCount;
-            this.Ckb_TBCount.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_TBCount.Location = new Point(0x1c7, 4);
+            this.Ckb_TBCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_TBCount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_TBCount.Location = new System.Drawing.Point(455, 4);
             this.Ckb_TBCount.Name = "Ckb_TBCount";
-            this.Ckb_TBCount.Size = new Size(80, 0x19);
-            this.Ckb_TBCount.TabIndex = 0x135;
+            this.Ckb_TBCount.Size = new System.Drawing.Size(80, 25);
+            this.Ckb_TBCount.TabIndex = 309;
             this.Ckb_TBCount.Text = "计算推波";
-            this.Ckb_TBCount.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_TBCount.TextImageRelation = TextImageRelation.ImageBeforeText;
+            this.Ckb_TBCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_TBCount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Ckb_TBCount.UseVisualStyleBackColor = true;
-            this.Ckb_TBCount.Click += new EventHandler(this.Ckb_TBCount_Click);
-            this.Ckb_ClearTimes.Appearance = Appearance.Button;
+            this.Ckb_TBCount.Click += new System.EventHandler(this.Ckb_TBCount_Click);
+            // 
+            // Ckb_ClearTimes
+            // 
+            this.Ckb_ClearTimes.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_ClearTimes.AutoCheck = false;
             this.Ckb_ClearTimes.FlatAppearance.BorderSize = 0;
-            this.Ckb_ClearTimes.FlatStyle = FlatStyle.Flat;
-            this.Ckb_ClearTimes.Image = Resources.ClearAll;
-            this.Ckb_ClearTimes.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_ClearTimes.Location = new Point(0x2e0, 4);
+            this.Ckb_ClearTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_ClearTimes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_ClearTimes.Location = new System.Drawing.Point(736, 4);
             this.Ckb_ClearTimes.Name = "Ckb_ClearTimes";
-            this.Ckb_ClearTimes.Size = new Size(60, 0x19);
-            this.Ckb_ClearTimes.TabIndex = 0x134;
+            this.Ckb_ClearTimes.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_ClearTimes.TabIndex = 308;
             this.Ckb_ClearTimes.Text = "清空";
-            this.Ckb_ClearTimes.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_ClearTimes.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_ClearTimes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_ClearTimes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_Hint.SetToolTip(this.Ckb_ClearTimes, "清空当前方案的全部局数");
             this.Ckb_ClearTimes.UseVisualStyleBackColor = true;
-            this.Ckb_ClearTimes.Click += new EventHandler(this.Ckb_ClearTimes_Click);
-            this.Ckb_EditTimes.Appearance = Appearance.Button;
+            this.Ckb_ClearTimes.Click += new System.EventHandler(this.Ckb_ClearTimes_Click);
+            // 
+            // Ckb_EditTimes
+            // 
+            this.Ckb_EditTimes.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_EditTimes.AutoCheck = false;
             this.Ckb_EditTimes.FlatAppearance.BorderSize = 0;
-            this.Ckb_EditTimes.FlatStyle = FlatStyle.Flat;
-            this.Ckb_EditTimes.Image = Resources.EditHot;
-            this.Ckb_EditTimes.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_EditTimes.Location = new Point(0x25c, 4);
+            this.Ckb_EditTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_EditTimes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_EditTimes.Location = new System.Drawing.Point(604, 4);
             this.Ckb_EditTimes.Name = "Ckb_EditTimes";
-            this.Ckb_EditTimes.Size = new Size(60, 0x19);
-            this.Ckb_EditTimes.TabIndex = 0x134;
+            this.Ckb_EditTimes.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_EditTimes.TabIndex = 308;
             this.Ckb_EditTimes.Text = "编辑";
-            this.Ckb_EditTimes.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_EditTimes.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_EditTimes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_EditTimes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_Hint.SetToolTip(this.Ckb_EditTimes, "编辑当前选中的一个局数");
             this.Ckb_EditTimes.UseVisualStyleBackColor = true;
-            this.Ckb_EditTimes.Click += new EventHandler(this.Ckb_EditTimes_Click);
-            this.Ckb_DeleteTimes.Appearance = Appearance.Button;
+            this.Ckb_EditTimes.Click += new System.EventHandler(this.Ckb_EditTimes_Click);
+            // 
+            // Ckb_DeleteTimes
+            // 
+            this.Ckb_DeleteTimes.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_DeleteTimes.AutoCheck = false;
             this.Ckb_DeleteTimes.FlatAppearance.BorderSize = 0;
-            this.Ckb_DeleteTimes.FlatStyle = FlatStyle.Flat;
-            this.Ckb_DeleteTimes.Image = Resources.Remove;
-            this.Ckb_DeleteTimes.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_DeleteTimes.Location = new Point(670, 4);
+            this.Ckb_DeleteTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_DeleteTimes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_DeleteTimes.Location = new System.Drawing.Point(670, 4);
             this.Ckb_DeleteTimes.Name = "Ckb_DeleteTimes";
-            this.Ckb_DeleteTimes.Size = new Size(60, 0x19);
-            this.Ckb_DeleteTimes.TabIndex = 0x133;
+            this.Ckb_DeleteTimes.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_DeleteTimes.TabIndex = 307;
             this.Ckb_DeleteTimes.Text = "删除";
-            this.Ckb_DeleteTimes.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_DeleteTimes.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_DeleteTimes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_DeleteTimes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_Hint.SetToolTip(this.Ckb_DeleteTimes, "删除当前选中的一个局数");
             this.Ckb_DeleteTimes.UseVisualStyleBackColor = true;
-            this.Ckb_DeleteTimes.Click += new EventHandler(this.Ckb_DeleteTimes_Click);
-            this.Ckb_AddTimes.Appearance = Appearance.Button;
+            this.Ckb_DeleteTimes.Click += new System.EventHandler(this.Ckb_DeleteTimes_Click);
+            // 
+            // Ckb_AddTimes
+            // 
+            this.Ckb_AddTimes.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_AddTimes.AutoCheck = false;
             this.Ckb_AddTimes.FlatAppearance.BorderSize = 0;
-            this.Ckb_AddTimes.FlatStyle = FlatStyle.Flat;
-            this.Ckb_AddTimes.Image = Resources.Add;
-            this.Ckb_AddTimes.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_AddTimes.Location = new Point(0x21d, 4);
+            this.Ckb_AddTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_AddTimes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_AddTimes.Location = new System.Drawing.Point(541, 4);
             this.Ckb_AddTimes.Name = "Ckb_AddTimes";
-            this.Ckb_AddTimes.Size = new Size(60, 0x19);
-            this.Ckb_AddTimes.TabIndex = 0x132;
+            this.Ckb_AddTimes.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_AddTimes.TabIndex = 306;
             this.Ckb_AddTimes.Text = "添加";
-            this.Ckb_AddTimes.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_AddTimes.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_AddTimes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_AddTimes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_Hint.SetToolTip(this.Ckb_AddTimes, "添加一个局数");
             this.Ckb_AddTimes.UseVisualStyleBackColor = true;
-            this.Ckb_AddTimes.Click += new EventHandler(this.Ckb_AddTimes_Click);
-            this.Ckb_SaveTimes.Appearance = Appearance.Button;
+            this.Ckb_AddTimes.Click += new System.EventHandler(this.Ckb_AddTimes_Click);
+            // 
+            // Ckb_SaveTimes
+            // 
+            this.Ckb_SaveTimes.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_SaveTimes.AutoCheck = false;
             this.Ckb_SaveTimes.FlatAppearance.BorderSize = 0;
-            this.Ckb_SaveTimes.FlatStyle = FlatStyle.Flat;
-            this.Ckb_SaveTimes.Image = Resources.Save;
-            this.Ckb_SaveTimes.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_SaveTimes.Location = new Point(0x155, 4);
+            this.Ckb_SaveTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_SaveTimes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_SaveTimes.Location = new System.Drawing.Point(341, 4);
             this.Ckb_SaveTimes.Name = "Ckb_SaveTimes";
-            this.Ckb_SaveTimes.Size = new Size(60, 0x19);
-            this.Ckb_SaveTimes.TabIndex = 0x131;
+            this.Ckb_SaveTimes.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_SaveTimes.TabIndex = 305;
             this.Ckb_SaveTimes.Text = "保存";
-            this.Ckb_SaveTimes.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_SaveTimes.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_SaveTimes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_SaveTimes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_Hint.SetToolTip(this.Ckb_SaveTimes, "保存当前高级倍投方案");
             this.Ckb_SaveTimes.UseVisualStyleBackColor = true;
-            this.Ckb_SaveTimes.Click += new EventHandler(this.Ckb_SaveTimes_Click);
-            this.Ckb_BTFNEdit.Appearance = Appearance.Button;
+            this.Ckb_SaveTimes.Click += new System.EventHandler(this.Ckb_SaveTimes_Click);
+            // 
+            // Ckb_BTFNEdit
+            // 
+            this.Ckb_BTFNEdit.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_BTFNEdit.AutoCheck = false;
             this.Ckb_BTFNEdit.FlatAppearance.BorderSize = 0;
-            this.Ckb_BTFNEdit.FlatStyle = FlatStyle.Flat;
-            this.Ckb_BTFNEdit.Image = Resources.Batch;
-            this.Ckb_BTFNEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_BTFNEdit.Location = new Point(0xbd, 4);
+            this.Ckb_BTFNEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_BTFNEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_BTFNEdit.Location = new System.Drawing.Point(189, 4);
             this.Ckb_BTFNEdit.Name = "Ckb_BTFNEdit";
-            this.Ckb_BTFNEdit.Size = new Size(60, 0x19);
-            this.Ckb_BTFNEdit.TabIndex = 0x130;
+            this.Ckb_BTFNEdit.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_BTFNEdit.TabIndex = 304;
             this.Ckb_BTFNEdit.Text = "修改";
-            this.Ckb_BTFNEdit.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_BTFNEdit.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_BTFNEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_BTFNEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_Hint.SetToolTip(this.Ckb_BTFNEdit, "批量修改全部局数的倍数");
             this.Ckb_BTFNEdit.UseVisualStyleBackColor = true;
-            this.Ckb_BTFNEdit.Click += new EventHandler(this.Ckb_BTFNEdit_Click);
+            this.Ckb_BTFNEdit.Click += new System.EventHandler(this.Ckb_BTFNEdit_Click);
+            // 
+            // Ckb_BTFNEditSkip
+            // 
             this.Ckb_BTFNEditSkip.AutoSize = true;
-            this.Ckb_BTFNEditSkip.Location = new Point(0xff, 7);
+            this.Ckb_BTFNEditSkip.Location = new System.Drawing.Point(255, 7);
             this.Ckb_BTFNEditSkip.Name = "Ckb_BTFNEditSkip";
-            this.Ckb_BTFNEditSkip.Size = new Size(0x52, 0x15);
-            this.Ckb_BTFNEditSkip.TabIndex = 0xc7;
+            this.Ckb_BTFNEditSkip.Size = new System.Drawing.Size(82, 21);
+            this.Ckb_BTFNEditSkip.TabIndex = 199;
             this.Ckb_BTFNEditSkip.Text = "跳过倍数0";
             this.Ckb_BTFNEditSkip.UseVisualStyleBackColor = true;
-            this.Nm_BTFNEdit.Location = new Point(0x7b, 6);
-            bits = new int[4];
-            bits[0] = 0x186a0;
-            this.Nm_BTFNEdit.Maximum = new decimal(bits);
-            bits = new int[4];
-            bits[0] = 1;
-            this.Nm_BTFNEdit.Minimum = new decimal(bits);
+            // 
+            // Nm_BTFNEdit
+            // 
+            this.Nm_BTFNEdit.Location = new System.Drawing.Point(123, 6);
+            this.Nm_BTFNEdit.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.Nm_BTFNEdit.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.Nm_BTFNEdit.Name = "Nm_BTFNEdit";
-            this.Nm_BTFNEdit.Size = new Size(60, 0x17);
-            this.Nm_BTFNEdit.TabIndex = 0xc5;
-            bits = new int[4];
-            bits[0] = 2;
-            this.Nm_BTFNEdit.Value = new decimal(bits);
-            this.Cbb_BTFNEdit.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.Nm_BTFNEdit.Size = new System.Drawing.Size(60, 23);
+            this.Nm_BTFNEdit.TabIndex = 197;
+            this.Nm_BTFNEdit.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // Cbb_BTFNEdit
+            // 
+            this.Cbb_BTFNEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbb_BTFNEdit.FormattingEnabled = true;
-            this.Cbb_BTFNEdit.Items.AddRange(new object[] { "+", "-", "*", "/" });
-            this.Cbb_BTFNEdit.Location = new Point(0x43, 4);
+            this.Cbb_BTFNEdit.Items.AddRange(new object[] {
+            "+",
+            "-",
+            "*",
+            "/"});
+            this.Cbb_BTFNEdit.Location = new System.Drawing.Point(67, 4);
             this.Cbb_BTFNEdit.Name = "Cbb_BTFNEdit";
-            this.Cbb_BTFNEdit.Size = new Size(50, 0x19);
-            this.Cbb_BTFNEdit.TabIndex = 0xb9;
+            this.Cbb_BTFNEdit.Size = new System.Drawing.Size(50, 25);
+            this.Cbb_BTFNEdit.TabIndex = 185;
+            // 
+            // Lbl_BTFNEdit
+            // 
             this.Lbl_BTFNEdit.AutoSize = true;
-            this.Lbl_BTFNEdit.Location = new Point(5, 8);
+            this.Lbl_BTFNEdit.Location = new System.Drawing.Point(5, 8);
             this.Lbl_BTFNEdit.Name = "Lbl_BTFNEdit";
-            this.Lbl_BTFNEdit.Size = new Size(0x38, 0x11);
-            this.Lbl_BTFNEdit.TabIndex = 0x9a;
+            this.Lbl_BTFNEdit.Size = new System.Drawing.Size(56, 17);
+            this.Lbl_BTFNEdit.TabIndex = 154;
             this.Lbl_BTFNEdit.Text = "倍数批量";
-            this.Pnl_BTFNList.BackColor = Color.Transparent;
+            // 
+            // Pnl_BTFNList
+            // 
+            this.Pnl_BTFNList.BackColor = System.Drawing.Color.Transparent;
             this.Pnl_BTFNList.Controls.Add(this.Egv_BTFNMain);
             this.Pnl_BTFNList.Controls.Add(this.Pnl_FNBottom);
-            this.Pnl_BTFNList.Dock = DockStyle.Left;
-            this.Pnl_BTFNList.Location = new Point(0, 0);
+            this.Pnl_BTFNList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_BTFNList.Location = new System.Drawing.Point(0, 0);
             this.Pnl_BTFNList.Name = "Pnl_BTFNList";
-            this.Pnl_BTFNList.Size = new Size(0xbc, 530);
+            this.Pnl_BTFNList.Size = new System.Drawing.Size(188, 530);
             this.Pnl_BTFNList.TabIndex = 12;
+            // 
+            // Egv_BTFNMain
+            // 
             this.Egv_BTFNMain.AllowUserToAddRows = false;
             this.Egv_BTFNMain.AllowUserToDeleteRows = false;
             this.Egv_BTFNMain.AllowUserToResizeColumns = false;
             this.Egv_BTFNMain.AllowUserToResizeRows = false;
-            this.Egv_BTFNMain.BackgroundColor = SystemColors.Control;
-            this.Egv_BTFNMain.BorderStyle = BorderStyle.Fixed3D;
-            this.Egv_BTFNMain.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            style19.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style19.BackColor = SystemColors.Window;
-            style19.Font = new Font("微软雅黑", 9f);
-            style19.ForeColor = SystemColors.ControlText;
-            style19.SelectionBackColor = SystemColors.Highlight;
-            style19.SelectionForeColor = SystemColors.HighlightText;
-            style19.WrapMode = DataGridViewTriState.False;
-            this.Egv_BTFNMain.ColumnHeadersDefaultCellStyle = style19;
+            this.Egv_BTFNMain.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.Egv_BTFNMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Egv_BTFNMain.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_BTFNMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.Egv_BTFNMain.ColumnHeadersHeight = 30;
-            this.Egv_BTFNMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            style20.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style20.BackColor = Color.White;
-            style20.Font = new Font("微软雅黑", 9f);
-            style20.ForeColor = SystemColors.ControlText;
-            style20.SelectionBackColor = Color.SteelBlue;
-            style20.SelectionForeColor = Color.White;
-            style20.WrapMode = DataGridViewTriState.False;
-            this.Egv_BTFNMain.DefaultCellStyle = style20;
-            this.Egv_BTFNMain.Dock = DockStyle.Fill;
-            this.Egv_BTFNMain.DragLineColor = Color.Silver;
+            this.Egv_BTFNMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_BTFNMain.DefaultCellStyle = dataGridViewCellStyle20;
+            this.Egv_BTFNMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Egv_BTFNMain.DragLineColor = System.Drawing.Color.Silver;
             this.Egv_BTFNMain.ExternalVirtualMode = true;
-            this.Egv_BTFNMain.GridColor = Color.Silver;
-            this.Egv_BTFNMain.HeadersCheckDefult = CheckState.Checked;
-            this.Egv_BTFNMain.Location = new Point(0, 0);
-            this.Egv_BTFNMain.MergeColumnHeaderBackColor = SystemColors.Control;
-            this.Egv_BTFNMain.MergeColumnHeaderForeColor = Color.Black;
+            this.Egv_BTFNMain.GridColor = System.Drawing.Color.Silver;
+            this.Egv_BTFNMain.HeadersCheckDefult = System.Windows.Forms.CheckState.Checked;
+            this.Egv_BTFNMain.Location = new System.Drawing.Point(0, 0);
+            this.Egv_BTFNMain.MergeColumnHeaderBackColor = System.Drawing.SystemColors.Control;
+            this.Egv_BTFNMain.MergeColumnHeaderForeColor = System.Drawing.Color.Black;
             this.Egv_BTFNMain.MultiSelect = false;
             this.Egv_BTFNMain.Name = "Egv_BTFNMain";
             this.Egv_BTFNMain.RowHeadersVisible = false;
-            this.Egv_BTFNMain.RowNum = 0x11;
-            style21.BackColor = Color.White;
-            style21.SelectionBackColor = Color.FromArgb(0xde, 0xe8, 0xfc);
-            style21.SelectionForeColor = Color.Black;
-            this.Egv_BTFNMain.RowsDefaultCellStyle = style21;
-            this.Egv_BTFNMain.RowTemplate.Height = 0x17;
-            this.Egv_BTFNMain.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.Egv_BTFNMain.Size = new Size(0xbc, 0x1ef);
-            this.Egv_BTFNMain.TabIndex = 0x49;
-            this.Egv_BTFNMain.CellMouseClick += new DataGridViewCellMouseEventHandler(this.Egv_BTFNList_CellMouseClick);
-            this.Pnl_FNBottom.BorderStyle = BorderStyle.FixedSingle;
+            this.Egv_BTFNMain.RowNum = 17;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(232)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
+            this.Egv_BTFNMain.RowsDefaultCellStyle = dataGridViewCellStyle21;
+            this.Egv_BTFNMain.RowTemplate.Height = 23;
+            this.Egv_BTFNMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Egv_BTFNMain.Size = new System.Drawing.Size(188, 495);
+            this.Egv_BTFNMain.TabIndex = 73;
+            this.Egv_BTFNMain.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Egv_BTFNList_CellMouseClick);
+            // 
+            // Pnl_FNBottom
+            // 
+            this.Pnl_FNBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_FNBottom.Controls.Add(this.Ckb_DeleteBTFN);
             this.Pnl_FNBottom.Controls.Add(this.Ckb_AddBTFN);
-            this.Pnl_FNBottom.Dock = DockStyle.Bottom;
-            this.Pnl_FNBottom.Location = new Point(0, 0x1ef);
+            this.Pnl_FNBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Pnl_FNBottom.Location = new System.Drawing.Point(0, 495);
             this.Pnl_FNBottom.Name = "Pnl_FNBottom";
-            this.Pnl_FNBottom.Size = new Size(0xbc, 0x23);
-            this.Pnl_FNBottom.TabIndex = 0x4a;
-            this.Ckb_DeleteBTFN.Appearance = Appearance.Button;
+            this.Pnl_FNBottom.Size = new System.Drawing.Size(188, 35);
+            this.Pnl_FNBottom.TabIndex = 74;
+            // 
+            // Ckb_DeleteBTFN
+            // 
+            this.Ckb_DeleteBTFN.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_DeleteBTFN.AutoCheck = false;
             this.Ckb_DeleteBTFN.FlatAppearance.BorderSize = 0;
-            this.Ckb_DeleteBTFN.FlatStyle = FlatStyle.Flat;
-            this.Ckb_DeleteBTFN.Image = Resources.Remove;
-            this.Ckb_DeleteBTFN.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_DeleteBTFN.Location = new Point(70, 3);
+            this.Ckb_DeleteBTFN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_DeleteBTFN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_DeleteBTFN.Location = new System.Drawing.Point(70, 3);
             this.Ckb_DeleteBTFN.Name = "Ckb_DeleteBTFN";
-            this.Ckb_DeleteBTFN.Size = new Size(60, 0x19);
-            this.Ckb_DeleteBTFN.TabIndex = 0xa7;
+            this.Ckb_DeleteBTFN.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_DeleteBTFN.TabIndex = 167;
             this.Ckb_DeleteBTFN.Text = "删除";
-            this.Ckb_DeleteBTFN.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_DeleteBTFN.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_DeleteBTFN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_DeleteBTFN.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_Hint.SetToolTip(this.Ckb_DeleteBTFN, "删除当前选中的一个方案");
             this.Ckb_DeleteBTFN.UseVisualStyleBackColor = true;
-            this.Ckb_DeleteBTFN.Click += new EventHandler(this.Ckb_DeleteBTFN_Click);
-            this.Ckb_AddBTFN.Appearance = Appearance.Button;
+            this.Ckb_DeleteBTFN.Click += new System.EventHandler(this.Ckb_DeleteBTFN_Click);
+            // 
+            // Ckb_AddBTFN
+            // 
+            this.Ckb_AddBTFN.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_AddBTFN.AutoCheck = false;
             this.Ckb_AddBTFN.FlatAppearance.BorderSize = 0;
-            this.Ckb_AddBTFN.FlatStyle = FlatStyle.Flat;
-            this.Ckb_AddBTFN.Image = Resources.Add;
-            this.Ckb_AddBTFN.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_AddBTFN.Location = new Point(4, 3);
+            this.Ckb_AddBTFN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_AddBTFN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_AddBTFN.Location = new System.Drawing.Point(4, 3);
             this.Ckb_AddBTFN.Name = "Ckb_AddBTFN";
-            this.Ckb_AddBTFN.Size = new Size(60, 0x19);
-            this.Ckb_AddBTFN.TabIndex = 0xa6;
+            this.Ckb_AddBTFN.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_AddBTFN.TabIndex = 166;
             this.Ckb_AddBTFN.Text = "添加";
-            this.Ckb_AddBTFN.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_AddBTFN.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_AddBTFN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_AddBTFN.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_Hint.SetToolTip(this.Ckb_AddBTFN, "添加一个方案");
             this.Ckb_AddBTFN.UseVisualStyleBackColor = true;
-            this.Ckb_AddBTFN.Click += new EventHandler(this.Ckb_AddBTFN_Click);
-            this.Lbl_GJFNEncrypt.Dock = DockStyle.Fill;
-            this.Lbl_GJFNEncrypt.Font = new Font("微软雅黑", 30f);
-            this.Lbl_GJFNEncrypt.Location = new Point(0, 0);
+            this.Ckb_AddBTFN.Click += new System.EventHandler(this.Ckb_AddBTFN_Click);
+            // 
+            // Lbl_GJFNEncrypt
+            // 
+            this.Lbl_GJFNEncrypt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Lbl_GJFNEncrypt.Font = new System.Drawing.Font("微软雅黑", 30F);
+            this.Lbl_GJFNEncrypt.Location = new System.Drawing.Point(0, 0);
             this.Lbl_GJFNEncrypt.Name = "Lbl_GJFNEncrypt";
-            this.Lbl_GJFNEncrypt.Size = new Size(0x3e0, 530);
-            this.Lbl_GJFNEncrypt.TabIndex = 0x4c;
+            this.Lbl_GJFNEncrypt.Size = new System.Drawing.Size(992, 530);
+            this.Lbl_GJFNEncrypt.TabIndex = 76;
             this.Lbl_GJFNEncrypt.Text = "已加密";
-            this.Lbl_GJFNEncrypt.TextAlign = ContentAlignment.MiddleCenter;
-            this.Tap_TBCount.BackColor = SystemColors.Control;
+            this.Lbl_GJFNEncrypt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Tap_TBCount
+            // 
+            this.Tap_TBCount.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_TBCount.Controls.Add(this.TB_Main);
-            this.Tap_TBCount.Location = new Point(4, 0x22);
+            this.Tap_TBCount.Location = new System.Drawing.Point(4, 34);
             this.Tap_TBCount.Name = "Tap_TBCount";
-            this.Tap_TBCount.Padding = new Padding(3);
-            this.Tap_TBCount.Size = new Size(0x3e6, 0x218);
+            this.Tap_TBCount.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_TBCount.Size = new System.Drawing.Size(998, 536);
             this.Tap_TBCount.TabIndex = 7;
             this.Tap_TBCount.Text = "推波计算";
-            this.TB_Main.Dock = DockStyle.Fill;
-            this.TB_Main.Font = new Font("微软雅黑", 9f);
-            this.TB_Main.Location = new Point(3, 3);
-            this.TB_Main.Margin = new Padding(3, 4, 3, 4);
+            // 
+            // TB_Main
+            // 
+            this.TB_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_Main.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.TB_Main.Location = new System.Drawing.Point(3, 3);
+            this.TB_Main.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TB_Main.Name = "TB_Main";
-            this.TB_Main.Size = new Size(0x3e0, 530);
+            this.TB_Main.Size = new System.Drawing.Size(992, 530);
             this.TB_Main.TabIndex = 0;
-            this.Tap_HJFG.BackColor = SystemColors.Control;
+            // 
+            // Tap_HJFG
+            // 
+            this.Tap_HJFG.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_HJFG.Controls.Add(this.HJFG_Main);
-            this.Tap_HJFG.Location = new Point(4, 0x22);
+            this.Tap_HJFG.Location = new System.Drawing.Point(4, 34);
             this.Tap_HJFG.Name = "Tap_HJFG";
-            this.Tap_HJFG.Padding = new Padding(3);
-            this.Tap_HJFG.Size = new Size(0x3e6, 0x218);
-            this.Tap_HJFG.TabIndex = 0x11;
+            this.Tap_HJFG.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_HJFG.Size = new System.Drawing.Size(998, 536);
+            this.Tap_HJFG.TabIndex = 17;
             this.Tap_HJFG.Text = "黄金分割";
-            this.HJFG_Main.Dock = DockStyle.Fill;
-            this.HJFG_Main.Font = new Font("微软雅黑", 9f);
-            this.HJFG_Main.Location = new Point(3, 3);
-            this.HJFG_Main.Margin = new Padding(3, 4, 3, 4);
+            // 
+            // HJFG_Main
+            // 
+            this.HJFG_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HJFG_Main.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.HJFG_Main.Location = new System.Drawing.Point(3, 3);
+            this.HJFG_Main.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.HJFG_Main.Name = "HJFG_Main";
-            this.HJFG_Main.Size = new Size(0x3e0, 530);
+            this.HJFG_Main.Size = new System.Drawing.Size(992, 530);
             this.HJFG_Main.TabIndex = 0;
-            this.Tap_ShrinkEX.BackColor = SystemColors.Control;
+            // 
+            // Tap_ShrinkEX
+            // 
+            this.Tap_ShrinkEX.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_ShrinkEX.Controls.Add(this.SK_EX);
-            this.Tap_ShrinkEX.Location = new Point(4, 0x22);
+            this.Tap_ShrinkEX.Location = new System.Drawing.Point(4, 34);
             this.Tap_ShrinkEX.Name = "Tap_ShrinkEX";
-            this.Tap_ShrinkEX.Padding = new Padding(3);
-            this.Tap_ShrinkEX.Size = new Size(0x3e6, 0x218);
-            this.Tap_ShrinkEX.TabIndex = 0x13;
+            this.Tap_ShrinkEX.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_ShrinkEX.Size = new System.Drawing.Size(998, 536);
+            this.Tap_ShrinkEX.TabIndex = 19;
             this.Tap_ShrinkEX.Text = "二星缩水";
-            this.SK_EX.Dock = DockStyle.Fill;
-            this.SK_EX.Font = new Font("微软雅黑", 9f);
-            this.SK_EX.Location = new Point(3, 3);
-            this.SK_EX.Margin = new Padding(3, 4, 3, 4);
+            // 
+            // SK_EX
+            // 
+            this.SK_EX.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SK_EX.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.SK_EX.Location = new System.Drawing.Point(3, 3);
+            this.SK_EX.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SK_EX.Name = "SK_EX";
-            this.SK_EX.Size = new Size(0x3e0, 530);
+            this.SK_EX.Size = new System.Drawing.Size(992, 530);
             this.SK_EX.TabIndex = 0;
-            this.Tap_ShrinkSX.BackColor = SystemColors.Control;
+            // 
+            // Tap_ShrinkSX
+            // 
+            this.Tap_ShrinkSX.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_ShrinkSX.Controls.Add(this.SK_SX);
-            this.Tap_ShrinkSX.Location = new Point(4, 0x22);
+            this.Tap_ShrinkSX.Location = new System.Drawing.Point(4, 34);
             this.Tap_ShrinkSX.Name = "Tap_ShrinkSX";
-            this.Tap_ShrinkSX.Padding = new Padding(3);
-            this.Tap_ShrinkSX.Size = new Size(0x3e6, 0x218);
+            this.Tap_ShrinkSX.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_ShrinkSX.Size = new System.Drawing.Size(998, 536);
             this.Tap_ShrinkSX.TabIndex = 20;
             this.Tap_ShrinkSX.Text = "三星缩水";
-            this.SK_SX.Dock = DockStyle.Fill;
-            this.SK_SX.Font = new Font("微软雅黑", 9f);
-            this.SK_SX.Location = new Point(3, 3);
-            this.SK_SX.Margin = new Padding(3, 4, 3, 4);
+            // 
+            // SK_SX
+            // 
+            this.SK_SX.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SK_SX.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.SK_SX.Location = new System.Drawing.Point(3, 3);
+            this.SK_SX.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SK_SX.Name = "SK_SX";
-            this.SK_SX.Size = new Size(0x3e0, 530);
+            this.SK_SX.Size = new System.Drawing.Size(992, 530);
             this.SK_SX.TabIndex = 0;
-            this.Tap_Setting.BackColor = SystemColors.Control;
+            // 
+            // Tap_Setting
+            // 
+            this.Tap_Setting.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_Setting.Controls.Add(this.Pnl_Setting);
-            this.Tap_Setting.Location = new Point(4, 0x22);
+            this.Tap_Setting.Location = new System.Drawing.Point(4, 34);
             this.Tap_Setting.Name = "Tap_Setting";
-            this.Tap_Setting.Padding = new Padding(3);
-            this.Tap_Setting.Size = new Size(0x3e6, 0x218);
-            this.Tap_Setting.TabIndex = 0x10;
+            this.Tap_Setting.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_Setting.Size = new System.Drawing.Size(998, 536);
+            this.Tap_Setting.TabIndex = 16;
             this.Tap_Setting.Text = "软件设置";
+            // 
+            // Pnl_Setting
+            // 
             this.Pnl_Setting.Controls.Add(this.Egv_ShowTapList);
-            this.Pnl_Setting.Dock = DockStyle.Fill;
-            this.Pnl_Setting.Location = new Point(3, 3);
+            this.Pnl_Setting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_Setting.Location = new System.Drawing.Point(3, 3);
             this.Pnl_Setting.Name = "Pnl_Setting";
-            this.Pnl_Setting.Size = new Size(0x3e0, 530);
+            this.Pnl_Setting.Size = new System.Drawing.Size(992, 530);
             this.Pnl_Setting.TabIndex = 0;
+            // 
+            // Egv_ShowTapList
+            // 
             this.Egv_ShowTapList.AllowUserToAddRows = false;
             this.Egv_ShowTapList.AllowUserToDeleteRows = false;
             this.Egv_ShowTapList.AllowUserToResizeColumns = false;
             this.Egv_ShowTapList.AllowUserToResizeRows = false;
-            this.Egv_ShowTapList.BackgroundColor = Color.White;
-            this.Egv_ShowTapList.BorderStyle = BorderStyle.Fixed3D;
-            this.Egv_ShowTapList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            style22.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style22.BackColor = SystemColors.Window;
-            style22.Font = new Font("微软雅黑", 9f);
-            style22.ForeColor = SystemColors.ControlText;
-            style22.SelectionBackColor = SystemColors.Highlight;
-            style22.SelectionForeColor = SystemColors.HighlightText;
-            style22.WrapMode = DataGridViewTriState.False;
-            this.Egv_ShowTapList.ColumnHeadersDefaultCellStyle = style22;
+            this.Egv_ShowTapList.BackgroundColor = System.Drawing.Color.White;
+            this.Egv_ShowTapList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Egv_ShowTapList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_ShowTapList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.Egv_ShowTapList.ColumnHeadersHeight = 30;
-            this.Egv_ShowTapList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            style23.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style23.BackColor = SystemColors.Control;
-            style23.Font = new Font("微软雅黑", 9f);
-            style23.ForeColor = SystemColors.ControlText;
-            style23.SelectionBackColor = Color.SteelBlue;
-            style23.SelectionForeColor = Color.White;
-            style23.WrapMode = DataGridViewTriState.False;
-            this.Egv_ShowTapList.DefaultCellStyle = style23;
-            this.Egv_ShowTapList.Dock = DockStyle.Fill;
-            this.Egv_ShowTapList.DragLineColor = Color.Silver;
+            this.Egv_ShowTapList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_ShowTapList.DefaultCellStyle = dataGridViewCellStyle23;
+            this.Egv_ShowTapList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Egv_ShowTapList.DragLineColor = System.Drawing.Color.Silver;
             this.Egv_ShowTapList.ExternalVirtualMode = true;
-            this.Egv_ShowTapList.GridColor = Color.Silver;
-            this.Egv_ShowTapList.HeadersCheckDefult = CheckState.Checked;
-            this.Egv_ShowTapList.Location = new Point(0, 0);
-            this.Egv_ShowTapList.MergeColumnHeaderBackColor = SystemColors.Control;
-            this.Egv_ShowTapList.MergeColumnHeaderForeColor = Color.Black;
+            this.Egv_ShowTapList.GridColor = System.Drawing.Color.Silver;
+            this.Egv_ShowTapList.HeadersCheckDefult = System.Windows.Forms.CheckState.Checked;
+            this.Egv_ShowTapList.Location = new System.Drawing.Point(0, 0);
+            this.Egv_ShowTapList.MergeColumnHeaderBackColor = System.Drawing.SystemColors.Control;
+            this.Egv_ShowTapList.MergeColumnHeaderForeColor = System.Drawing.Color.Black;
             this.Egv_ShowTapList.MultiSelect = false;
             this.Egv_ShowTapList.Name = "Egv_ShowTapList";
             this.Egv_ShowTapList.RowHeadersVisible = false;
-            this.Egv_ShowTapList.RowNum = 0x11;
-            style24.BackColor = Color.White;
-            style24.SelectionBackColor = Color.FromArgb(0xde, 0xe8, 0xfc);
-            style24.SelectionForeColor = Color.Black;
-            this.Egv_ShowTapList.RowsDefaultCellStyle = style24;
-            this.Egv_ShowTapList.RowTemplate.Height = 0x17;
-            this.Egv_ShowTapList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.Egv_ShowTapList.Size = new Size(0x3e0, 530);
-            this.Egv_ShowTapList.TabIndex = 0x4b;
+            this.Egv_ShowTapList.RowNum = 17;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(232)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black;
+            this.Egv_ShowTapList.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            this.Egv_ShowTapList.RowTemplate.Height = 23;
+            this.Egv_ShowTapList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Egv_ShowTapList.Size = new System.Drawing.Size(992, 530);
+            this.Egv_ShowTapList.TabIndex = 75;
             this.Egv_ShowTapList.VirtualMode = true;
-            this.Tap_CDCount.BackColor = SystemColors.Control;
+            // 
+            // Tap_CDCount
+            // 
+            this.Tap_CDCount.BackColor = System.Drawing.SystemColors.Control;
             this.Tap_CDCount.Controls.Add(this.Pnl_CDCount);
-            this.Tap_CDCount.Location = new Point(4, 0x22);
+            this.Tap_CDCount.Location = new System.Drawing.Point(4, 34);
             this.Tap_CDCount.Name = "Tap_CDCount";
-            this.Tap_CDCount.Padding = new Padding(3);
-            this.Tap_CDCount.Size = new Size(0x3e6, 0x218);
-            this.Tap_CDCount.TabIndex = 0x15;
+            this.Tap_CDCount.Padding = new System.Windows.Forms.Padding(3);
+            this.Tap_CDCount.Size = new System.Drawing.Size(998, 536);
+            this.Tap_CDCount.TabIndex = 21;
             this.Tap_CDCount.Text = "拆单计算";
+            // 
+            // Pnl_CDCount
+            // 
             this.Pnl_CDCount.Controls.Add(this.CD_Main);
-            this.Pnl_CDCount.Dock = DockStyle.Fill;
-            this.Pnl_CDCount.Location = new Point(3, 3);
+            this.Pnl_CDCount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_CDCount.Location = new System.Drawing.Point(3, 3);
             this.Pnl_CDCount.Name = "Pnl_CDCount";
-            this.Pnl_CDCount.Size = new Size(0x3e0, 530);
+            this.Pnl_CDCount.Size = new System.Drawing.Size(992, 530);
             this.Pnl_CDCount.TabIndex = 0;
-            this.CD_Main.Dock = DockStyle.Fill;
-            this.CD_Main.Font = new Font("微软雅黑", 9f);
-            this.CD_Main.Location = new Point(0, 0);
-            this.CD_Main.Margin = new Padding(3, 4, 3, 4);
+            // 
+            // CD_Main
+            // 
+            this.CD_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CD_Main.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.CD_Main.Location = new System.Drawing.Point(0, 0);
+            this.CD_Main.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CD_Main.Name = "CD_Main";
-            this.CD_Main.Size = new Size(0x3e0, 530);
+            this.CD_Main.Size = new System.Drawing.Size(992, 530);
             this.CD_Main.TabIndex = 0;
+            // 
+            // Pnl_OpenData
+            // 
             this.Pnl_OpenData.Controls.Add(this.Pnl_DataMain);
             this.Pnl_OpenData.Controls.Add(this.Pnl_DataTop2);
-            this.Pnl_OpenData.Dock = DockStyle.Left;
-            this.Pnl_OpenData.Location = new Point(0, 0);
+            this.Pnl_OpenData.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_OpenData.Location = new System.Drawing.Point(0, 0);
             this.Pnl_OpenData.Name = "Pnl_OpenData";
-            this.Pnl_OpenData.Size = new Size(0xe2, 0x240);
+            this.Pnl_OpenData.Size = new System.Drawing.Size(226, 576);
             this.Pnl_OpenData.TabIndex = 70;
-            this.Pnl_DataMain.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_DataMain
+            // 
+            this.Pnl_DataMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_DataMain.Controls.Add(this.Pnl_DataBottom);
             this.Pnl_DataMain.Controls.Add(this.Pnl_RrfreshPT);
-            this.Pnl_DataMain.Dock = DockStyle.Fill;
-            this.Pnl_DataMain.Location = new Point(0, 270);
+            this.Pnl_DataMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_DataMain.Location = new System.Drawing.Point(0, 270);
             this.Pnl_DataMain.Name = "Pnl_DataMain";
-            this.Pnl_DataMain.Size = new Size(0xe2, 0x132);
-            this.Pnl_DataMain.TabIndex = 0x43;
+            this.Pnl_DataMain.Size = new System.Drawing.Size(226, 306);
+            this.Pnl_DataMain.TabIndex = 67;
+            // 
+            // Pnl_DataBottom
+            // 
             this.Pnl_DataBottom.Controls.Add(this.Egv_DataList);
-            this.Pnl_DataBottom.Dock = DockStyle.Fill;
-            this.Pnl_DataBottom.Location = new Point(0, 0xb9);
+            this.Pnl_DataBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_DataBottom.Location = new System.Drawing.Point(0, 185);
             this.Pnl_DataBottom.Name = "Pnl_DataBottom";
-            this.Pnl_DataBottom.Size = new Size(0xe0, 0x77);
-            this.Pnl_DataBottom.TabIndex = 0x49;
+            this.Pnl_DataBottom.Size = new System.Drawing.Size(224, 119);
+            this.Pnl_DataBottom.TabIndex = 73;
+            // 
+            // Egv_DataList
+            // 
             this.Egv_DataList.AllowUserToAddRows = false;
             this.Egv_DataList.AllowUserToDeleteRows = false;
             this.Egv_DataList.AllowUserToResizeColumns = false;
             this.Egv_DataList.AllowUserToResizeRows = false;
-            this.Egv_DataList.BackgroundColor = SystemColors.Control;
-            this.Egv_DataList.BorderStyle = BorderStyle.Fixed3D;
-            this.Egv_DataList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            style25.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style25.BackColor = SystemColors.Window;
-            style25.Font = new Font("微软雅黑", 9f);
-            style25.ForeColor = SystemColors.ControlText;
-            style25.SelectionBackColor = SystemColors.Highlight;
-            style25.SelectionForeColor = SystemColors.HighlightText;
-            style25.WrapMode = DataGridViewTriState.False;
-            this.Egv_DataList.ColumnHeadersDefaultCellStyle = style25;
+            this.Egv_DataList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.Egv_DataList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Egv_DataList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_DataList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.Egv_DataList.ColumnHeadersHeight = 30;
-            this.Egv_DataList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            style26.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style26.BackColor = SystemColors.Control;
-            style26.Font = new Font("微软雅黑", 9f);
-            style26.ForeColor = SystemColors.ControlText;
-            style26.SelectionBackColor = Color.SteelBlue;
-            style26.SelectionForeColor = Color.White;
-            style26.WrapMode = DataGridViewTriState.False;
-            this.Egv_DataList.DefaultCellStyle = style26;
-            this.Egv_DataList.Dock = DockStyle.Fill;
-            this.Egv_DataList.DragLineColor = Color.Silver;
+            this.Egv_DataList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_DataList.DefaultCellStyle = dataGridViewCellStyle26;
+            this.Egv_DataList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Egv_DataList.DragLineColor = System.Drawing.Color.Silver;
             this.Egv_DataList.ExternalVirtualMode = true;
-            this.Egv_DataList.GridColor = Color.Silver;
-            this.Egv_DataList.HeadersCheckDefult = CheckState.Checked;
-            this.Egv_DataList.Location = new Point(0, 0);
-            this.Egv_DataList.MergeColumnHeaderBackColor = SystemColors.Control;
-            this.Egv_DataList.MergeColumnHeaderForeColor = Color.Black;
+            this.Egv_DataList.GridColor = System.Drawing.Color.Silver;
+            this.Egv_DataList.HeadersCheckDefult = System.Windows.Forms.CheckState.Checked;
+            this.Egv_DataList.Location = new System.Drawing.Point(0, 0);
+            this.Egv_DataList.MergeColumnHeaderBackColor = System.Drawing.SystemColors.Control;
+            this.Egv_DataList.MergeColumnHeaderForeColor = System.Drawing.Color.Black;
             this.Egv_DataList.MultiSelect = false;
             this.Egv_DataList.Name = "Egv_DataList";
             this.Egv_DataList.RowHeadersVisible = false;
-            this.Egv_DataList.RowNum = 0x11;
-            style27.BackColor = SystemColors.Control;
-            style27.SelectionBackColor = Color.FromArgb(0xde, 0xe8, 0xfc);
-            style27.SelectionForeColor = Color.Black;
-            this.Egv_DataList.RowsDefaultCellStyle = style27;
-            this.Egv_DataList.RowTemplate.Height = 0x17;
-            this.Egv_DataList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.Egv_DataList.Size = new Size(0xe0, 0x77);
-            this.Egv_DataList.TabIndex = 0x4b;
+            this.Egv_DataList.RowNum = 17;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(232)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.Black;
+            this.Egv_DataList.RowsDefaultCellStyle = dataGridViewCellStyle27;
+            this.Egv_DataList.RowTemplate.Height = 23;
+            this.Egv_DataList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Egv_DataList.Size = new System.Drawing.Size(224, 119);
+            this.Egv_DataList.TabIndex = 75;
             this.Egv_DataList.VirtualMode = true;
             this.Egv_DataList.Visible = false;
+            // 
+            // Pnl_RrfreshPT
+            // 
             this.Pnl_RrfreshPT.Controls.Add(this.Egv_PTLineList);
             this.Pnl_RrfreshPT.Controls.Add(this.Pnl_PTRefresh);
-            this.Pnl_RrfreshPT.Dock = DockStyle.Top;
-            this.Pnl_RrfreshPT.Location = new Point(0, 0);
+            this.Pnl_RrfreshPT.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_RrfreshPT.Location = new System.Drawing.Point(0, 0);
             this.Pnl_RrfreshPT.Name = "Pnl_RrfreshPT";
-            this.Pnl_RrfreshPT.Size = new Size(0xe0, 0xb9);
-            this.Pnl_RrfreshPT.TabIndex = 0x48;
+            this.Pnl_RrfreshPT.Size = new System.Drawing.Size(224, 185);
+            this.Pnl_RrfreshPT.TabIndex = 72;
+            // 
+            // Egv_PTLineList
+            // 
             this.Egv_PTLineList.AllowUserToAddRows = false;
             this.Egv_PTLineList.AllowUserToDeleteRows = false;
             this.Egv_PTLineList.AllowUserToResizeColumns = false;
             this.Egv_PTLineList.AllowUserToResizeRows = false;
-            this.Egv_PTLineList.BackgroundColor = SystemColors.Control;
-            this.Egv_PTLineList.BorderStyle = BorderStyle.Fixed3D;
-            this.Egv_PTLineList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            style28.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style28.BackColor = SystemColors.Window;
-            style28.Font = new Font("微软雅黑", 9f);
-            style28.ForeColor = SystemColors.ControlText;
-            style28.SelectionBackColor = SystemColors.Highlight;
-            style28.SelectionForeColor = SystemColors.HighlightText;
-            style28.WrapMode = DataGridViewTriState.False;
-            this.Egv_PTLineList.ColumnHeadersDefaultCellStyle = style28;
+            this.Egv_PTLineList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.Egv_PTLineList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Egv_PTLineList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_PTLineList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.Egv_PTLineList.ColumnHeadersHeight = 30;
-            this.Egv_PTLineList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            style29.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style29.BackColor = SystemColors.Control;
-            style29.Font = new Font("微软雅黑", 9f);
-            style29.ForeColor = SystemColors.ControlText;
-            style29.SelectionBackColor = Color.SteelBlue;
-            style29.SelectionForeColor = Color.White;
-            style29.WrapMode = DataGridViewTriState.False;
-            this.Egv_PTLineList.DefaultCellStyle = style29;
-            this.Egv_PTLineList.Dock = DockStyle.Fill;
-            this.Egv_PTLineList.DragLineColor = Color.Silver;
+            this.Egv_PTLineList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_PTLineList.DefaultCellStyle = dataGridViewCellStyle29;
+            this.Egv_PTLineList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Egv_PTLineList.DragLineColor = System.Drawing.Color.Silver;
             this.Egv_PTLineList.ExternalVirtualMode = true;
-            this.Egv_PTLineList.GridColor = Color.Silver;
-            this.Egv_PTLineList.HeadersCheckDefult = CheckState.Checked;
-            this.Egv_PTLineList.Location = new Point(0, 0x23);
-            this.Egv_PTLineList.MergeColumnHeaderBackColor = SystemColors.Control;
-            this.Egv_PTLineList.MergeColumnHeaderForeColor = Color.Black;
+            this.Egv_PTLineList.GridColor = System.Drawing.Color.Silver;
+            this.Egv_PTLineList.HeadersCheckDefult = System.Windows.Forms.CheckState.Checked;
+            this.Egv_PTLineList.Location = new System.Drawing.Point(0, 35);
+            this.Egv_PTLineList.MergeColumnHeaderBackColor = System.Drawing.SystemColors.Control;
+            this.Egv_PTLineList.MergeColumnHeaderForeColor = System.Drawing.Color.Black;
             this.Egv_PTLineList.MultiSelect = false;
             this.Egv_PTLineList.Name = "Egv_PTLineList";
             this.Egv_PTLineList.RowHeadersVisible = false;
-            this.Egv_PTLineList.RowNum = 0x11;
-            style30.BackColor = SystemColors.Control;
-            style30.SelectionBackColor = Color.FromArgb(0xde, 0xe8, 0xfc);
-            style30.SelectionForeColor = Color.Black;
-            this.Egv_PTLineList.RowsDefaultCellStyle = style30;
-            this.Egv_PTLineList.RowTemplate.Height = 0x17;
-            this.Egv_PTLineList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.Egv_PTLineList.Size = new Size(0xe0, 150);
-            this.Egv_PTLineList.TabIndex = 0x49;
-            this.Pnl_PTRefresh.BorderStyle = BorderStyle.FixedSingle;
+            this.Egv_PTLineList.RowNum = 17;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(232)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.Black;
+            this.Egv_PTLineList.RowsDefaultCellStyle = dataGridViewCellStyle30;
+            this.Egv_PTLineList.RowTemplate.Height = 23;
+            this.Egv_PTLineList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Egv_PTLineList.Size = new System.Drawing.Size(224, 150);
+            this.Egv_PTLineList.TabIndex = 73;
+            // 
+            // Pnl_PTRefresh
+            // 
+            this.Pnl_PTRefresh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_PTRefresh.Controls.Add(this.Ckb_DeleteLine);
             this.Pnl_PTRefresh.Controls.Add(this.Ckb_RrfreshPTLine);
             this.Pnl_PTRefresh.Controls.Add(this.Ckb_AddLine);
-            this.Pnl_PTRefresh.Dock = DockStyle.Top;
-            this.Pnl_PTRefresh.Location = new Point(0, 0);
+            this.Pnl_PTRefresh.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_PTRefresh.Location = new System.Drawing.Point(0, 0);
             this.Pnl_PTRefresh.Name = "Pnl_PTRefresh";
-            this.Pnl_PTRefresh.Size = new Size(0xe0, 0x23);
-            this.Pnl_PTRefresh.TabIndex = 0x4a;
-            this.Ckb_DeleteLine.Appearance = Appearance.Button;
+            this.Pnl_PTRefresh.Size = new System.Drawing.Size(224, 35);
+            this.Pnl_PTRefresh.TabIndex = 74;
+            // 
+            // Ckb_DeleteLine
+            // 
+            this.Ckb_DeleteLine.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_DeleteLine.AutoCheck = false;
             this.Ckb_DeleteLine.FlatAppearance.BorderSize = 0;
-            this.Ckb_DeleteLine.FlatStyle = FlatStyle.Flat;
-            this.Ckb_DeleteLine.Image = Resources.Remove;
-            this.Ckb_DeleteLine.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_DeleteLine.Location = new Point(0x9c, 4);
+            this.Ckb_DeleteLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_DeleteLine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_DeleteLine.Location = new System.Drawing.Point(156, 4);
             this.Ckb_DeleteLine.Name = "Ckb_DeleteLine";
-            this.Ckb_DeleteLine.Size = new Size(60, 0x19);
-            this.Ckb_DeleteLine.TabIndex = 0xd3;
+            this.Ckb_DeleteLine.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_DeleteLine.TabIndex = 211;
             this.Ckb_DeleteLine.Text = "删除";
-            this.Ckb_DeleteLine.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_DeleteLine.TextImageRelation = TextImageRelation.ImageBeforeText;
+            this.Ckb_DeleteLine.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_DeleteLine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Tot_Hint.SetToolTip(this.Ckb_DeleteLine, "删除选中的平台线路");
             this.Ckb_DeleteLine.UseVisualStyleBackColor = true;
-            this.Ckb_DeleteLine.Click += new EventHandler(this.Ckb_DeleteLine_Click);
-            this.Ckb_RrfreshPTLine.Appearance = Appearance.Button;
+            this.Ckb_DeleteLine.Click += new System.EventHandler(this.Ckb_DeleteLine_Click);
+            // 
+            // Ckb_RrfreshPTLine
+            // 
+            this.Ckb_RrfreshPTLine.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_RrfreshPTLine.AutoCheck = false;
             this.Ckb_RrfreshPTLine.FlatAppearance.BorderSize = 0;
-            this.Ckb_RrfreshPTLine.FlatStyle = FlatStyle.Flat;
-            this.Ckb_RrfreshPTLine.Image = Resources.BlueDown;
-            this.Ckb_RrfreshPTLine.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_RrfreshPTLine.Location = new Point(4, 4);
+            this.Ckb_RrfreshPTLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_RrfreshPTLine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_RrfreshPTLine.Location = new System.Drawing.Point(4, 4);
             this.Ckb_RrfreshPTLine.Name = "Ckb_RrfreshPTLine";
-            this.Ckb_RrfreshPTLine.Size = new Size(80, 0x19);
-            this.Ckb_RrfreshPTLine.TabIndex = 0xd4;
+            this.Ckb_RrfreshPTLine.Size = new System.Drawing.Size(80, 25);
+            this.Ckb_RrfreshPTLine.TabIndex = 212;
             this.Ckb_RrfreshPTLine.Text = "更新线路";
-            this.Ckb_RrfreshPTLine.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_RrfreshPTLine.TextImageRelation = TextImageRelation.ImageBeforeText;
+            this.Ckb_RrfreshPTLine.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_RrfreshPTLine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Tot_Hint.SetToolTip(this.Ckb_RrfreshPTLine, "更新平台的最新线路");
             this.Ckb_RrfreshPTLine.UseVisualStyleBackColor = true;
-            this.Ckb_RrfreshPTLine.Click += new EventHandler(this.Ckb_RrfreshPTLine_Click);
-            this.Ckb_AddLine.Appearance = Appearance.Button;
+            this.Ckb_RrfreshPTLine.Click += new System.EventHandler(this.Ckb_RrfreshPTLine_Click);
+            // 
+            // Ckb_AddLine
+            // 
+            this.Ckb_AddLine.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_AddLine.AutoCheck = false;
             this.Ckb_AddLine.FlatAppearance.BorderSize = 0;
-            this.Ckb_AddLine.FlatStyle = FlatStyle.Flat;
-            this.Ckb_AddLine.Image = Resources.Add;
-            this.Ckb_AddLine.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_AddLine.Location = new Point(0x59, 4);
+            this.Ckb_AddLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_AddLine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_AddLine.Location = new System.Drawing.Point(89, 4);
             this.Ckb_AddLine.Name = "Ckb_AddLine";
-            this.Ckb_AddLine.Size = new Size(60, 0x19);
+            this.Ckb_AddLine.Size = new System.Drawing.Size(60, 25);
             this.Ckb_AddLine.TabIndex = 210;
             this.Ckb_AddLine.Text = "添加";
-            this.Ckb_AddLine.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_AddLine.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_AddLine.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_AddLine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_Hint.SetToolTip(this.Ckb_AddLine, "添加一条平台的线路");
             this.Ckb_AddLine.UseVisualStyleBackColor = true;
-            this.Ckb_AddLine.Click += new EventHandler(this.Ckb_AddLine_Click);
-            this.Pnl_DataTop2.BorderStyle = BorderStyle.FixedSingle;
+            this.Ckb_AddLine.Click += new System.EventHandler(this.Ckb_AddLine_Click);
+            // 
+            // Pnl_DataTop2
+            // 
+            this.Pnl_DataTop2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_DataTop2.Controls.Add(this.Pnl_DataBottom1);
             this.Pnl_DataTop2.Controls.Add(this.Pnl_UserLogin2);
             this.Pnl_DataTop2.Controls.Add(this.Pnl_UserLogin1);
-            this.Pnl_DataTop2.Dock = DockStyle.Top;
-            this.Pnl_DataTop2.Location = new Point(0, 0);
+            this.Pnl_DataTop2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_DataTop2.Location = new System.Drawing.Point(0, 0);
             this.Pnl_DataTop2.Name = "Pnl_DataTop2";
-            this.Pnl_DataTop2.Size = new Size(0xe2, 270);
-            this.Pnl_DataTop2.TabIndex = 0x47;
-            this.Pnl_DataBottom1.BorderStyle = BorderStyle.FixedSingle;
+            this.Pnl_DataTop2.Size = new System.Drawing.Size(226, 270);
+            this.Pnl_DataTop2.TabIndex = 71;
+            // 
+            // Pnl_DataBottom1
+            // 
+            this.Pnl_DataBottom1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_DataBottom1.Controls.Add(this.Ckb_ShowHideUser);
             this.Pnl_DataBottom1.Controls.Add(this.Ckb_Login);
             this.Pnl_DataBottom1.Controls.Add(this.Ckb_RefreshUser);
-            this.Pnl_DataBottom1.Dock = DockStyle.Bottom;
-            this.Pnl_DataBottom1.Location = new Point(0, 0xe9);
+            this.Pnl_DataBottom1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Pnl_DataBottom1.Location = new System.Drawing.Point(0, 233);
             this.Pnl_DataBottom1.Name = "Pnl_DataBottom1";
-            this.Pnl_DataBottom1.Size = new Size(0xe0, 0x23);
+            this.Pnl_DataBottom1.Size = new System.Drawing.Size(224, 35);
             this.Pnl_DataBottom1.TabIndex = 13;
-            this.Ckb_ShowHideUser.Appearance = Appearance.Button;
+            // 
+            // Ckb_ShowHideUser
+            // 
+            this.Ckb_ShowHideUser.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_ShowHideUser.AutoCheck = false;
             this.Ckb_ShowHideUser.FlatAppearance.BorderSize = 0;
-            this.Ckb_ShowHideUser.FlatStyle = FlatStyle.Flat;
-            this.Ckb_ShowHideUser.Image = Resources.ShowHide;
-            this.Ckb_ShowHideUser.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_ShowHideUser.Location = new Point(7, 4);
+            this.Ckb_ShowHideUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_ShowHideUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_ShowHideUser.Location = new System.Drawing.Point(7, 4);
             this.Ckb_ShowHideUser.Name = "Ckb_ShowHideUser";
-            this.Ckb_ShowHideUser.Size = new Size(60, 0x19);
-            this.Ckb_ShowHideUser.TabIndex = 0xd6;
+            this.Ckb_ShowHideUser.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_ShowHideUser.TabIndex = 214;
             this.Ckb_ShowHideUser.Text = "隐藏";
-            this.Ckb_ShowHideUser.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_ShowHideUser.TextImageRelation = TextImageRelation.ImageBeforeText;
+            this.Ckb_ShowHideUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_ShowHideUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Tot_Hint.SetToolTip(this.Ckb_ShowHideUser, "隐藏已登录的平台账号");
             this.Ckb_ShowHideUser.UseVisualStyleBackColor = true;
             this.Ckb_ShowHideUser.Visible = false;
-            this.Ckb_ShowHideUser.Click += new EventHandler(this.Ckb_ShowHideUser_Click);
-            this.Ckb_Login.Appearance = Appearance.Button;
+            this.Ckb_ShowHideUser.Click += new System.EventHandler(this.Ckb_ShowHideUser_Click);
+            // 
+            // Ckb_Login
+            // 
+            this.Ckb_Login.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_Login.AutoCheck = false;
             this.Ckb_Login.Enabled = false;
             this.Ckb_Login.FlatAppearance.BorderSize = 0;
-            this.Ckb_Login.FlatStyle = FlatStyle.Flat;
-            this.Ckb_Login.Image = Resources.User;
-            this.Ckb_Login.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_Login.Location = new Point(0x89, 4);
+            this.Ckb_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_Login.Location = new System.Drawing.Point(137, 4);
             this.Ckb_Login.Name = "Ckb_Login";
-            this.Ckb_Login.Size = new Size(80, 0x19);
-            this.Ckb_Login.TabIndex = 0xd5;
+            this.Ckb_Login.Size = new System.Drawing.Size(80, 25);
+            this.Ckb_Login.TabIndex = 213;
             this.Ckb_Login.Text = "平台登录";
-            this.Ckb_Login.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_Login.TextImageRelation = TextImageRelation.ImageBeforeText;
+            this.Ckb_Login.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_Login.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Ckb_Login.UseVisualStyleBackColor = true;
-            this.Ckb_Login.Click += new EventHandler(this.Ckb_Login_Click);
-            this.Ckb_RefreshUser.Appearance = Appearance.Button;
+            this.Ckb_Login.Click += new System.EventHandler(this.Ckb_Login_Click);
+            // 
+            // Ckb_RefreshUser
+            // 
+            this.Ckb_RefreshUser.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_RefreshUser.AutoCheck = false;
             this.Ckb_RefreshUser.FlatAppearance.BorderSize = 0;
-            this.Ckb_RefreshUser.FlatStyle = FlatStyle.Flat;
-            this.Ckb_RefreshUser.Image = Resources.Refresh;
-            this.Ckb_RefreshUser.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_RefreshUser.Location = new Point(0x48, 4);
+            this.Ckb_RefreshUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_RefreshUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_RefreshUser.Location = new System.Drawing.Point(72, 4);
             this.Ckb_RefreshUser.Name = "Ckb_RefreshUser";
-            this.Ckb_RefreshUser.Size = new Size(60, 0x19);
-            this.Ckb_RefreshUser.TabIndex = 0xd3;
+            this.Ckb_RefreshUser.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_RefreshUser.TabIndex = 211;
             this.Ckb_RefreshUser.Text = "刷新";
-            this.Ckb_RefreshUser.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_RefreshUser.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_RefreshUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_RefreshUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Ckb_RefreshUser.UseVisualStyleBackColor = true;
             this.Ckb_RefreshUser.Visible = false;
-            this.Ckb_RefreshUser.Click += new EventHandler(this.Ckb_RefreshUser_Click);
+            this.Ckb_RefreshUser.Click += new System.EventHandler(this.Ckb_RefreshUser_Click);
+            // 
+            // Pnl_UserLogin2
+            // 
             this.Pnl_UserLogin2.Controls.Add(this.Ckb_PWPaste);
             this.Pnl_UserLogin2.Controls.Add(this.Ckb_PWClear);
             this.Pnl_UserLogin2.Controls.Add(this.Lbl_IDHint);
@@ -7576,106 +8321,143 @@
             this.Pnl_UserLogin2.Controls.Add(this.Lbl_LoginHint);
             this.Pnl_UserLogin2.Controls.Add(this.Lbl_PW);
             this.Pnl_UserLogin2.Controls.Add(this.Lbl_ID);
-            this.Pnl_UserLogin2.Dock = DockStyle.Fill;
-            this.Pnl_UserLogin2.Location = new Point(0, 0);
+            this.Pnl_UserLogin2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_UserLogin2.Location = new System.Drawing.Point(0, 0);
             this.Pnl_UserLogin2.Name = "Pnl_UserLogin2";
-            this.Pnl_UserLogin2.Size = new Size(0xe0, 0x10c);
+            this.Pnl_UserLogin2.Size = new System.Drawing.Size(224, 268);
             this.Pnl_UserLogin2.TabIndex = 4;
-            this.Ckb_PWPaste.Appearance = Appearance.Button;
+            // 
+            // Ckb_PWPaste
+            // 
+            this.Ckb_PWPaste.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_PWPaste.AutoCheck = false;
             this.Ckb_PWPaste.FlatAppearance.BorderSize = 0;
-            this.Ckb_PWPaste.FlatStyle = FlatStyle.Flat;
-            this.Ckb_PWPaste.Image = Resources.Paste;
-            this.Ckb_PWPaste.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_PWPaste.Location = new Point(0x6a, 0x98);
+            this.Ckb_PWPaste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_PWPaste.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_PWPaste.Location = new System.Drawing.Point(106, 152);
             this.Ckb_PWPaste.Name = "Ckb_PWPaste";
-            this.Ckb_PWPaste.Size = new Size(60, 0x19);
+            this.Ckb_PWPaste.Size = new System.Drawing.Size(60, 25);
             this.Ckb_PWPaste.TabIndex = 310;
             this.Ckb_PWPaste.Text = "粘贴";
-            this.Ckb_PWPaste.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_PWPaste.TextImageRelation = TextImageRelation.ImageBeforeText;
+            this.Ckb_PWPaste.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_PWPaste.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Tot_Hint.SetToolTip(this.Ckb_PWPaste, "粘贴挂机令牌");
             this.Ckb_PWPaste.UseVisualStyleBackColor = true;
             this.Ckb_PWPaste.Visible = false;
-            this.Ckb_PWPaste.Click += new EventHandler(this.Ckb_PWPaste_Click);
-            this.Ckb_PWClear.Appearance = Appearance.Button;
+            this.Ckb_PWPaste.Click += new System.EventHandler(this.Ckb_PWPaste_Click);
+            // 
+            // Ckb_PWClear
+            // 
+            this.Ckb_PWClear.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_PWClear.AutoCheck = false;
             this.Ckb_PWClear.FlatAppearance.BorderSize = 0;
-            this.Ckb_PWClear.FlatStyle = FlatStyle.Flat;
-            this.Ckb_PWClear.Image = Resources.ClearAll;
-            this.Ckb_PWClear.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_PWClear.Location = new Point(0xa2, 0x98);
+            this.Ckb_PWClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_PWClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_PWClear.Location = new System.Drawing.Point(162, 152);
             this.Ckb_PWClear.Name = "Ckb_PWClear";
-            this.Ckb_PWClear.Size = new Size(60, 0x19);
-            this.Ckb_PWClear.TabIndex = 0x135;
+            this.Ckb_PWClear.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_PWClear.TabIndex = 309;
             this.Ckb_PWClear.Text = "清空";
-            this.Ckb_PWClear.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_PWClear.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_PWClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_PWClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tot_Hint.SetToolTip(this.Ckb_PWClear, "清空当前挂机令牌");
             this.Ckb_PWClear.UseVisualStyleBackColor = true;
             this.Ckb_PWClear.Visible = false;
-            this.Ckb_PWClear.Click += new EventHandler(this.Ckb_PWClear_Click);
+            this.Ckb_PWClear.Click += new System.EventHandler(this.Ckb_PWClear_Click);
+            // 
+            // Lbl_IDHint
+            // 
             this.Lbl_IDHint.AutoSize = true;
-            this.Lbl_IDHint.Location = new Point(0x40, 0x6c);
+            this.Lbl_IDHint.Location = new System.Drawing.Point(64, 108);
             this.Lbl_IDHint.Name = "Lbl_IDHint";
-            this.Lbl_IDHint.Size = new Size(0x44, 0x11);
+            this.Lbl_IDHint.Size = new System.Drawing.Size(68, 17);
             this.Lbl_IDHint.TabIndex = 30;
             this.Lbl_IDHint.Text = "（已绑定）";
             this.Lbl_IDHint.Visible = false;
-            this.Cbb_Lottery.BackColor = SystemColors.Window;
-            this.Cbb_Lottery.DropDownStyle = ComboBoxStyle.DropDownList;
+            // 
+            // Cbb_Lottery
+            // 
+            this.Cbb_Lottery.BackColor = System.Drawing.SystemColors.Window;
+            this.Cbb_Lottery.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbb_Lottery.FormattingEnabled = true;
-            this.Cbb_Lottery.Location = new Point(8, 0x4e);
+            this.Cbb_Lottery.Location = new System.Drawing.Point(8, 78);
             this.Cbb_Lottery.Name = "Cbb_Lottery";
-            this.Cbb_Lottery.Size = new Size(0xd1, 0x19);
+            this.Cbb_Lottery.Size = new System.Drawing.Size(209, 25);
             this.Cbb_Lottery.TabIndex = 2;
-            this.Cbb_Lottery.SelectedIndexChanged += new EventHandler(this.Cbb_Lottery_SelectedIndexChanged);
+            this.Cbb_Lottery.SelectedIndexChanged += new System.EventHandler(this.Cbb_Lottery_SelectedIndexChanged);
+            // 
+            // Lbl_Lottery
+            // 
             this.Lbl_Lottery.AutoSize = true;
-            this.Lbl_Lottery.ForeColor = SystemColors.ControlText;
-            this.Lbl_Lottery.Location = new Point(5, 0x3a);
+            this.Lbl_Lottery.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Lbl_Lottery.Location = new System.Drawing.Point(5, 58);
             this.Lbl_Lottery.Name = "Lbl_Lottery";
-            this.Lbl_Lottery.Size = new Size(0x44, 0x11);
-            this.Lbl_Lottery.TabIndex = 0x1d;
+            this.Lbl_Lottery.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_Lottery.TabIndex = 29;
             this.Lbl_Lottery.Text = "投注彩种：";
-            this.Txt_ID.Location = new Point(8, 0x80);
+            // 
+            // Txt_ID
+            // 
+            this.Txt_ID.Location = new System.Drawing.Point(8, 128);
             this.Txt_ID.Name = "Txt_ID";
-            this.Txt_ID.Size = new Size(0xd1, 0x17);
+            this.Txt_ID.Size = new System.Drawing.Size(209, 23);
             this.Txt_ID.TabIndex = 3;
-            this.Txt_PW.Location = new Point(8, 0xb2);
+            // 
+            // Txt_PW
+            // 
+            this.Txt_PW.Location = new System.Drawing.Point(8, 178);
             this.Txt_PW.Name = "Txt_PW";
             this.Txt_PW.PasswordChar = '*';
-            this.Txt_PW.Size = new Size(0xd1, 0x17);
+            this.Txt_PW.Size = new System.Drawing.Size(209, 23);
             this.Txt_PW.TabIndex = 4;
+            // 
+            // Lbl_LoginPT
+            // 
             this.Lbl_LoginPT.AutoSize = true;
-            this.Lbl_LoginPT.Location = new Point(5, 8);
+            this.Lbl_LoginPT.Location = new System.Drawing.Point(5, 8);
             this.Lbl_LoginPT.Name = "Lbl_LoginPT";
-            this.Lbl_LoginPT.Size = new Size(0x44, 0x11);
-            this.Lbl_LoginPT.TabIndex = 0x11;
+            this.Lbl_LoginPT.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_LoginPT.TabIndex = 17;
             this.Lbl_LoginPT.Text = "选择平台：";
-            this.Cbb_LoginPT.DropDownStyle = ComboBoxStyle.DropDownList;
+            // 
+            // Cbb_LoginPT
+            // 
+            this.Cbb_LoginPT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbb_LoginPT.FormattingEnabled = true;
-            this.Cbb_LoginPT.Location = new Point(8, 0x1c);
+            this.Cbb_LoginPT.Location = new System.Drawing.Point(8, 28);
             this.Cbb_LoginPT.Name = "Cbb_LoginPT";
-            this.Cbb_LoginPT.Size = new Size(0xd1, 0x19);
+            this.Cbb_LoginPT.Size = new System.Drawing.Size(209, 25);
             this.Cbb_LoginPT.TabIndex = 1;
-            this.Cbb_LoginPT.SelectedIndexChanged += new EventHandler(this.Cbb_LoginPT_SelectedIndexChanged);
+            this.Cbb_LoginPT.SelectedIndexChanged += new System.EventHandler(this.Cbb_LoginPT_SelectedIndexChanged);
+            // 
+            // Lbl_LoginHint
+            // 
             this.Lbl_LoginHint.AutoSize = true;
-            this.Lbl_LoginHint.Location = new Point(7, 0xd0);
+            this.Lbl_LoginHint.Location = new System.Drawing.Point(7, 208);
             this.Lbl_LoginHint.Name = "Lbl_LoginHint";
-            this.Lbl_LoginHint.Size = new Size(0, 0x11);
-            this.Lbl_LoginHint.TabIndex = 0x1b;
+            this.Lbl_LoginHint.Size = new System.Drawing.Size(0, 17);
+            this.Lbl_LoginHint.TabIndex = 27;
+            // 
+            // Lbl_PW
+            // 
             this.Lbl_PW.AutoSize = true;
-            this.Lbl_PW.Location = new Point(5, 0x9e);
+            this.Lbl_PW.Location = new System.Drawing.Point(5, 158);
             this.Lbl_PW.Name = "Lbl_PW";
-            this.Lbl_PW.Size = new Size(0x44, 0x11);
-            this.Lbl_PW.TabIndex = 0x18;
+            this.Lbl_PW.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_PW.TabIndex = 24;
             this.Lbl_PW.Text = "会员密码：";
+            // 
+            // Lbl_ID
+            // 
             this.Lbl_ID.AutoSize = true;
-            this.Lbl_ID.Location = new Point(5, 0x6c);
+            this.Lbl_ID.Location = new System.Drawing.Point(5, 108);
             this.Lbl_ID.Name = "Lbl_ID";
-            this.Lbl_ID.Size = new Size(0x44, 0x11);
-            this.Lbl_ID.TabIndex = 0x17;
+            this.Lbl_ID.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_ID.TabIndex = 23;
             this.Lbl_ID.Text = "会员账号：";
+            // 
+            // Pnl_UserLogin1
+            // 
             this.Pnl_UserLogin1.Controls.Add(this.Txt_KSStopBets);
             this.Pnl_UserLogin1.Controls.Add(this.Txt_YLStopBets);
             this.Pnl_UserLogin1.Controls.Add(this.Lbl_KSStopBets);
@@ -7687,643 +8469,889 @@
             this.Pnl_UserLogin1.Controls.Add(this.Lbl_BetsExpectKey);
             this.Pnl_UserLogin1.Controls.Add(this.Lbl_IDValue);
             this.Pnl_UserLogin1.Controls.Add(this.Lbl_IDKey);
-            this.Pnl_UserLogin1.Dock = DockStyle.Fill;
-            this.Pnl_UserLogin1.Location = new Point(0, 0);
+            this.Pnl_UserLogin1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_UserLogin1.Location = new System.Drawing.Point(0, 0);
             this.Pnl_UserLogin1.Name = "Pnl_UserLogin1";
-            this.Pnl_UserLogin1.Size = new Size(0xe0, 0x10c);
-            this.Pnl_UserLogin1.TabIndex = 0x47;
-            this.Txt_KSStopBets.Location = new Point(0x88, 130);
+            this.Pnl_UserLogin1.Size = new System.Drawing.Size(224, 268);
+            this.Pnl_UserLogin1.TabIndex = 71;
+            // 
+            // Txt_KSStopBets
+            // 
+            this.Txt_KSStopBets.Location = new System.Drawing.Point(136, 130);
             this.Txt_KSStopBets.Name = "Txt_KSStopBets";
-            this.Txt_KSStopBets.Size = new Size(80, 0x17);
-            this.Txt_KSStopBets.TabIndex = 0x54;
+            this.Txt_KSStopBets.Size = new System.Drawing.Size(80, 23);
+            this.Txt_KSStopBets.TabIndex = 84;
             this.Txt_KSStopBets.Text = "50000";
-            this.Txt_KSStopBets.KeyPress += new KeyPressEventHandler(this.Txt_Input1_KeyPress);
-            this.Txt_YLStopBets.Location = new Point(0x88, 100);
+            this.Txt_KSStopBets.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Input1_KeyPress);
+            // 
+            // Txt_YLStopBets
+            // 
+            this.Txt_YLStopBets.Location = new System.Drawing.Point(136, 100);
             this.Txt_YLStopBets.Name = "Txt_YLStopBets";
-            this.Txt_YLStopBets.Size = new Size(80, 0x17);
-            this.Txt_YLStopBets.TabIndex = 0x53;
+            this.Txt_YLStopBets.Size = new System.Drawing.Size(80, 23);
+            this.Txt_YLStopBets.TabIndex = 83;
             this.Txt_YLStopBets.Text = "50000";
-            this.Txt_YLStopBets.KeyPress += new KeyPressEventHandler(this.Txt_Input1_KeyPress);
+            this.Txt_YLStopBets.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Input1_KeyPress);
+            // 
+            // Lbl_KSStopBets
+            // 
             this.Lbl_KSStopBets.AutoSize = true;
-            this.Lbl_KSStopBets.Location = new Point(0x4c, 0x84);
+            this.Lbl_KSStopBets.Location = new System.Drawing.Point(76, 132);
             this.Lbl_KSStopBets.Name = "Lbl_KSStopBets";
-            this.Lbl_KSStopBets.Size = new Size(0x38, 0x11);
-            this.Lbl_KSStopBets.TabIndex = 0x51;
+            this.Lbl_KSStopBets.Size = new System.Drawing.Size(56, 17);
+            this.Lbl_KSStopBets.TabIndex = 81;
             this.Lbl_KSStopBets.Text = "亏损大于";
+            // 
+            // Lbl_YLStopBets
+            // 
             this.Lbl_YLStopBets.AutoSize = true;
-            this.Lbl_YLStopBets.Location = new Point(0x4c, 0x66);
+            this.Lbl_YLStopBets.Location = new System.Drawing.Point(76, 102);
             this.Lbl_YLStopBets.Name = "Lbl_YLStopBets";
-            this.Lbl_YLStopBets.Size = new Size(0x38, 0x11);
-            this.Lbl_YLStopBets.TabIndex = 0x4f;
+            this.Lbl_YLStopBets.Size = new System.Drawing.Size(56, 17);
+            this.Lbl_YLStopBets.TabIndex = 79;
             this.Lbl_YLStopBets.Text = "盈利大于";
+            // 
+            // Lbl_StopBets
+            // 
             this.Lbl_StopBets.AutoSize = true;
-            this.Lbl_StopBets.Location = new Point(5, 0x75);
+            this.Lbl_StopBets.Location = new System.Drawing.Point(5, 117);
             this.Lbl_StopBets.Name = "Lbl_StopBets";
-            this.Lbl_StopBets.Size = new Size(0x44, 0x11);
-            this.Lbl_StopBets.TabIndex = 0x4e;
+            this.Lbl_StopBets.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_StopBets.TabIndex = 78;
             this.Lbl_StopBets.Text = "止损盈亏：";
+            // 
+            // Lbl_BankBalanceValue
+            // 
             this.Lbl_BankBalanceValue.AutoSize = true;
-            this.Lbl_BankBalanceValue.ForeColor = SystemColors.ControlText;
-            this.Lbl_BankBalanceValue.Location = new Point(0x4c, 0x48);
+            this.Lbl_BankBalanceValue.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Lbl_BankBalanceValue.Location = new System.Drawing.Point(76, 72);
             this.Lbl_BankBalanceValue.Name = "Lbl_BankBalanceValue";
-            this.Lbl_BankBalanceValue.Size = new Size(0x16, 0x11);
-            this.Lbl_BankBalanceValue.TabIndex = 0x4b;
+            this.Lbl_BankBalanceValue.Size = new System.Drawing.Size(22, 17);
+            this.Lbl_BankBalanceValue.TabIndex = 75;
             this.Lbl_BankBalanceValue.Text = "00";
+            // 
+            // Lbl_BetsExpectValue
+            // 
             this.Lbl_BetsExpectValue.AutoSize = true;
-            this.Lbl_BetsExpectValue.Location = new Point(0x4c, 12);
+            this.Lbl_BetsExpectValue.Location = new System.Drawing.Point(76, 12);
             this.Lbl_BetsExpectValue.Name = "Lbl_BetsExpectValue";
-            this.Lbl_BetsExpectValue.Size = new Size(0x16, 0x11);
+            this.Lbl_BetsExpectValue.Size = new System.Drawing.Size(22, 17);
             this.Lbl_BetsExpectValue.TabIndex = 1;
             this.Lbl_BetsExpectValue.Text = "00";
+            // 
+            // Lbl_BankBalanceKey
+            // 
             this.Lbl_BankBalanceKey.AutoSize = true;
-            this.Lbl_BankBalanceKey.Location = new Point(5, 0x48);
+            this.Lbl_BankBalanceKey.Location = new System.Drawing.Point(5, 72);
             this.Lbl_BankBalanceKey.Name = "Lbl_BankBalanceKey";
-            this.Lbl_BankBalanceKey.Size = new Size(0x44, 0x11);
-            this.Lbl_BankBalanceKey.TabIndex = 0x4a;
+            this.Lbl_BankBalanceKey.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_BankBalanceKey.TabIndex = 74;
             this.Lbl_BankBalanceKey.Text = "账号余额：";
+            // 
+            // Lbl_BetsExpectKey
+            // 
             this.Lbl_BetsExpectKey.AutoSize = true;
-            this.Lbl_BetsExpectKey.Location = new Point(5, 12);
+            this.Lbl_BetsExpectKey.Location = new System.Drawing.Point(5, 12);
             this.Lbl_BetsExpectKey.Name = "Lbl_BetsExpectKey";
-            this.Lbl_BetsExpectKey.Size = new Size(0x44, 0x11);
+            this.Lbl_BetsExpectKey.Size = new System.Drawing.Size(68, 17);
             this.Lbl_BetsExpectKey.TabIndex = 0;
             this.Lbl_BetsExpectKey.Text = "投注期数：";
+            // 
+            // Lbl_IDValue
+            // 
             this.Lbl_IDValue.AutoSize = true;
-            this.Lbl_IDValue.ForeColor = SystemColors.ControlText;
-            this.Lbl_IDValue.Location = new Point(0x4c, 0x2a);
+            this.Lbl_IDValue.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Lbl_IDValue.Location = new System.Drawing.Point(76, 42);
             this.Lbl_IDValue.Name = "Lbl_IDValue";
-            this.Lbl_IDValue.Size = new Size(0x16, 0x11);
-            this.Lbl_IDValue.TabIndex = 0x49;
+            this.Lbl_IDValue.Size = new System.Drawing.Size(22, 17);
+            this.Lbl_IDValue.TabIndex = 73;
             this.Lbl_IDValue.Text = "00";
+            // 
+            // Lbl_IDKey
+            // 
             this.Lbl_IDKey.AutoSize = true;
-            this.Lbl_IDKey.Location = new Point(5, 0x2a);
+            this.Lbl_IDKey.Location = new System.Drawing.Point(5, 42);
             this.Lbl_IDKey.Name = "Lbl_IDKey";
-            this.Lbl_IDKey.Size = new Size(0x44, 0x11);
-            this.Lbl_IDKey.TabIndex = 0x48;
+            this.Lbl_IDKey.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_IDKey.TabIndex = 72;
             this.Lbl_IDKey.Text = "会员账号：";
+            // 
+            // Ckb_PlaySound
+            // 
             this.Ckb_PlaySound.AutoSize = true;
-            this.Ckb_PlaySound.Location = new Point(5, 0x27);
+            this.Ckb_PlaySound.Location = new System.Drawing.Point(5, 39);
             this.Ckb_PlaySound.Name = "Ckb_PlaySound";
-            this.Ckb_PlaySound.Size = new Size(0x4b, 0x15);
-            this.Ckb_PlaySound.TabIndex = 0xb7;
+            this.Ckb_PlaySound.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_PlaySound.TabIndex = 183;
             this.Ckb_PlaySound.Text = "声音提示";
             this.Tot_Hint.SetToolTip(this.Ckb_PlaySound, "是否要开启软件的声音");
             this.Ckb_PlaySound.UseVisualStyleBackColor = true;
-            this.Ckb_PlaySound.CheckedChanged += new EventHandler(this.Ckb_PlaySound_CheckedChanged);
-            this.Tim_NextExpect.Interval = 0x3e8;
-            this.Pnl_Top.BackColor = SystemColors.Control;
-            this.Pnl_Top.BorderStyle = BorderStyle.FixedSingle;
+            this.Ckb_PlaySound.CheckedChanged += new System.EventHandler(this.Ckb_PlaySound_CheckedChanged);
+            // 
+            // Tim_NextExpect
+            // 
+            this.Tim_NextExpect.Interval = 1000;
+            // 
+            // Pnl_Top
+            // 
+            this.Pnl_Top.BackColor = System.Drawing.SystemColors.Control;
+            this.Pnl_Top.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_Top.Controls.Add(this.Pnl_GG);
             this.Pnl_Top.Controls.Add(this.Pnl_CurrentExpect1);
             this.Pnl_Top.Controls.Add(this.Pnl_Notice);
             this.Pnl_Top.Controls.Add(this.Pnl_LTUserInfo);
             this.Pnl_Top.Controls.Add(this.Pnl_CurrentExpect);
             this.Pnl_Top.Controls.Add(this.Pnl_NextExpect);
-            this.Pnl_Top.Dock = DockStyle.Top;
-            this.Pnl_Top.Location = new Point(0, 0);
+            this.Pnl_Top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_Top.Location = new System.Drawing.Point(0, 0);
             this.Pnl_Top.Name = "Pnl_Top";
-            this.Pnl_Top.Size = new Size(0x4d2, 110);
+            this.Pnl_Top.Size = new System.Drawing.Size(1234, 110);
             this.Pnl_Top.TabIndex = 3;
+            // 
+            // Pnl_GG
+            // 
             this.Pnl_GG.Controls.Add(this.Piw_Main);
-            this.Pnl_GG.Dock = DockStyle.Fill;
-            this.Pnl_GG.Location = new Point(0x4ff, 0);
+            this.Pnl_GG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_GG.Location = new System.Drawing.Point(1279, 0);
             this.Pnl_GG.Name = "Pnl_GG";
-            this.Pnl_GG.Size = new Size(0, 0x6c);
-            this.Pnl_GG.TabIndex = 0x1a;
-            this.Piw_Main.Dock = DockStyle.Fill;
-            this.Piw_Main.Font = new Font("微软雅黑", 9f);
-            this.Piw_Main.Location = new Point(0, 0);
+            this.Pnl_GG.Size = new System.Drawing.Size(0, 108);
+            this.Pnl_GG.TabIndex = 26;
+            // 
+            // Piw_Main
+            // 
+            this.Piw_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Piw_Main.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Piw_Main.Location = new System.Drawing.Point(0, 0);
             this.Piw_Main.Name = "Piw_Main";
-            this.Piw_Main.Size = new Size(0, 0x6c);
+            this.Piw_Main.Size = new System.Drawing.Size(0, 108);
             this.Piw_Main.TabIndex = 0;
-            this.Pnl_CurrentExpect1.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_CurrentExpect1
+            // 
+            this.Pnl_CurrentExpect1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_CurrentExpect1.Controls.Add(this.Pnl_CurrentCode3);
             this.Pnl_CurrentExpect1.Controls.Add(this.Pnl_CurrentCode4);
             this.Pnl_CurrentExpect1.Controls.Add(this.Lbl_NextExpect1);
             this.Pnl_CurrentExpect1.Controls.Add(this.Lbl_NextTime1);
             this.Pnl_CurrentExpect1.Controls.Add(this.Lbl_CurrentExpect1);
-            this.Pnl_CurrentExpect1.Dock = DockStyle.Left;
-            this.Pnl_CurrentExpect1.Location = new Point(0x41e, 0);
+            this.Pnl_CurrentExpect1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_CurrentExpect1.Location = new System.Drawing.Point(1054, 0);
             this.Pnl_CurrentExpect1.Name = "Pnl_CurrentExpect1";
-            this.Pnl_CurrentExpect1.Size = new Size(0xe1, 0x6c);
-            this.Pnl_CurrentExpect1.TabIndex = 0x47;
+            this.Pnl_CurrentExpect1.Size = new System.Drawing.Size(225, 108);
+            this.Pnl_CurrentExpect1.TabIndex = 71;
             this.Pnl_CurrentExpect1.Visible = false;
+            // 
+            // Pnl_CurrentCode3
+            // 
             this.Pnl_CurrentCode3.Controls.Add(this.Lbl_CurrentCode7);
             this.Pnl_CurrentCode3.Controls.Add(this.Lbl_CurrentCode6);
             this.Pnl_CurrentCode3.Controls.Add(this.Lbl_CurrentCode10);
             this.Pnl_CurrentCode3.Controls.Add(this.Lbl_CurrentCode9);
             this.Pnl_CurrentCode3.Controls.Add(this.Lbl_CurrentCode8);
-            this.Pnl_CurrentCode3.Location = new Point(0, 0x1c);
+            this.Pnl_CurrentCode3.Location = new System.Drawing.Point(0, 28);
             this.Pnl_CurrentCode3.Name = "Pnl_CurrentCode3";
-            this.Pnl_CurrentCode3.Size = new Size(0xdf, 50);
+            this.Pnl_CurrentCode3.Size = new System.Drawing.Size(223, 50);
             this.Pnl_CurrentCode3.TabIndex = 5;
-            this.Lbl_CurrentCode7.Font = new Font("微软雅黑", 15f, FontStyle.Bold);
-            this.Lbl_CurrentCode7.ForeColor = Color.White;
-            this.Lbl_CurrentCode7.Image = (Image) manager.GetObject("Lbl_CurrentCode7.Image");
-            this.Lbl_CurrentCode7.Location = new Point(0x31, 5);
+            // 
+            // Lbl_CurrentCode7
+            // 
+            this.Lbl_CurrentCode7.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold);
+            this.Lbl_CurrentCode7.ForeColor = System.Drawing.Color.White;
+            this.Lbl_CurrentCode7.Location = new System.Drawing.Point(49, 5);
             this.Lbl_CurrentCode7.Name = "Lbl_CurrentCode7";
-            this.Lbl_CurrentCode7.Size = new Size(40, 40);
+            this.Lbl_CurrentCode7.Size = new System.Drawing.Size(40, 40);
             this.Lbl_CurrentCode7.TabIndex = 2;
-            this.Lbl_CurrentCode7.TextAlign = ContentAlignment.MiddleCenter;
-            this.Lbl_CurrentCode6.Font = new Font("微软雅黑", 15f, FontStyle.Bold);
-            this.Lbl_CurrentCode6.ForeColor = Color.White;
-            this.Lbl_CurrentCode6.Image = (Image) manager.GetObject("Lbl_CurrentCode6.Image");
-            this.Lbl_CurrentCode6.Location = new Point(5, 5);
+            this.Lbl_CurrentCode7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_CurrentCode6
+            // 
+            this.Lbl_CurrentCode6.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold);
+            this.Lbl_CurrentCode6.ForeColor = System.Drawing.Color.White;
+            this.Lbl_CurrentCode6.Location = new System.Drawing.Point(5, 5);
             this.Lbl_CurrentCode6.Name = "Lbl_CurrentCode6";
-            this.Lbl_CurrentCode6.Size = new Size(40, 40);
+            this.Lbl_CurrentCode6.Size = new System.Drawing.Size(40, 40);
             this.Lbl_CurrentCode6.TabIndex = 0;
-            this.Lbl_CurrentCode6.TextAlign = ContentAlignment.MiddleCenter;
-            this.Lbl_CurrentCode10.Font = new Font("微软雅黑", 15f, FontStyle.Bold);
-            this.Lbl_CurrentCode10.ForeColor = Color.White;
-            this.Lbl_CurrentCode10.Image = (Image) manager.GetObject("Lbl_CurrentCode10.Image");
-            this.Lbl_CurrentCode10.Location = new Point(0xb5, 5);
+            this.Lbl_CurrentCode6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_CurrentCode10
+            // 
+            this.Lbl_CurrentCode10.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold);
+            this.Lbl_CurrentCode10.ForeColor = System.Drawing.Color.White;
+            this.Lbl_CurrentCode10.Location = new System.Drawing.Point(181, 5);
             this.Lbl_CurrentCode10.Name = "Lbl_CurrentCode10";
-            this.Lbl_CurrentCode10.Size = new Size(40, 40);
+            this.Lbl_CurrentCode10.Size = new System.Drawing.Size(40, 40);
             this.Lbl_CurrentCode10.TabIndex = 5;
-            this.Lbl_CurrentCode10.TextAlign = ContentAlignment.MiddleCenter;
-            this.Lbl_CurrentCode9.Font = new Font("微软雅黑", 15f, FontStyle.Bold);
-            this.Lbl_CurrentCode9.ForeColor = Color.White;
-            this.Lbl_CurrentCode9.Image = (Image) manager.GetObject("Lbl_CurrentCode9.Image");
-            this.Lbl_CurrentCode9.Location = new Point(0x89, 5);
+            this.Lbl_CurrentCode10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_CurrentCode9
+            // 
+            this.Lbl_CurrentCode9.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold);
+            this.Lbl_CurrentCode9.ForeColor = System.Drawing.Color.White;
+            this.Lbl_CurrentCode9.Location = new System.Drawing.Point(137, 5);
             this.Lbl_CurrentCode9.Name = "Lbl_CurrentCode9";
-            this.Lbl_CurrentCode9.Size = new Size(40, 40);
+            this.Lbl_CurrentCode9.Size = new System.Drawing.Size(40, 40);
             this.Lbl_CurrentCode9.TabIndex = 4;
-            this.Lbl_CurrentCode9.TextAlign = ContentAlignment.MiddleCenter;
-            this.Lbl_CurrentCode8.Font = new Font("微软雅黑", 15f, FontStyle.Bold);
-            this.Lbl_CurrentCode8.ForeColor = Color.White;
-            this.Lbl_CurrentCode8.Image = (Image) manager.GetObject("Lbl_CurrentCode8.Image");
-            this.Lbl_CurrentCode8.Location = new Point(0x5d, 5);
+            this.Lbl_CurrentCode9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_CurrentCode8
+            // 
+            this.Lbl_CurrentCode8.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold);
+            this.Lbl_CurrentCode8.ForeColor = System.Drawing.Color.White;
+            this.Lbl_CurrentCode8.Location = new System.Drawing.Point(93, 5);
             this.Lbl_CurrentCode8.Name = "Lbl_CurrentCode8";
-            this.Lbl_CurrentCode8.Size = new Size(40, 40);
+            this.Lbl_CurrentCode8.Size = new System.Drawing.Size(40, 40);
             this.Lbl_CurrentCode8.TabIndex = 3;
-            this.Lbl_CurrentCode8.TextAlign = ContentAlignment.MiddleCenter;
+            this.Lbl_CurrentCode8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Pnl_CurrentCode4
+            // 
             this.Pnl_CurrentCode4.Controls.Add(this.PK_CodeSmall);
-            this.Pnl_CurrentCode4.Location = new Point(0, 0x1c);
+            this.Pnl_CurrentCode4.Location = new System.Drawing.Point(0, 28);
             this.Pnl_CurrentCode4.Name = "Pnl_CurrentCode4";
-            this.Pnl_CurrentCode4.Size = new Size(0xdf, 50);
+            this.Pnl_CurrentCode4.Size = new System.Drawing.Size(223, 50);
             this.Pnl_CurrentCode4.TabIndex = 6;
-            this.PK_CodeSmall.Font = new Font("微软雅黑", 9f);
-            this.PK_CodeSmall.Location = new Point(1, 0);
-            this.PK_CodeSmall.Margin = new Padding(3, 4, 3, 4);
+            // 
+            // PK_CodeSmall
+            // 
+            this.PK_CodeSmall.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.PK_CodeSmall.Location = new System.Drawing.Point(1, 0);
+            this.PK_CodeSmall.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PK_CodeSmall.Name = "PK_CodeSmall";
-            this.PK_CodeSmall.Size = new Size(0xdf, 50);
+            this.PK_CodeSmall.Size = new System.Drawing.Size(223, 50);
             this.PK_CodeSmall.TabIndex = 0;
-            this.Lbl_NextExpect1.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Top;
-            this.Lbl_NextExpect1.Font = new Font("微软雅黑", 9f, FontStyle.Regular, GraphicsUnit.Point, 0x86);
-            this.Lbl_NextExpect1.Location = new Point(5, 0x54);
-            this.Lbl_NextExpect1.Margin = new Padding(2, 0, 2, 0);
+            // 
+            // Lbl_NextExpect1
+            // 
+            this.Lbl_NextExpect1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Lbl_NextExpect1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Lbl_NextExpect1.Location = new System.Drawing.Point(5, 84);
+            this.Lbl_NextExpect1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lbl_NextExpect1.Name = "Lbl_NextExpect1";
-            this.Lbl_NextExpect1.Size = new Size(0x9b, 0x11);
+            this.Lbl_NextExpect1.Size = new System.Drawing.Size(155, 17);
             this.Lbl_NextExpect1.TabIndex = 1;
-            this.Lbl_NextExpect1.TextAlign = ContentAlignment.MiddleCenter;
-            this.Lbl_NextTime1.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Top;
-            this.Lbl_NextTime1.Font = new Font("微软雅黑", 9f, FontStyle.Bold);
-            this.Lbl_NextTime1.Location = new Point(0x9d, 0x54);
-            this.Lbl_NextTime1.Margin = new Padding(2, 0, 2, 0);
+            this.Lbl_NextExpect1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_NextTime1
+            // 
+            this.Lbl_NextTime1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Lbl_NextTime1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
+            this.Lbl_NextTime1.Location = new System.Drawing.Point(157, 84);
+            this.Lbl_NextTime1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lbl_NextTime1.Name = "Lbl_NextTime1";
-            this.Lbl_NextTime1.Size = new Size(60, 0x11);
+            this.Lbl_NextTime1.Size = new System.Drawing.Size(60, 17);
             this.Lbl_NextTime1.TabIndex = 8;
             this.Lbl_NextTime1.Text = "00:00:00";
-            this.Lbl_NextTime1.TextAlign = ContentAlignment.MiddleCenter;
-            this.Lbl_CurrentExpect1.Location = new Point(0, 6);
+            this.Lbl_NextTime1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_CurrentExpect1
+            // 
+            this.Lbl_CurrentExpect1.Location = new System.Drawing.Point(0, 6);
             this.Lbl_CurrentExpect1.Name = "Lbl_CurrentExpect1";
-            this.Lbl_CurrentExpect1.Size = new Size(0xdf, 0x11);
+            this.Lbl_CurrentExpect1.Size = new System.Drawing.Size(223, 17);
             this.Lbl_CurrentExpect1.TabIndex = 1;
-            this.Lbl_CurrentExpect1.TextAlign = ContentAlignment.MiddleCenter;
+            this.Lbl_CurrentExpect1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Pnl_Notice
+            // 
             this.Pnl_Notice.Controls.Add(this.Egv_NoticeList);
-            this.Pnl_Notice.Dock = DockStyle.Left;
-            this.Pnl_Notice.Location = new Point(830, 0);
+            this.Pnl_Notice.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_Notice.Location = new System.Drawing.Point(830, 0);
             this.Pnl_Notice.Name = "Pnl_Notice";
-            this.Pnl_Notice.Size = new Size(0xe0, 0x6c);
-            this.Pnl_Notice.TabIndex = 0x44;
+            this.Pnl_Notice.Size = new System.Drawing.Size(224, 108);
+            this.Pnl_Notice.TabIndex = 68;
             this.Pnl_Notice.Visible = false;
+            // 
+            // Egv_NoticeList
+            // 
             this.Egv_NoticeList.AllowUserToAddRows = false;
             this.Egv_NoticeList.AllowUserToDeleteRows = false;
             this.Egv_NoticeList.AllowUserToResizeColumns = false;
             this.Egv_NoticeList.AllowUserToResizeRows = false;
-            this.Egv_NoticeList.BackgroundColor = SystemColors.Control;
-            this.Egv_NoticeList.BorderStyle = BorderStyle.Fixed3D;
-            this.Egv_NoticeList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            style31.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style31.BackColor = SystemColors.Control;
-            style31.Font = new Font("微软雅黑", 9f);
-            style31.ForeColor = SystemColors.WindowText;
-            style31.SelectionBackColor = SystemColors.Highlight;
-            style31.SelectionForeColor = SystemColors.HighlightText;
-            style31.WrapMode = DataGridViewTriState.True;
-            this.Egv_NoticeList.ColumnHeadersDefaultCellStyle = style31;
+            this.Egv_NoticeList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.Egv_NoticeList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Egv_NoticeList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Egv_NoticeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.Egv_NoticeList.ColumnHeadersHeight = 30;
-            this.Egv_NoticeList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            style32.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            style32.BackColor = SystemColors.Window;
-            style32.Font = new Font("微软雅黑", 9f);
-            style32.ForeColor = SystemColors.ControlText;
-            style32.SelectionBackColor = SystemColors.Highlight;
-            style32.SelectionForeColor = SystemColors.HighlightText;
-            style32.WrapMode = DataGridViewTriState.False;
-            this.Egv_NoticeList.DefaultCellStyle = style32;
-            this.Egv_NoticeList.Dock = DockStyle.Fill;
-            this.Egv_NoticeList.DragLineColor = Color.Silver;
+            this.Egv_NoticeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Egv_NoticeList.DefaultCellStyle = dataGridViewCellStyle32;
+            this.Egv_NoticeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Egv_NoticeList.DragLineColor = System.Drawing.Color.Silver;
             this.Egv_NoticeList.ExternalVirtualMode = true;
-            this.Egv_NoticeList.GridColor = Color.Silver;
-            this.Egv_NoticeList.HeadersCheckDefult = CheckState.Checked;
-            this.Egv_NoticeList.Location = new Point(0, 0);
-            this.Egv_NoticeList.MergeColumnHeaderBackColor = SystemColors.Control;
-            this.Egv_NoticeList.MergeColumnHeaderForeColor = Color.Black;
+            this.Egv_NoticeList.GridColor = System.Drawing.Color.Silver;
+            this.Egv_NoticeList.HeadersCheckDefult = System.Windows.Forms.CheckState.Checked;
+            this.Egv_NoticeList.Location = new System.Drawing.Point(0, 0);
+            this.Egv_NoticeList.MergeColumnHeaderBackColor = System.Drawing.SystemColors.Control;
+            this.Egv_NoticeList.MergeColumnHeaderForeColor = System.Drawing.Color.Black;
             this.Egv_NoticeList.MultiSelect = false;
             this.Egv_NoticeList.Name = "Egv_NoticeList";
             this.Egv_NoticeList.RowHeadersVisible = false;
-            this.Egv_NoticeList.RowNum = 0x11;
-            style33.BackColor = SystemColors.Control;
-            style33.SelectionBackColor = Color.FromArgb(0xde, 0xe8, 0xfc);
-            style33.SelectionForeColor = Color.Black;
-            this.Egv_NoticeList.RowsDefaultCellStyle = style33;
-            this.Egv_NoticeList.RowTemplate.Height = 0x17;
-            this.Egv_NoticeList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.Egv_NoticeList.Size = new Size(0xe0, 0x6c);
-            this.Egv_NoticeList.TabIndex = 0x43;
+            this.Egv_NoticeList.RowNum = 17;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(232)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.Black;
+            this.Egv_NoticeList.RowsDefaultCellStyle = dataGridViewCellStyle33;
+            this.Egv_NoticeList.RowTemplate.Height = 23;
+            this.Egv_NoticeList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Egv_NoticeList.Size = new System.Drawing.Size(224, 108);
+            this.Egv_NoticeList.TabIndex = 67;
             this.Egv_NoticeList.VirtualMode = true;
-            this.Egv_NoticeList.CellClick += new DataGridViewCellEventHandler(this.Egv_NoticeList_CellClick);
-            this.Pnl_LTUserInfo.BorderStyle = BorderStyle.FixedSingle;
+            this.Egv_NoticeList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Egv_NoticeList_CellClick);
+            // 
+            // Pnl_LTUserInfo
+            // 
+            this.Pnl_LTUserInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_LTUserInfo.Controls.Add(this.Pnl_AppName);
             this.Pnl_LTUserInfo.Controls.Add(this.Pnl_LTUserInfoTop);
-            this.Pnl_LTUserInfo.Dock = DockStyle.Left;
-            this.Pnl_LTUserInfo.Location = new Point(580, 0);
+            this.Pnl_LTUserInfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_LTUserInfo.Location = new System.Drawing.Point(580, 0);
             this.Pnl_LTUserInfo.Name = "Pnl_LTUserInfo";
-            this.Pnl_LTUserInfo.Size = new Size(250, 0x6c);
-            this.Pnl_LTUserInfo.TabIndex = 0x19;
-            this.Pnl_AppName.BorderStyle = BorderStyle.FixedSingle;
+            this.Pnl_LTUserInfo.Size = new System.Drawing.Size(250, 108);
+            this.Pnl_LTUserInfo.TabIndex = 25;
+            // 
+            // Pnl_AppName
+            // 
+            this.Pnl_AppName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_AppName.Controls.Add(this.Ckb_AppName);
             this.Pnl_AppName.Controls.Add(this.Txt_AppName);
             this.Pnl_AppName.Controls.Add(this.Lbl_AppName);
-            this.Pnl_AppName.Dock = DockStyle.Top;
-            this.Pnl_AppName.Location = new Point(0, 0x48);
+            this.Pnl_AppName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_AppName.Location = new System.Drawing.Point(0, 72);
             this.Pnl_AppName.Name = "Pnl_AppName";
-            this.Pnl_AppName.Size = new Size(0xf8, 0x23);
-            this.Pnl_AppName.TabIndex = 0xbc;
-            this.Ckb_AppName.Appearance = Appearance.Button;
+            this.Pnl_AppName.Size = new System.Drawing.Size(248, 35);
+            this.Pnl_AppName.TabIndex = 188;
+            // 
+            // Ckb_AppName
+            // 
+            this.Ckb_AppName.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_AppName.AutoCheck = false;
             this.Ckb_AppName.FlatAppearance.BorderSize = 0;
-            this.Ckb_AppName.FlatStyle = FlatStyle.Flat;
-            this.Ckb_AppName.Image = Resources.EditHot;
-            this.Ckb_AppName.ImageAlign = ContentAlignment.MiddleLeft;
-            this.Ckb_AppName.Location = new Point(0xb7, 4);
+            this.Ckb_AppName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_AppName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Ckb_AppName.Location = new System.Drawing.Point(183, 4);
             this.Ckb_AppName.Name = "Ckb_AppName";
-            this.Ckb_AppName.Size = new Size(60, 0x19);
-            this.Ckb_AppName.TabIndex = 0x135;
+            this.Ckb_AppName.Size = new System.Drawing.Size(60, 25);
+            this.Ckb_AppName.TabIndex = 309;
             this.Ckb_AppName.Text = "修改";
-            this.Ckb_AppName.TextAlign = ContentAlignment.MiddleRight;
-            this.Ckb_AppName.TextImageRelation = TextImageRelation.ImageAboveText;
+            this.Ckb_AppName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Ckb_AppName.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Ckb_AppName.UseVisualStyleBackColor = true;
-            this.Ckb_AppName.Click += new EventHandler(this.Ckb_AppName_Click);
-            this.Txt_AppName.Location = new Point(0x4e, 5);
+            this.Ckb_AppName.Click += new System.EventHandler(this.Ckb_AppName_Click);
+            // 
+            // Txt_AppName
+            // 
+            this.Txt_AppName.Location = new System.Drawing.Point(78, 5);
             this.Txt_AppName.Name = "Txt_AppName";
-            this.Txt_AppName.Size = new Size(100, 0x17);
+            this.Txt_AppName.Size = new System.Drawing.Size(100, 23);
             this.Txt_AppName.TabIndex = 10;
+            // 
+            // Lbl_AppName
+            // 
             this.Lbl_AppName.AutoSize = true;
-            this.Lbl_AppName.Location = new Point(5, 8);
+            this.Lbl_AppName.Location = new System.Drawing.Point(5, 8);
             this.Lbl_AppName.Name = "Lbl_AppName";
-            this.Lbl_AppName.Size = new Size(0x44, 0x11);
-            this.Lbl_AppName.TabIndex = 0xb6;
+            this.Lbl_AppName.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_AppName.TabIndex = 182;
             this.Lbl_AppName.Text = "软件标识：";
+            // 
+            // Pnl_LTUserInfoTop
+            // 
             this.Pnl_LTUserInfoTop.Controls.Add(this.Ckb_CloseMin);
             this.Pnl_LTUserInfoTop.Controls.Add(this.Ckb_LeftInfo);
             this.Pnl_LTUserInfoTop.Controls.Add(this.Ckb_OpenHint);
             this.Pnl_LTUserInfoTop.Controls.Add(this.Ckb_RrfreshPT);
             this.Pnl_LTUserInfoTop.Controls.Add(this.Ckb_PlaySound);
             this.Pnl_LTUserInfoTop.Controls.Add(this.Ckb_Data);
-            this.Pnl_LTUserInfoTop.Dock = DockStyle.Top;
-            this.Pnl_LTUserInfoTop.Location = new Point(0, 0);
+            this.Pnl_LTUserInfoTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_LTUserInfoTop.Location = new System.Drawing.Point(0, 0);
             this.Pnl_LTUserInfoTop.Name = "Pnl_LTUserInfoTop";
-            this.Pnl_LTUserInfoTop.Size = new Size(0xf8, 0x48);
-            this.Pnl_LTUserInfoTop.TabIndex = 0x44;
+            this.Pnl_LTUserInfoTop.Size = new System.Drawing.Size(248, 72);
+            this.Pnl_LTUserInfoTop.TabIndex = 68;
+            // 
+            // Ckb_CloseMin
+            // 
             this.Ckb_CloseMin.AutoSize = true;
-            this.Ckb_CloseMin.Location = new Point(0xa7, 0x27);
+            this.Ckb_CloseMin.Location = new System.Drawing.Point(167, 39);
             this.Ckb_CloseMin.Name = "Ckb_CloseMin";
-            this.Ckb_CloseMin.Size = new Size(0x4b, 0x15);
-            this.Ckb_CloseMin.TabIndex = 0xc0;
+            this.Ckb_CloseMin.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_CloseMin.TabIndex = 192;
             this.Ckb_CloseMin.Text = "关闭托盘";
             this.Tot_Hint.SetToolTip(this.Ckb_CloseMin, "是否要关闭时最小化到托盘区");
             this.Ckb_CloseMin.UseVisualStyleBackColor = true;
+            // 
+            // Ckb_LeftInfo
+            // 
             this.Ckb_LeftInfo.AutoSize = true;
             this.Ckb_LeftInfo.Checked = true;
-            this.Ckb_LeftInfo.CheckState = CheckState.Checked;
-            this.Ckb_LeftInfo.Location = new Point(5, 8);
+            this.Ckb_LeftInfo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Ckb_LeftInfo.Location = new System.Drawing.Point(5, 8);
             this.Ckb_LeftInfo.Name = "Ckb_LeftInfo";
-            this.Ckb_LeftInfo.Size = new Size(0x4b, 0x15);
-            this.Ckb_LeftInfo.TabIndex = 0xb9;
+            this.Ckb_LeftInfo.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_LeftInfo.TabIndex = 185;
             this.Ckb_LeftInfo.Text = "平台信息";
             this.Tot_Hint.SetToolTip(this.Ckb_LeftInfo, "是否要显示左边的平台登录信息");
             this.Ckb_LeftInfo.UseVisualStyleBackColor = true;
-            this.Ckb_LeftInfo.CheckedChanged += new EventHandler(this.Ckb_LeftInfo_CheckedChanged);
+            this.Ckb_LeftInfo.CheckedChanged += new System.EventHandler(this.Ckb_LeftInfo_CheckedChanged);
+            // 
+            // Ckb_OpenHint
+            // 
             this.Ckb_OpenHint.AutoSize = true;
-            this.Ckb_OpenHint.Location = new Point(0x56, 0x27);
+            this.Ckb_OpenHint.Location = new System.Drawing.Point(86, 39);
             this.Ckb_OpenHint.Name = "Ckb_OpenHint";
-            this.Ckb_OpenHint.Size = new Size(0x4b, 0x15);
+            this.Ckb_OpenHint.Size = new System.Drawing.Size(75, 21);
             this.Ckb_OpenHint.TabIndex = 190;
             this.Ckb_OpenHint.Text = "开奖提示";
             this.Tot_Hint.SetToolTip(this.Ckb_OpenHint, "是否要在托盘区提示最新开奖号码");
             this.Ckb_OpenHint.UseVisualStyleBackColor = true;
+            // 
+            // Ckb_RrfreshPT
+            // 
             this.Ckb_RrfreshPT.AutoSize = true;
             this.Ckb_RrfreshPT.Checked = true;
-            this.Ckb_RrfreshPT.CheckState = CheckState.Checked;
-            this.Ckb_RrfreshPT.Location = new Point(0x56, 8);
+            this.Ckb_RrfreshPT.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Ckb_RrfreshPT.Location = new System.Drawing.Point(86, 8);
             this.Ckb_RrfreshPT.Name = "Ckb_RrfreshPT";
-            this.Ckb_RrfreshPT.Size = new Size(0x4b, 0x15);
-            this.Ckb_RrfreshPT.TabIndex = 0xbb;
+            this.Ckb_RrfreshPT.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_RrfreshPT.TabIndex = 187;
             this.Ckb_RrfreshPT.Text = "平台地址";
             this.Tot_Hint.SetToolTip(this.Ckb_RrfreshPT, "是否要显示左边的平台地址");
             this.Ckb_RrfreshPT.UseVisualStyleBackColor = true;
-            this.Ckb_RrfreshPT.CheckedChanged += new EventHandler(this.Ckb_RrfreshPT_CheckedChanged);
+            this.Ckb_RrfreshPT.CheckedChanged += new System.EventHandler(this.Ckb_RrfreshPT_CheckedChanged);
+            // 
+            // Ckb_Data
+            // 
             this.Ckb_Data.AutoSize = true;
-            this.Ckb_Data.Location = new Point(0xa7, 8);
+            this.Ckb_Data.Location = new System.Drawing.Point(167, 8);
             this.Ckb_Data.Name = "Ckb_Data";
-            this.Ckb_Data.Size = new Size(0x4b, 0x15);
-            this.Ckb_Data.TabIndex = 0xbd;
+            this.Ckb_Data.Size = new System.Drawing.Size(75, 21);
+            this.Ckb_Data.TabIndex = 189;
             this.Ckb_Data.Text = "历史号码";
             this.Tot_Hint.SetToolTip(this.Ckb_Data, "是否要显示左边的历史开奖号码");
             this.Ckb_Data.UseVisualStyleBackColor = true;
-            this.Ckb_Data.CheckedChanged += new EventHandler(this.Ckb_Data_CheckedChanged);
-            this.Pnl_CurrentExpect.BorderStyle = BorderStyle.FixedSingle;
+            this.Ckb_Data.CheckedChanged += new System.EventHandler(this.Ckb_Data_CheckedChanged);
+            // 
+            // Pnl_CurrentExpect
+            // 
+            this.Pnl_CurrentExpect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_CurrentExpect.Controls.Add(this.Pnl_CurrentCode1);
             this.Pnl_CurrentExpect.Controls.Add(this.Pnl_CurrentCode2);
             this.Pnl_CurrentExpect.Controls.Add(this.Pnl_CurrentExpectTop);
             this.Pnl_CurrentExpect.Controls.Add(this.Ckb_AutomationRun);
-            this.Pnl_CurrentExpect.Dock = DockStyle.Left;
-            this.Pnl_CurrentExpect.Location = new Point(0xe1, 0);
+            this.Pnl_CurrentExpect.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_CurrentExpect.Location = new System.Drawing.Point(225, 0);
             this.Pnl_CurrentExpect.Name = "Pnl_CurrentExpect";
-            this.Pnl_CurrentExpect.Size = new Size(0x163, 0x6c);
+            this.Pnl_CurrentExpect.Size = new System.Drawing.Size(355, 108);
             this.Pnl_CurrentExpect.TabIndex = 9;
+            // 
+            // Pnl_CurrentCode1
+            // 
             this.Pnl_CurrentCode1.Controls.Add(this.Lbl_CurrentCode1);
             this.Pnl_CurrentCode1.Controls.Add(this.Lbl_CurrentCode5);
             this.Pnl_CurrentCode1.Controls.Add(this.Lbl_CurrentCode3);
             this.Pnl_CurrentCode1.Controls.Add(this.Lbl_CurrentCode2);
             this.Pnl_CurrentCode1.Controls.Add(this.Lbl_CurrentCode4);
-            this.Pnl_CurrentCode1.Location = new Point(0, 0x23);
+            this.Pnl_CurrentCode1.Location = new System.Drawing.Point(0, 35);
             this.Pnl_CurrentCode1.Name = "Pnl_CurrentCode1";
-            this.Pnl_CurrentCode1.Size = new Size(0x161, 0x47);
+            this.Pnl_CurrentCode1.Size = new System.Drawing.Size(353, 71);
             this.Pnl_CurrentCode1.TabIndex = 10;
-            this.Lbl_CurrentCode1.BackColor = Color.Transparent;
-            this.Lbl_CurrentCode1.Font = new Font("微软雅黑", 23f, FontStyle.Bold);
-            this.Lbl_CurrentCode1.ForeColor = Color.White;
-            this.Lbl_CurrentCode1.Image = (Image) manager.GetObject("Lbl_CurrentCode1.Image");
-            this.Lbl_CurrentCode1.Location = new Point(11, 7);
+            // 
+            // Lbl_CurrentCode1
+            // 
+            this.Lbl_CurrentCode1.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_CurrentCode1.Font = new System.Drawing.Font("微软雅黑", 23F, System.Drawing.FontStyle.Bold);
+            this.Lbl_CurrentCode1.ForeColor = System.Drawing.Color.White;
+            this.Lbl_CurrentCode1.Location = new System.Drawing.Point(11, 7);
             this.Lbl_CurrentCode1.Name = "Lbl_CurrentCode1";
-            this.Lbl_CurrentCode1.Size = new Size(0x37, 0x37);
+            this.Lbl_CurrentCode1.Size = new System.Drawing.Size(55, 55);
             this.Lbl_CurrentCode1.TabIndex = 0;
-            this.Lbl_CurrentCode1.TextAlign = ContentAlignment.MiddleCenter;
-            this.Lbl_CurrentCode5.BackColor = Color.Transparent;
-            this.Lbl_CurrentCode5.Font = new Font("微软雅黑", 23f, FontStyle.Bold);
-            this.Lbl_CurrentCode5.ForeColor = Color.White;
-            this.Lbl_CurrentCode5.Image = (Image) manager.GetObject("Lbl_CurrentCode5.Image");
-            this.Lbl_CurrentCode5.Location = new Point(0x11f, 7);
+            this.Lbl_CurrentCode1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_CurrentCode5
+            // 
+            this.Lbl_CurrentCode5.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_CurrentCode5.Font = new System.Drawing.Font("微软雅黑", 23F, System.Drawing.FontStyle.Bold);
+            this.Lbl_CurrentCode5.ForeColor = System.Drawing.Color.White;
+            this.Lbl_CurrentCode5.Location = new System.Drawing.Point(287, 7);
             this.Lbl_CurrentCode5.Name = "Lbl_CurrentCode5";
-            this.Lbl_CurrentCode5.Size = new Size(0x37, 0x37);
+            this.Lbl_CurrentCode5.Size = new System.Drawing.Size(55, 55);
             this.Lbl_CurrentCode5.TabIndex = 4;
-            this.Lbl_CurrentCode5.TextAlign = ContentAlignment.MiddleCenter;
-            this.Lbl_CurrentCode3.BackColor = Color.Transparent;
-            this.Lbl_CurrentCode3.Font = new Font("微软雅黑", 23f, FontStyle.Bold);
-            this.Lbl_CurrentCode3.ForeColor = Color.White;
-            this.Lbl_CurrentCode3.Image = (Image) manager.GetObject("Lbl_CurrentCode3.Image");
-            this.Lbl_CurrentCode3.Location = new Point(0x95, 7);
+            this.Lbl_CurrentCode5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_CurrentCode3
+            // 
+            this.Lbl_CurrentCode3.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_CurrentCode3.Font = new System.Drawing.Font("微软雅黑", 23F, System.Drawing.FontStyle.Bold);
+            this.Lbl_CurrentCode3.ForeColor = System.Drawing.Color.White;
+            this.Lbl_CurrentCode3.Location = new System.Drawing.Point(149, 7);
             this.Lbl_CurrentCode3.Name = "Lbl_CurrentCode3";
-            this.Lbl_CurrentCode3.Size = new Size(0x37, 0x37);
+            this.Lbl_CurrentCode3.Size = new System.Drawing.Size(55, 55);
             this.Lbl_CurrentCode3.TabIndex = 2;
-            this.Lbl_CurrentCode3.TextAlign = ContentAlignment.MiddleCenter;
-            this.Lbl_CurrentCode2.BackColor = Color.Transparent;
-            this.Lbl_CurrentCode2.Font = new Font("微软雅黑", 23f, FontStyle.Bold);
-            this.Lbl_CurrentCode2.ForeColor = Color.White;
-            this.Lbl_CurrentCode2.Image = (Image) manager.GetObject("Lbl_CurrentCode2.Image");
-            this.Lbl_CurrentCode2.Location = new Point(80, 7);
+            this.Lbl_CurrentCode3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_CurrentCode2
+            // 
+            this.Lbl_CurrentCode2.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_CurrentCode2.Font = new System.Drawing.Font("微软雅黑", 23F, System.Drawing.FontStyle.Bold);
+            this.Lbl_CurrentCode2.ForeColor = System.Drawing.Color.White;
+            this.Lbl_CurrentCode2.Location = new System.Drawing.Point(80, 7);
             this.Lbl_CurrentCode2.Name = "Lbl_CurrentCode2";
-            this.Lbl_CurrentCode2.Size = new Size(0x37, 0x37);
+            this.Lbl_CurrentCode2.Size = new System.Drawing.Size(55, 55);
             this.Lbl_CurrentCode2.TabIndex = 1;
-            this.Lbl_CurrentCode2.TextAlign = ContentAlignment.MiddleCenter;
-            this.Lbl_CurrentCode4.BackColor = Color.Transparent;
-            this.Lbl_CurrentCode4.Font = new Font("微软雅黑", 23f, FontStyle.Bold);
-            this.Lbl_CurrentCode4.ForeColor = Color.White;
-            this.Lbl_CurrentCode4.Image = (Image) manager.GetObject("Lbl_CurrentCode4.Image");
-            this.Lbl_CurrentCode4.Location = new Point(0xda, 7);
+            this.Lbl_CurrentCode2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_CurrentCode4
+            // 
+            this.Lbl_CurrentCode4.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_CurrentCode4.Font = new System.Drawing.Font("微软雅黑", 23F, System.Drawing.FontStyle.Bold);
+            this.Lbl_CurrentCode4.ForeColor = System.Drawing.Color.White;
+            this.Lbl_CurrentCode4.Location = new System.Drawing.Point(218, 7);
             this.Lbl_CurrentCode4.Name = "Lbl_CurrentCode4";
-            this.Lbl_CurrentCode4.Size = new Size(0x37, 0x37);
+            this.Lbl_CurrentCode4.Size = new System.Drawing.Size(55, 55);
             this.Lbl_CurrentCode4.TabIndex = 3;
-            this.Lbl_CurrentCode4.TextAlign = ContentAlignment.MiddleCenter;
+            this.Lbl_CurrentCode4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Pnl_CurrentCode2
+            // 
             this.Pnl_CurrentCode2.Controls.Add(this.PK_Code);
-            this.Pnl_CurrentCode2.Dock = DockStyle.Fill;
-            this.Pnl_CurrentCode2.Location = new Point(0, 0x23);
+            this.Pnl_CurrentCode2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_CurrentCode2.Location = new System.Drawing.Point(0, 35);
             this.Pnl_CurrentCode2.Name = "Pnl_CurrentCode2";
-            this.Pnl_CurrentCode2.Size = new Size(0x161, 0x47);
+            this.Pnl_CurrentCode2.Size = new System.Drawing.Size(353, 71);
             this.Pnl_CurrentCode2.TabIndex = 11;
-            this.PK_Code.Dock = DockStyle.Fill;
-            this.PK_Code.Font = new Font("微软雅黑", 14f);
-            this.PK_Code.Location = new Point(0, 0);
+            // 
+            // PK_Code
+            // 
+            this.PK_Code.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PK_Code.Font = new System.Drawing.Font("微软雅黑", 14F);
+            this.PK_Code.Location = new System.Drawing.Point(0, 0);
             this.PK_Code.Name = "PK_Code";
-            this.PK_Code.Size = new Size(0x161, 0x47);
+            this.PK_Code.Size = new System.Drawing.Size(353, 71);
             this.PK_Code.TabIndex = 0;
-            this.Pnl_CurrentExpectTop.BackgroundImageLayout = ImageLayout.Stretch;
-            this.Pnl_CurrentExpectTop.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_CurrentExpectTop
+            // 
+            this.Pnl_CurrentExpectTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Pnl_CurrentExpectTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_CurrentExpectTop.Controls.Add(this.Lbl_CurrentExpect);
-            this.Pnl_CurrentExpectTop.Dock = DockStyle.Top;
-            this.Pnl_CurrentExpectTop.Location = new Point(0, 0);
+            this.Pnl_CurrentExpectTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_CurrentExpectTop.Location = new System.Drawing.Point(0, 0);
             this.Pnl_CurrentExpectTop.Name = "Pnl_CurrentExpectTop";
-            this.Pnl_CurrentExpectTop.Size = new Size(0x161, 0x23);
+            this.Pnl_CurrentExpectTop.Size = new System.Drawing.Size(353, 35);
             this.Pnl_CurrentExpectTop.TabIndex = 9;
-            this.Lbl_CurrentExpect.BackColor = Color.Transparent;
-            this.Lbl_CurrentExpect.Dock = DockStyle.Fill;
-            this.Lbl_CurrentExpect.Location = new Point(0, 0);
+            // 
+            // Lbl_CurrentExpect
+            // 
+            this.Lbl_CurrentExpect.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_CurrentExpect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Lbl_CurrentExpect.Location = new System.Drawing.Point(0, 0);
             this.Lbl_CurrentExpect.Name = "Lbl_CurrentExpect";
-            this.Lbl_CurrentExpect.Size = new Size(0x15f, 0x21);
+            this.Lbl_CurrentExpect.Size = new System.Drawing.Size(351, 33);
             this.Lbl_CurrentExpect.TabIndex = 2;
-            this.Lbl_CurrentExpect.TextAlign = ContentAlignment.MiddleCenter;
-            this.Ckb_AutomationRun.Appearance = Appearance.Button;
+            this.Lbl_CurrentExpect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Ckb_AutomationRun
+            // 
+            this.Ckb_AutomationRun.Appearance = System.Windows.Forms.Appearance.Button;
             this.Ckb_AutomationRun.AutoSize = true;
             this.Ckb_AutomationRun.FlatAppearance.BorderSize = 0;
-            this.Ckb_AutomationRun.FlatStyle = FlatStyle.Flat;
-            this.Ckb_AutomationRun.Image = Resources.AutomationDefault;
-            this.Ckb_AutomationRun.Location = new Point(-1000, 0x10);
+            this.Ckb_AutomationRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ckb_AutomationRun.Location = new System.Drawing.Point(-1000, 16);
             this.Ckb_AutomationRun.Name = "Ckb_AutomationRun";
-            this.Ckb_AutomationRun.Size = new Size(0x16, 0x16);
+            this.Ckb_AutomationRun.Size = new System.Drawing.Size(6, 6);
             this.Ckb_AutomationRun.TabIndex = 6;
             this.Ckb_AutomationRun.UseVisualStyleBackColor = true;
-            this.Pnl_NextExpect.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_NextExpect
+            // 
+            this.Pnl_NextExpect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_NextExpect.Controls.Add(this.Pnl_NextExpectTop);
             this.Pnl_NextExpect.Controls.Add(this.Lbl_NextTime);
-            this.Pnl_NextExpect.Dock = DockStyle.Left;
-            this.Pnl_NextExpect.Location = new Point(0, 0);
+            this.Pnl_NextExpect.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_NextExpect.Location = new System.Drawing.Point(0, 0);
             this.Pnl_NextExpect.Name = "Pnl_NextExpect";
-            this.Pnl_NextExpect.Size = new Size(0xe1, 0x6c);
+            this.Pnl_NextExpect.Size = new System.Drawing.Size(225, 108);
             this.Pnl_NextExpect.TabIndex = 10;
-            this.Pnl_NextExpectTop.BackgroundImageLayout = ImageLayout.Stretch;
+            // 
+            // Pnl_NextExpectTop
+            // 
+            this.Pnl_NextExpectTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pnl_NextExpectTop.Controls.Add(this.Lbl_NextExpect);
-            this.Pnl_NextExpectTop.Dock = DockStyle.Top;
-            this.Pnl_NextExpectTop.Location = new Point(0, 0);
+            this.Pnl_NextExpectTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_NextExpectTop.Location = new System.Drawing.Point(0, 0);
             this.Pnl_NextExpectTop.Name = "Pnl_NextExpectTop";
-            this.Pnl_NextExpectTop.Size = new Size(0xdf, 0x23);
+            this.Pnl_NextExpectTop.Size = new System.Drawing.Size(223, 35);
             this.Pnl_NextExpectTop.TabIndex = 9;
-            this.Lbl_NextExpect.BackColor = Color.Transparent;
-            this.Lbl_NextExpect.BorderStyle = BorderStyle.FixedSingle;
-            this.Lbl_NextExpect.Dock = DockStyle.Fill;
-            this.Lbl_NextExpect.Location = new Point(0, 0);
+            // 
+            // Lbl_NextExpect
+            // 
+            this.Lbl_NextExpect.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_NextExpect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Lbl_NextExpect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Lbl_NextExpect.Location = new System.Drawing.Point(0, 0);
             this.Lbl_NextExpect.Name = "Lbl_NextExpect";
-            this.Lbl_NextExpect.Size = new Size(0xdf, 0x23);
+            this.Lbl_NextExpect.Size = new System.Drawing.Size(223, 35);
             this.Lbl_NextExpect.TabIndex = 2;
-            this.Lbl_NextExpect.TextAlign = ContentAlignment.MiddleCenter;
-            this.Lbl_NextTime.BackColor = Color.Transparent;
-            this.Lbl_NextTime.Font = new Font("微软雅黑", 25f, FontStyle.Bold, GraphicsUnit.Point, 0x86);
-            this.Lbl_NextTime.ForeColor = SystemColors.Window;
-            this.Lbl_NextTime.Image = Resources.Img_NextTime;
-            this.Lbl_NextTime.Location = new Point(6, 0x29);
-            this.Lbl_NextTime.Margin = new Padding(2, 0, 2, 0);
+            this.Lbl_NextExpect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Lbl_NextTime
+            // 
+            this.Lbl_NextTime.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_NextTime.Font = new System.Drawing.Font("微软雅黑", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Lbl_NextTime.ForeColor = System.Drawing.SystemColors.Window;
+            this.Lbl_NextTime.Location = new System.Drawing.Point(6, 41);
+            this.Lbl_NextTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lbl_NextTime.Name = "Lbl_NextTime";
-            this.Lbl_NextTime.Size = new Size(210, 0x39);
+            this.Lbl_NextTime.Size = new System.Drawing.Size(210, 57);
             this.Lbl_NextTime.TabIndex = 8;
-            this.Lbl_NextTime.TextAlign = ContentAlignment.MiddleCenter;
-            this.Nic_Hint.BalloonTipIcon = ToolTipIcon.Info;
+            this.Lbl_NextTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Nic_Hint
+            // 
+            this.Nic_Hint.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.Nic_Hint.ContextMenuStrip = this.Cms_Menu;
-            this.Nic_Hint.Icon = (Icon) manager.GetObject("Nic_Hint.Icon");
-            this.Nic_Hint.MouseDoubleClick += new MouseEventHandler(this.Nic_Hint_MouseDoubleClick);
-            this.Cms_Menu.Items.AddRange(new ToolStripItem[] { this.Tsm_Vis, this.toolStripSeparator1, this.Tsm_Colse });
+            this.Nic_Hint.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Nic_Hint_MouseDoubleClick);
+            // 
+            // Cms_Menu
+            // 
+            this.Cms_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Tsm_Vis,
+            this.toolStripSeparator1,
+            this.Tsm_Colse});
             this.Cms_Menu.Name = "Cms_Menu";
-            this.Cms_Menu.Size = new Size(0x89, 0x36);
+            this.Cms_Menu.Size = new System.Drawing.Size(137, 54);
+            // 
+            // Tsm_Vis
+            // 
             this.Tsm_Vis.Name = "Tsm_Vis";
-            this.Tsm_Vis.Size = new Size(0x88, 0x16);
+            this.Tsm_Vis.Size = new System.Drawing.Size(136, 22);
             this.Tsm_Vis.Text = "显示主窗体";
-            this.Tsm_Vis.Click += new EventHandler(this.Tsm_Vis_Click);
+            this.Tsm_Vis.Click += new System.EventHandler(this.Tsm_Vis_Click);
+            // 
+            // toolStripSeparator1
+            // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new Size(0x85, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
             this.toolStripSeparator1.Visible = false;
+            // 
+            // Tsm_Colse
+            // 
             this.Tsm_Colse.Name = "Tsm_Colse";
-            this.Tsm_Colse.Size = new Size(0x88, 0x16);
+            this.Tsm_Colse.Size = new System.Drawing.Size(136, 22);
             this.Tsm_Colse.Text = "退出软件";
-            this.Tsm_Colse.Click += new EventHandler(this.Tsm_Colse_Click);
-            this.Stp_Hint.Font = new Font("微软雅黑", 9f);
-            this.Stp_Hint.Items.AddRange(new ToolStripItem[] { this.Tsp_PeopleKey, this.Tsp_PeopleValue, this.Tsp_LoginKey, this.Tsp_LoginValue, this.Tsp_QQKey, this.Tsp_QQValue, this.Tsp_QQGroupKey, this.Tsp_QQGroupValue, this.Tsp_HintKey, this.Tsp_HintValue });
-            this.Stp_Hint.Location = new Point(0, 0x2d1);
+            this.Tsm_Colse.Click += new System.EventHandler(this.Tsm_Colse_Click);
+            // 
+            // Stp_Hint
+            // 
+            this.Stp_Hint.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Stp_Hint.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Tsp_PeopleKey,
+            this.Tsp_PeopleValue,
+            this.Tsp_LoginKey,
+            this.Tsp_LoginValue,
+            this.Tsp_QQKey,
+            this.Tsp_QQValue,
+            this.Tsp_QQGroupKey,
+            this.Tsp_QQGroupValue,
+            this.Tsp_HintKey,
+            this.Tsp_HintValue});
+            this.Stp_Hint.Location = new System.Drawing.Point(0, 721);
             this.Stp_Hint.Name = "Stp_Hint";
-            this.Stp_Hint.Size = new Size(0x4d2, 0x1a);
-            this.Stp_Hint.TabIndex = 0x4a;
+            this.Stp_Hint.Size = new System.Drawing.Size(1234, 26);
+            this.Stp_Hint.TabIndex = 74;
+            // 
+            // Tsp_PeopleKey
+            // 
             this.Tsp_PeopleKey.Name = "Tsp_PeopleKey";
-            this.Tsp_PeopleKey.Size = new Size(0x44, 0x15);
+            this.Tsp_PeopleKey.Size = new System.Drawing.Size(68, 21);
             this.Tsp_PeopleKey.Text = "在线人数：";
+            // 
+            // Tsp_PeopleValue
+            // 
             this.Tsp_PeopleValue.Name = "Tsp_PeopleValue";
-            this.Tsp_PeopleValue.Size = new Size(15, 0x15);
+            this.Tsp_PeopleValue.Size = new System.Drawing.Size(15, 21);
             this.Tsp_PeopleValue.Text = "0";
-            this.Tsp_LoginKey.BorderSides = ToolStripStatusLabelBorderSides.Left;
+            // 
+            // Tsp_LoginKey
+            // 
+            this.Tsp_LoginKey.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.Tsp_LoginKey.Name = "Tsp_LoginKey";
-            this.Tsp_LoginKey.Size = new Size(0x30, 0x15);
+            this.Tsp_LoginKey.Size = new System.Drawing.Size(48, 21);
             this.Tsp_LoginKey.Text = "用户：";
+            // 
+            // Tsp_LoginValue
+            // 
             this.Tsp_LoginValue.Name = "Tsp_LoginValue";
-            this.Tsp_LoginValue.Size = new Size(0x2c, 0x15);
+            this.Tsp_LoginValue.Size = new System.Drawing.Size(44, 21);
             this.Tsp_LoginValue.Text = "未登录";
-            this.Tsp_QQKey.BorderSides = ToolStripStatusLabelBorderSides.Left;
+            // 
+            // Tsp_QQKey
+            // 
+            this.Tsp_QQKey.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.Tsp_QQKey.Name = "Tsp_QQKey";
-            this.Tsp_QQKey.Size = new Size(0x44, 0x15);
+            this.Tsp_QQKey.Size = new System.Drawing.Size(68, 21);
             this.Tsp_QQKey.Text = "客服QQ：";
             this.Tsp_QQKey.Visible = false;
-            this.Tsp_QQValue.Font = new Font("微软雅黑", 9f, FontStyle.Bold);
+            // 
+            // Tsp_QQValue
+            // 
+            this.Tsp_QQValue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.Tsp_QQValue.Name = "Tsp_QQValue";
-            this.Tsp_QQValue.Size = new Size(0, 0x15);
+            this.Tsp_QQValue.Size = new System.Drawing.Size(0, 21);
             this.Tsp_QQValue.Visible = false;
-            this.Tsp_QQGroupKey.BorderSides = ToolStripStatusLabelBorderSides.Left;
+            // 
+            // Tsp_QQGroupKey
+            // 
+            this.Tsp_QQGroupKey.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.Tsp_QQGroupKey.Name = "Tsp_QQGroupKey";
-            this.Tsp_QQGroupKey.Size = new Size(0x54, 0x15);
+            this.Tsp_QQGroupKey.Size = new System.Drawing.Size(84, 21);
             this.Tsp_QQGroupKey.Text = "用户讨论群：";
             this.Tsp_QQGroupKey.Visible = false;
-            this.Tsp_QQGroupValue.Font = new Font("微软雅黑", 9f, FontStyle.Bold);
+            // 
+            // Tsp_QQGroupValue
+            // 
+            this.Tsp_QQGroupValue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.Tsp_QQGroupValue.Name = "Tsp_QQGroupValue";
-            this.Tsp_QQGroupValue.Size = new Size(0, 0x15);
+            this.Tsp_QQGroupValue.Size = new System.Drawing.Size(0, 21);
             this.Tsp_QQGroupValue.Visible = false;
-            this.Tsp_HintKey.BorderSides = ToolStripStatusLabelBorderSides.Left;
+            // 
+            // Tsp_HintKey
+            // 
+            this.Tsp_HintKey.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.Tsp_HintKey.Name = "Tsp_HintKey";
-            this.Tsp_HintKey.Size = new Size(0x30, 0x15);
+            this.Tsp_HintKey.Size = new System.Drawing.Size(48, 21);
             this.Tsp_HintKey.Text = "提示：";
             this.Tsp_HintKey.Visible = false;
-            this.Tsp_HintValue.Font = new Font("微软雅黑", 9f, FontStyle.Bold);
+            // 
+            // Tsp_HintValue
+            // 
+            this.Tsp_HintValue.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.Tsp_HintValue.Name = "Tsp_HintValue";
-            this.Tsp_HintValue.Size = new Size(0, 0x15);
+            this.Tsp_HintValue.Size = new System.Drawing.Size(0, 21);
             this.Tsp_HintValue.Visible = false;
-            this.Lbl_Web.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
+            // 
+            // Lbl_Web
+            // 
+            this.Lbl_Web.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_Web.AutoSize = true;
-            this.Lbl_Web.Location = new Point(0x3fc, 0x2d6);
+            this.Lbl_Web.Location = new System.Drawing.Point(1020, 726);
             this.Lbl_Web.Name = "Lbl_Web";
-            this.Lbl_Web.Size = new Size(0x44, 0x11);
-            this.Lbl_Web.TabIndex = 0x4d;
+            this.Lbl_Web.Size = new System.Drawing.Size(68, 17);
+            this.Lbl_Web.TabIndex = 77;
             this.Lbl_Web.TabStop = true;
             this.Lbl_Web.Text = "官方网址：";
             this.Lbl_Web.Visible = false;
-            this.Lbl_Web.LinkClicked += new LinkLabelLinkClickedEventHandler(this.Lbl_Web_LinkClicked);
+            this.Lbl_Web.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_Web_LinkClicked);
+            // 
+            // Err_Hint
+            // 
             this.Err_Hint.ContainerControl = this;
-            this.Err_Hint.Icon = (Icon) manager.GetObject("Err_Hint.Icon");
-            this.Pnl_Info.BorderStyle = BorderStyle.FixedSingle;
+            // 
+            // Pnl_Info
+            // 
+            this.Pnl_Info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_Info.Controls.Add(this.Pnl_InfoRight);
             this.Pnl_Info.Controls.Add(this.Pnl_Scroll);
-            this.Pnl_Info.Dock = DockStyle.Top;
-            this.Pnl_Info.Location = new Point(0, 110);
+            this.Pnl_Info.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_Info.Location = new System.Drawing.Point(0, 110);
             this.Pnl_Info.Name = "Pnl_Info";
-            this.Pnl_Info.Size = new Size(0x4d2, 0x23);
-            this.Pnl_Info.TabIndex = 0x48;
+            this.Pnl_Info.Size = new System.Drawing.Size(1234, 35);
+            this.Pnl_Info.TabIndex = 72;
             this.Pnl_Info.Visible = false;
-            this.Pnl_InfoRight.BorderStyle = BorderStyle.FixedSingle;
-            this.Pnl_InfoRight.Dock = DockStyle.Fill;
-            this.Pnl_InfoRight.Location = new Point(580, 0);
+            // 
+            // Pnl_InfoRight
+            // 
+            this.Pnl_InfoRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pnl_InfoRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_InfoRight.Location = new System.Drawing.Point(580, 0);
             this.Pnl_InfoRight.Name = "Pnl_InfoRight";
-            this.Pnl_InfoRight.Size = new Size(0x28c, 0x21);
-            this.Pnl_InfoRight.TabIndex = 0xc2;
-            this.Pnl_Scroll.BorderStyle = BorderStyle.FixedSingle;
+            this.Pnl_InfoRight.Size = new System.Drawing.Size(652, 33);
+            this.Pnl_InfoRight.TabIndex = 194;
+            // 
+            // Pnl_Scroll
+            // 
+            this.Pnl_Scroll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_Scroll.Controls.Add(this.Sct_Notice);
             this.Pnl_Scroll.Controls.Add(this.Pnl_NoticeLeft);
-            this.Pnl_Scroll.Dock = DockStyle.Left;
-            this.Pnl_Scroll.Location = new Point(0, 0);
+            this.Pnl_Scroll.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_Scroll.Location = new System.Drawing.Point(0, 0);
             this.Pnl_Scroll.Name = "Pnl_Scroll";
-            this.Pnl_Scroll.Size = new Size(580, 0x21);
-            this.Pnl_Scroll.TabIndex = 0x48;
+            this.Pnl_Scroll.Size = new System.Drawing.Size(580, 33);
+            this.Pnl_Scroll.TabIndex = 72;
+            // 
+            // Sct_Notice
+            // 
             this.Sct_Notice.BackgroundBrush = null;
-            this.Sct_Notice.BorderColor = Color.Black;
-            this.Sct_Notice.Cursor = Cursors.Default;
-            this.Sct_Notice.Dock = DockStyle.Fill;
+            this.Sct_Notice.BorderColor = System.Drawing.Color.Black;
+            this.Sct_Notice.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Sct_Notice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Sct_Notice.ForegroundBrush = null;
-            this.Sct_Notice.Location = new Point(0x20, 0);
+            this.Sct_Notice.Location = new System.Drawing.Point(32, 0);
             this.Sct_Notice.Name = "Sct_Notice";
-            this.Sct_Notice.ScrollDirection = ScrollDirection.RightToLeft;
+            this.Sct_Notice.ScrollDirection = IntelligentPlanning.CustomControls.ScrollDirection.RightToLeft;
             this.Sct_Notice.ScrollText = "Text";
             this.Sct_Notice.ShowBorder = false;
-            this.Sct_Notice.Size = new Size(0x222, 0x1f);
+            this.Sct_Notice.Size = new System.Drawing.Size(546, 31);
             this.Sct_Notice.StopScrollOnMouseOver = false;
-            this.Sct_Notice.TabIndex = 0x1c;
+            this.Sct_Notice.TabIndex = 28;
             this.Sct_Notice.Text = "scrollingText1";
             this.Sct_Notice.TextScrollDistance = 2;
             this.Sct_Notice.TextScrollSpeed = 40;
-            this.Sct_Notice.VerticleTextPosition = VerticleTextPosition.Center;
+            this.Sct_Notice.VerticleTextPosition = IntelligentPlanning.CustomControls.VerticleTextPosition.Center;
+            // 
+            // Pnl_NoticeLeft
+            // 
             this.Pnl_NoticeLeft.Controls.Add(this.Pic_Notice);
-            this.Pnl_NoticeLeft.Dock = DockStyle.Left;
-            this.Pnl_NoticeLeft.Location = new Point(0, 0);
+            this.Pnl_NoticeLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pnl_NoticeLeft.Location = new System.Drawing.Point(0, 0);
             this.Pnl_NoticeLeft.Name = "Pnl_NoticeLeft";
-            this.Pnl_NoticeLeft.Size = new Size(0x20, 0x1f);
-            this.Pnl_NoticeLeft.TabIndex = 0x1b;
-            this.Pic_Notice.Image = Resources.Notice;
-            this.Pic_Notice.Location = new Point(3, 5);
+            this.Pnl_NoticeLeft.Size = new System.Drawing.Size(32, 31);
+            this.Pnl_NoticeLeft.TabIndex = 27;
+            // 
+            // Pic_Notice
+            // 
+            this.Pic_Notice.Location = new System.Drawing.Point(3, 5);
             this.Pic_Notice.Name = "Pic_Notice";
-            this.Pic_Notice.Size = new Size(0x19, 0x19);
-            this.Pic_Notice.SizeMode = PictureBoxSizeMode.AutoSize;
-            this.Pic_Notice.TabIndex = 0x19;
+            this.Pic_Notice.Size = new System.Drawing.Size(25, 25);
+            this.Pic_Notice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Pic_Notice.TabIndex = 25;
             this.Pic_Notice.TabStop = false;
-            base.AutoScaleDimensions = new SizeF(96f, 96f);
-            base.AutoScaleMode = AutoScaleMode.Dpi;
-            base.ClientSize = new Size(0x4d2, 0x2eb);
-            base.Controls.Add(this.Lbl_Web);
-            base.Controls.Add(this.Pnl_Main);
-            base.Controls.Add(this.Pnl_Info);
-            base.Controls.Add(this.Pnl_Top);
-            base.Controls.Add(this.Stp_Hint);
+            // 
+            // AutoBetsWindow
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1234, 747);
+            this.Controls.Add(this.Lbl_Web);
+            this.Controls.Add(this.Pnl_Main);
+            this.Controls.Add(this.Pnl_Info);
+            this.Controls.Add(this.Pnl_Top);
+            this.Controls.Add(this.Stp_Hint);
             this.DoubleBuffered = true;
-            this.Font = new Font("微软雅黑", 9f);
-            base.Icon = (Icon) manager.GetObject("$this.Icon");
-            base.KeyPreview = true;
-            base.Margin = new Padding(3, 4, 3, 4);
-            base.Name = "AutoBetsWindow";
-            base.Opacity = 0.0;
-            base.StartPosition = FormStartPosition.CenterScreen;
-            base.FormClosing += new FormClosingEventHandler(this.AutoBetsWindow_FormClosing);
-            base.Load += new EventHandler(this.AutoBetsWindow_Load);
+            this.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "AutoBetsWindow";
+            this.Opacity = 0D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutoBetsWindow_FormClosing);
+            this.Load += new System.EventHandler(this.AutoBetsWindow_Load);
             this.Pnl_Main.ResumeLayout(false);
             this.Pnl_Bets.ResumeLayout(false);
             this.Pnl_Bets.PerformLayout();
@@ -8336,10 +9364,10 @@
             this.Pnl_BetsLeft.ResumeLayout(false);
             this.Pnl_BetsInfoMain.ResumeLayout(false);
             this.Pnl_BetsRight.ResumeLayout(false);
-            ((ISupportInitialize) this.Egv_PlanList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_PlanList)).EndInit();
             this.Pnl_PlanListBottom.ResumeLayout(false);
             this.Pnl_PlanListBottom.PerformLayout();
-            this.Nm_DeleteExpect.EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nm_DeleteExpect)).EndInit();
             this.Pnl_PlanListTop.ResumeLayout(false);
             this.Pnl_PlanListTop.PerformLayout();
             this.Pnl_BetsInfoTop.ResumeLayout(false);
@@ -8353,7 +9381,7 @@
             this.Pnl_BetsInfoTop2.PerformLayout();
             this.Pnl_BetsInfoTop2Left.ResumeLayout(false);
             this.Pnl_BetsInfoTop2Left.PerformLayout();
-            this.Nm_BetsTime.EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nm_BetsTime)).EndInit();
             this.Pnl_BetsInfoTop1.ResumeLayout(false);
             this.Pnl_BetsInfoExpect.ResumeLayout(false);
             this.Pnl_BetsInfoExpect.PerformLayout();
@@ -8368,7 +9396,7 @@
             this.Pnl_SchemeTop2.ResumeLayout(false);
             this.Pnl_SchemeTop2.PerformLayout();
             this.Pnl_SchemeLeft.ResumeLayout(false);
-            ((ISupportInitialize) this.Egv_SchemeList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_SchemeList)).EndInit();
             this.Pnl_SchemeBottom.ResumeLayout(false);
             this.Pnl_SchemeShare.ResumeLayout(false);
             this.Pnl_SchemeTop1.ResumeLayout(false);
@@ -8376,23 +9404,23 @@
             this.Tap_LSData.ResumeLayout(false);
             this.Pnl_LSData.ResumeLayout(false);
             this.Pnl_LSDataMain.ResumeLayout(false);
-            ((ISupportInitialize) this.Egv_LSDataList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_LSDataList)).EndInit();
             this.Pnl_LSDataTop.ResumeLayout(false);
             this.Pnl_LSDataRight.ResumeLayout(false);
             this.Pnl_LSDataRight.PerformLayout();
             this.Pnl_LSDataLeft.ResumeLayout(false);
             this.Pnl_LSDataTop1.ResumeLayout(false);
             this.Pnl_LSDataTop1.PerformLayout();
-            this.Nm_LSBJExpect.EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nm_LSBJExpect)).EndInit();
             this.Tap_TJData.ResumeLayout(false);
             this.Pnl_TJData.ResumeLayout(false);
             this.Pnl_TJDataMain.ResumeLayout(false);
-            ((ISupportInitialize) this.Egv_TJDataList2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_TJDataList2)).EndInit();
             this.Pnl_TJDataTop2.ResumeLayout(false);
             this.Pnl_TJDataFind.ResumeLayout(false);
             this.Pnl_TJDataFind.PerformLayout();
-            this.Nm_TJFindXS.EndInit();
-            ((ISupportInitialize) this.Egv_TJDataList1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nm_TJFindXS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_TJDataList1)).EndInit();
             this.Pnl_TJDataTop.ResumeLayout(false);
             this.Pnl_TJRight2.ResumeLayout(false);
             this.Pnl_TJRight2.PerformLayout();
@@ -8405,12 +9433,12 @@
             this.Tap_BTFN.ResumeLayout(false);
             this.Pnl_BTFN.ResumeLayout(false);
             this.Pnl_BTFNMain.ResumeLayout(false);
-            ((ISupportInitialize) this.Egv_BTFNTimesList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_BTFNTimesList)).EndInit();
             this.Pnl_TimesBottom.ResumeLayout(false);
             this.Pnl_TimesBottom.PerformLayout();
-            this.Nm_BTFNEdit.EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nm_BTFNEdit)).EndInit();
             this.Pnl_BTFNList.ResumeLayout(false);
-            ((ISupportInitialize) this.Egv_BTFNMain).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_BTFNMain)).EndInit();
             this.Pnl_FNBottom.ResumeLayout(false);
             this.Tap_TBCount.ResumeLayout(false);
             this.Tap_HJFG.ResumeLayout(false);
@@ -8418,15 +9446,15 @@
             this.Tap_ShrinkSX.ResumeLayout(false);
             this.Tap_Setting.ResumeLayout(false);
             this.Pnl_Setting.ResumeLayout(false);
-            ((ISupportInitialize) this.Egv_ShowTapList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_ShowTapList)).EndInit();
             this.Tap_CDCount.ResumeLayout(false);
             this.Pnl_CDCount.ResumeLayout(false);
             this.Pnl_OpenData.ResumeLayout(false);
             this.Pnl_DataMain.ResumeLayout(false);
             this.Pnl_DataBottom.ResumeLayout(false);
-            ((ISupportInitialize) this.Egv_DataList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_DataList)).EndInit();
             this.Pnl_RrfreshPT.ResumeLayout(false);
-            ((ISupportInitialize) this.Egv_PTLineList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_PTLineList)).EndInit();
             this.Pnl_PTRefresh.ResumeLayout(false);
             this.Pnl_DataTop2.ResumeLayout(false);
             this.Pnl_DataBottom1.ResumeLayout(false);
@@ -8440,7 +9468,7 @@
             this.Pnl_CurrentCode3.ResumeLayout(false);
             this.Pnl_CurrentCode4.ResumeLayout(false);
             this.Pnl_Notice.ResumeLayout(false);
-            ((ISupportInitialize) this.Egv_NoticeList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Egv_NoticeList)).EndInit();
             this.Pnl_LTUserInfo.ResumeLayout(false);
             this.Pnl_AppName.ResumeLayout(false);
             this.Pnl_AppName.PerformLayout();
@@ -8456,14 +9484,15 @@
             this.Cms_Menu.ResumeLayout(false);
             this.Stp_Hint.ResumeLayout(false);
             this.Stp_Hint.PerformLayout();
-            ((ISupportInitialize) this.Err_Hint).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Err_Hint)).EndInit();
             this.Pnl_Info.ResumeLayout(false);
             this.Pnl_Scroll.ResumeLayout(false);
             this.Pnl_NoticeLeft.ResumeLayout(false);
             this.Pnl_NoticeLeft.PerformLayout();
-            ((ISupportInitialize) this.Pic_Notice).EndInit();
-            base.ResumeLayout(false);
-            base.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_Notice)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         private void Lbl_Web_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -8680,7 +9709,8 @@
                     "外接计划",
                     "高级开某投某",
                     "龙虎开某投某",
-                    "随机出号"
+                    "随机出号",
+                    "不重复出号"
                 };
                 this.CHTypeList = list;
                 List<string> collection = new List<string> { 
@@ -15164,6 +16194,8 @@
                 this.FN_GJDMLH.Visible = pInfo.FNCHType == ConfigurationStatus.SchemeCHType.GJDMLH;
                 this.FN_GJKMTM.Visible = pInfo.FNCHType == ConfigurationStatus.SchemeCHType.GJKMTM;
                 this.FN_LRWCH.Visible = pInfo.FNCHType == ConfigurationStatus.SchemeCHType.LRWCH;
+                this.FN_BCFCH.Visible = pInfo.FNCHType == ConfigurationStatus.SchemeCHType.BCFCH;
+
                 this.FN_WJJH.Visible = pInfo.FNCHType == ConfigurationStatus.SchemeCHType.WJJH;
                 this.FN_SJCH.Visible = pInfo.FNCHType == ConfigurationStatus.SchemeCHType.SJCH;
                 this.FN_YLCH.Visible = pInfo.FNCHType == ConfigurationStatus.SchemeCHType.YLCH;
@@ -16078,6 +17110,10 @@
             {
                 this.FN_LRWCH.SetControlValue(pInfo.FNBaseInfo);
             }
+            else if (pInfo.FNCHType == ConfigurationStatus.SchemeCHType.BCFCH)
+            {
+                this.FN_BCFCH.SetControlValue(pInfo.FNBaseInfo);
+            }
             else if (pInfo.FNCHType == ConfigurationStatus.SchemeCHType.WJJH)
             {
                 this.FN_WJJH.SetControlValue(pInfo.FNBaseInfo);
@@ -16121,6 +17157,10 @@
             else if (pInfo.FNCHType == ConfigurationStatus.SchemeCHType.LRWCH)
             {
                 this.FN_LRWCH.SetBTPlanValue(pValue);
+            }
+            else if (pInfo.FNCHType == ConfigurationStatus.SchemeCHType.BCFCH)
+            {
+                this.FN_BCFCH.SetBTPlanValue(pValue);
             }
             else if (pInfo.FNCHType == ConfigurationStatus.SchemeCHType.WJJH)
             {

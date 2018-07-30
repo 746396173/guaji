@@ -89,7 +89,7 @@
             {
                 try
                 {
-                    CheckState checkState = ((CheckBox) sender).CheckState;
+                    CheckState checkState = ((CheckBox)sender).CheckState;
                     this._root._CheckState = checkState;
                     this.RefreshCheckStatus(this._root, true, false);
                     this.OnHeaderCheckedChanged(sender, e);
@@ -268,11 +268,11 @@
         }
 
         [Description("返回指定索引对应的结点")]
-        public TreeGridNode GetNodeForRow(int index) => 
+        public TreeGridNode GetNodeForRow(int index) =>
             this.GetNodeForRow(base.Rows[index]);
 
         [Description("返回指定行对应的结点")]
-        public TreeGridNode GetNodeForRow(DataGridViewRow row) => 
+        public TreeGridNode GetNodeForRow(DataGridViewRow row) =>
             (row as TreeGridNode);
 
         public List<string> GetSelectList(int pIndex)
@@ -326,7 +326,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle style = new DataGridViewCellStyle();
-            ((ISupportInitialize) this).BeginInit();
+            ((ISupportInitialize)this).BeginInit();
             base.SuspendLayout();
             base.AllowUserToAddRows = false;
             base.AllowUserToDeleteRows = false;
@@ -344,7 +344,7 @@
             base.RowsDefaultCellStyle = style;
             this.RowTemplate.Height = 0x17;
             base.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ((ISupportInitialize) this).EndInit();
+            ((ISupportInitialize)this).EndInit();
             base.ResumeLayout(false);
         }
 
@@ -499,7 +499,7 @@
         {
             if (typeof(TreeGridColumn).IsAssignableFrom(e.Column.GetType()) && (this._expandableColumn == null))
             {
-                this._expandableColumn = (TreeGridColumn) e.Column;
+                this._expandableColumn = (TreeGridColumn)e.Column;
             }
             e.Column.SortMode = DataGridViewColumnSortMode.NotSortable;
             base.OnColumnAdded(e);
@@ -927,7 +927,7 @@
         [Category("外观"), Description("指示是否在结点旁边显示复选框")]
         public bool CheckBoxes
         {
-            get => 
+            get =>
                 this._CheckBox;
             set
             {
@@ -938,7 +938,7 @@
         [Description("标题复选框的默认值"), Category("外观"), DefaultValue(true)]
         public bool CheckDefult
         {
-            get => 
+            get =>
                 this._CheckDefult;
             set
             {
@@ -955,7 +955,7 @@
         [EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
         public object DataMember
         {
-            get => 
+            get =>
                 null;
             set
             {
@@ -966,7 +966,7 @@
         [EditorBrowsable(EditorBrowsableState.Never), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public object DataSource
         {
-            get => 
+            get =>
                 null;
             set
             {
@@ -976,7 +976,7 @@
 
         public bool HeaderCheckBoxes
         {
-            get => 
+            get =>
                 this._HeaderCheckBoxes;
             set
             {
@@ -986,7 +986,7 @@
 
         public System.Windows.Forms.ImageList ImageList
         {
-            get => 
+            get =>
                 this._imageList;
             set
             {
@@ -1000,7 +1000,7 @@
 
         public int RowCount
         {
-            get => 
+            get =>
                 this.Nodes.Count;
             set
             {
@@ -1018,7 +1018,7 @@
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DataGridViewRow RowTemplate
         {
-            get => 
+            get =>
                 base.RowTemplate;
             set
             {
@@ -1032,7 +1032,7 @@
         [Description("显示根节点和子节点之间的虚线"), DefaultValue(true)]
         public bool ShowLines
         {
-            get => 
+            get =>
                 this._showLines;
             set
             {
@@ -1047,7 +1047,7 @@
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), Browsable(false)]
         public bool VirtualMode
         {
-            get => 
+            get =>
                 false;
             set
             {
@@ -1058,7 +1058,7 @@
         [DefaultValue(false), Description("Causes nodes to always show as expandable. Use the NodeExpanding event to add nodes.")]
         public bool VirtualNodes
         {
-            get => 
+            get =>
                 this._virtualNodes;
             set
             {
@@ -1072,11 +1072,11 @@
             public const int WM_SETREDRAW = 11;
             public const int WM_SYSKEYDOWN = 260;
 
-            [DllImport("USER32.DLL", CharSet=CharSet.Auto)]
+            [DllImport("USER32.DLL", CharSet = CharSet.Auto)]
             public static extern bool PostMessage(HandleRef hwnd, int msg, IntPtr wparam, IntPtr lparam);
-            [DllImport("USER32.DLL", CharSet=CharSet.Auto)]
+            [DllImport("USER32.DLL", CharSet = CharSet.Auto)]
             public static extern IntPtr SendMessage(HandleRef hWnd, int msg, int wParam, int lParam);
-            [DllImport("USER32.DLL", CharSet=CharSet.Auto)]
+            [DllImport("USER32.DLL", CharSet = CharSet.Auto)]
             public static extern IntPtr SendMessage(HandleRef hWnd, int msg, IntPtr wParam, IntPtr lParam);
         }
     }
